@@ -1,13 +1,15 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Applicable diagnosis
- /// Patient diagnosis for which care is sought.
-class CoverageEligibilityRequestItemDiagnosis extends BackboneElement implements FhirResource {
-   /// Nature of illness or problem
-   /// The nature of illness or problem in a coded form or as a reference to an external defined Condition.
+/// Applicable diagnosis
+/// Patient diagnosis for which care is sought.
+class CoverageEligibilityRequestItemDiagnosis extends BackboneElement
+    implements FhirResource {
+  /// Nature of illness or problem
+  /// The nature of illness or problem in a coded form or as a reference to an external defined Condition.
   final CodeableConcept? diagnosisCodeableConcept;
-   /// Nature of illness or problem
-   /// The nature of illness or problem in a coded form or as a reference to an external defined Condition.
+
+  /// Nature of illness or problem
+  /// The nature of illness or problem in a coded form or as a reference to an external defined Condition.
   final Reference? diagnosisReference;
   CoverageEligibilityRequestItemDiagnosis({
     this.diagnosisCodeableConcept,
@@ -16,28 +18,38 @@ class CoverageEligibilityRequestItemDiagnosis extends BackboneElement implements
     super.id,
     super.modifierExtension,
   });
-  
+
   @override
-  factory CoverageEligibilityRequestItemDiagnosis.fromJson(Map<String, dynamic> json) {
+  factory CoverageEligibilityRequestItemDiagnosis.fromJson(
+      Map<String, dynamic> json) {
     return CoverageEligibilityRequestItemDiagnosis(
-      diagnosisCodeableConcept: json['diagnosisCodeableConcept'] != null ? CodeableConcept.fromJson(json['diagnosisCodeableConcept'] as Map<String, dynamic>) : null,
-      diagnosisReference: json['diagnosisReference'] != null ? Reference.fromJson(json['diagnosisReference'] as Map<String, dynamic>) : null,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      diagnosisCodeableConcept: json['diagnosisCodeableConcept'] != null
+          ? CodeableConcept.fromJson(
+              json['diagnosisCodeableConcept'] as Map<String, dynamic>)
+          : null,
+      diagnosisReference: json['diagnosisReference'] != null
+          ? Reference.fromJson(
+              json['diagnosisReference'] as Map<String, dynamic>)
+          : null,
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'diagnosisCodeableConcept': diagnosisCodeableConcept?.toJson(),
-      'diagnosisReference': diagnosisReference?.toJson(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'diagnosisCodeableConcept': diagnosisCodeableConcept?.toJson(),
+        'diagnosisReference': diagnosisReference?.toJson(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+      };
+
   @override
   CoverageEligibilityRequestItemDiagnosis copyWith({
     CodeableConcept? diagnosisCodeableConcept,
@@ -47,7 +59,8 @@ class CoverageEligibilityRequestItemDiagnosis extends BackboneElement implements
     List<Extension>? modifierExtension,
   }) {
     return CoverageEligibilityRequestItemDiagnosis(
-      diagnosisCodeableConcept: diagnosisCodeableConcept ?? this.diagnosisCodeableConcept,
+      diagnosisCodeableConcept:
+          diagnosisCodeableConcept ?? this.diagnosisCodeableConcept,
       diagnosisReference: diagnosisReference ?? this.diagnosisReference,
       fhirExtension: fhirExtension ?? this.fhirExtension,
       id: id ?? this.id,

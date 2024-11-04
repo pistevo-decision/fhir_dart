@@ -1,24 +1,29 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// A contact party (e.g. guardian, partner, friend) for the patient.
- /// Contact covers all kinds of contact parties: family members, business contacts, guardians, caregivers. Not applicable to register pedigree and family ties beyond use of having contact.
+/// A contact party (e.g. guardian, partner, friend) for the patient.
+/// Contact covers all kinds of contact parties: family members, business contacts, guardians, caregivers. Not applicable to register pedigree and family ties beyond use of having contact.
 class PatientContact extends BackboneElement implements FhirResource {
-   /// Address for the contact person.
+  /// Address for the contact person.
   final Address? address;
-   /// Administrative Gender - the gender that the contact person is considered to have for administration and record keeping purposes.
+
+  /// Administrative Gender - the gender that the contact person is considered to have for administration and record keeping purposes.
   final String? gender; // Possible values: 'male', 'female', 'other', 'unknown'
-   /// A name associated with the contact person.
+  /// A name associated with the contact person.
   final HumanName? name;
-   /// Organization that is associated with the contact
-   /// Organization on behalf of which the contact is acting or for which the contact is working.
+
+  /// Organization that is associated with the contact
+  /// Organization on behalf of which the contact is acting or for which the contact is working.
   final Reference? organization;
-   /// The period during which this contact person or organization is valid to be contacted relating to this patient.
+
+  /// The period during which this contact person or organization is valid to be contacted relating to this patient.
   final Period? period;
-   /// The kind of relationship
-   /// The nature of the relationship between the patient and the contact person.
+
+  /// The kind of relationship
+  /// The nature of the relationship between the patient and the contact person.
   final List<CodeableConcept>? relationship;
-   /// A contact detail for the person, e.g. a telephone number or an email address.
-   /// Contact may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification.
+
+  /// A contact detail for the person, e.g. a telephone number or an email address.
+  /// Contact may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification.
   final List<ContactPoint>? telecom;
   PatientContact({
     this.address,
@@ -32,38 +37,53 @@ class PatientContact extends BackboneElement implements FhirResource {
     this.relationship,
     this.telecom,
   });
-  
+
   @override
   factory PatientContact.fromJson(Map<String, dynamic> json) {
     return PatientContact(
-      address: json['address'] != null ? Address.fromJson(json['address'] as Map<String, dynamic>) : null,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      address: json['address'] != null
+          ? Address.fromJson(json['address'] as Map<String, dynamic>)
+          : null,
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       gender: json['gender'] as String?,
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      name: json['name'] != null ? HumanName.fromJson(json['name'] as Map<String, dynamic>) : null,
-      organization: json['organization'] != null ? Reference.fromJson(json['organization'] as Map<String, dynamic>) : null,
-      period: json['period'] != null ? Period.fromJson(json['period'] as Map<String, dynamic>) : null,
-      relationship: (json['relationship'] as List<dynamic>?)?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>)).toList(),
-      telecom: (json['telecom'] as List<dynamic>?)?.map((e) => ContactPoint.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      name: json['name'] != null
+          ? HumanName.fromJson(json['name'] as Map<String, dynamic>)
+          : null,
+      organization: json['organization'] != null
+          ? Reference.fromJson(json['organization'] as Map<String, dynamic>)
+          : null,
+      period: json['period'] != null
+          ? Period.fromJson(json['period'] as Map<String, dynamic>)
+          : null,
+      relationship: (json['relationship'] as List<dynamic>?)
+          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      telecom: (json['telecom'] as List<dynamic>?)
+          ?.map((e) => ContactPoint.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'address': address?.toJson(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'gender': gender,
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'name': name?.toJson(),
-      'organization': organization?.toJson(),
-      'period': period?.toJson(),
-      'relationship': relationship?.map((e) => e.toJson()).toList(),
-      'telecom': telecom?.map((e) => e.toJson()).toList(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'address': address?.toJson(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'gender': gender,
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'name': name?.toJson(),
+        'organization': organization?.toJson(),
+        'period': period?.toJson(),
+        'relationship': relationship?.map((e) => e.toJson()).toList(),
+        'telecom': telecom?.map((e) => e.toJson()).toList(),
+      };
+
   @override
   PatientContact copyWith({
     Address? address,

@@ -1,12 +1,15 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Country where the name applies.
-class MedicinalProductNameCountryLanguage extends BackboneElement implements FhirResource {
-   /// Country code for where this name applies.
+/// Country where the name applies.
+class MedicinalProductNameCountryLanguage extends BackboneElement
+    implements FhirResource {
+  /// Country code for where this name applies.
   final CodeableConcept country;
-   /// Jurisdiction code for where this name applies.
+
+  /// Jurisdiction code for where this name applies.
   final CodeableConcept? jurisdiction;
-   /// Language code for this name.
+
+  /// Language code for this name.
   final CodeableConcept language;
   MedicinalProductNameCountryLanguage({
     required this.country,
@@ -16,30 +19,39 @@ class MedicinalProductNameCountryLanguage extends BackboneElement implements Fhi
     required this.language,
     super.modifierExtension,
   });
-  
+
   @override
-  factory MedicinalProductNameCountryLanguage.fromJson(Map<String, dynamic> json) {
+  factory MedicinalProductNameCountryLanguage.fromJson(
+      Map<String, dynamic> json) {
     return MedicinalProductNameCountryLanguage(
-      country: CodeableConcept.fromJson(json['country'] as Map<String, dynamic>),
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      country:
+          CodeableConcept.fromJson(json['country'] as Map<String, dynamic>),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      jurisdiction: json['jurisdiction'] != null ? CodeableConcept.fromJson(json['jurisdiction'] as Map<String, dynamic>) : null,
-      language: CodeableConcept.fromJson(json['language'] as Map<String, dynamic>),
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      jurisdiction: json['jurisdiction'] != null
+          ? CodeableConcept.fromJson(
+              json['jurisdiction'] as Map<String, dynamic>)
+          : null,
+      language:
+          CodeableConcept.fromJson(json['language'] as Map<String, dynamic>),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'country': country.toJson(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'jurisdiction': jurisdiction?.toJson(),
-      'language': language.toJson(),
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'country': country.toJson(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'jurisdiction': jurisdiction?.toJson(),
+        'language': language.toJson(),
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+      };
+
   @override
   MedicinalProductNameCountryLanguage copyWith({
     CodeableConcept? country,

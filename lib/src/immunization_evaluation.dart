@@ -1,57 +1,71 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Describes a comparison of an immunization event against published recommendations to determine if the administration is "valid" in relation to those  recommendations.
+/// Describes a comparison of an immunization event against published recommendations to determine if the administration is "valid" in relation to those  recommendations.
 class ImmunizationEvaluation extends DomainResource implements FhirResource {
-  /// Resource Type Name (for serialization) 
+  /// Resource Type Name (for serialization)
   static const resourceType = 'ImmunizationEvaluation';
-   /// Who is responsible for publishing the recommendations
-   /// Indicates the authority who published the protocol (e.g. ACIP).
+
+  /// Who is responsible for publishing the recommendations
+  /// Indicates the authority who published the protocol (e.g. ACIP).
   final Reference? authority;
-   /// Date evaluation was performed
-   /// The date the evaluation of the vaccine administration event was performed.
+
+  /// Date evaluation was performed
+  /// The date the evaluation of the vaccine administration event was performed.
   final String? date;
-   /// Evaluation notes
-   /// Additional information about the evaluation.
+
+  /// Evaluation notes
+  /// Additional information about the evaluation.
   final String? description;
-   /// Dose number within series
-   /// Nominal position in a series.
-   /// The use of an integer is preferred if known. A string should only be used in cases where an integer is not available (such as when documenting a recurring booster dose).
+
+  /// Dose number within series
+  /// Nominal position in a series.
+  /// The use of an integer is preferred if known. A string should only be used in cases where an integer is not available (such as when documenting a recurring booster dose).
   final int? doseNumberPositiveInt;
-   /// Dose number within series
-   /// Nominal position in a series.
-   /// The use of an integer is preferred if known. A string should only be used in cases where an integer is not available (such as when documenting a recurring booster dose).
+
+  /// Dose number within series
+  /// Nominal position in a series.
+  /// The use of an integer is preferred if known. A string should only be used in cases where an integer is not available (such as when documenting a recurring booster dose).
   final String? doseNumberString;
-   /// Status of the dose relative to published recommendations
-   /// Indicates if the dose is valid or not valid with respect to the published recommendations.
+
+  /// Status of the dose relative to published recommendations
+  /// Indicates if the dose is valid or not valid with respect to the published recommendations.
   final CodeableConcept doseStatus;
-   /// Reason for the dose status
-   /// Provides an explanation as to why the vaccine administration event is valid or not relative to the published recommendations.
+
+  /// Reason for the dose status
+  /// Provides an explanation as to why the vaccine administration event is valid or not relative to the published recommendations.
   final List<CodeableConcept>? doseStatusReason;
-   /// Business identifier
-   /// A unique identifier assigned to this immunization evaluation record.
+
+  /// Business identifier
+  /// A unique identifier assigned to this immunization evaluation record.
   final List<Identifier>? identifier;
-   /// Immunization being evaluated
-   /// The vaccine administration event being evaluated.
+
+  /// Immunization being evaluated
+  /// The vaccine administration event being evaluated.
   final Reference immunizationEvent;
-   /// Who this evaluation is for
-   /// The individual for whom the evaluation is being done.
+
+  /// Who this evaluation is for
+  /// The individual for whom the evaluation is being done.
   final Reference patient;
-   /// Name of vaccine series
-   /// One possible path to achieve presumed immunity against a disease - within the context of an authority.
+
+  /// Name of vaccine series
+  /// One possible path to achieve presumed immunity against a disease - within the context of an authority.
   final String? series;
-   /// Recommended number of doses for immunity
-   /// The recommended number of doses to achieve immunity.
-   /// The use of an integer is preferred if known. A string should only be used in cases where an integer is not available (such as when documenting a recurring booster dose).
+
+  /// Recommended number of doses for immunity
+  /// The recommended number of doses to achieve immunity.
+  /// The use of an integer is preferred if known. A string should only be used in cases where an integer is not available (such as when documenting a recurring booster dose).
   final int? seriesDosesPositiveInt;
-   /// Recommended number of doses for immunity
-   /// The recommended number of doses to achieve immunity.
-   /// The use of an integer is preferred if known. A string should only be used in cases where an integer is not available (such as when documenting a recurring booster dose).
+
+  /// Recommended number of doses for immunity
+  /// The recommended number of doses to achieve immunity.
+  /// The use of an integer is preferred if known. A string should only be used in cases where an integer is not available (such as when documenting a recurring booster dose).
   final String? seriesDosesString;
-   /// completed | entered-in-error
-   /// Indicates the current status of the evaluation of the vaccination administration event.
+
+  /// completed | entered-in-error
+  /// Indicates the current status of the evaluation of the vaccination administration event.
   final String status; // Possible values: 'completed', 'entered-in-error'
-   /// Evaluation target disease
-   /// The vaccine preventable disease the dose is being evaluated against.
+  /// Evaluation target disease
+  /// The vaccine preventable disease the dose is being evaluated against.
   final CodeableConcept targetDisease;
   ImmunizationEvaluation({
     this.authority,
@@ -78,64 +92,82 @@ class ImmunizationEvaluation extends DomainResource implements FhirResource {
     required this.targetDisease,
     super.text,
   });
-  
+
   @override
   factory ImmunizationEvaluation.fromJson(Map<String, dynamic> json) {
     return ImmunizationEvaluation(
-      authority: json['authority'] != null ? Reference.fromJson(json['authority'] as Map<String, dynamic>) : null,
-      contained: (json['contained'] as List<dynamic>?)?.map((e) => Resource.fromJson(e as Map<String, dynamic>)).toList(),
+      authority: json['authority'] != null
+          ? Reference.fromJson(json['authority'] as Map<String, dynamic>)
+          : null,
+      contained: (json['contained'] as List<dynamic>?)
+          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          .toList(),
       date: json['date'] as String?,
       description: json['description'] as String?,
       doseNumberPositiveInt: json['doseNumberPositiveInt'] as int?,
       doseNumberString: json['doseNumberString'] as String?,
-      doseStatus: CodeableConcept.fromJson(json['doseStatus'] as Map<String, dynamic>),
-      doseStatusReason: (json['doseStatusReason'] as List<dynamic>?)?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>)).toList(),
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      doseStatus:
+          CodeableConcept.fromJson(json['doseStatus'] as Map<String, dynamic>),
+      doseStatusReason: (json['doseStatusReason'] as List<dynamic>?)
+          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      identifier: (json['identifier'] as List<dynamic>?)?.map((e) => Identifier.fromJson(e as Map<String, dynamic>)).toList(),
-      immunizationEvent: Reference.fromJson(json['immunizationEvent'] as Map<String, dynamic>),
+      identifier: (json['identifier'] as List<dynamic>?)
+          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      immunizationEvent:
+          Reference.fromJson(json['immunizationEvent'] as Map<String, dynamic>),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
-      meta: json['meta'] != null ? Meta.fromJson(json['meta'] as Map<String, dynamic>) : null,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      meta: json['meta'] != null
+          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          : null,
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       patient: Reference.fromJson(json['patient'] as Map<String, dynamic>),
       series: json['series'] as String?,
       seriesDosesPositiveInt: json['seriesDosesPositiveInt'] as int?,
       seriesDosesString: json['seriesDosesString'] as String?,
       status: json['status'] as String,
-      targetDisease: CodeableConcept.fromJson(json['targetDisease'] as Map<String, dynamic>),
-      text: json['text'] != null ? Narrative.fromJson(json['text'] as Map<String, dynamic>) : null,
+      targetDisease: CodeableConcept.fromJson(
+          json['targetDisease'] as Map<String, dynamic>),
+      text: json['text'] != null
+          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          : null,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'authority': authority?.toJson(),
-      'contained': contained?.map((e) => e.toJson()).toList(),
-      'date': date,
-      'description': description,
-      'doseNumberPositiveInt': doseNumberPositiveInt,
-      'doseNumberString': doseNumberString,
-      'doseStatus': doseStatus.toJson(),
-      'doseStatusReason': doseStatusReason?.map((e) => e.toJson()).toList(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'identifier': identifier?.map((e) => e.toJson()).toList(),
-      'immunizationEvent': immunizationEvent.toJson(),
-      'implicitRules': implicitRules,
-      'language': language,
-      'meta': meta?.toJson(),
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'patient': patient.toJson(),
-      'series': series,
-      'seriesDosesPositiveInt': seriesDosesPositiveInt,
-      'seriesDosesString': seriesDosesString,
-      'status': status,
-      'targetDisease': targetDisease.toJson(),
-      'text': text?.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'authority': authority?.toJson(),
+        'contained': contained?.map((e) => e.toJson()).toList(),
+        'date': date,
+        'description': description,
+        'doseNumberPositiveInt': doseNumberPositiveInt,
+        'doseNumberString': doseNumberString,
+        'doseStatus': doseStatus.toJson(),
+        'doseStatusReason': doseStatusReason?.map((e) => e.toJson()).toList(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'identifier': identifier?.map((e) => e.toJson()).toList(),
+        'immunizationEvent': immunizationEvent.toJson(),
+        'implicitRules': implicitRules,
+        'language': language,
+        'meta': meta?.toJson(),
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'patient': patient.toJson(),
+        'series': series,
+        'seriesDosesPositiveInt': seriesDosesPositiveInt,
+        'seriesDosesString': seriesDosesString,
+        'status': status,
+        'targetDisease': targetDisease.toJson(),
+        'text': text?.toJson(),
+      };
+
   @override
   ImmunizationEvaluation copyWith({
     Reference? authority,
@@ -167,7 +199,8 @@ class ImmunizationEvaluation extends DomainResource implements FhirResource {
       contained: contained ?? this.contained,
       date: date ?? this.date,
       description: description ?? this.description,
-      doseNumberPositiveInt: doseNumberPositiveInt ?? this.doseNumberPositiveInt,
+      doseNumberPositiveInt:
+          doseNumberPositiveInt ?? this.doseNumberPositiveInt,
       doseNumberString: doseNumberString ?? this.doseNumberString,
       doseStatus: doseStatus ?? this.doseStatus,
       doseStatusReason: doseStatusReason ?? this.doseStatusReason,
@@ -181,7 +214,8 @@ class ImmunizationEvaluation extends DomainResource implements FhirResource {
       modifierExtension: modifierExtension ?? this.modifierExtension,
       patient: patient ?? this.patient,
       series: series ?? this.series,
-      seriesDosesPositiveInt: seriesDosesPositiveInt ?? this.seriesDosesPositiveInt,
+      seriesDosesPositiveInt:
+          seriesDosesPositiveInt ?? this.seriesDosesPositiveInt,
       seriesDosesString: seriesDosesString ?? this.seriesDosesString,
       status: status ?? this.status,
       targetDisease: targetDisease ?? this.targetDisease,

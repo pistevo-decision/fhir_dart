@@ -1,62 +1,80 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.
+/// An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.
 class RiskAssessment extends DomainResource implements FhirResource {
-  /// Resource Type Name (for serialization) 
+  /// Resource Type Name (for serialization)
   static const resourceType = 'RiskAssessment';
-   /// Request fulfilled by this assessment
-   /// A reference to the request that is fulfilled by this risk assessment.
+
+  /// Request fulfilled by this assessment
+  /// A reference to the request that is fulfilled by this risk assessment.
   final Reference? basedOn;
-   /// Information used in assessment
-   /// Indicates the source data considered as part of the assessment (for example, FamilyHistory, Observations, Procedures, Conditions, etc.).
+
+  /// Information used in assessment
+  /// Indicates the source data considered as part of the assessment (for example, FamilyHistory, Observations, Procedures, Conditions, etc.).
   final List<Reference>? basis;
-   /// Type of assessment
-   /// The type of the risk assessment performed.
+
+  /// Type of assessment
+  /// The type of the risk assessment performed.
   final CodeableConcept? code;
-   /// Condition assessed
-   /// For assessments or prognosis specific to a particular condition, indicates the condition being assessed.
+
+  /// Condition assessed
+  /// For assessments or prognosis specific to a particular condition, indicates the condition being assessed.
   final Reference? condition;
-   /// Where was assessment performed?
-   /// The encounter where the assessment was performed.
+
+  /// Where was assessment performed?
+  /// The encounter where the assessment was performed.
   final Reference? encounter;
-   /// Unique identifier for the assessment
-   /// Business identifier assigned to the risk assessment.
+
+  /// Unique identifier for the assessment
+  /// Business identifier assigned to the risk assessment.
   final List<Identifier>? identifier;
-   /// Evaluation mechanism
-   /// The algorithm, process or mechanism used to evaluate the risk.
+
+  /// Evaluation mechanism
+  /// The algorithm, process or mechanism used to evaluate the risk.
   final CodeableConcept? method;
-   /// How to reduce risk
-   /// A description of the steps that might be taken to reduce the identified risk(s).
+
+  /// How to reduce risk
+  /// A description of the steps that might be taken to reduce the identified risk(s).
   final String? mitigation;
-   /// Comments on the risk assessment
-   /// Additional comments about the risk assessment.
+
+  /// Comments on the risk assessment
+  /// Additional comments about the risk assessment.
   final List<Annotation>? note;
-   /// When was assessment made?
-   /// The date (and possibly time) the risk assessment was performed.
+
+  /// When was assessment made?
+  /// The date (and possibly time) the risk assessment was performed.
   final String? occurrenceDateTime;
-   /// When was assessment made?
-   /// The date (and possibly time) the risk assessment was performed.
+
+  /// When was assessment made?
+  /// The date (and possibly time) the risk assessment was performed.
   final Period? occurrencePeriod;
-   /// Part of this occurrence
-   /// A reference to a resource that this risk assessment is part of, such as a Procedure.
+
+  /// Part of this occurrence
+  /// A reference to a resource that this risk assessment is part of, such as a Procedure.
   final Reference? parent;
-   /// Who did assessment?
-   /// The provider or software application that performed the assessment.
+
+  /// Who did assessment?
+  /// The provider or software application that performed the assessment.
   final Reference? performer;
-   /// Outcome predicted
-   /// Describes the expected outcome for the subject.
-   /// Multiple repetitions can be used to identify the same type of outcome in different timeframes as well as different types of outcomes.
+
+  /// Outcome predicted
+  /// Describes the expected outcome for the subject.
+  /// Multiple repetitions can be used to identify the same type of outcome in different timeframes as well as different types of outcomes.
   final List<RiskAssessmentPrediction>? prediction;
-   /// Why the assessment was necessary?
-   /// The reason the risk assessment was performed.
+
+  /// Why the assessment was necessary?
+  /// The reason the risk assessment was performed.
   final List<CodeableConcept>? reasonCode;
-   /// Why the assessment was necessary?
-   /// Resources supporting the reason the risk assessment was performed.
+
+  /// Why the assessment was necessary?
+  /// Resources supporting the reason the risk assessment was performed.
   final List<Reference>? reasonReference;
-   /// The status of the RiskAssessment, using the same statuses as an Observation.
-  final String status; // Possible values: 'registered', 'preliminary', 'final', 'amended', 'corrected', 'cancelled', 'entered-in-error', 'unknown'
-   /// Who/what does assessment apply to?
-   /// The patient or group the risk assessment applies to.
+
+  /// The status of the RiskAssessment, using the same statuses as an Observation.
+  final String
+      status; // Possible values: 'registered', 'preliminary', 'final', 'amended', 'corrected', 'cancelled', 'entered-in-error', 'unknown'
+  /// Who/what does assessment apply to?
+  /// The patient or group the risk assessment applies to.
   final Reference subject;
   RiskAssessment({
     this.basedOn,
@@ -86,70 +104,108 @@ class RiskAssessment extends DomainResource implements FhirResource {
     required this.subject,
     super.text,
   });
-  
+
   @override
   factory RiskAssessment.fromJson(Map<String, dynamic> json) {
     return RiskAssessment(
-      basedOn: json['basedOn'] != null ? Reference.fromJson(json['basedOn'] as Map<String, dynamic>) : null,
-      basis: (json['basis'] as List<dynamic>?)?.map((e) => Reference.fromJson(e as Map<String, dynamic>)).toList(),
-      code: json['code'] != null ? CodeableConcept.fromJson(json['code'] as Map<String, dynamic>) : null,
-      condition: json['condition'] != null ? Reference.fromJson(json['condition'] as Map<String, dynamic>) : null,
-      contained: (json['contained'] as List<dynamic>?)?.map((e) => Resource.fromJson(e as Map<String, dynamic>)).toList(),
-      encounter: json['encounter'] != null ? Reference.fromJson(json['encounter'] as Map<String, dynamic>) : null,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      basedOn: json['basedOn'] != null
+          ? Reference.fromJson(json['basedOn'] as Map<String, dynamic>)
+          : null,
+      basis: (json['basis'] as List<dynamic>?)
+          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      code: json['code'] != null
+          ? CodeableConcept.fromJson(json['code'] as Map<String, dynamic>)
+          : null,
+      condition: json['condition'] != null
+          ? Reference.fromJson(json['condition'] as Map<String, dynamic>)
+          : null,
+      contained: (json['contained'] as List<dynamic>?)
+          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      encounter: json['encounter'] != null
+          ? Reference.fromJson(json['encounter'] as Map<String, dynamic>)
+          : null,
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      identifier: (json['identifier'] as List<dynamic>?)?.map((e) => Identifier.fromJson(e as Map<String, dynamic>)).toList(),
+      identifier: (json['identifier'] as List<dynamic>?)
+          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
-      meta: json['meta'] != null ? Meta.fromJson(json['meta'] as Map<String, dynamic>) : null,
-      method: json['method'] != null ? CodeableConcept.fromJson(json['method'] as Map<String, dynamic>) : null,
+      meta: json['meta'] != null
+          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          : null,
+      method: json['method'] != null
+          ? CodeableConcept.fromJson(json['method'] as Map<String, dynamic>)
+          : null,
       mitigation: json['mitigation'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      note: (json['note'] as List<dynamic>?)?.map((e) => Annotation.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      note: (json['note'] as List<dynamic>?)
+          ?.map((e) => Annotation.fromJson(e as Map<String, dynamic>))
+          .toList(),
       occurrenceDateTime: json['occurrenceDateTime'] as String?,
-      occurrencePeriod: json['occurrencePeriod'] != null ? Period.fromJson(json['occurrencePeriod'] as Map<String, dynamic>) : null,
-      parent: json['parent'] != null ? Reference.fromJson(json['parent'] as Map<String, dynamic>) : null,
-      performer: json['performer'] != null ? Reference.fromJson(json['performer'] as Map<String, dynamic>) : null,
-      prediction: (json['prediction'] as List<dynamic>?)?.map((e) => RiskAssessmentPrediction.fromJson(e as Map<String, dynamic>)).toList(),
-      reasonCode: (json['reasonCode'] as List<dynamic>?)?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>)).toList(),
-      reasonReference: (json['reasonReference'] as List<dynamic>?)?.map((e) => Reference.fromJson(e as Map<String, dynamic>)).toList(),
+      occurrencePeriod: json['occurrencePeriod'] != null
+          ? Period.fromJson(json['occurrencePeriod'] as Map<String, dynamic>)
+          : null,
+      parent: json['parent'] != null
+          ? Reference.fromJson(json['parent'] as Map<String, dynamic>)
+          : null,
+      performer: json['performer'] != null
+          ? Reference.fromJson(json['performer'] as Map<String, dynamic>)
+          : null,
+      prediction: (json['prediction'] as List<dynamic>?)
+          ?.map((e) =>
+              RiskAssessmentPrediction.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      reasonCode: (json['reasonCode'] as List<dynamic>?)
+          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      reasonReference: (json['reasonReference'] as List<dynamic>?)
+          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          .toList(),
       status: json['status'] as String,
       subject: Reference.fromJson(json['subject'] as Map<String, dynamic>),
-      text: json['text'] != null ? Narrative.fromJson(json['text'] as Map<String, dynamic>) : null,
+      text: json['text'] != null
+          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          : null,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'basedOn': basedOn?.toJson(),
-      'basis': basis?.map((e) => e.toJson()).toList(),
-      'code': code?.toJson(),
-      'condition': condition?.toJson(),
-      'contained': contained?.map((e) => e.toJson()).toList(),
-      'encounter': encounter?.toJson(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'identifier': identifier?.map((e) => e.toJson()).toList(),
-      'implicitRules': implicitRules,
-      'language': language,
-      'meta': meta?.toJson(),
-      'method': method?.toJson(),
-      'mitigation': mitigation,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'note': note?.map((e) => e.toJson()).toList(),
-      'occurrenceDateTime': occurrenceDateTime,
-      'occurrencePeriod': occurrencePeriod?.toJson(),
-      'parent': parent?.toJson(),
-      'performer': performer?.toJson(),
-      'prediction': prediction?.map((e) => e.toJson()).toList(),
-      'reasonCode': reasonCode?.map((e) => e.toJson()).toList(),
-      'reasonReference': reasonReference?.map((e) => e.toJson()).toList(),
-      'status': status,
-      'subject': subject.toJson(),
-      'text': text?.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'basedOn': basedOn?.toJson(),
+        'basis': basis?.map((e) => e.toJson()).toList(),
+        'code': code?.toJson(),
+        'condition': condition?.toJson(),
+        'contained': contained?.map((e) => e.toJson()).toList(),
+        'encounter': encounter?.toJson(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'identifier': identifier?.map((e) => e.toJson()).toList(),
+        'implicitRules': implicitRules,
+        'language': language,
+        'meta': meta?.toJson(),
+        'method': method?.toJson(),
+        'mitigation': mitigation,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'note': note?.map((e) => e.toJson()).toList(),
+        'occurrenceDateTime': occurrenceDateTime,
+        'occurrencePeriod': occurrencePeriod?.toJson(),
+        'parent': parent?.toJson(),
+        'performer': performer?.toJson(),
+        'prediction': prediction?.map((e) => e.toJson()).toList(),
+        'reasonCode': reasonCode?.map((e) => e.toJson()).toList(),
+        'reasonReference': reasonReference?.map((e) => e.toJson()).toList(),
+        'status': status,
+        'subject': subject.toJson(),
+        'text': text?.toJson(),
+      };
+
   @override
   RiskAssessment copyWith({
     Reference? basedOn,

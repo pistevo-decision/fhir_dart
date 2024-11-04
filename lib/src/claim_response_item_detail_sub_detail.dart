@@ -1,16 +1,19 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Adjudication for claim sub-details
- /// A sub-detail adjudication of a simple product or service.
-class ClaimResponseItemDetailSubDetail extends BackboneElement implements FhirResource {
-   /// Subdetail level adjudication details
-   /// The adjudication results.
+/// Adjudication for claim sub-details
+/// A sub-detail adjudication of a simple product or service.
+class ClaimResponseItemDetailSubDetail extends BackboneElement
+    implements FhirResource {
+  /// Subdetail level adjudication details
+  /// The adjudication results.
   final List<ClaimResponseItemAdjudication>? adjudication;
-   /// Applicable note numbers
-   /// The numbers associated with notes below which apply to the adjudication of this item.
+
+  /// Applicable note numbers
+  /// The numbers associated with notes below which apply to the adjudication of this item.
   final List<int>? noteNumber;
-   /// Claim sub-detail instance identifier
-   /// A number to uniquely reference the claim sub-detail entry.
+
+  /// Claim sub-detail instance identifier
+  /// A number to uniquely reference the claim sub-detail entry.
   final int subDetailSequence;
   ClaimResponseItemDetailSubDetail({
     this.adjudication,
@@ -20,30 +23,37 @@ class ClaimResponseItemDetailSubDetail extends BackboneElement implements FhirRe
     this.noteNumber,
     required this.subDetailSequence,
   });
-  
+
   @override
   factory ClaimResponseItemDetailSubDetail.fromJson(Map<String, dynamic> json) {
     return ClaimResponseItemDetailSubDetail(
-      adjudication: (json['adjudication'] as List<dynamic>?)?.map((e) => ClaimResponseItemAdjudication.fromJson(e as Map<String, dynamic>)).toList(),
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      adjudication: (json['adjudication'] as List<dynamic>?)
+          ?.map((e) =>
+              ClaimResponseItemAdjudication.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      noteNumber: (json['noteNumber'] as List<dynamic>?)?.map((e) => e as int).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      noteNumber:
+          (json['noteNumber'] as List<dynamic>?)?.map((e) => e as int).toList(),
       subDetailSequence: json['subDetailSequence'] as int,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'adjudication': adjudication?.map((e) => e.toJson()).toList(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'noteNumber': noteNumber?.map((e) => e).toList(),
-      'subDetailSequence': subDetailSequence,
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'adjudication': adjudication?.map((e) => e.toJson()).toList(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'noteNumber': noteNumber?.map((e) => e).toList(),
+        'subDetailSequence': subDetailSequence,
+      };
+
   @override
   ClaimResponseItemDetailSubDetail copyWith({
     List<ClaimResponseItemAdjudication>? adjudication,

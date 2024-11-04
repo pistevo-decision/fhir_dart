@@ -1,20 +1,24 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Processing and processing step details
- /// Details concerning processing and processing steps for the specimen.
+/// Processing and processing step details
+/// Details concerning processing and processing steps for the specimen.
 class SpecimenProcessing extends BackboneElement implements FhirResource {
-   /// Material used in the processing step.
+  /// Material used in the processing step.
   final List<Reference>? additive;
-   /// Textual description of procedure.
+
+  /// Textual description of procedure.
   final String? description;
-   /// Indicates the treatment step  applied to the specimen
-   /// A coded value specifying the procedure used to process the specimen.
+
+  /// Indicates the treatment step  applied to the specimen
+  /// A coded value specifying the procedure used to process the specimen.
   final CodeableConcept? procedure;
-   /// Date and time of specimen processing
-   /// A record of the time or period when the specimen processing occurred.  For example the time of sample fixation or the period of time the sample was in formalin.
+
+  /// Date and time of specimen processing
+  /// A record of the time or period when the specimen processing occurred.  For example the time of sample fixation or the period of time the sample was in formalin.
   final String? timeDateTime;
-   /// Date and time of specimen processing
-   /// A record of the time or period when the specimen processing occurred.  For example the time of sample fixation or the period of time the sample was in formalin.
+
+  /// Date and time of specimen processing
+  /// A record of the time or period when the specimen processing occurred.  For example the time of sample fixation or the period of time the sample was in formalin.
   final Period? timePeriod;
   SpecimenProcessing({
     this.additive,
@@ -26,34 +30,43 @@ class SpecimenProcessing extends BackboneElement implements FhirResource {
     this.timeDateTime,
     this.timePeriod,
   });
-  
+
   @override
   factory SpecimenProcessing.fromJson(Map<String, dynamic> json) {
     return SpecimenProcessing(
-      additive: (json['additive'] as List<dynamic>?)?.map((e) => Reference.fromJson(e as Map<String, dynamic>)).toList(),
+      additive: (json['additive'] as List<dynamic>?)
+          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          .toList(),
       description: json['description'] as String?,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      procedure: json['procedure'] != null ? CodeableConcept.fromJson(json['procedure'] as Map<String, dynamic>) : null,
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      procedure: json['procedure'] != null
+          ? CodeableConcept.fromJson(json['procedure'] as Map<String, dynamic>)
+          : null,
       timeDateTime: json['timeDateTime'] as String?,
-      timePeriod: json['timePeriod'] != null ? Period.fromJson(json['timePeriod'] as Map<String, dynamic>) : null,
+      timePeriod: json['timePeriod'] != null
+          ? Period.fromJson(json['timePeriod'] as Map<String, dynamic>)
+          : null,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'additive': additive?.map((e) => e.toJson()).toList(),
-      'description': description,
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'procedure': procedure?.toJson(),
-      'timeDateTime': timeDateTime,
-      'timePeriod': timePeriod?.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'additive': additive?.map((e) => e.toJson()).toList(),
+        'description': description,
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'procedure': procedure?.toJson(),
+        'timeDateTime': timeDateTime,
+        'timePeriod': timePeriod?.toJson(),
+      };
+
   @override
   SpecimenProcessing copyWith({
     List<Reference>? additive,

@@ -1,19 +1,22 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Note concerning adjudication
- /// A note that describes or explains adjudication results in a human readable form.
+/// Note concerning adjudication
+/// A note that describes or explains adjudication results in a human readable form.
 class ClaimResponseProcessNote extends BackboneElement implements FhirResource {
-   /// Language of the text
-   /// A code to define the language used in the text of the note.
-   /// Only required if the language is different from the resource language.
+  /// Language of the text
+  /// A code to define the language used in the text of the note.
+  /// Only required if the language is different from the resource language.
   final CodeableConcept? language;
-   /// Note instance identifier
-   /// A number to uniquely identify a note entry.
+
+  /// Note instance identifier
+  /// A number to uniquely identify a note entry.
   final int? number;
-   /// Note explanatory text
-   /// The explanation or description associated with the processing.
+
+  /// Note explanatory text
+  /// The explanation or description associated with the processing.
   final String text;
-   /// The business purpose of the note text.
+
+  /// The business purpose of the note text.
   final String? type; // Possible values: 'display', 'print', 'printoper'
   ClaimResponseProcessNote({
     super.fhirExtension,
@@ -24,32 +27,37 @@ class ClaimResponseProcessNote extends BackboneElement implements FhirResource {
     required this.text,
     this.type,
   });
-  
+
   @override
   factory ClaimResponseProcessNote.fromJson(Map<String, dynamic> json) {
     return ClaimResponseProcessNote(
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      language: json['language'] != null ? CodeableConcept.fromJson(json['language'] as Map<String, dynamic>) : null,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      language: json['language'] != null
+          ? CodeableConcept.fromJson(json['language'] as Map<String, dynamic>)
+          : null,
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       number: json['number'] as int?,
       text: json['text'] as String,
       type: json['type'] as String?,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'language': language?.toJson(),
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'number': number,
-      'text': text,
-      'type': type,
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'language': language?.toJson(),
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'number': number,
+        'text': text,
+        'type': type,
+      };
+
   @override
   ClaimResponseProcessNote copyWith({
     List<Extension>? fhirExtension,

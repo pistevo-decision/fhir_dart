@@ -1,18 +1,24 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Todo.
-class SubstanceReferenceInformation extends DomainResource implements FhirResource {
-  /// Resource Type Name (for serialization) 
+/// Todo.
+class SubstanceReferenceInformation extends DomainResource
+    implements FhirResource {
+  /// Resource Type Name (for serialization)
   static const resourceType = 'SubstanceReferenceInformation';
-   /// Todo.
+
+  /// Todo.
   final List<SubstanceReferenceInformationClassification>? classification;
-   /// Todo.
+
+  /// Todo.
   final String? comment;
-   /// Todo.
+
+  /// Todo.
   final List<SubstanceReferenceInformationGene>? gene;
-   /// Todo.
+
+  /// Todo.
   final List<SubstanceReferenceInformationGeneElement>? geneElement;
-   /// Todo.
+
+  /// Todo.
   final List<SubstanceReferenceInformationTarget>? target;
   SubstanceReferenceInformation({
     this.classification,
@@ -29,44 +35,65 @@ class SubstanceReferenceInformation extends DomainResource implements FhirResour
     this.target,
     super.text,
   });
-  
+
   @override
   factory SubstanceReferenceInformation.fromJson(Map<String, dynamic> json) {
     return SubstanceReferenceInformation(
-      classification: (json['classification'] as List<dynamic>?)?.map((e) => SubstanceReferenceInformationClassification.fromJson(e as Map<String, dynamic>)).toList(),
+      classification: (json['classification'] as List<dynamic>?)
+          ?.map((e) => SubstanceReferenceInformationClassification.fromJson(
+              e as Map<String, dynamic>))
+          .toList(),
       comment: json['comment'] as String?,
-      contained: (json['contained'] as List<dynamic>?)?.map((e) => Resource.fromJson(e as Map<String, dynamic>)).toList(),
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      gene: (json['gene'] as List<dynamic>?)?.map((e) => SubstanceReferenceInformationGene.fromJson(e as Map<String, dynamic>)).toList(),
-      geneElement: (json['geneElement'] as List<dynamic>?)?.map((e) => SubstanceReferenceInformationGeneElement.fromJson(e as Map<String, dynamic>)).toList(),
+      contained: (json['contained'] as List<dynamic>?)
+          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      gene: (json['gene'] as List<dynamic>?)
+          ?.map((e) => SubstanceReferenceInformationGene.fromJson(
+              e as Map<String, dynamic>))
+          .toList(),
+      geneElement: (json['geneElement'] as List<dynamic>?)
+          ?.map((e) => SubstanceReferenceInformationGeneElement.fromJson(
+              e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
-      meta: json['meta'] != null ? Meta.fromJson(json['meta'] as Map<String, dynamic>) : null,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      target: (json['target'] as List<dynamic>?)?.map((e) => SubstanceReferenceInformationTarget.fromJson(e as Map<String, dynamic>)).toList(),
-      text: json['text'] != null ? Narrative.fromJson(json['text'] as Map<String, dynamic>) : null,
+      meta: json['meta'] != null
+          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          : null,
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      target: (json['target'] as List<dynamic>?)
+          ?.map((e) => SubstanceReferenceInformationTarget.fromJson(
+              e as Map<String, dynamic>))
+          .toList(),
+      text: json['text'] != null
+          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          : null,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'classification': classification?.map((e) => e.toJson()).toList(),
-      'comment': comment,
-      'contained': contained?.map((e) => e.toJson()).toList(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'gene': gene?.map((e) => e.toJson()).toList(),
-      'geneElement': geneElement?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'implicitRules': implicitRules,
-      'language': language,
-      'meta': meta?.toJson(),
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'target': target?.map((e) => e.toJson()).toList(),
-      'text': text?.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'classification': classification?.map((e) => e.toJson()).toList(),
+        'comment': comment,
+        'contained': contained?.map((e) => e.toJson()).toList(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'gene': gene?.map((e) => e.toJson()).toList(),
+        'geneElement': geneElement?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'implicitRules': implicitRules,
+        'language': language,
+        'meta': meta?.toJson(),
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'target': target?.map((e) => e.toJson()).toList(),
+        'text': text?.toJson(),
+      };
+
   @override
   SubstanceReferenceInformation copyWith({
     List<SubstanceReferenceInformationClassification>? classification,

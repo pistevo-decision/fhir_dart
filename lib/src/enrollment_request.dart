@@ -1,30 +1,38 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// This resource provides the insurance enrollment details to the insurer regarding a specified coverage.
+/// This resource provides the insurance enrollment details to the insurer regarding a specified coverage.
 class EnrollmentRequest extends DomainResource implements FhirResource {
-  /// Resource Type Name (for serialization) 
+  /// Resource Type Name (for serialization)
   static const resourceType = 'EnrollmentRequest';
-   /// The subject to be enrolled
-   /// Patient Resource.
+
+  /// The subject to be enrolled
+  /// Patient Resource.
   final Reference? candidate;
-   /// Insurance information
-   /// Reference to the program or plan identification, underwriter or payor.
+
+  /// Insurance information
+  /// Reference to the program or plan identification, underwriter or payor.
   final Reference? coverage;
-   /// Creation date
-   /// The date when this resource was created.
+
+  /// Creation date
+  /// The date when this resource was created.
   final String? created;
-   /// Business Identifier
-   /// The Response business identifier.
+
+  /// Business Identifier
+  /// The Response business identifier.
   final List<Identifier>? identifier;
-   /// Target
-   /// The Insurer who is target  of the request.
+
+  /// Target
+  /// The Insurer who is target  of the request.
   final Reference? insurer;
-   /// Responsible practitioner
-   /// The practitioner who is responsible for the services rendered to the patient.
+
+  /// Responsible practitioner
+  /// The practitioner who is responsible for the services rendered to the patient.
   final Reference? provider;
-   /// The status of the resource instance.
-   /// This element is labeled as a modifier because the status contains codes that mark the request as not currently valid.
-  final String? status; // Possible values: 'active', 'cancelled', 'draft', 'entered-in-error'
+
+  /// The status of the resource instance.
+  /// This element is labeled as a modifier because the status contains codes that mark the request as not currently valid.
+  final String?
+      status; // Possible values: 'active', 'cancelled', 'draft', 'entered-in-error'
   EnrollmentRequest({
     this.candidate,
     super.contained,
@@ -42,48 +50,67 @@ class EnrollmentRequest extends DomainResource implements FhirResource {
     this.status,
     super.text,
   });
-  
+
   @override
   factory EnrollmentRequest.fromJson(Map<String, dynamic> json) {
     return EnrollmentRequest(
-      candidate: json['candidate'] != null ? Reference.fromJson(json['candidate'] as Map<String, dynamic>) : null,
-      contained: (json['contained'] as List<dynamic>?)?.map((e) => Resource.fromJson(e as Map<String, dynamic>)).toList(),
-      coverage: json['coverage'] != null ? Reference.fromJson(json['coverage'] as Map<String, dynamic>) : null,
+      candidate: json['candidate'] != null
+          ? Reference.fromJson(json['candidate'] as Map<String, dynamic>)
+          : null,
+      contained: (json['contained'] as List<dynamic>?)
+          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      coverage: json['coverage'] != null
+          ? Reference.fromJson(json['coverage'] as Map<String, dynamic>)
+          : null,
       created: json['created'] as String?,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      identifier: (json['identifier'] as List<dynamic>?)?.map((e) => Identifier.fromJson(e as Map<String, dynamic>)).toList(),
+      identifier: (json['identifier'] as List<dynamic>?)
+          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          .toList(),
       implicitRules: json['implicitRules'] as String?,
-      insurer: json['insurer'] != null ? Reference.fromJson(json['insurer'] as Map<String, dynamic>) : null,
+      insurer: json['insurer'] != null
+          ? Reference.fromJson(json['insurer'] as Map<String, dynamic>)
+          : null,
       language: json['language'] as String?,
-      meta: json['meta'] != null ? Meta.fromJson(json['meta'] as Map<String, dynamic>) : null,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      provider: json['provider'] != null ? Reference.fromJson(json['provider'] as Map<String, dynamic>) : null,
+      meta: json['meta'] != null
+          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          : null,
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      provider: json['provider'] != null
+          ? Reference.fromJson(json['provider'] as Map<String, dynamic>)
+          : null,
       status: json['status'] as String?,
-      text: json['text'] != null ? Narrative.fromJson(json['text'] as Map<String, dynamic>) : null,
+      text: json['text'] != null
+          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          : null,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'candidate': candidate?.toJson(),
-      'contained': contained?.map((e) => e.toJson()).toList(),
-      'coverage': coverage?.toJson(),
-      'created': created,
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'identifier': identifier?.map((e) => e.toJson()).toList(),
-      'implicitRules': implicitRules,
-      'insurer': insurer?.toJson(),
-      'language': language,
-      'meta': meta?.toJson(),
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'provider': provider?.toJson(),
-      'status': status,
-      'text': text?.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'candidate': candidate?.toJson(),
+        'contained': contained?.map((e) => e.toJson()).toList(),
+        'coverage': coverage?.toJson(),
+        'created': created,
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'identifier': identifier?.map((e) => e.toJson()).toList(),
+        'implicitRules': implicitRules,
+        'insurer': insurer?.toJson(),
+        'language': language,
+        'meta': meta?.toJson(),
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'provider': provider?.toJson(),
+        'status': status,
+        'text': text?.toJson(),
+      };
+
   @override
   EnrollmentRequest copyWith({
     Reference? candidate,

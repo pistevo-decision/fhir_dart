@@ -1,18 +1,21 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Identifies two or more records (resource instances) that refer to the same real-world "occurrence".
+/// Identifies two or more records (resource instances) that refer to the same real-world "occurrence".
 class Linkage extends DomainResource implements FhirResource {
-  /// Resource Type Name (for serialization) 
+  /// Resource Type Name (for serialization)
   static const resourceType = 'Linkage';
-   /// Whether this linkage assertion is active or not
-   /// Indicates whether the asserted set of linkages are considered to be "in effect".
-   /// If false, any asserted linkages should not be considered current/relevant/applicable.
+
+  /// Whether this linkage assertion is active or not
+  /// Indicates whether the asserted set of linkages are considered to be "in effect".
+  /// If false, any asserted linkages should not be considered current/relevant/applicable.
   final bool? active;
-   /// Who is responsible for linkages
-   /// Identifies the user or organization responsible for asserting the linkages as well as the user or organization who establishes the context in which the nature of each linkage is evaluated.
+
+  /// Who is responsible for linkages
+  /// Identifies the user or organization responsible for asserting the linkages as well as the user or organization who establishes the context in which the nature of each linkage is evaluated.
   final Reference? author;
-   /// Item to be linked
-   /// Identifies which record considered as the reference to the same real-world occurrence as well as how the items should be evaluated within the collection of linked items.
+
+  /// Item to be linked
+  /// Identifies which record considered as the reference to the same real-world occurrence as well as how the items should be evaluated within the collection of linked items.
   final List<LinkageItem> item;
   Linkage({
     this.active,
@@ -27,40 +30,53 @@ class Linkage extends DomainResource implements FhirResource {
     super.modifierExtension,
     super.text,
   });
-  
+
   @override
   factory Linkage.fromJson(Map<String, dynamic> json) {
     return Linkage(
       active: json['active'] as bool?,
-      author: json['author'] != null ? Reference.fromJson(json['author'] as Map<String, dynamic>) : null,
-      contained: (json['contained'] as List<dynamic>?)?.map((e) => Resource.fromJson(e as Map<String, dynamic>)).toList(),
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      author: json['author'] != null
+          ? Reference.fromJson(json['author'] as Map<String, dynamic>)
+          : null,
+      contained: (json['contained'] as List<dynamic>?)
+          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
       implicitRules: json['implicitRules'] as String?,
-      item: (json['item'] as List<dynamic>).map((e) => LinkageItem.fromJson(e as Map<String, dynamic>)).toList(),
+      item: (json['item'] as List<dynamic>)
+          .map((e) => LinkageItem.fromJson(e as Map<String, dynamic>))
+          .toList(),
       language: json['language'] as String?,
-      meta: json['meta'] != null ? Meta.fromJson(json['meta'] as Map<String, dynamic>) : null,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      text: json['text'] != null ? Narrative.fromJson(json['text'] as Map<String, dynamic>) : null,
+      meta: json['meta'] != null
+          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          : null,
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      text: json['text'] != null
+          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          : null,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'active': active,
-      'author': author?.toJson(),
-      'contained': contained?.map((e) => e.toJson()).toList(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'implicitRules': implicitRules,
-      'item': item.map((e) => e.toJson()).toList(),
-      'language': language,
-      'meta': meta?.toJson(),
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'text': text?.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'active': active,
+        'author': author?.toJson(),
+        'contained': contained?.map((e) => e.toJson()).toList(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'implicitRules': implicitRules,
+        'item': item.map((e) => e.toJson()).toList(),
+        'language': language,
+        'meta': meta?.toJson(),
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'text': text?.toJson(),
+      };
+
   @override
   Linkage copyWith({
     bool? active,

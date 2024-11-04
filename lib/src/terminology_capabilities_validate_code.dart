@@ -1,8 +1,9 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Information about the [ValueSet/$validate-code](valueset-operation-validate-code.html) operation.
-class TerminologyCapabilitiesValidateCode extends BackboneElement implements FhirResource {
-   /// Whether translations are validated.
+/// Information about the [ValueSet/$validate-code](valueset-operation-validate-code.html) operation.
+class TerminologyCapabilitiesValidateCode extends BackboneElement
+    implements FhirResource {
+  /// Whether translations are validated.
   final bool translations;
   TerminologyCapabilitiesValidateCode({
     super.fhirExtension,
@@ -10,26 +11,30 @@ class TerminologyCapabilitiesValidateCode extends BackboneElement implements Fhi
     super.modifierExtension,
     required this.translations,
   });
-  
+
   @override
-  factory TerminologyCapabilitiesValidateCode.fromJson(Map<String, dynamic> json) {
+  factory TerminologyCapabilitiesValidateCode.fromJson(
+      Map<String, dynamic> json) {
     return TerminologyCapabilitiesValidateCode(
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       translations: json['translations'] as bool,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'translations': translations,
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'translations': translations,
+      };
+
   @override
   TerminologyCapabilitiesValidateCode copyWith({
     List<Extension>? fhirExtension,

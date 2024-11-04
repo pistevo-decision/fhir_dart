@@ -1,39 +1,53 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Describes validation requirements, source(s), status and dates for one or more elements.
+/// Describes validation requirements, source(s), status and dates for one or more elements.
 class VerificationResult extends DomainResource implements FhirResource {
-  /// Resource Type Name (for serialization) 
+  /// Resource Type Name (for serialization)
   static const resourceType = 'VerificationResult';
-   /// Information about the entity attesting to information.
+
+  /// Information about the entity attesting to information.
   final VerificationResultAttestation? attestation;
-   /// fatal | warn | rec-only | none
-   /// The result if validation fails (fatal; warning; record only; none).
+
+  /// fatal | warn | rec-only | none
+  /// The result if validation fails (fatal; warning; record only; none).
   final CodeableConcept? failureAction;
-   /// Frequency of revalidation.
+
+  /// Frequency of revalidation.
   final Timing? frequency;
-   /// The date/time validation was last completed (including failed validations).
+
+  /// The date/time validation was last completed (including failed validations).
   final String? lastPerformed;
-   /// none | initial | periodic
-   /// The frequency with which the target must be validated (none; initial; periodic).
+
+  /// none | initial | periodic
+  /// The frequency with which the target must be validated (none; initial; periodic).
   final CodeableConcept? need;
-   /// The date when target is next validated, if appropriate.
+
+  /// The date when target is next validated, if appropriate.
   final String? nextScheduled;
-   /// Information about the primary source(s) involved in validation.
+
+  /// Information about the primary source(s) involved in validation.
   final List<VerificationResultPrimarySource>? primarySource;
-   /// The validation status of the target (attested; validated; in process; requires revalidation; validation failed; revalidation failed).
-  final String status; // Possible values: 'attested', 'validated', 'in-process', 'req-revalid', 'val-fail', 'reval-fail'
-   /// When the validation status was updated.
+
+  /// The validation status of the target (attested; validated; in process; requires revalidation; validation failed; revalidation failed).
+  final String
+      status; // Possible values: 'attested', 'validated', 'in-process', 'req-revalid', 'val-fail', 'reval-fail'
+  /// When the validation status was updated.
   final String? statusDate;
-   /// A resource that was validated.
+
+  /// A resource that was validated.
   final List<Reference>? target;
-   /// The fhirpath location(s) within the resource that was validated.
+
+  /// The fhirpath location(s) within the resource that was validated.
   final List<String>? targetLocation;
-   /// The primary process by which the target is validated (edit check; value set; primary source; multiple sources; standalone; in context).
+
+  /// The primary process by which the target is validated (edit check; value set; primary source; multiple sources; standalone; in context).
   final List<CodeableConcept>? validationProcess;
-   /// nothing | primary | multiple
-   /// What the target is validated against (nothing; primary source; multiple sources).
+
+  /// nothing | primary | multiple
+  /// What the target is validated against (nothing; primary source; multiple sources).
   final CodeableConcept? validationType;
-   /// Information about the entity validating information.
+
+  /// Information about the entity validating information.
   final List<VerificationResultValidator>? validator;
   VerificationResult({
     this.attestation,
@@ -59,62 +73,96 @@ class VerificationResult extends DomainResource implements FhirResource {
     this.validationType,
     this.validator,
   });
-  
+
   @override
   factory VerificationResult.fromJson(Map<String, dynamic> json) {
     return VerificationResult(
-      attestation: json['attestation'] != null ? VerificationResultAttestation.fromJson(json['attestation'] as Map<String, dynamic>) : null,
-      contained: (json['contained'] as List<dynamic>?)?.map((e) => Resource.fromJson(e as Map<String, dynamic>)).toList(),
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      failureAction: json['failureAction'] != null ? CodeableConcept.fromJson(json['failureAction'] as Map<String, dynamic>) : null,
-      frequency: json['frequency'] != null ? Timing.fromJson(json['frequency'] as Map<String, dynamic>) : null,
+      attestation: json['attestation'] != null
+          ? VerificationResultAttestation.fromJson(
+              json['attestation'] as Map<String, dynamic>)
+          : null,
+      contained: (json['contained'] as List<dynamic>?)
+          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      failureAction: json['failureAction'] != null
+          ? CodeableConcept.fromJson(
+              json['failureAction'] as Map<String, dynamic>)
+          : null,
+      frequency: json['frequency'] != null
+          ? Timing.fromJson(json['frequency'] as Map<String, dynamic>)
+          : null,
       id: json['id'] as String?,
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       lastPerformed: json['lastPerformed'] as String?,
-      meta: json['meta'] != null ? Meta.fromJson(json['meta'] as Map<String, dynamic>) : null,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      need: json['need'] != null ? CodeableConcept.fromJson(json['need'] as Map<String, dynamic>) : null,
+      meta: json['meta'] != null
+          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          : null,
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      need: json['need'] != null
+          ? CodeableConcept.fromJson(json['need'] as Map<String, dynamic>)
+          : null,
       nextScheduled: json['nextScheduled'] as String?,
-      primarySource: (json['primarySource'] as List<dynamic>?)?.map((e) => VerificationResultPrimarySource.fromJson(e as Map<String, dynamic>)).toList(),
+      primarySource: (json['primarySource'] as List<dynamic>?)
+          ?.map((e) => VerificationResultPrimarySource.fromJson(
+              e as Map<String, dynamic>))
+          .toList(),
       status: json['status'] as String,
       statusDate: json['statusDate'] as String?,
-      target: (json['target'] as List<dynamic>?)?.map((e) => Reference.fromJson(e as Map<String, dynamic>)).toList(),
-      targetLocation: (json['targetLocation'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      text: json['text'] != null ? Narrative.fromJson(json['text'] as Map<String, dynamic>) : null,
-      validationProcess: (json['validationProcess'] as List<dynamic>?)?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>)).toList(),
-      validationType: json['validationType'] != null ? CodeableConcept.fromJson(json['validationType'] as Map<String, dynamic>) : null,
-      validator: (json['validator'] as List<dynamic>?)?.map((e) => VerificationResultValidator.fromJson(e as Map<String, dynamic>)).toList(),
+      target: (json['target'] as List<dynamic>?)
+          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      targetLocation: (json['targetLocation'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      text: json['text'] != null
+          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          : null,
+      validationProcess: (json['validationProcess'] as List<dynamic>?)
+          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      validationType: json['validationType'] != null
+          ? CodeableConcept.fromJson(
+              json['validationType'] as Map<String, dynamic>)
+          : null,
+      validator: (json['validator'] as List<dynamic>?)
+          ?.map((e) =>
+              VerificationResultValidator.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'attestation': attestation?.toJson(),
-      'contained': contained?.map((e) => e.toJson()).toList(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'failureAction': failureAction?.toJson(),
-      'frequency': frequency?.toJson(),
-      'id': id,
-      'implicitRules': implicitRules,
-      'language': language,
-      'lastPerformed': lastPerformed,
-      'meta': meta?.toJson(),
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'need': need?.toJson(),
-      'nextScheduled': nextScheduled,
-      'primarySource': primarySource?.map((e) => e.toJson()).toList(),
-      'status': status,
-      'statusDate': statusDate,
-      'target': target?.map((e) => e.toJson()).toList(),
-      'targetLocation': targetLocation?.map((e) => e).toList(),
-      'text': text?.toJson(),
-      'validationProcess': validationProcess?.map((e) => e.toJson()).toList(),
-      'validationType': validationType?.toJson(),
-      'validator': validator?.map((e) => e.toJson()).toList(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'attestation': attestation?.toJson(),
+        'contained': contained?.map((e) => e.toJson()).toList(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'failureAction': failureAction?.toJson(),
+        'frequency': frequency?.toJson(),
+        'id': id,
+        'implicitRules': implicitRules,
+        'language': language,
+        'lastPerformed': lastPerformed,
+        'meta': meta?.toJson(),
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'need': need?.toJson(),
+        'nextScheduled': nextScheduled,
+        'primarySource': primarySource?.map((e) => e.toJson()).toList(),
+        'status': status,
+        'statusDate': statusDate,
+        'target': target?.map((e) => e.toJson()).toList(),
+        'targetLocation': targetLocation?.map((e) => e).toList(),
+        'text': text?.toJson(),
+        'validationProcess': validationProcess?.map((e) => e.toJson()).toList(),
+        'validationType': validationType?.toJson(),
+        'validator': validator?.map((e) => e.toJson()).toList(),
+      };
+
   @override
   VerificationResult copyWith({
     VerificationResultAttestation? attestation,

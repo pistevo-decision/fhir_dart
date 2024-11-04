@@ -1,16 +1,19 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// What sample size was involved?
- /// A description of the size of the sample involved in the synthesis.
-class RiskEvidenceSynthesisSampleSize extends BackboneElement implements FhirResource {
-   /// Description of sample size
-   /// Human-readable summary of sample size.
+/// What sample size was involved?
+/// A description of the size of the sample involved in the synthesis.
+class RiskEvidenceSynthesisSampleSize extends BackboneElement
+    implements FhirResource {
+  /// Description of sample size
+  /// Human-readable summary of sample size.
   final String? description;
-   /// How many participants?
-   /// Number of participants included in this evidence synthesis.
+
+  /// How many participants?
+  /// Number of participants included in this evidence synthesis.
   final int? numberOfParticipants;
-   /// How many studies?
-   /// Number of studies included in this evidence synthesis.
+
+  /// How many studies?
+  /// Number of studies included in this evidence synthesis.
   final int? numberOfStudies;
   RiskEvidenceSynthesisSampleSize({
     this.description,
@@ -20,30 +23,33 @@ class RiskEvidenceSynthesisSampleSize extends BackboneElement implements FhirRes
     this.numberOfParticipants,
     this.numberOfStudies,
   });
-  
+
   @override
   factory RiskEvidenceSynthesisSampleSize.fromJson(Map<String, dynamic> json) {
     return RiskEvidenceSynthesisSampleSize(
       description: json['description'] as String?,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       numberOfParticipants: json['numberOfParticipants'] as int?,
       numberOfStudies: json['numberOfStudies'] as int?,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'description': description,
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'numberOfParticipants': numberOfParticipants,
-      'numberOfStudies': numberOfStudies,
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'description': description,
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'numberOfParticipants': numberOfParticipants,
+        'numberOfStudies': numberOfStudies,
+      };
+
   @override
   RiskEvidenceSynthesisSampleSize copyWith({
     String? description,

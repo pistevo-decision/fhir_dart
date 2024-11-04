@@ -1,10 +1,12 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Supported expansion parameter.
-class TerminologyCapabilitiesExpansionParameter extends BackboneElement implements FhirResource {
-   /// Description of support for parameter.
+/// Supported expansion parameter.
+class TerminologyCapabilitiesExpansionParameter extends BackboneElement
+    implements FhirResource {
+  /// Description of support for parameter.
   final String? documentation;
-   /// Expansion Parameter name.
+
+  /// Expansion Parameter name.
   final String name;
   TerminologyCapabilitiesExpansionParameter({
     this.documentation,
@@ -13,28 +15,32 @@ class TerminologyCapabilitiesExpansionParameter extends BackboneElement implemen
     super.modifierExtension,
     required this.name,
   });
-  
+
   @override
-  factory TerminologyCapabilitiesExpansionParameter.fromJson(Map<String, dynamic> json) {
+  factory TerminologyCapabilitiesExpansionParameter.fromJson(
+      Map<String, dynamic> json) {
     return TerminologyCapabilitiesExpansionParameter(
       documentation: json['documentation'] as String?,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       name: json['name'] as String,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'documentation': documentation,
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'name': name,
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'documentation': documentation,
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'name': name,
+      };
+
   @override
   TerminologyCapabilitiesExpansionParameter copyWith({
     String? documentation,

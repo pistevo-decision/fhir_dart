@@ -1,10 +1,12 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Specifies if changes are allowed when dispensing a medication from a regulatory perspective.
-class MedicationKnowledgeRegulatorySubstitution extends BackboneElement implements FhirResource {
-   /// Specifies if regulation allows for changes in the medication when dispensing.
+/// Specifies if changes are allowed when dispensing a medication from a regulatory perspective.
+class MedicationKnowledgeRegulatorySubstitution extends BackboneElement
+    implements FhirResource {
+  /// Specifies if regulation allows for changes in the medication when dispensing.
   final bool allowed;
-   /// Specifies the type of substitution allowed.
+
+  /// Specifies the type of substitution allowed.
   final CodeableConcept type;
   MedicationKnowledgeRegulatorySubstitution({
     required this.allowed,
@@ -13,28 +15,32 @@ class MedicationKnowledgeRegulatorySubstitution extends BackboneElement implemen
     super.modifierExtension,
     required this.type,
   });
-  
+
   @override
-  factory MedicationKnowledgeRegulatorySubstitution.fromJson(Map<String, dynamic> json) {
+  factory MedicationKnowledgeRegulatorySubstitution.fromJson(
+      Map<String, dynamic> json) {
     return MedicationKnowledgeRegulatorySubstitution(
       allowed: json['allowed'] as bool,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       type: CodeableConcept.fromJson(json['type'] as Map<String, dynamic>),
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'allowed': allowed,
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'type': type.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'allowed': allowed,
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'type': type.toJson(),
+      };
+
   @override
   MedicationKnowledgeRegulatorySubstitution copyWith({
     bool? allowed,

@@ -1,59 +1,72 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// The response(s) to the question
- /// The respondent's answer(s) to the question.
- /// The value is nested because we cannot have a repeating structure that has variable type.
-class QuestionnaireResponseItemAnswer extends BackboneElement implements FhirResource {
-   /// Nested groups and questions
-   /// Nested groups and/or questions found within this particular answer.
+/// The response(s) to the question
+/// The respondent's answer(s) to the question.
+/// The value is nested because we cannot have a repeating structure that has variable type.
+class QuestionnaireResponseItemAnswer extends BackboneElement
+    implements FhirResource {
+  /// Nested groups and questions
+  /// Nested groups and/or questions found within this particular answer.
   final List<QuestionnaireResponseItem>? item;
-   /// Single-valued answer to the question
-   /// The answer (or one of the answers) provided by the respondent to the question.
-   /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
+
+  /// Single-valued answer to the question
+  /// The answer (or one of the answers) provided by the respondent to the question.
+  /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
   final Attachment? valueAttachment;
-   /// Single-valued answer to the question
-   /// The answer (or one of the answers) provided by the respondent to the question.
-   /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
+
+  /// Single-valued answer to the question
+  /// The answer (or one of the answers) provided by the respondent to the question.
+  /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
   final bool? valueBoolean;
-   /// Single-valued answer to the question
-   /// The answer (or one of the answers) provided by the respondent to the question.
-   /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
+
+  /// Single-valued answer to the question
+  /// The answer (or one of the answers) provided by the respondent to the question.
+  /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
   final Coding? valueCoding;
-   /// Single-valued answer to the question
-   /// The answer (or one of the answers) provided by the respondent to the question.
-   /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
+
+  /// Single-valued answer to the question
+  /// The answer (or one of the answers) provided by the respondent to the question.
+  /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
   final String? valueDate;
-   /// Single-valued answer to the question
-   /// The answer (or one of the answers) provided by the respondent to the question.
-   /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
+
+  /// Single-valued answer to the question
+  /// The answer (or one of the answers) provided by the respondent to the question.
+  /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
   final String? valueDateTime;
-   /// Single-valued answer to the question
-   /// The answer (or one of the answers) provided by the respondent to the question.
-   /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
+
+  /// Single-valued answer to the question
+  /// The answer (or one of the answers) provided by the respondent to the question.
+  /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
   final num? valueDecimal;
-   /// Single-valued answer to the question
-   /// The answer (or one of the answers) provided by the respondent to the question.
-   /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
+
+  /// Single-valued answer to the question
+  /// The answer (or one of the answers) provided by the respondent to the question.
+  /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
   final int? valueInteger;
-   /// Single-valued answer to the question
-   /// The answer (or one of the answers) provided by the respondent to the question.
-   /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
+
+  /// Single-valued answer to the question
+  /// The answer (or one of the answers) provided by the respondent to the question.
+  /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
   final Quantity? valueQuantity;
-   /// Single-valued answer to the question
-   /// The answer (or one of the answers) provided by the respondent to the question.
-   /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
+
+  /// Single-valued answer to the question
+  /// The answer (or one of the answers) provided by the respondent to the question.
+  /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
   final Reference? valueReference;
-   /// Single-valued answer to the question
-   /// The answer (or one of the answers) provided by the respondent to the question.
-   /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
+
+  /// Single-valued answer to the question
+  /// The answer (or one of the answers) provided by the respondent to the question.
+  /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
   final String? valueString;
-   /// Single-valued answer to the question
-   /// The answer (or one of the answers) provided by the respondent to the question.
-   /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
+
+  /// Single-valued answer to the question
+  /// The answer (or one of the answers) provided by the respondent to the question.
+  /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
   final String? valueTime;
-   /// Single-valued answer to the question
-   /// The answer (or one of the answers) provided by the respondent to the question.
-   /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
+
+  /// Single-valued answer to the question
+  /// The answer (or one of the answers) provided by the respondent to the question.
+  /// More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.
   final String? valueUri;
   QuestionnaireResponseItemAnswer({
     super.fhirExtension,
@@ -73,50 +86,64 @@ class QuestionnaireResponseItemAnswer extends BackboneElement implements FhirRes
     this.valueTime,
     this.valueUri,
   });
-  
+
   @override
   factory QuestionnaireResponseItemAnswer.fromJson(Map<String, dynamic> json) {
     return QuestionnaireResponseItemAnswer(
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      item: (json['item'] as List<dynamic>?)?.map((e) => QuestionnaireResponseItem.fromJson(e as Map<String, dynamic>)).toList(),
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      valueAttachment: json['valueAttachment'] != null ? Attachment.fromJson(json['valueAttachment'] as Map<String, dynamic>) : null,
+      item: (json['item'] as List<dynamic>?)
+          ?.map((e) =>
+              QuestionnaireResponseItem.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      valueAttachment: json['valueAttachment'] != null
+          ? Attachment.fromJson(json['valueAttachment'] as Map<String, dynamic>)
+          : null,
       valueBoolean: json['valueBoolean'] as bool?,
-      valueCoding: json['valueCoding'] != null ? Coding.fromJson(json['valueCoding'] as Map<String, dynamic>) : null,
+      valueCoding: json['valueCoding'] != null
+          ? Coding.fromJson(json['valueCoding'] as Map<String, dynamic>)
+          : null,
       valueDate: json['valueDate'] as String?,
       valueDateTime: json['valueDateTime'] as String?,
       valueDecimal: json['valueDecimal'] as num?,
       valueInteger: json['valueInteger'] as int?,
-      valueQuantity: json['valueQuantity'] != null ? Quantity.fromJson(json['valueQuantity'] as Map<String, dynamic>) : null,
-      valueReference: json['valueReference'] != null ? Reference.fromJson(json['valueReference'] as Map<String, dynamic>) : null,
+      valueQuantity: json['valueQuantity'] != null
+          ? Quantity.fromJson(json['valueQuantity'] as Map<String, dynamic>)
+          : null,
+      valueReference: json['valueReference'] != null
+          ? Reference.fromJson(json['valueReference'] as Map<String, dynamic>)
+          : null,
       valueString: json['valueString'] as String?,
       valueTime: json['valueTime'] as String?,
       valueUri: json['valueUri'] as String?,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'item': item?.map((e) => e.toJson()).toList(),
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'valueAttachment': valueAttachment?.toJson(),
-      'valueBoolean': valueBoolean,
-      'valueCoding': valueCoding?.toJson(),
-      'valueDate': valueDate,
-      'valueDateTime': valueDateTime,
-      'valueDecimal': valueDecimal,
-      'valueInteger': valueInteger,
-      'valueQuantity': valueQuantity?.toJson(),
-      'valueReference': valueReference?.toJson(),
-      'valueString': valueString,
-      'valueTime': valueTime,
-      'valueUri': valueUri,
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'item': item?.map((e) => e.toJson()).toList(),
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'valueAttachment': valueAttachment?.toJson(),
+        'valueBoolean': valueBoolean,
+        'valueCoding': valueCoding?.toJson(),
+        'valueDate': valueDate,
+        'valueDateTime': valueDateTime,
+        'valueDecimal': valueDecimal,
+        'valueInteger': valueInteger,
+        'valueQuantity': valueQuantity?.toJson(),
+        'valueReference': valueReference?.toJson(),
+        'valueString': valueString,
+        'valueTime': valueTime,
+        'valueUri': valueUri,
+      };
+
   @override
   QuestionnaireResponseItemAnswer copyWith({
     List<Extension>? fhirExtension,

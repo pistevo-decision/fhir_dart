@@ -1,13 +1,14 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Details about packaged medications
- /// Information that only applies to packages (not products).
+/// Details about packaged medications
+/// Information that only applies to packages (not products).
 class MedicationBatch extends BackboneElement implements FhirResource {
-   /// When batch will expire
-   /// When this specific batch of product will expire.
+  /// When batch will expire
+  /// When this specific batch of product will expire.
   final String? expirationDate;
-   /// Identifier assigned to batch
-   /// The assigned lot number of a batch of the specified product.
+
+  /// Identifier assigned to batch
+  /// The assigned lot number of a batch of the specified product.
   final String? lotNumber;
   MedicationBatch({
     this.expirationDate,
@@ -16,28 +17,31 @@ class MedicationBatch extends BackboneElement implements FhirResource {
     this.lotNumber,
     super.modifierExtension,
   });
-  
+
   @override
   factory MedicationBatch.fromJson(Map<String, dynamic> json) {
     return MedicationBatch(
       expirationDate: json['expirationDate'] as String?,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
       lotNumber: json['lotNumber'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'expirationDate': expirationDate,
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'lotNumber': lotNumber,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'expirationDate': expirationDate,
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'lotNumber': lotNumber,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+      };
+
   @override
   MedicationBatch copyWith({
     String? expirationDate,

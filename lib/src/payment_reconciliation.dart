@@ -1,57 +1,73 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// This resource provides the details including amount of a payment and allocates the payment items being paid.
+/// This resource provides the details including amount of a payment and allocates the payment items being paid.
 class PaymentReconciliation extends DomainResource implements FhirResource {
-  /// Resource Type Name (for serialization) 
+  /// Resource Type Name (for serialization)
   static const resourceType = 'PaymentReconciliation';
-   /// Creation date
-   /// The date when the resource was created.
+
+  /// Creation date
+  /// The date when the resource was created.
   final String created;
-   /// Settlement particulars
-   /// Distribution of the payment amount for a previously acknowledged payable.
+
+  /// Settlement particulars
+  /// Distribution of the payment amount for a previously acknowledged payable.
   final List<PaymentReconciliationDetail>? detail;
-   /// Disposition message
-   /// A human readable description of the status of the request for the reconciliation.
+
+  /// Disposition message
+  /// A human readable description of the status of the request for the reconciliation.
   final String? disposition;
-   /// Printed form identifier
-   /// A code for the form to be used for printing the content.
-   /// May be needed to identify specific jurisdictional forms.
+
+  /// Printed form identifier
+  /// A code for the form to be used for printing the content.
+  /// May be needed to identify specific jurisdictional forms.
   final CodeableConcept? formCode;
-   /// Business Identifier for a payment reconciliation
-   /// A unique identifier assigned to this payment reconciliation.
+
+  /// Business Identifier for a payment reconciliation
+  /// A unique identifier assigned to this payment reconciliation.
   final List<Identifier>? identifier;
-   /// The outcome of a request for a reconciliation.
-   /// The resource may be used to indicate that: the request has been held (queued) for processing; that it has been processed and errors found (error); that no errors were found and that some of the adjudication has been undertaken (partial) or that all of the adjudication has been undertaken (complete).
-  final String? outcome; // Possible values: 'queued', 'complete', 'error', 'partial'
-   /// Total amount of Payment
-   /// Total payment amount as indicated on the financial instrument.
+
+  /// The outcome of a request for a reconciliation.
+  /// The resource may be used to indicate that: the request has been held (queued) for processing; that it has been processed and errors found (error); that no errors were found and that some of the adjudication has been undertaken (partial) or that all of the adjudication has been undertaken (complete).
+  final String?
+      outcome; // Possible values: 'queued', 'complete', 'error', 'partial'
+  /// Total amount of Payment
+  /// Total payment amount as indicated on the financial instrument.
   final Money paymentAmount;
-   /// When payment issued
-   /// The date of payment as indicated on the financial instrument.
+
+  /// When payment issued
+  /// The date of payment as indicated on the financial instrument.
   final String paymentDate;
-   /// Business identifier for the payment
-   /// Issuer's unique identifier for the payment instrument.
-   /// For example: EFT number or check number.
+
+  /// Business identifier for the payment
+  /// Issuer's unique identifier for the payment instrument.
+  /// For example: EFT number or check number.
   final Identifier? paymentIdentifier;
-   /// Party generating payment
-   /// The party who generated the payment.
-   /// This party is also responsible for the reconciliation.
+
+  /// Party generating payment
+  /// The party who generated the payment.
+  /// This party is also responsible for the reconciliation.
   final Reference? paymentIssuer;
-   /// Period covered
-   /// The period of time for which payments have been gathered into this bulk payment for settlement.
+
+  /// Period covered
+  /// The period of time for which payments have been gathered into this bulk payment for settlement.
   final Period? period;
-   /// Note concerning processing
-   /// A note that describes or explains the processing in a human readable form.
+
+  /// Note concerning processing
+  /// A note that describes or explains the processing in a human readable form.
   final List<PaymentReconciliationProcessNote>? processNote;
-   /// Reference to requesting resource
-   /// Original request resource reference.
+
+  /// Reference to requesting resource
+  /// Original request resource reference.
   final Reference? request;
-   /// Responsible practitioner
-   /// The practitioner who is responsible for the services rendered to the patient.
+
+  /// Responsible practitioner
+  /// The practitioner who is responsible for the services rendered to the patient.
   final Reference? requestor;
-   /// The status of the resource instance.
-   /// This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-  final String status; // Possible values: 'active', 'cancelled', 'draft', 'entered-in-error'
+
+  /// The status of the resource instance.
+  /// This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+  final String
+      status; // Possible values: 'active', 'cancelled', 'draft', 'entered-in-error'
   PaymentReconciliation({
     super.contained,
     required this.created,
@@ -77,64 +93,95 @@ class PaymentReconciliation extends DomainResource implements FhirResource {
     required this.status,
     super.text,
   });
-  
+
   @override
   factory PaymentReconciliation.fromJson(Map<String, dynamic> json) {
     return PaymentReconciliation(
-      contained: (json['contained'] as List<dynamic>?)?.map((e) => Resource.fromJson(e as Map<String, dynamic>)).toList(),
+      contained: (json['contained'] as List<dynamic>?)
+          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          .toList(),
       created: json['created'] as String,
-      detail: (json['detail'] as List<dynamic>?)?.map((e) => PaymentReconciliationDetail.fromJson(e as Map<String, dynamic>)).toList(),
+      detail: (json['detail'] as List<dynamic>?)
+          ?.map((e) =>
+              PaymentReconciliationDetail.fromJson(e as Map<String, dynamic>))
+          .toList(),
       disposition: json['disposition'] as String?,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      formCode: json['formCode'] != null ? CodeableConcept.fromJson(json['formCode'] as Map<String, dynamic>) : null,
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      formCode: json['formCode'] != null
+          ? CodeableConcept.fromJson(json['formCode'] as Map<String, dynamic>)
+          : null,
       id: json['id'] as String?,
-      identifier: (json['identifier'] as List<dynamic>?)?.map((e) => Identifier.fromJson(e as Map<String, dynamic>)).toList(),
+      identifier: (json['identifier'] as List<dynamic>?)
+          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
-      meta: json['meta'] != null ? Meta.fromJson(json['meta'] as Map<String, dynamic>) : null,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      meta: json['meta'] != null
+          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          : null,
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       outcome: json['outcome'] as String?,
-      paymentAmount: Money.fromJson(json['paymentAmount'] as Map<String, dynamic>),
+      paymentAmount:
+          Money.fromJson(json['paymentAmount'] as Map<String, dynamic>),
       paymentDate: json['paymentDate'] as String,
-      paymentIdentifier: json['paymentIdentifier'] != null ? Identifier.fromJson(json['paymentIdentifier'] as Map<String, dynamic>) : null,
-      paymentIssuer: json['paymentIssuer'] != null ? Reference.fromJson(json['paymentIssuer'] as Map<String, dynamic>) : null,
-      period: json['period'] != null ? Period.fromJson(json['period'] as Map<String, dynamic>) : null,
-      processNote: (json['processNote'] as List<dynamic>?)?.map((e) => PaymentReconciliationProcessNote.fromJson(e as Map<String, dynamic>)).toList(),
-      request: json['request'] != null ? Reference.fromJson(json['request'] as Map<String, dynamic>) : null,
-      requestor: json['requestor'] != null ? Reference.fromJson(json['requestor'] as Map<String, dynamic>) : null,
+      paymentIdentifier: json['paymentIdentifier'] != null
+          ? Identifier.fromJson(
+              json['paymentIdentifier'] as Map<String, dynamic>)
+          : null,
+      paymentIssuer: json['paymentIssuer'] != null
+          ? Reference.fromJson(json['paymentIssuer'] as Map<String, dynamic>)
+          : null,
+      period: json['period'] != null
+          ? Period.fromJson(json['period'] as Map<String, dynamic>)
+          : null,
+      processNote: (json['processNote'] as List<dynamic>?)
+          ?.map((e) => PaymentReconciliationProcessNote.fromJson(
+              e as Map<String, dynamic>))
+          .toList(),
+      request: json['request'] != null
+          ? Reference.fromJson(json['request'] as Map<String, dynamic>)
+          : null,
+      requestor: json['requestor'] != null
+          ? Reference.fromJson(json['requestor'] as Map<String, dynamic>)
+          : null,
       status: json['status'] as String,
-      text: json['text'] != null ? Narrative.fromJson(json['text'] as Map<String, dynamic>) : null,
+      text: json['text'] != null
+          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          : null,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'contained': contained?.map((e) => e.toJson()).toList(),
-      'created': created,
-      'detail': detail?.map((e) => e.toJson()).toList(),
-      'disposition': disposition,
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'formCode': formCode?.toJson(),
-      'id': id,
-      'identifier': identifier?.map((e) => e.toJson()).toList(),
-      'implicitRules': implicitRules,
-      'language': language,
-      'meta': meta?.toJson(),
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'outcome': outcome,
-      'paymentAmount': paymentAmount.toJson(),
-      'paymentDate': paymentDate,
-      'paymentIdentifier': paymentIdentifier?.toJson(),
-      'paymentIssuer': paymentIssuer?.toJson(),
-      'period': period?.toJson(),
-      'processNote': processNote?.map((e) => e.toJson()).toList(),
-      'request': request?.toJson(),
-      'requestor': requestor?.toJson(),
-      'status': status,
-      'text': text?.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'contained': contained?.map((e) => e.toJson()).toList(),
+        'created': created,
+        'detail': detail?.map((e) => e.toJson()).toList(),
+        'disposition': disposition,
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'formCode': formCode?.toJson(),
+        'id': id,
+        'identifier': identifier?.map((e) => e.toJson()).toList(),
+        'implicitRules': implicitRules,
+        'language': language,
+        'meta': meta?.toJson(),
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'outcome': outcome,
+        'paymentAmount': paymentAmount.toJson(),
+        'paymentDate': paymentDate,
+        'paymentIdentifier': paymentIdentifier?.toJson(),
+        'paymentIssuer': paymentIssuer?.toJson(),
+        'period': period?.toJson(),
+        'processNote': processNote?.map((e) => e.toJson()).toList(),
+        'request': request?.toJson(),
+        'requestor': requestor?.toJson(),
+        'status': status,
+        'text': text?.toJson(),
+      };
+
   @override
   PaymentReconciliation copyWith({
     List<Resource>? contained,

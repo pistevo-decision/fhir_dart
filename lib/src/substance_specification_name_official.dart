@@ -1,12 +1,15 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Details of the official nature of this name.
-class SubstanceSpecificationNameOfficial extends BackboneElement implements FhirResource {
-   /// Which authority uses this official name.
+/// Details of the official nature of this name.
+class SubstanceSpecificationNameOfficial extends BackboneElement
+    implements FhirResource {
+  /// Which authority uses this official name.
   final CodeableConcept? authority;
-   /// Date of official name change.
+
+  /// Date of official name change.
   final String? date;
-   /// The status of the official name.
+
+  /// The status of the official name.
   final CodeableConcept? status;
   SubstanceSpecificationNameOfficial({
     this.authority,
@@ -16,30 +19,38 @@ class SubstanceSpecificationNameOfficial extends BackboneElement implements Fhir
     super.modifierExtension,
     this.status,
   });
-  
+
   @override
-  factory SubstanceSpecificationNameOfficial.fromJson(Map<String, dynamic> json) {
+  factory SubstanceSpecificationNameOfficial.fromJson(
+      Map<String, dynamic> json) {
     return SubstanceSpecificationNameOfficial(
-      authority: json['authority'] != null ? CodeableConcept.fromJson(json['authority'] as Map<String, dynamic>) : null,
+      authority: json['authority'] != null
+          ? CodeableConcept.fromJson(json['authority'] as Map<String, dynamic>)
+          : null,
       date: json['date'] as String?,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      status: json['status'] != null ? CodeableConcept.fromJson(json['status'] as Map<String, dynamic>) : null,
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      status: json['status'] != null
+          ? CodeableConcept.fromJson(json['status'] as Map<String, dynamic>)
+          : null,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'authority': authority?.toJson(),
-      'date': date,
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'status': status?.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'authority': authority?.toJson(),
+        'date': date,
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'status': status?.toJson(),
+      };
+
   @override
   SubstanceSpecificationNameOfficial copyWith({
     CodeableConcept? authority,

@@ -1,17 +1,19 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Named instance provided when invoking the map
- /// A name assigned to an instance of data. The instance must be provided when the mapping is invoked.
- /// If no inputs are named, then the entry mappings are type based.
+/// Named instance provided when invoking the map
+/// A name assigned to an instance of data. The instance must be provided when the mapping is invoked.
+/// If no inputs are named, then the entry mappings are type based.
 class StructureMapGroupInput extends BackboneElement implements FhirResource {
-   /// Documentation for this instance of data.
+  /// Documentation for this instance of data.
   final String? documentation;
-   /// source | target
-   /// Mode for this instance of data.
+
+  /// source | target
+  /// Mode for this instance of data.
   final String mode; // Possible values: 'source', 'target'
-   /// Name for this instance of data.
+  /// Name for this instance of data.
   final String name;
-   /// Type for this instance of data.
+
+  /// Type for this instance of data.
   final String? type;
   StructureMapGroupInput({
     this.documentation,
@@ -22,32 +24,35 @@ class StructureMapGroupInput extends BackboneElement implements FhirResource {
     required this.name,
     this.type,
   });
-  
+
   @override
   factory StructureMapGroupInput.fromJson(Map<String, dynamic> json) {
     return StructureMapGroupInput(
       documentation: json['documentation'] as String?,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
       mode: json['mode'] as String,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       name: json['name'] as String,
       type: json['type'] as String?,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'documentation': documentation,
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'mode': mode,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'name': name,
-      'type': type,
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'documentation': documentation,
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'mode': mode,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'name': name,
+        'type': type,
+      };
+
   @override
   StructureMapGroupInput copyWith({
     String? documentation,

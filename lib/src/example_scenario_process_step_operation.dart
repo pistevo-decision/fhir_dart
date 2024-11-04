@@ -1,26 +1,36 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Each interaction or action.
-class ExampleScenarioProcessStepOperation extends BackboneElement implements FhirResource {
-   /// A comment to be inserted in the diagram.
+/// Each interaction or action.
+class ExampleScenarioProcessStepOperation extends BackboneElement
+    implements FhirResource {
+  /// A comment to be inserted in the diagram.
   final String? description;
-   /// Who starts the transaction.
+
+  /// Who starts the transaction.
   final String? initiator;
-   /// Whether the initiator is deactivated right after the transaction.
+
+  /// Whether the initiator is deactivated right after the transaction.
   final bool? initiatorActive;
-   /// The human-friendly name of the interaction.
+
+  /// The human-friendly name of the interaction.
   final String? name;
-   /// The sequential number of the interaction, e.g. 1.2.5.
+
+  /// The sequential number of the interaction, e.g. 1.2.5.
   final String number;
-   /// Who receives the transaction.
+
+  /// Who receives the transaction.
   final String? receiver;
-   /// Whether the receiver is deactivated right after the transaction.
+
+  /// Whether the receiver is deactivated right after the transaction.
   final bool? receiverActive;
-   /// Each resource instance used by the initiator.
+
+  /// Each resource instance used by the initiator.
   final ExampleScenarioInstanceContainedInstance? request;
-   /// Each resource instance used by the responder.
+
+  /// Each resource instance used by the responder.
   final ExampleScenarioInstanceContainedInstance? response;
-   /// The type of operation - CRUD.
+
+  /// The type of operation - CRUD.
   final String? type;
   ExampleScenarioProcessStepOperation({
     this.description,
@@ -37,44 +47,54 @@ class ExampleScenarioProcessStepOperation extends BackboneElement implements Fhi
     this.response,
     this.type,
   });
-  
+
   @override
-  factory ExampleScenarioProcessStepOperation.fromJson(Map<String, dynamic> json) {
+  factory ExampleScenarioProcessStepOperation.fromJson(
+      Map<String, dynamic> json) {
     return ExampleScenarioProcessStepOperation(
       description: json['description'] as String?,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
       initiator: json['initiator'] as String?,
       initiatorActive: json['initiatorActive'] as bool?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       name: json['name'] as String?,
       number: json['number'] as String,
       receiver: json['receiver'] as String?,
       receiverActive: json['receiverActive'] as bool?,
-      request: json['request'] != null ? ExampleScenarioInstanceContainedInstance.fromJson(json['request'] as Map<String, dynamic>) : null,
-      response: json['response'] != null ? ExampleScenarioInstanceContainedInstance.fromJson(json['response'] as Map<String, dynamic>) : null,
+      request: json['request'] != null
+          ? ExampleScenarioInstanceContainedInstance.fromJson(
+              json['request'] as Map<String, dynamic>)
+          : null,
+      response: json['response'] != null
+          ? ExampleScenarioInstanceContainedInstance.fromJson(
+              json['response'] as Map<String, dynamic>)
+          : null,
       type: json['type'] as String?,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'description': description,
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'initiator': initiator,
-      'initiatorActive': initiatorActive,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'name': name,
-      'number': number,
-      'receiver': receiver,
-      'receiverActive': receiverActive,
-      'request': request?.toJson(),
-      'response': response?.toJson(),
-      'type': type,
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'description': description,
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'initiator': initiator,
+        'initiatorActive': initiatorActive,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'name': name,
+        'number': number,
+        'receiver': receiver,
+        'receiverActive': receiverActive,
+        'request': request?.toJson(),
+        'response': response?.toJson(),
+        'type': type,
+      };
+
   @override
   ExampleScenarioProcessStepOperation copyWith({
     String? description,

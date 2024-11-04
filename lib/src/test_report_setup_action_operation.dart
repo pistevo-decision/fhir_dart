@@ -1,15 +1,19 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// The operation to perform
- /// The operation performed.
-class TestReportSetupActionOperation extends BackboneElement implements FhirResource {
-   /// A link to further details on the result.
+/// The operation to perform
+/// The operation performed.
+class TestReportSetupActionOperation extends BackboneElement
+    implements FhirResource {
+  /// A link to further details on the result.
   final String? detail;
-   /// A message associated with the result
-   /// An explanatory message associated with the result.
+
+  /// A message associated with the result
+  /// An explanatory message associated with the result.
   final String? message;
-   /// The result of this operation.
-  final String result; // Possible values: 'pass', 'skip', 'fail', 'warning', 'error'
+
+  /// The result of this operation.
+  final String
+      result; // Possible values: 'pass', 'skip', 'fail', 'warning', 'error'
   TestReportSetupActionOperation({
     this.detail,
     super.fhirExtension,
@@ -18,30 +22,33 @@ class TestReportSetupActionOperation extends BackboneElement implements FhirReso
     super.modifierExtension,
     required this.result,
   });
-  
+
   @override
   factory TestReportSetupActionOperation.fromJson(Map<String, dynamic> json) {
     return TestReportSetupActionOperation(
       detail: json['detail'] as String?,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
       message: json['message'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       result: json['result'] as String,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'detail': detail,
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'message': message,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'result': result,
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'detail': detail,
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'message': message,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'result': result,
+      };
+
   @override
   TestReportSetupActionOperation copyWith({
     String? detail,

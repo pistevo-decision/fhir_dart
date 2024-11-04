@@ -1,10 +1,12 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// A specific version of the resource.
-class ExampleScenarioInstanceVersion extends BackboneElement implements FhirResource {
-   /// The description of the resource version.
+/// A specific version of the resource.
+class ExampleScenarioInstanceVersion extends BackboneElement
+    implements FhirResource {
+  /// The description of the resource version.
   final String description;
-   /// The identifier of a specific version of a resource.
+
+  /// The identifier of a specific version of a resource.
   final String versionId;
   ExampleScenarioInstanceVersion({
     required this.description,
@@ -13,28 +15,31 @@ class ExampleScenarioInstanceVersion extends BackboneElement implements FhirReso
     super.modifierExtension,
     required this.versionId,
   });
-  
+
   @override
   factory ExampleScenarioInstanceVersion.fromJson(Map<String, dynamic> json) {
     return ExampleScenarioInstanceVersion(
       description: json['description'] as String,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       versionId: json['versionId'] as String,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'description': description,
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'versionId': versionId,
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'description': description,
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'versionId': versionId,
+      };
+
   @override
   ExampleScenarioInstanceVersion copyWith({
     String? description,

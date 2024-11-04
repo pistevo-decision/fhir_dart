@@ -1,15 +1,18 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// List of benefits
- /// Specific benefits under this type of coverage.
-class InsurancePlanCoverageBenefit extends BackboneElement implements FhirResource {
-   /// Benefit limits
-   /// The specific limits on the benefit.
+/// List of benefits
+/// Specific benefits under this type of coverage.
+class InsurancePlanCoverageBenefit extends BackboneElement
+    implements FhirResource {
+  /// Benefit limits
+  /// The specific limits on the benefit.
   final List<InsurancePlanCoverageBenefitLimit>? limit;
-   /// Referral requirements
-   /// The referral requirements to have access/coverage for this benefit.
+
+  /// Referral requirements
+  /// The referral requirements to have access/coverage for this benefit.
   final String? requirement;
-   /// Type of benefit (primary care; speciality care; inpatient; outpatient).
+
+  /// Type of benefit (primary care; speciality care; inpatient; outpatient).
   final CodeableConcept type;
   InsurancePlanCoverageBenefit({
     super.fhirExtension,
@@ -19,30 +22,36 @@ class InsurancePlanCoverageBenefit extends BackboneElement implements FhirResour
     this.requirement,
     required this.type,
   });
-  
+
   @override
   factory InsurancePlanCoverageBenefit.fromJson(Map<String, dynamic> json) {
     return InsurancePlanCoverageBenefit(
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      limit: (json['limit'] as List<dynamic>?)?.map((e) => InsurancePlanCoverageBenefitLimit.fromJson(e as Map<String, dynamic>)).toList(),
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      limit: (json['limit'] as List<dynamic>?)
+          ?.map((e) => InsurancePlanCoverageBenefitLimit.fromJson(
+              e as Map<String, dynamic>))
+          .toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       requirement: json['requirement'] as String?,
       type: CodeableConcept.fromJson(json['type'] as Map<String, dynamic>),
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'limit': limit?.map((e) => e.toJson()).toList(),
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'requirement': requirement,
-      'type': type.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'limit': limit?.map((e) => e.toJson()).toList(),
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'requirement': requirement,
+        'type': type.toJson(),
+      };
+
   @override
   InsurancePlanCoverageBenefit copyWith({
     List<Extension>? fhirExtension,

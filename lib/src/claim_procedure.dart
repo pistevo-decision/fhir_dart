@@ -1,26 +1,31 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Clinical procedures performed
- /// Procedures performed on the patient relevant to the billing items with the claim.
+/// Clinical procedures performed
+/// Procedures performed on the patient relevant to the billing items with the claim.
 class ClaimProcedure extends BackboneElement implements FhirResource {
-   /// When the procedure was performed
-   /// Date and optionally time the procedure was performed.
+  /// When the procedure was performed
+  /// Date and optionally time the procedure was performed.
   final String? date;
-   /// Specific clinical procedure
-   /// The code or reference to a Procedure resource which identifies the clinical intervention performed.
+
+  /// Specific clinical procedure
+  /// The code or reference to a Procedure resource which identifies the clinical intervention performed.
   final CodeableConcept? procedureCodeableConcept;
-   /// Specific clinical procedure
-   /// The code or reference to a Procedure resource which identifies the clinical intervention performed.
+
+  /// Specific clinical procedure
+  /// The code or reference to a Procedure resource which identifies the clinical intervention performed.
   final Reference? procedureReference;
-   /// Procedure instance identifier
-   /// A number to uniquely identify procedure entries.
+
+  /// Procedure instance identifier
+  /// A number to uniquely identify procedure entries.
   final int sequence;
-   /// Category of Procedure
-   /// When the condition was observed or the relative ranking.
-   /// For example: primary, secondary.
+
+  /// Category of Procedure
+  /// When the condition was observed or the relative ranking.
+  /// For example: primary, secondary.
   final List<CodeableConcept>? type;
-   /// Unique device identifier
-   /// Unique Device Identifiers associated with this line item.
+
+  /// Unique device identifier
+  /// Unique Device Identifiers associated with this line item.
   final List<Reference>? udi;
   ClaimProcedure({
     this.date,
@@ -33,36 +38,49 @@ class ClaimProcedure extends BackboneElement implements FhirResource {
     this.type,
     this.udi,
   });
-  
+
   @override
   factory ClaimProcedure.fromJson(Map<String, dynamic> json) {
     return ClaimProcedure(
       date: json['date'] as String?,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      procedureCodeableConcept: json['procedureCodeableConcept'] != null ? CodeableConcept.fromJson(json['procedureCodeableConcept'] as Map<String, dynamic>) : null,
-      procedureReference: json['procedureReference'] != null ? Reference.fromJson(json['procedureReference'] as Map<String, dynamic>) : null,
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      procedureCodeableConcept: json['procedureCodeableConcept'] != null
+          ? CodeableConcept.fromJson(
+              json['procedureCodeableConcept'] as Map<String, dynamic>)
+          : null,
+      procedureReference: json['procedureReference'] != null
+          ? Reference.fromJson(
+              json['procedureReference'] as Map<String, dynamic>)
+          : null,
       sequence: json['sequence'] as int,
-      type: (json['type'] as List<dynamic>?)?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>)).toList(),
-      udi: (json['udi'] as List<dynamic>?)?.map((e) => Reference.fromJson(e as Map<String, dynamic>)).toList(),
+      type: (json['type'] as List<dynamic>?)
+          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      udi: (json['udi'] as List<dynamic>?)
+          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'date': date,
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'procedureCodeableConcept': procedureCodeableConcept?.toJson(),
-      'procedureReference': procedureReference?.toJson(),
-      'sequence': sequence,
-      'type': type?.map((e) => e.toJson()).toList(),
-      'udi': udi?.map((e) => e.toJson()).toList(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'date': date,
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'procedureCodeableConcept': procedureCodeableConcept?.toJson(),
+        'procedureReference': procedureReference?.toJson(),
+        'sequence': sequence,
+        'type': type?.map((e) => e.toJson()).toList(),
+        'udi': udi?.map((e) => e.toJson()).toList(),
+      };
+
   @override
   ClaimProcedure copyWith({
     String? date,
@@ -80,7 +98,8 @@ class ClaimProcedure extends BackboneElement implements FhirResource {
       fhirExtension: fhirExtension ?? this.fhirExtension,
       id: id ?? this.id,
       modifierExtension: modifierExtension ?? this.modifierExtension,
-      procedureCodeableConcept: procedureCodeableConcept ?? this.procedureCodeableConcept,
+      procedureCodeableConcept:
+          procedureCodeableConcept ?? this.procedureCodeableConcept,
       procedureReference: procedureReference ?? this.procedureReference,
       sequence: sequence ?? this.sequence,
       type: type ?? this.type,

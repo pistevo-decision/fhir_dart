@@ -1,26 +1,36 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Todo.
-class SubstanceReferenceInformationTarget extends BackboneElement implements FhirResource {
-   /// Todo.
+/// Todo.
+class SubstanceReferenceInformationTarget extends BackboneElement
+    implements FhirResource {
+  /// Todo.
   final Quantity? amountQuantity;
-   /// Todo.
+
+  /// Todo.
   final Range? amountRange;
-   /// Todo.
+
+  /// Todo.
   final String? amountString;
-   /// Todo.
+
+  /// Todo.
   final CodeableConcept? amountType;
-   /// Todo.
+
+  /// Todo.
   final CodeableConcept? interaction;
-   /// Todo.
+
+  /// Todo.
   final CodeableConcept? organism;
-   /// Todo.
+
+  /// Todo.
   final CodeableConcept? organismType;
-   /// Todo.
+
+  /// Todo.
   final List<Reference>? source;
-   /// Todo.
+
+  /// Todo.
   final Identifier? target;
-   /// Todo.
+
+  /// Todo.
   final CodeableConcept? type;
   SubstanceReferenceInformationTarget({
     this.amountQuantity,
@@ -37,44 +47,68 @@ class SubstanceReferenceInformationTarget extends BackboneElement implements Fhi
     this.target,
     this.type,
   });
-  
+
   @override
-  factory SubstanceReferenceInformationTarget.fromJson(Map<String, dynamic> json) {
+  factory SubstanceReferenceInformationTarget.fromJson(
+      Map<String, dynamic> json) {
     return SubstanceReferenceInformationTarget(
-      amountQuantity: json['amountQuantity'] != null ? Quantity.fromJson(json['amountQuantity'] as Map<String, dynamic>) : null,
-      amountRange: json['amountRange'] != null ? Range.fromJson(json['amountRange'] as Map<String, dynamic>) : null,
+      amountQuantity: json['amountQuantity'] != null
+          ? Quantity.fromJson(json['amountQuantity'] as Map<String, dynamic>)
+          : null,
+      amountRange: json['amountRange'] != null
+          ? Range.fromJson(json['amountRange'] as Map<String, dynamic>)
+          : null,
       amountString: json['amountString'] as String?,
-      amountType: json['amountType'] != null ? CodeableConcept.fromJson(json['amountType'] as Map<String, dynamic>) : null,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      amountType: json['amountType'] != null
+          ? CodeableConcept.fromJson(json['amountType'] as Map<String, dynamic>)
+          : null,
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      interaction: json['interaction'] != null ? CodeableConcept.fromJson(json['interaction'] as Map<String, dynamic>) : null,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      organism: json['organism'] != null ? CodeableConcept.fromJson(json['organism'] as Map<String, dynamic>) : null,
-      organismType: json['organismType'] != null ? CodeableConcept.fromJson(json['organismType'] as Map<String, dynamic>) : null,
-      source: (json['source'] as List<dynamic>?)?.map((e) => Reference.fromJson(e as Map<String, dynamic>)).toList(),
-      target: json['target'] != null ? Identifier.fromJson(json['target'] as Map<String, dynamic>) : null,
-      type: json['type'] != null ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>) : null,
+      interaction: json['interaction'] != null
+          ? CodeableConcept.fromJson(
+              json['interaction'] as Map<String, dynamic>)
+          : null,
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      organism: json['organism'] != null
+          ? CodeableConcept.fromJson(json['organism'] as Map<String, dynamic>)
+          : null,
+      organismType: json['organismType'] != null
+          ? CodeableConcept.fromJson(
+              json['organismType'] as Map<String, dynamic>)
+          : null,
+      source: (json['source'] as List<dynamic>?)
+          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      target: json['target'] != null
+          ? Identifier.fromJson(json['target'] as Map<String, dynamic>)
+          : null,
+      type: json['type'] != null
+          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          : null,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'amountQuantity': amountQuantity?.toJson(),
-      'amountRange': amountRange?.toJson(),
-      'amountString': amountString,
-      'amountType': amountType?.toJson(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'interaction': interaction?.toJson(),
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'organism': organism?.toJson(),
-      'organismType': organismType?.toJson(),
-      'source': source?.map((e) => e.toJson()).toList(),
-      'target': target?.toJson(),
-      'type': type?.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'amountQuantity': amountQuantity?.toJson(),
+        'amountRange': amountRange?.toJson(),
+        'amountString': amountString,
+        'amountType': amountType?.toJson(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'interaction': interaction?.toJson(),
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'organism': organism?.toJson(),
+        'organismType': organismType?.toJson(),
+        'source': source?.map((e) => e.toJson()).toList(),
+        'target': target?.toJson(),
+        'type': type?.toJson(),
+      };
+
   @override
   SubstanceReferenceInformationTarget copyWith({
     Quantity? amountQuantity,

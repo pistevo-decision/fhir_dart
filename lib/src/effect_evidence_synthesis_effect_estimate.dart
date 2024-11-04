@@ -1,25 +1,32 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// What was the estimated effect
- /// The estimated effect of the exposure variant.
-class EffectEvidenceSynthesisEffectEstimate extends BackboneElement implements FhirResource {
-   /// Description of effect estimate
-   /// Human-readable summary of effect estimate.
+/// What was the estimated effect
+/// The estimated effect of the exposure variant.
+class EffectEvidenceSynthesisEffectEstimate extends BackboneElement
+    implements FhirResource {
+  /// Description of effect estimate
+  /// Human-readable summary of effect estimate.
   final String? description;
-   /// How precise the estimate is
-   /// A description of the precision of the estimate for the effect.
-  final List<EffectEvidenceSynthesisEffectEstimatePrecisionEstimate>? precisionEstimate;
-   /// Type of efffect estimate
-   /// Examples include relative risk and mean difference.
+
+  /// How precise the estimate is
+  /// A description of the precision of the estimate for the effect.
+  final List<EffectEvidenceSynthesisEffectEstimatePrecisionEstimate>?
+      precisionEstimate;
+
+  /// Type of efffect estimate
+  /// Examples include relative risk and mean difference.
   final CodeableConcept? type;
-   /// What unit is the outcome described in?
-   /// Specifies the UCUM unit for the outcome.
+
+  /// What unit is the outcome described in?
+  /// Specifies the UCUM unit for the outcome.
   final CodeableConcept? unitOfMeasure;
-   /// Point estimate
-   /// The point estimate of the effect estimate.
+
+  /// Point estimate
+  /// The point estimate of the effect estimate.
   final num? value;
-   /// Variant exposure states
-   /// Used to define variant exposure states such as low-risk state.
+
+  /// Variant exposure states
+  /// Used to define variant exposure states such as low-risk state.
   final CodeableConcept? variantState;
   EffectEvidenceSynthesisEffectEstimate({
     this.description,
@@ -32,43 +39,60 @@ class EffectEvidenceSynthesisEffectEstimate extends BackboneElement implements F
     this.value,
     this.variantState,
   });
-  
+
   @override
-  factory EffectEvidenceSynthesisEffectEstimate.fromJson(Map<String, dynamic> json) {
+  factory EffectEvidenceSynthesisEffectEstimate.fromJson(
+      Map<String, dynamic> json) {
     return EffectEvidenceSynthesisEffectEstimate(
       description: json['description'] as String?,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      precisionEstimate: (json['precisionEstimate'] as List<dynamic>?)?.map((e) => EffectEvidenceSynthesisEffectEstimatePrecisionEstimate.fromJson(e as Map<String, dynamic>)).toList(),
-      type: json['type'] != null ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>) : null,
-      unitOfMeasure: json['unitOfMeasure'] != null ? CodeableConcept.fromJson(json['unitOfMeasure'] as Map<String, dynamic>) : null,
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      precisionEstimate: (json['precisionEstimate'] as List<dynamic>?)
+          ?.map((e) =>
+              EffectEvidenceSynthesisEffectEstimatePrecisionEstimate.fromJson(
+                  e as Map<String, dynamic>))
+          .toList(),
+      type: json['type'] != null
+          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          : null,
+      unitOfMeasure: json['unitOfMeasure'] != null
+          ? CodeableConcept.fromJson(
+              json['unitOfMeasure'] as Map<String, dynamic>)
+          : null,
       value: json['value'] as num?,
-      variantState: json['variantState'] != null ? CodeableConcept.fromJson(json['variantState'] as Map<String, dynamic>) : null,
+      variantState: json['variantState'] != null
+          ? CodeableConcept.fromJson(
+              json['variantState'] as Map<String, dynamic>)
+          : null,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'description': description,
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'precisionEstimate': precisionEstimate?.map((e) => e.toJson()).toList(),
-      'type': type?.toJson(),
-      'unitOfMeasure': unitOfMeasure?.toJson(),
-      'value': value,
-      'variantState': variantState?.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'description': description,
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'precisionEstimate': precisionEstimate?.map((e) => e.toJson()).toList(),
+        'type': type?.toJson(),
+        'unitOfMeasure': unitOfMeasure?.toJson(),
+        'value': value,
+        'variantState': variantState?.toJson(),
+      };
+
   @override
   EffectEvidenceSynthesisEffectEstimate copyWith({
     String? description,
     List<Extension>? fhirExtension,
     String? id,
     List<Extension>? modifierExtension,
-    List<EffectEvidenceSynthesisEffectEstimatePrecisionEstimate>? precisionEstimate,
+    List<EffectEvidenceSynthesisEffectEstimatePrecisionEstimate>?
+        precisionEstimate,
     CodeableConcept? type,
     CodeableConcept? unitOfMeasure,
     num? value,

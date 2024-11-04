@@ -143,7 +143,6 @@ void main() {
     expect(consent.patient?.display, 'P. van de Heuvel');
   });
 
-
   test('can copy a fhir r4 object', () async {
     // 1. parse it into a FhirResource object
     final Patient patient = Patient.fromJson(
@@ -164,11 +163,12 @@ void main() {
 
     // 6. check some of the properties of the copied object
     expect(copiedPatient.id, patient.id);
-    expect(copiedPatient.meta?.tag?.first.system,
-        patient.meta?.tag?.first.system);
+    expect(
+        copiedPatient.meta?.tag?.first.system, patient.meta?.tag?.first.system);
     expect(copiedPatient.active, patient.active);
     expect(copiedPatient.name?.first.family, patient.name?.first.family);
-    expect(copiedPatient.photo?.first.contentType, patient.photo?.first.contentType);
+    expect(copiedPatient.photo?.first.contentType,
+        patient.photo?.first.contentType);
   });
 
   test('can copy a fhir r4 object with new values', () async {
@@ -200,8 +200,8 @@ void main() {
 
     // 6. check some of the properties of the copied object
     expect(copiedPatient.id, 'newId');
-    expect(copiedPatient.meta?.tag?.first.system,
-        patient.meta?.tag?.first.system);
+    expect(
+        copiedPatient.meta?.tag?.first.system, patient.meta?.tag?.first.system);
     expect(copiedPatient.active, false);
     expect(copiedPatient.name?.first.family, 'newFamily');
     expect(copiedPatient.photo?.first.contentType, 'newContentType');

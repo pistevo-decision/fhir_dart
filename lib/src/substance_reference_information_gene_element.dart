@@ -1,12 +1,15 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Todo.
-class SubstanceReferenceInformationGeneElement extends BackboneElement implements FhirResource {
-   /// Todo.
+/// Todo.
+class SubstanceReferenceInformationGeneElement extends BackboneElement
+    implements FhirResource {
+  /// Todo.
   final Identifier? element;
-   /// Todo.
+
+  /// Todo.
   final List<Reference>? source;
-   /// Todo.
+
+  /// Todo.
   final CodeableConcept? type;
   SubstanceReferenceInformationGeneElement({
     this.element,
@@ -16,30 +19,40 @@ class SubstanceReferenceInformationGeneElement extends BackboneElement implement
     this.source,
     this.type,
   });
-  
+
   @override
-  factory SubstanceReferenceInformationGeneElement.fromJson(Map<String, dynamic> json) {
+  factory SubstanceReferenceInformationGeneElement.fromJson(
+      Map<String, dynamic> json) {
     return SubstanceReferenceInformationGeneElement(
-      element: json['element'] != null ? Identifier.fromJson(json['element'] as Map<String, dynamic>) : null,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      element: json['element'] != null
+          ? Identifier.fromJson(json['element'] as Map<String, dynamic>)
+          : null,
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      source: (json['source'] as List<dynamic>?)?.map((e) => Reference.fromJson(e as Map<String, dynamic>)).toList(),
-      type: json['type'] != null ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>) : null,
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      source: (json['source'] as List<dynamic>?)
+          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      type: json['type'] != null
+          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          : null,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'element': element?.toJson(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'source': source?.map((e) => e.toJson()).toList(),
-      'type': type?.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'element': element?.toJson(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'source': source?.map((e) => e.toJson()).toList(),
+        'type': type?.toJson(),
+      };
+
   @override
   SubstanceReferenceInformationGeneElement copyWith({
     Identifier? element,

@@ -1,12 +1,13 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Offer Recipient.
+/// Offer Recipient.
 class ContractTermOfferParty extends BackboneElement implements FhirResource {
-   /// Referenced entity
-   /// Participant in the offer.
+  /// Referenced entity
+  /// Participant in the offer.
   final List<Reference> reference;
-   /// Participant engagement type
-   /// How the party participates in the offer.
+
+  /// Participant engagement type
+  /// How the party participates in the offer.
   final CodeableConcept role;
   ContractTermOfferParty({
     super.fhirExtension,
@@ -15,28 +16,33 @@ class ContractTermOfferParty extends BackboneElement implements FhirResource {
     required this.reference,
     required this.role,
   });
-  
+
   @override
   factory ContractTermOfferParty.fromJson(Map<String, dynamic> json) {
     return ContractTermOfferParty(
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      reference: (json['reference'] as List<dynamic>).map((e) => Reference.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      reference: (json['reference'] as List<dynamic>)
+          .map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          .toList(),
       role: CodeableConcept.fromJson(json['role'] as Map<String, dynamic>),
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'reference': reference.map((e) => e.toJson()).toList(),
-      'role': role.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'reference': reference.map((e) => e.toJson()).toList(),
+        'role': role.toJson(),
+      };
+
   @override
   ContractTermOfferParty copyWith({
     List<Extension>? fhirExtension,

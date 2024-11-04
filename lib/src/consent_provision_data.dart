@@ -1,12 +1,13 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Data controlled by this rule
- /// The resources controlled by this rule if specific resources are referenced.
+/// Data controlled by this rule
+/// The resources controlled by this rule if specific resources are referenced.
 class ConsentProvisionData extends BackboneElement implements FhirResource {
-   /// How the resource reference is interpreted when testing consent restrictions.
-  final String meaning; // Possible values: 'instance', 'related', 'dependents', 'authoredby'
-   /// The actual data reference
-   /// A reference to a specific resource that defines which resources are covered by this consent.
+  /// How the resource reference is interpreted when testing consent restrictions.
+  final String
+      meaning; // Possible values: 'instance', 'related', 'dependents', 'authoredby'
+  /// The actual data reference
+  /// A reference to a specific resource that defines which resources are covered by this consent.
   final Reference reference;
   ConsentProvisionData({
     super.fhirExtension,
@@ -15,28 +16,31 @@ class ConsentProvisionData extends BackboneElement implements FhirResource {
     super.modifierExtension,
     required this.reference,
   });
-  
+
   @override
   factory ConsentProvisionData.fromJson(Map<String, dynamic> json) {
     return ConsentProvisionData(
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
       meaning: json['meaning'] as String,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       reference: Reference.fromJson(json['reference'] as Map<String, dynamic>),
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'meaning': meaning,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'reference': reference.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'meaning': meaning,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'reference': reference.toJson(),
+      };
+
   @override
   ConsentProvisionData copyWith({
     List<Extension>? fhirExtension,

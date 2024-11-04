@@ -1,13 +1,15 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// The list of diagnosis relevant to this episode of care.
+/// The list of diagnosis relevant to this episode of care.
 class EpisodeOfCareDiagnosis extends BackboneElement implements FhirResource {
-   /// Conditions/problems/diagnoses this episode of care is for
-   /// A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for.
+  /// Conditions/problems/diagnoses this episode of care is for
+  /// A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for.
   final Reference condition;
-   /// Ranking of the diagnosis (for each role type).
+
+  /// Ranking of the diagnosis (for each role type).
   final int? rank;
-   /// Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge …).
+
+  /// Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge …).
   final CodeableConcept? role;
   EpisodeOfCareDiagnosis({
     required this.condition,
@@ -17,30 +19,35 @@ class EpisodeOfCareDiagnosis extends BackboneElement implements FhirResource {
     this.rank,
     this.role,
   });
-  
+
   @override
   factory EpisodeOfCareDiagnosis.fromJson(Map<String, dynamic> json) {
     return EpisodeOfCareDiagnosis(
       condition: Reference.fromJson(json['condition'] as Map<String, dynamic>),
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       rank: json['rank'] as int?,
-      role: json['role'] != null ? CodeableConcept.fromJson(json['role'] as Map<String, dynamic>) : null,
+      role: json['role'] != null
+          ? CodeableConcept.fromJson(json['role'] as Map<String, dynamic>)
+          : null,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'condition': condition.toJson(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'rank': rank,
-      'role': role?.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'condition': condition.toJson(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'rank': rank,
+        'role': role?.toJson(),
+      };
+
   @override
   EpisodeOfCareDiagnosis copyWith({
     Reference? condition,

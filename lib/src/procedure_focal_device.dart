@@ -1,13 +1,14 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Manipulated, implanted, or removed device
- /// A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.
+/// Manipulated, implanted, or removed device
+/// A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.
 class ProcedureFocalDevice extends BackboneElement implements FhirResource {
-   /// Kind of change to device
-   /// The kind of change that happened to the device during the procedure.
+  /// Kind of change to device
+  /// The kind of change that happened to the device during the procedure.
   final CodeableConcept? action;
-   /// Device that was changed
-   /// The device that was manipulated (changed) during the procedure.
+
+  /// Device that was changed
+  /// The device that was manipulated (changed) during the procedure.
   final Reference manipulated;
   ProcedureFocalDevice({
     this.action,
@@ -16,28 +17,34 @@ class ProcedureFocalDevice extends BackboneElement implements FhirResource {
     required this.manipulated,
     super.modifierExtension,
   });
-  
+
   @override
   factory ProcedureFocalDevice.fromJson(Map<String, dynamic> json) {
     return ProcedureFocalDevice(
-      action: json['action'] != null ? CodeableConcept.fromJson(json['action'] as Map<String, dynamic>) : null,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      action: json['action'] != null
+          ? CodeableConcept.fromJson(json['action'] as Map<String, dynamic>)
+          : null,
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      manipulated: Reference.fromJson(json['manipulated'] as Map<String, dynamic>),
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      manipulated:
+          Reference.fromJson(json['manipulated'] as Map<String, dynamic>),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'action': action?.toJson(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'manipulated': manipulated.toJson(),
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'action': action?.toJson(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'manipulated': manipulated.toJson(),
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+      };
+
   @override
   ProcedureFocalDevice copyWith({
     CodeableConcept? action,

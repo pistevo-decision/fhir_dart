@@ -1,13 +1,14 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Who|what controlled by this rule (or group, by role)
- /// Who or what is controlled by this rule. Use group to identify a set of actors by some property they share (e.g. 'admitting officers').
+/// Who|what controlled by this rule (or group, by role)
+/// Who or what is controlled by this rule. Use group to identify a set of actors by some property they share (e.g. 'admitting officers').
 class ConsentProvisionActor extends BackboneElement implements FhirResource {
-   /// Resource for the actor (or group, by role)
-   /// The resource that identifies the actor. To identify actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').
+  /// Resource for the actor (or group, by role)
+  /// The resource that identifies the actor. To identify actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').
   final Reference reference;
-   /// How the actor is involved
-   /// How the individual is involved in the resources content that is described in the exception.
+
+  /// How the actor is involved
+  /// How the individual is involved in the resources content that is described in the exception.
   final CodeableConcept role;
   ConsentProvisionActor({
     super.fhirExtension,
@@ -16,28 +17,31 @@ class ConsentProvisionActor extends BackboneElement implements FhirResource {
     required this.reference,
     required this.role,
   });
-  
+
   @override
   factory ConsentProvisionActor.fromJson(Map<String, dynamic> json) {
     return ConsentProvisionActor(
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       reference: Reference.fromJson(json['reference'] as Map<String, dynamic>),
       role: CodeableConcept.fromJson(json['role'] as Map<String, dynamic>),
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'reference': reference.toJson(),
-      'role': role.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'reference': reference.toJson(),
+        'role': role.toJson(),
+      };
+
   @override
   ConsentProvisionActor copyWith({
     List<Extension>? fhirExtension,

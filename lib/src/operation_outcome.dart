@@ -1,12 +1,13 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Can result from the failure of a REST call or be part of the response message returned from a request message.
- /// A collection of error, warning, or information messages that result from a system action.
+/// Can result from the failure of a REST call or be part of the response message returned from a request message.
+/// A collection of error, warning, or information messages that result from a system action.
 class OperationOutcome extends DomainResource implements FhirResource {
-  /// Resource Type Name (for serialization) 
+  /// Resource Type Name (for serialization)
   static const resourceType = 'OperationOutcome';
-   /// A single issue associated with the action
-   /// An error, warning, or information message that results from a system action.
+
+  /// A single issue associated with the action
+  /// An error, warning, or information message that results from a system action.
   final List<OperationOutcomeIssue> issue;
   OperationOutcome({
     super.contained,
@@ -19,36 +20,47 @@ class OperationOutcome extends DomainResource implements FhirResource {
     super.modifierExtension,
     super.text,
   });
-  
+
   @override
   factory OperationOutcome.fromJson(Map<String, dynamic> json) {
     return OperationOutcome(
-      contained: (json['contained'] as List<dynamic>?)?.map((e) => Resource.fromJson(e as Map<String, dynamic>)).toList(),
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      contained: (json['contained'] as List<dynamic>?)
+          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
       implicitRules: json['implicitRules'] as String?,
-      issue: (json['issue'] as List<dynamic>).map((e) => OperationOutcomeIssue.fromJson(e as Map<String, dynamic>)).toList(),
+      issue: (json['issue'] as List<dynamic>)
+          .map((e) => OperationOutcomeIssue.fromJson(e as Map<String, dynamic>))
+          .toList(),
       language: json['language'] as String?,
-      meta: json['meta'] != null ? Meta.fromJson(json['meta'] as Map<String, dynamic>) : null,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      text: json['text'] != null ? Narrative.fromJson(json['text'] as Map<String, dynamic>) : null,
+      meta: json['meta'] != null
+          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          : null,
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      text: json['text'] != null
+          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          : null,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'contained': contained?.map((e) => e.toJson()).toList(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'implicitRules': implicitRules,
-      'issue': issue.map((e) => e.toJson()).toList(),
-      'language': language,
-      'meta': meta?.toJson(),
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'text': text?.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'contained': contained?.map((e) => e.toJson()).toList(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'implicitRules': implicitRules,
+        'issue': issue.map((e) => e.toJson()).toList(),
+        'language': language,
+        'meta': meta?.toJson(),
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'text': text?.toJson(),
+      };
+
   @override
   OperationOutcome copyWith({
     List<Resource>? contained,

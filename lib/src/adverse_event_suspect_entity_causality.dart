@@ -1,14 +1,18 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Information on the possible cause of the event.
-class AdverseEventSuspectEntityCausality extends BackboneElement implements FhirResource {
-   /// Assessment of if the entity caused the event.
+/// Information on the possible cause of the event.
+class AdverseEventSuspectEntityCausality extends BackboneElement
+    implements FhirResource {
+  /// Assessment of if the entity caused the event.
   final CodeableConcept? assessment;
-   /// AdverseEvent.suspectEntity.causalityAuthor.
+
+  /// AdverseEvent.suspectEntity.causalityAuthor.
   final Reference? author;
-   /// ProbabilityScale | Bayesian | Checklist.
+
+  /// ProbabilityScale | Bayesian | Checklist.
   final CodeableConcept? method;
-   /// AdverseEvent.suspectEntity.causalityProductRelatedness.
+
+  /// AdverseEvent.suspectEntity.causalityProductRelatedness.
   final String? productRelatedness;
   AdverseEventSuspectEntityCausality({
     this.assessment,
@@ -19,32 +23,42 @@ class AdverseEventSuspectEntityCausality extends BackboneElement implements Fhir
     super.modifierExtension,
     this.productRelatedness,
   });
-  
+
   @override
-  factory AdverseEventSuspectEntityCausality.fromJson(Map<String, dynamic> json) {
+  factory AdverseEventSuspectEntityCausality.fromJson(
+      Map<String, dynamic> json) {
     return AdverseEventSuspectEntityCausality(
-      assessment: json['assessment'] != null ? CodeableConcept.fromJson(json['assessment'] as Map<String, dynamic>) : null,
-      author: json['author'] != null ? Reference.fromJson(json['author'] as Map<String, dynamic>) : null,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      assessment: json['assessment'] != null
+          ? CodeableConcept.fromJson(json['assessment'] as Map<String, dynamic>)
+          : null,
+      author: json['author'] != null
+          ? Reference.fromJson(json['author'] as Map<String, dynamic>)
+          : null,
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      method: json['method'] != null ? CodeableConcept.fromJson(json['method'] as Map<String, dynamic>) : null,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      method: json['method'] != null
+          ? CodeableConcept.fromJson(json['method'] as Map<String, dynamic>)
+          : null,
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       productRelatedness: json['productRelatedness'] as String?,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'assessment': assessment?.toJson(),
-      'author': author?.toJson(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'method': method?.toJson(),
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'productRelatedness': productRelatedness,
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'assessment': assessment?.toJson(),
+        'author': author?.toJson(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'method': method?.toJson(),
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'productRelatedness': productRelatedness,
+      };
+
   @override
   AdverseEventSuspectEntityCausality copyWith({
     CodeableConcept? assessment,

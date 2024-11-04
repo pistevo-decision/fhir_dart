@@ -1,13 +1,15 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Stratifier component values
- /// A stratifier component value.
-class MeasureReportGroupStratifierStratumComponent extends BackboneElement implements FhirResource {
-   /// What stratifier component of the group
-   /// The code for the stratum component value.
+/// Stratifier component values
+/// A stratifier component value.
+class MeasureReportGroupStratifierStratumComponent extends BackboneElement
+    implements FhirResource {
+  /// What stratifier component of the group
+  /// The code for the stratum component value.
   final CodeableConcept code;
-   /// The stratum component value, e.g. male
-   /// The stratum component value.
+
+  /// The stratum component value, e.g. male
+  /// The stratum component value.
   final CodeableConcept value;
   MeasureReportGroupStratifierStratumComponent({
     required this.code,
@@ -16,28 +18,32 @@ class MeasureReportGroupStratifierStratumComponent extends BackboneElement imple
     super.modifierExtension,
     required this.value,
   });
-  
+
   @override
-  factory MeasureReportGroupStratifierStratumComponent.fromJson(Map<String, dynamic> json) {
+  factory MeasureReportGroupStratifierStratumComponent.fromJson(
+      Map<String, dynamic> json) {
     return MeasureReportGroupStratifierStratumComponent(
       code: CodeableConcept.fromJson(json['code'] as Map<String, dynamic>),
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       value: CodeableConcept.fromJson(json['value'] as Map<String, dynamic>),
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'code': code.toJson(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'value': value.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'code': code.toJson(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'value': value.toJson(),
+      };
+
   @override
   MeasureReportGroupStratifierStratumComponent copyWith({
     CodeableConcept? code,

@@ -1,12 +1,15 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Molecular structural representation.
-class SubstanceSpecificationStructureRepresentation extends BackboneElement implements FhirResource {
-   /// An attached file with the structural representation.
+/// Molecular structural representation.
+class SubstanceSpecificationStructureRepresentation extends BackboneElement
+    implements FhirResource {
+  /// An attached file with the structural representation.
   final Attachment? attachment;
-   /// The structural representation as text string in a format e.g. InChI, SMILES, MOLFILE, CDX.
+
+  /// The structural representation as text string in a format e.g. InChI, SMILES, MOLFILE, CDX.
   final String? representation;
-   /// The type of structure (e.g. Full, Partial, Representative).
+
+  /// The type of structure (e.g. Full, Partial, Representative).
   final CodeableConcept? type;
   SubstanceSpecificationStructureRepresentation({
     this.attachment,
@@ -16,30 +19,38 @@ class SubstanceSpecificationStructureRepresentation extends BackboneElement impl
     this.representation,
     this.type,
   });
-  
+
   @override
-  factory SubstanceSpecificationStructureRepresentation.fromJson(Map<String, dynamic> json) {
+  factory SubstanceSpecificationStructureRepresentation.fromJson(
+      Map<String, dynamic> json) {
     return SubstanceSpecificationStructureRepresentation(
-      attachment: json['attachment'] != null ? Attachment.fromJson(json['attachment'] as Map<String, dynamic>) : null,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      attachment: json['attachment'] != null
+          ? Attachment.fromJson(json['attachment'] as Map<String, dynamic>)
+          : null,
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       representation: json['representation'] as String?,
-      type: json['type'] != null ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>) : null,
+      type: json['type'] != null
+          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          : null,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'attachment': attachment?.toJson(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'representation': representation,
-      'type': type?.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'attachment': attachment?.toJson(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'representation': representation,
+        'type': type?.toJson(),
+      };
+
   @override
   SubstanceSpecificationStructureRepresentation copyWith({
     Attachment? attachment,

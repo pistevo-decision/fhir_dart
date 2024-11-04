@@ -1,6 +1,6 @@
 part of 'json_examples.dart';
 
-const Map<String,dynamic> bundleExample = {
+const Map<String, dynamic> bundleExample = {
   "resourceType": "Bundle",
   "id": "bundle-example",
   "meta": {
@@ -18,11 +18,13 @@ const Map<String,dynamic> bundleExample = {
   "link": [
     {
       "relation": "self",
-      "url": "https://example.com/base/MedicationRequest?patient\u003d347\u0026_include\u003dMedicationRequest.medication\u0026_count\u003d2"
+      "url":
+          "https://example.com/base/MedicationRequest?patient\u003d347\u0026_include\u003dMedicationRequest.medication\u0026_count\u003d2"
     },
     {
       "relation": "next",
-      "url": "https://example.com/base/MedicationRequest?patient\u003d347\u0026searchId\u003dff15fd40-ff71-4b48-b366-09c706bed9d0\u0026page\u003d2"
+      "url":
+          "https://example.com/base/MedicationRequest?patient\u003d347\u0026searchId\u003dff15fd40-ff71-4b48-b366-09c706bed9d0\u0026page\u003d2"
     }
   ],
   "entry": [
@@ -33,21 +35,15 @@ const Map<String,dynamic> bundleExample = {
         "id": "3123",
         "text": {
           "status": "generated",
-          "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative with Details\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eid\u003c/b\u003e: 3123\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: unknown\u003c/p\u003e\u003cp\u003e\u003cb\u003eintent\u003c/b\u003e: order\u003c/p\u003e\u003cp\u003e\u003cb\u003emedication\u003c/b\u003e: \u003ca\u003eMedication/example\u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003esubject\u003c/b\u003e: \u003ca\u003ePatient/347\u003c/a\u003e\u003c/p\u003e\u003c/div\u003e"
+          "div":
+              "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative with Details\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eid\u003c/b\u003e: 3123\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: unknown\u003c/p\u003e\u003cp\u003e\u003cb\u003eintent\u003c/b\u003e: order\u003c/p\u003e\u003cp\u003e\u003cb\u003emedication\u003c/b\u003e: \u003ca\u003eMedication/example\u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003esubject\u003c/b\u003e: \u003ca\u003ePatient/347\u003c/a\u003e\u003c/p\u003e\u003c/div\u003e"
         },
         "status": "unknown",
         "intent": "order",
-        "medicationReference": {
-          "reference": "Medication/example"
-        },
-        "subject": {
-          "reference": "Patient/347"
-        }
+        "medicationReference": {"reference": "Medication/example"},
+        "subject": {"reference": "Patient/347"}
       },
-      "search": {
-        "mode": "match",
-        "score": 1
-      }
+      "search": {"mode": "match", "score": 1}
     },
     {
       "fullUrl": "https://example.com/base/Medication/example",
@@ -56,12 +52,11 @@ const Map<String,dynamic> bundleExample = {
         "id": "example",
         "text": {
           "status": "generated",
-          "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative with Details\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eid\u003c/b\u003e: example\u003c/p\u003e\u003c/div\u003e"
+          "div":
+              "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative with Details\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eid\u003c/b\u003e: example\u003c/p\u003e\u003c/div\u003e"
         }
       },
-      "search": {
-        "mode": "include"
-      }
+      "search": {"mode": "include"}
     }
   ]
 };

@@ -1,10 +1,12 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Todo.
-class SubstancePolymerMonomerSet extends BackboneElement implements FhirResource {
-   /// Todo.
+/// Todo.
+class SubstancePolymerMonomerSet extends BackboneElement
+    implements FhirResource {
+  /// Todo.
   final CodeableConcept? ratioType;
-   /// Todo.
+
+  /// Todo.
   final List<SubstancePolymerMonomerSetStartingMaterial>? startingMaterial;
   SubstancePolymerMonomerSet({
     super.fhirExtension,
@@ -13,28 +15,36 @@ class SubstancePolymerMonomerSet extends BackboneElement implements FhirResource
     this.ratioType,
     this.startingMaterial,
   });
-  
+
   @override
   factory SubstancePolymerMonomerSet.fromJson(Map<String, dynamic> json) {
     return SubstancePolymerMonomerSet(
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      ratioType: json['ratioType'] != null ? CodeableConcept.fromJson(json['ratioType'] as Map<String, dynamic>) : null,
-      startingMaterial: (json['startingMaterial'] as List<dynamic>?)?.map((e) => SubstancePolymerMonomerSetStartingMaterial.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      ratioType: json['ratioType'] != null
+          ? CodeableConcept.fromJson(json['ratioType'] as Map<String, dynamic>)
+          : null,
+      startingMaterial: (json['startingMaterial'] as List<dynamic>?)
+          ?.map((e) => SubstancePolymerMonomerSetStartingMaterial.fromJson(
+              e as Map<String, dynamic>))
+          .toList(),
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'ratioType': ratioType?.toJson(),
-      'startingMaterial': startingMaterial?.map((e) => e.toJson()).toList(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'ratioType': ratioType?.toJson(),
+        'startingMaterial': startingMaterial?.map((e) => e.toJson()).toList(),
+      };
+
   @override
   SubstancePolymerMonomerSet copyWith({
     List<Extension>? fhirExtension,

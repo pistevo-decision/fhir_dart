@@ -1,16 +1,21 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Parameters to the transform.
-class StructureMapGroupRuleTargetParameter extends BackboneElement implements FhirResource {
-   /// Parameter value - variable or literal.
+/// Parameters to the transform.
+class StructureMapGroupRuleTargetParameter extends BackboneElement
+    implements FhirResource {
+  /// Parameter value - variable or literal.
   final bool? valueBoolean;
-   /// Parameter value - variable or literal.
+
+  /// Parameter value - variable or literal.
   final num? valueDecimal;
-   /// Parameter value - variable or literal.
+
+  /// Parameter value - variable or literal.
   final String? valueId;
-   /// Parameter value - variable or literal.
+
+  /// Parameter value - variable or literal.
   final int? valueInteger;
-   /// Parameter value - variable or literal.
+
+  /// Parameter value - variable or literal.
   final String? valueString;
   StructureMapGroupRuleTargetParameter({
     super.fhirExtension,
@@ -22,34 +27,38 @@ class StructureMapGroupRuleTargetParameter extends BackboneElement implements Fh
     this.valueInteger,
     this.valueString,
   });
-  
+
   @override
-  factory StructureMapGroupRuleTargetParameter.fromJson(Map<String, dynamic> json) {
+  factory StructureMapGroupRuleTargetParameter.fromJson(
+      Map<String, dynamic> json) {
     return StructureMapGroupRuleTargetParameter(
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       valueBoolean: json['valueBoolean'] as bool?,
       valueDecimal: json['valueDecimal'] as num?,
       valueId: json['valueId'] as String?,
       valueInteger: json['valueInteger'] as int?,
       valueString: json['valueString'] as String?,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'valueBoolean': valueBoolean,
-      'valueDecimal': valueDecimal,
-      'valueId': valueId,
-      'valueInteger': valueInteger,
-      'valueString': valueString,
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'valueBoolean': valueBoolean,
+        'valueDecimal': valueDecimal,
+        'valueId': valueId,
+        'valueInteger': valueInteger,
+        'valueString': valueString,
+      };
+
   @override
   StructureMapGroupRuleTargetParameter copyWith({
     List<Extension>? fhirExtension,

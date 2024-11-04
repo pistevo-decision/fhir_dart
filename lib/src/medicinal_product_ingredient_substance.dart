@@ -1,10 +1,12 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// The ingredient substance.
-class MedicinalProductIngredientSubstance extends BackboneElement implements FhirResource {
-   /// The ingredient substance.
+/// The ingredient substance.
+class MedicinalProductIngredientSubstance extends BackboneElement
+    implements FhirResource {
+  /// The ingredient substance.
   final CodeableConcept code;
-   /// Quantity of the substance or specified substance present in the manufactured item or pharmaceutical product.
+
+  /// Quantity of the substance or specified substance present in the manufactured item or pharmaceutical product.
   final List<MedicinalProductIngredientSpecifiedSubstanceStrength>? strength;
   MedicinalProductIngredientSubstance({
     required this.code,
@@ -13,28 +15,36 @@ class MedicinalProductIngredientSubstance extends BackboneElement implements Fhi
     super.modifierExtension,
     this.strength,
   });
-  
+
   @override
-  factory MedicinalProductIngredientSubstance.fromJson(Map<String, dynamic> json) {
+  factory MedicinalProductIngredientSubstance.fromJson(
+      Map<String, dynamic> json) {
     return MedicinalProductIngredientSubstance(
       code: CodeableConcept.fromJson(json['code'] as Map<String, dynamic>),
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      strength: (json['strength'] as List<dynamic>?)?.map((e) => MedicinalProductIngredientSpecifiedSubstanceStrength.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      strength: (json['strength'] as List<dynamic>?)
+          ?.map((e) =>
+              MedicinalProductIngredientSpecifiedSubstanceStrength.fromJson(
+                  e as Map<String, dynamic>))
+          .toList(),
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'code': code.toJson(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'strength': strength?.map((e) => e.toJson()).toList(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'code': code.toJson(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'strength': strength?.map((e) => e.toJson()).toList(),
+      };
+
   @override
   MedicinalProductIngredientSubstance copyWith({
     CodeableConcept? code,

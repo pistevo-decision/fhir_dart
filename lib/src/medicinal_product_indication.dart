@@ -1,26 +1,36 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Indication for the Medicinal Product.
-class MedicinalProductIndication extends DomainResource implements FhirResource {
-  /// Resource Type Name (for serialization) 
+/// Indication for the Medicinal Product.
+class MedicinalProductIndication extends DomainResource
+    implements FhirResource {
+  /// Resource Type Name (for serialization)
   static const resourceType = 'MedicinalProductIndication';
-   /// Comorbidity (concurrent condition) or co-infection as part of the indication.
+
+  /// Comorbidity (concurrent condition) or co-infection as part of the indication.
   final List<CodeableConcept>? comorbidity;
-   /// The status of the disease or symptom for which the indication applies.
+
+  /// The status of the disease or symptom for which the indication applies.
   final CodeableConcept? diseaseStatus;
-   /// The disease, symptom or procedure that is the indication for treatment.
+
+  /// The disease, symptom or procedure that is the indication for treatment.
   final CodeableConcept? diseaseSymptomProcedure;
-   /// Timing or duration information as part of the indication.
+
+  /// Timing or duration information as part of the indication.
   final Quantity? duration;
-   /// The intended effect, aim or strategy to be achieved by the indication.
+
+  /// The intended effect, aim or strategy to be achieved by the indication.
   final CodeableConcept? intendedEffect;
-   /// Information about the use of the medicinal product in relation to other therapies described as part of the indication.
+
+  /// Information about the use of the medicinal product in relation to other therapies described as part of the indication.
   final List<MedicinalProductIndicationOtherTherapy>? otherTherapy;
-   /// The population group to which this applies.
+
+  /// The population group to which this applies.
   final List<Population>? population;
-   /// The medication for which this is an indication.
+
+  /// The medication for which this is an indication.
   final List<Reference>? subject;
-   /// Describe the undesirable effects of the medicinal product.
+
+  /// Describe the undesirable effects of the medicinal product.
   final List<Reference>? undesirableEffect;
   MedicinalProductIndication({
     this.comorbidity,
@@ -41,52 +51,83 @@ class MedicinalProductIndication extends DomainResource implements FhirResource 
     super.text,
     this.undesirableEffect,
   });
-  
+
   @override
   factory MedicinalProductIndication.fromJson(Map<String, dynamic> json) {
     return MedicinalProductIndication(
-      comorbidity: (json['comorbidity'] as List<dynamic>?)?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>)).toList(),
-      contained: (json['contained'] as List<dynamic>?)?.map((e) => Resource.fromJson(e as Map<String, dynamic>)).toList(),
-      diseaseStatus: json['diseaseStatus'] != null ? CodeableConcept.fromJson(json['diseaseStatus'] as Map<String, dynamic>) : null,
-      diseaseSymptomProcedure: json['diseaseSymptomProcedure'] != null ? CodeableConcept.fromJson(json['diseaseSymptomProcedure'] as Map<String, dynamic>) : null,
-      duration: json['duration'] != null ? Quantity.fromJson(json['duration'] as Map<String, dynamic>) : null,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      comorbidity: (json['comorbidity'] as List<dynamic>?)
+          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      contained: (json['contained'] as List<dynamic>?)
+          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      diseaseStatus: json['diseaseStatus'] != null
+          ? CodeableConcept.fromJson(
+              json['diseaseStatus'] as Map<String, dynamic>)
+          : null,
+      diseaseSymptomProcedure: json['diseaseSymptomProcedure'] != null
+          ? CodeableConcept.fromJson(
+              json['diseaseSymptomProcedure'] as Map<String, dynamic>)
+          : null,
+      duration: json['duration'] != null
+          ? Quantity.fromJson(json['duration'] as Map<String, dynamic>)
+          : null,
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
       implicitRules: json['implicitRules'] as String?,
-      intendedEffect: json['intendedEffect'] != null ? CodeableConcept.fromJson(json['intendedEffect'] as Map<String, dynamic>) : null,
+      intendedEffect: json['intendedEffect'] != null
+          ? CodeableConcept.fromJson(
+              json['intendedEffect'] as Map<String, dynamic>)
+          : null,
       language: json['language'] as String?,
-      meta: json['meta'] != null ? Meta.fromJson(json['meta'] as Map<String, dynamic>) : null,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      otherTherapy: (json['otherTherapy'] as List<dynamic>?)?.map((e) => MedicinalProductIndicationOtherTherapy.fromJson(e as Map<String, dynamic>)).toList(),
-      population: (json['population'] as List<dynamic>?)?.map((e) => Population.fromJson(e as Map<String, dynamic>)).toList(),
-      subject: (json['subject'] as List<dynamic>?)?.map((e) => Reference.fromJson(e as Map<String, dynamic>)).toList(),
-      text: json['text'] != null ? Narrative.fromJson(json['text'] as Map<String, dynamic>) : null,
-      undesirableEffect: (json['undesirableEffect'] as List<dynamic>?)?.map((e) => Reference.fromJson(e as Map<String, dynamic>)).toList(),
+      meta: json['meta'] != null
+          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          : null,
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      otherTherapy: (json['otherTherapy'] as List<dynamic>?)
+          ?.map((e) => MedicinalProductIndicationOtherTherapy.fromJson(
+              e as Map<String, dynamic>))
+          .toList(),
+      population: (json['population'] as List<dynamic>?)
+          ?.map((e) => Population.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      subject: (json['subject'] as List<dynamic>?)
+          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      text: json['text'] != null
+          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          : null,
+      undesirableEffect: (json['undesirableEffect'] as List<dynamic>?)
+          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'comorbidity': comorbidity?.map((e) => e.toJson()).toList(),
-      'contained': contained?.map((e) => e.toJson()).toList(),
-      'diseaseStatus': diseaseStatus?.toJson(),
-      'diseaseSymptomProcedure': diseaseSymptomProcedure?.toJson(),
-      'duration': duration?.toJson(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'implicitRules': implicitRules,
-      'intendedEffect': intendedEffect?.toJson(),
-      'language': language,
-      'meta': meta?.toJson(),
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'otherTherapy': otherTherapy?.map((e) => e.toJson()).toList(),
-      'population': population?.map((e) => e.toJson()).toList(),
-      'subject': subject?.map((e) => e.toJson()).toList(),
-      'text': text?.toJson(),
-      'undesirableEffect': undesirableEffect?.map((e) => e.toJson()).toList(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'comorbidity': comorbidity?.map((e) => e.toJson()).toList(),
+        'contained': contained?.map((e) => e.toJson()).toList(),
+        'diseaseStatus': diseaseStatus?.toJson(),
+        'diseaseSymptomProcedure': diseaseSymptomProcedure?.toJson(),
+        'duration': duration?.toJson(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'implicitRules': implicitRules,
+        'intendedEffect': intendedEffect?.toJson(),
+        'language': language,
+        'meta': meta?.toJson(),
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'otherTherapy': otherTherapy?.map((e) => e.toJson()).toList(),
+        'population': population?.map((e) => e.toJson()).toList(),
+        'subject': subject?.map((e) => e.toJson()).toList(),
+        'text': text?.toJson(),
+        'undesirableEffect': undesirableEffect?.map((e) => e.toJson()).toList(),
+      };
+
   @override
   MedicinalProductIndication copyWith({
     List<CodeableConcept>? comorbidity,
@@ -111,7 +152,8 @@ class MedicinalProductIndication extends DomainResource implements FhirResource 
       comorbidity: comorbidity ?? this.comorbidity,
       contained: contained ?? this.contained,
       diseaseStatus: diseaseStatus ?? this.diseaseStatus,
-      diseaseSymptomProcedure: diseaseSymptomProcedure ?? this.diseaseSymptomProcedure,
+      diseaseSymptomProcedure:
+          diseaseSymptomProcedure ?? this.diseaseSymptomProcedure,
       duration: duration ?? this.duration,
       fhirExtension: fhirExtension ?? this.fhirExtension,
       id: id ?? this.id,

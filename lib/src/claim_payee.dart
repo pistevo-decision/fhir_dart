@@ -1,15 +1,16 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Recipient of benefits payable
- /// The party to be reimbursed for cost of the products and services according to the terms of the policy.
- /// Often providers agree to receive the benefits payable to reduce the near-term costs to the patient. The insurer may decline to pay the provider and choose to pay the subscriber instead.
+/// Recipient of benefits payable
+/// The party to be reimbursed for cost of the products and services according to the terms of the policy.
+/// Often providers agree to receive the benefits payable to reduce the near-term costs to the patient. The insurer may decline to pay the provider and choose to pay the subscriber instead.
 class ClaimPayee extends BackboneElement implements FhirResource {
-   /// Recipient reference
-   /// Reference to the individual or organization to whom any payment will be made.
-   /// Not required if the payee is 'subscriber' or 'provider'.
+  /// Recipient reference
+  /// Reference to the individual or organization to whom any payment will be made.
+  /// Not required if the payee is 'subscriber' or 'provider'.
   final Reference? party;
-   /// Category of recipient
-   /// Type of Party to be reimbursed: subscriber, provider, other.
+
+  /// Category of recipient
+  /// Type of Party to be reimbursed: subscriber, provider, other.
   final CodeableConcept type;
   ClaimPayee({
     super.fhirExtension,
@@ -18,28 +19,33 @@ class ClaimPayee extends BackboneElement implements FhirResource {
     this.party,
     required this.type,
   });
-  
+
   @override
   factory ClaimPayee.fromJson(Map<String, dynamic> json) {
     return ClaimPayee(
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
-      party: json['party'] != null ? Reference.fromJson(json['party'] as Map<String, dynamic>) : null,
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      party: json['party'] != null
+          ? Reference.fromJson(json['party'] as Map<String, dynamic>)
+          : null,
       type: CodeableConcept.fromJson(json['type'] as Map<String, dynamic>),
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'party': party?.toJson(),
-      'type': type.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'party': party?.toJson(),
+        'type': type.toJson(),
+      };
+
   @override
   ClaimPayee copyWith({
     List<Extension>? fhirExtension,

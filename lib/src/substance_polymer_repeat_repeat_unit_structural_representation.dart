@@ -1,12 +1,15 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Todo.
-class SubstancePolymerRepeatRepeatUnitStructuralRepresentation extends BackboneElement implements FhirResource {
-   /// Todo.
+/// Todo.
+class SubstancePolymerRepeatRepeatUnitStructuralRepresentation
+    extends BackboneElement implements FhirResource {
+  /// Todo.
   final Attachment? attachment;
-   /// Todo.
+
+  /// Todo.
   final String? representation;
-   /// Todo.
+
+  /// Todo.
   final CodeableConcept? type;
   SubstancePolymerRepeatRepeatUnitStructuralRepresentation({
     this.attachment,
@@ -16,30 +19,38 @@ class SubstancePolymerRepeatRepeatUnitStructuralRepresentation extends BackboneE
     this.representation,
     this.type,
   });
-  
+
   @override
-  factory SubstancePolymerRepeatRepeatUnitStructuralRepresentation.fromJson(Map<String, dynamic> json) {
+  factory SubstancePolymerRepeatRepeatUnitStructuralRepresentation.fromJson(
+      Map<String, dynamic> json) {
     return SubstancePolymerRepeatRepeatUnitStructuralRepresentation(
-      attachment: json['attachment'] != null ? Attachment.fromJson(json['attachment'] as Map<String, dynamic>) : null,
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      attachment: json['attachment'] != null
+          ? Attachment.fromJson(json['attachment'] as Map<String, dynamic>)
+          : null,
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       representation: json['representation'] as String?,
-      type: json['type'] != null ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>) : null,
+      type: json['type'] != null
+          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          : null,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'attachment': attachment?.toJson(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'representation': representation,
-      'type': type?.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'attachment': attachment?.toJson(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'representation': representation,
+        'type': type?.toJson(),
+      };
+
   @override
   SubstancePolymerRepeatRepeatUnitStructuralRepresentation copyWith({
     Attachment? attachment,

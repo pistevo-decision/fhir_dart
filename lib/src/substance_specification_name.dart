@@ -1,28 +1,39 @@
-﻿part of '../fhir_dart.dart';
+part of '../fhir_dart.dart';
 
- /// Names applicable to this substance.
-class SubstanceSpecificationName extends BackboneElement implements FhirResource {
-   /// The use context of this name for example if there is a different name a drug active ingredient as opposed to a food colour additive.
+/// Names applicable to this substance.
+class SubstanceSpecificationName extends BackboneElement
+    implements FhirResource {
+  /// The use context of this name for example if there is a different name a drug active ingredient as opposed to a food colour additive.
   final List<CodeableConcept>? domain;
-   /// The jurisdiction where this name applies.
+
+  /// The jurisdiction where this name applies.
   final List<CodeableConcept>? jurisdiction;
-   /// Language of the name.
+
+  /// Language of the name.
   final List<CodeableConcept>? language;
-   /// The actual name.
+
+  /// The actual name.
   final String name;
-   /// Details of the official nature of this name.
+
+  /// Details of the official nature of this name.
   final List<SubstanceSpecificationNameOfficial>? official;
-   /// If this is the preferred name for this substance.
+
+  /// If this is the preferred name for this substance.
   final bool? preferred;
-   /// Supporting literature.
+
+  /// Supporting literature.
   final List<Reference>? source;
-   /// The status of the name.
+
+  /// The status of the name.
   final CodeableConcept? status;
-   /// A synonym of this name.
+
+  /// A synonym of this name.
   final List<SubstanceSpecificationName>? synonym;
-   /// A translation for this name.
+
+  /// A translation for this name.
   final List<SubstanceSpecificationName>? translation;
-   /// Name type.
+
+  /// Name type.
   final CodeableConcept? type;
   SubstanceSpecificationName({
     this.domain,
@@ -40,46 +51,70 @@ class SubstanceSpecificationName extends BackboneElement implements FhirResource
     this.translation,
     this.type,
   });
-  
+
   @override
   factory SubstanceSpecificationName.fromJson(Map<String, dynamic> json) {
     return SubstanceSpecificationName(
-      domain: (json['domain'] as List<dynamic>?)?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>)).toList(),
-      fhirExtension: (json['extension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      domain: (json['domain'] as List<dynamic>?)
+          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      fhirExtension: (json['extension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
-      jurisdiction: (json['jurisdiction'] as List<dynamic>?)?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>)).toList(),
-      language: (json['language'] as List<dynamic>?)?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>)).toList(),
-      modifierExtension: (json['modifierExtension'] as List<dynamic>?)?.map((e) => Extension.fromJson(e as Map<String, dynamic>)).toList(),
+      jurisdiction: (json['jurisdiction'] as List<dynamic>?)
+          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      language: (json['language'] as List<dynamic>?)
+          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      modifierExtension: (json['modifierExtension'] as List<dynamic>?)
+          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          .toList(),
       name: json['name'] as String,
-      official: (json['official'] as List<dynamic>?)?.map((e) => SubstanceSpecificationNameOfficial.fromJson(e as Map<String, dynamic>)).toList(),
+      official: (json['official'] as List<dynamic>?)
+          ?.map((e) => SubstanceSpecificationNameOfficial.fromJson(
+              e as Map<String, dynamic>))
+          .toList(),
       preferred: json['preferred'] as bool?,
-      source: (json['source'] as List<dynamic>?)?.map((e) => Reference.fromJson(e as Map<String, dynamic>)).toList(),
-      status: json['status'] != null ? CodeableConcept.fromJson(json['status'] as Map<String, dynamic>) : null,
-      synonym: (json['synonym'] as List<dynamic>?)?.map((e) => SubstanceSpecificationName.fromJson(e as Map<String, dynamic>)).toList(),
-      translation: (json['translation'] as List<dynamic>?)?.map((e) => SubstanceSpecificationName.fromJson(e as Map<String, dynamic>)).toList(),
-      type: json['type'] != null ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>) : null,
+      source: (json['source'] as List<dynamic>?)
+          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      status: json['status'] != null
+          ? CodeableConcept.fromJson(json['status'] as Map<String, dynamic>)
+          : null,
+      synonym: (json['synonym'] as List<dynamic>?)
+          ?.map((e) =>
+              SubstanceSpecificationName.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      translation: (json['translation'] as List<dynamic>?)
+          ?.map((e) =>
+              SubstanceSpecificationName.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      type: json['type'] != null
+          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          : null,
     );
-    }
-  
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
-    {
-      'domain': domain?.map((e) => e.toJson()).toList(),
-      'extension': fhirExtension?.map((e) => e.toJson()).toList(),
-      'id': id,
-      'jurisdiction': jurisdiction?.map((e) => e.toJson()).toList(),
-      'language': language?.map((e) => e.toJson()).toList(),
-      'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
-      'name': name,
-      'official': official?.map((e) => e.toJson()).toList(),
-      'preferred': preferred,
-      'source': source?.map((e) => e.toJson()).toList(),
-      'status': status?.toJson(),
-      'synonym': synonym?.map((e) => e.toJson()).toList(),
-      'translation': translation?.map((e) => e.toJson()).toList(),
-      'type': type?.toJson(),
-    };
-  
+  Map<String, dynamic> toJson() => {
+        'domain': domain?.map((e) => e.toJson()).toList(),
+        'extension': fhirExtension?.map((e) => e.toJson()).toList(),
+        'id': id,
+        'jurisdiction': jurisdiction?.map((e) => e.toJson()).toList(),
+        'language': language?.map((e) => e.toJson()).toList(),
+        'modifierExtension': modifierExtension?.map((e) => e.toJson()).toList(),
+        'name': name,
+        'official': official?.map((e) => e.toJson()).toList(),
+        'preferred': preferred,
+        'source': source?.map((e) => e.toJson()).toList(),
+        'status': status?.toJson(),
+        'synonym': synonym?.map((e) => e.toJson()).toList(),
+        'translation': translation?.map((e) => e.toJson()).toList(),
+        'type': type?.toJson(),
+      };
+
   @override
   SubstanceSpecificationName copyWith({
     List<CodeableConcept>? domain,
