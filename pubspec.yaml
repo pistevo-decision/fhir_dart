@@ -1,0 +1,19 @@
+name: fhir_dart
+description: A Dart package for working with FHIR resources.
+version: 0.1.0
+repository: https://github.com/pistevo-decision/fhir_dart
+issue_tracker: https://github.com/pistevo-decision/fhir_dart/issues
+environment:
+  sdk: ^3.5.4
+
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
+
+dev_dependencies:
+  lints: ^4.0.0
+  test: ^1.24.0
