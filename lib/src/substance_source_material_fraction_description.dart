@@ -21,16 +21,16 @@ class SubstanceSourceMaterialFractionDescription extends BackboneElement
       Map<String, dynamic> json) {
     return SubstanceSourceMaterialFractionDescription(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fraction: json['fraction'] as String?,
       id: json['id'] as String?,
       materialType: json['materialType'] != null
           ? CodeableConcept.fromJson(
-              json['materialType'] as Map<String, dynamic>)
+              (json['materialType'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

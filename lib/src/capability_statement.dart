@@ -170,21 +170,22 @@ class CapabilityStatement extends DomainResource implements FhirResource {
   factory CapabilityStatement.fromJson(Map<String, dynamic> json) {
     return CapabilityStatement(
       contact: (json['contact'] as List<dynamic>?)
-          ?.map((e) => ContactDetail.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactDetail.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       copyright: json['copyright'] as String?,
       date: json['date'] as String,
       description: json['description'] as String?,
       document: (json['document'] as List<dynamic>?)
-          ?.map((e) =>
-              CapabilityStatementDocument.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => CapabilityStatementDocument.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       experimental: json['experimental'] as bool?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirVersion: json['fhirVersion'] as String,
       format:
@@ -192,7 +193,7 @@ class CapabilityStatement extends DomainResource implements FhirResource {
       id: json['id'] as String?,
       implementation: json['implementation'] != null
           ? CapabilityStatementImplementation.fromJson(
-              json['implementation'] as Map<String, dynamic>)
+              (json['implementation'] as Map).cast<String, dynamic>())
           : null,
       implementationGuide: (json['implementationGuide'] as List<dynamic>?)
           ?.map((e) => e as String)
@@ -204,19 +205,20 @@ class CapabilityStatement extends DomainResource implements FhirResource {
           ?.map((e) => e as String)
           .toList(),
       jurisdiction: (json['jurisdiction'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       kind: json['kind'] as String,
       language: json['language'] as String?,
       messaging: (json['messaging'] as List<dynamic>?)
-          ?.map((e) =>
-              CapabilityStatementMessaging.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => CapabilityStatementMessaging.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String?,
       patchFormat: (json['patchFormat'] as List<dynamic>?)
@@ -225,21 +227,22 @@ class CapabilityStatement extends DomainResource implements FhirResource {
       publisher: json['publisher'] as String?,
       purpose: json['purpose'] as String?,
       rest: (json['rest'] as List<dynamic>?)
-          ?.map((e) =>
-              CapabilityStatementRest.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => CapabilityStatementRest.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       software: json['software'] != null
           ? CapabilityStatementSoftware.fromJson(
-              json['software'] as Map<String, dynamic>)
+              (json['software'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       title: json['title'] as String?,
       url: json['url'] as String?,
       useContext: (json['useContext'] as List<dynamic>?)
-          ?.map((e) => UsageContext.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => UsageContext.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       version: json['version'] as String?,
     );

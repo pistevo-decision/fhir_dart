@@ -62,40 +62,44 @@ class Flag extends DomainResource implements FhirResource {
   factory Flag.fromJson(Map<String, dynamic> json) {
     return Flag(
       author: json['author'] != null
-          ? Reference.fromJson(json['author'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['author'] as Map).cast<String, dynamic>())
           : null,
       category: (json['category'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      code: CodeableConcept.fromJson(json['code'] as Map<String, dynamic>),
+      code: CodeableConcept.fromJson(
+          (json['code'] as Map).cast<String, dynamic>()),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       encounter: json['encounter'] != null
-          ? Reference.fromJson(json['encounter'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['encounter'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       period: json['period'] != null
-          ? Period.fromJson(json['period'] as Map<String, dynamic>)
+          ? Period.fromJson((json['period'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String,
-      subject: Reference.fromJson(json['subject'] as Map<String, dynamic>),
+      subject:
+          Reference.fromJson((json['subject'] as Map).cast<String, dynamic>()),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

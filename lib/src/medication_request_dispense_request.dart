@@ -52,32 +52,35 @@ class MedicationRequestDispenseRequest extends BackboneElement
   factory MedicationRequestDispenseRequest.fromJson(Map<String, dynamic> json) {
     return MedicationRequestDispenseRequest(
       dispenseInterval: json['dispenseInterval'] != null
-          ? Duration.fromJson(json['dispenseInterval'] as Map<String, dynamic>)
+          ? Duration.fromJson(
+              (json['dispenseInterval'] as Map).cast<String, dynamic>())
           : null,
       expectedSupplyDuration: json['expectedSupplyDuration'] != null
           ? Duration.fromJson(
-              json['expectedSupplyDuration'] as Map<String, dynamic>)
+              (json['expectedSupplyDuration'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       initialFill: json['initialFill'] != null
           ? MedicationRequestDispenseRequestInitialFill.fromJson(
-              json['initialFill'] as Map<String, dynamic>)
+              (json['initialFill'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       numberOfRepeatsAllowed: json['numberOfRepeatsAllowed'] as int?,
       performer: json['performer'] != null
-          ? Reference.fromJson(json['performer'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['performer'] as Map).cast<String, dynamic>())
           : null,
       quantity: json['quantity'] != null
-          ? Quantity.fromJson(json['quantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['quantity'] as Map).cast<String, dynamic>())
           : null,
       validityPeriod: json['validityPeriod'] != null
-          ? Period.fromJson(json['validityPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['validityPeriod'] as Map).cast<String, dynamic>())
           : null,
     );
   }

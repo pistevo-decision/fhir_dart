@@ -254,19 +254,21 @@ class Measure extends DomainResource implements FhirResource {
     return Measure(
       approvalDate: json['approvalDate'] as String?,
       author: (json['author'] as List<dynamic>?)
-          ?.map((e) => ContactDetail.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactDetail.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       clinicalRecommendationStatement:
           json['clinicalRecommendationStatement'] as String?,
       compositeScoring: json['compositeScoring'] != null
           ? CodeableConcept.fromJson(
-              json['compositeScoring'] as Map<String, dynamic>)
+              (json['compositeScoring'] as Map).cast<String, dynamic>())
           : null,
       contact: (json['contact'] as List<dynamic>?)
-          ?.map((e) => ContactDetail.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactDetail.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       copyright: json['copyright'] as String?,
       date: json['date'] as String?,
@@ -276,43 +278,48 @@ class Measure extends DomainResource implements FhirResource {
       description: json['description'] as String?,
       disclaimer: json['disclaimer'] as String?,
       editor: (json['editor'] as List<dynamic>?)
-          ?.map((e) => ContactDetail.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactDetail.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       effectivePeriod: json['effectivePeriod'] != null
-          ? Period.fromJson(json['effectivePeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['effectivePeriod'] as Map).cast<String, dynamic>())
           : null,
       endorser: (json['endorser'] as List<dynamic>?)
-          ?.map((e) => ContactDetail.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactDetail.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       experimental: json['experimental'] as bool?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       group: (json['group'] as List<dynamic>?)
-          ?.map((e) => MeasureGroup.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => MeasureGroup.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       guidance: json['guidance'] as String?,
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       improvementNotation: json['improvementNotation'] != null
           ? CodeableConcept.fromJson(
-              json['improvementNotation'] as Map<String, dynamic>)
+              (json['improvementNotation'] as Map).cast<String, dynamic>())
           : null,
       jurisdiction: (json['jurisdiction'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       language: json['language'] as String?,
       lastReviewDate: json['lastReviewDate'] as String?,
       fhirLibrary:
           (json['library'] as List<dynamic>?)?.map((e) => e as String).toList(),
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String?,
       publisher: json['publisher'] as String?,
@@ -320,42 +327,49 @@ class Measure extends DomainResource implements FhirResource {
       rateAggregation: json['rateAggregation'] as String?,
       rationale: json['rationale'] as String?,
       relatedArtifact: (json['relatedArtifact'] as List<dynamic>?)
-          ?.map((e) => RelatedArtifact.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              RelatedArtifact.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reviewer: (json['reviewer'] as List<dynamic>?)
-          ?.map((e) => ContactDetail.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactDetail.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       riskAdjustment: json['riskAdjustment'] as String?,
       scoring: json['scoring'] != null
-          ? CodeableConcept.fromJson(json['scoring'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['scoring'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String,
       subjectCodeableConcept: json['subjectCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['subjectCodeableConcept'] as Map<String, dynamic>)
+              (json['subjectCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       subjectReference: json['subjectReference'] != null
-          ? Reference.fromJson(json['subjectReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['subjectReference'] as Map).cast<String, dynamic>())
           : null,
       subtitle: json['subtitle'] as String?,
       supplementalData: (json['supplementalData'] as List<dynamic>?)
-          ?.map((e) =>
-              MeasureSupplementalData.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => MeasureSupplementalData.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       title: json['title'] as String?,
       topic: (json['topic'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       type: (json['type'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       url: json['url'] as String?,
       usage: json['usage'] as String?,
       useContext: (json['useContext'] as List<dynamic>?)
-          ?.map((e) => UsageContext.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => UsageContext.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       version: json['version'] as String?,
     );

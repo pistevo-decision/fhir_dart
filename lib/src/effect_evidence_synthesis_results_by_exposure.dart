@@ -36,17 +36,17 @@ class EffectEvidenceSynthesisResultsByExposure extends BackboneElement
       description: json['description'] as String?,
       exposureState: json['exposureState'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       riskEvidenceSynthesis: Reference.fromJson(
-          json['riskEvidenceSynthesis'] as Map<String, dynamic>),
+          (json['riskEvidenceSynthesis'] as Map).cast<String, dynamic>()),
       variantState: json['variantState'] != null
           ? CodeableConcept.fromJson(
-              json['variantState'] as Map<String, dynamic>)
+              (json['variantState'] as Map).cast<String, dynamic>())
           : null,
     );
   }

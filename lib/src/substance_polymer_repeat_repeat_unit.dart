@@ -34,30 +34,32 @@ class SubstancePolymerRepeatRepeatUnit extends BackboneElement
   factory SubstancePolymerRepeatRepeatUnit.fromJson(Map<String, dynamic> json) {
     return SubstancePolymerRepeatRepeatUnit(
       amount: json['amount'] != null
-          ? SubstanceAmount.fromJson(json['amount'] as Map<String, dynamic>)
+          ? SubstanceAmount.fromJson(
+              (json['amount'] as Map).cast<String, dynamic>())
           : null,
       degreeOfPolymerisation: (json['degreeOfPolymerisation'] as List<dynamic>?)
           ?.map((e) =>
               SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation.fromJson(
-                  e as Map<String, dynamic>))
+                  (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       orientationOfPolymerisation: json['orientationOfPolymerisation'] != null
           ? CodeableConcept.fromJson(
-              json['orientationOfPolymerisation'] as Map<String, dynamic>)
+              (json['orientationOfPolymerisation'] as Map)
+                  .cast<String, dynamic>())
           : null,
       repeatUnit: json['repeatUnit'] as String?,
       structuralRepresentation: (json['structuralRepresentation']
               as List<dynamic>?)
           ?.map((e) =>
               SubstancePolymerRepeatRepeatUnitStructuralRepresentation.fromJson(
-                  e as Map<String, dynamic>))
+                  (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

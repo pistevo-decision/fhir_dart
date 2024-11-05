@@ -25,18 +25,18 @@ class TestScriptSetupAction extends BackboneElement implements FhirResource {
     return TestScriptSetupAction(
       fhirAssert: json['assert'] != null
           ? TestScriptSetupActionAssert.fromJson(
-              json['assert'] as Map<String, dynamic>)
+              (json['assert'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       operation: json['operation'] != null
           ? TestScriptSetupActionOperation.fromJson(
-              json['operation'] as Map<String, dynamic>)
+              (json['operation'] as Map).cast<String, dynamic>())
           : null,
     );
   }

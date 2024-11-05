@@ -25,11 +25,11 @@ class OperationDefinitionParameterReferencedFrom extends BackboneElement
       Map<String, dynamic> json) {
     return OperationDefinitionParameterReferencedFrom(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       source: json['source'] as String,
       sourceId: json['sourceId'] as String?,

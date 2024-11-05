@@ -58,31 +58,34 @@ class GroupCharacteristic extends BackboneElement implements FhirResource {
   @override
   factory GroupCharacteristic.fromJson(Map<String, dynamic> json) {
     return GroupCharacteristic(
-      code: CodeableConcept.fromJson(json['code'] as Map<String, dynamic>),
+      code: CodeableConcept.fromJson(
+          (json['code'] as Map).cast<String, dynamic>()),
       exclude: json['exclude'] as bool,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       period: json['period'] != null
-          ? Period.fromJson(json['period'] as Map<String, dynamic>)
+          ? Period.fromJson((json['period'] as Map).cast<String, dynamic>())
           : null,
       valueBoolean: json['valueBoolean'] as bool?,
       valueCodeableConcept: json['valueCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['valueCodeableConcept'] as Map<String, dynamic>)
+              (json['valueCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       valueQuantity: json['valueQuantity'] != null
-          ? Quantity.fromJson(json['valueQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['valueQuantity'] as Map).cast<String, dynamic>())
           : null,
       valueRange: json['valueRange'] != null
-          ? Range.fromJson(json['valueRange'] as Map<String, dynamic>)
+          ? Range.fromJson((json['valueRange'] as Map).cast<String, dynamic>())
           : null,
       valueReference: json['valueReference'] != null
-          ? Reference.fromJson(json['valueReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['valueReference'] as Map).cast<String, dynamic>())
           : null,
     );
   }

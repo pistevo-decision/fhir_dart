@@ -28,21 +28,22 @@ class SupplyDeliverySuppliedItem extends BackboneElement
   factory SupplyDeliverySuppliedItem.fromJson(Map<String, dynamic> json) {
     return SupplyDeliverySuppliedItem(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       itemCodeableConcept: json['itemCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['itemCodeableConcept'] as Map<String, dynamic>)
+              (json['itemCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       itemReference: json['itemReference'] != null
-          ? Reference.fromJson(json['itemReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['itemReference'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       quantity: json['quantity'] != null
-          ? Quantity.fromJson(json['quantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['quantity'] as Map).cast<String, dynamic>())
           : null,
     );
   }

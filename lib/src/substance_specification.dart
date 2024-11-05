@@ -96,84 +96,90 @@ class SubstanceSpecification extends DomainResource implements FhirResource {
   factory SubstanceSpecification.fromJson(Map<String, dynamic> json) {
     return SubstanceSpecification(
       code: (json['code'] as List<dynamic>?)
-          ?.map((e) =>
-              SubstanceSpecificationCode.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SubstanceSpecificationCode.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       comment: json['comment'] as String?,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       description: json['description'] as String?,
       domain: json['domain'] != null
-          ? CodeableConcept.fromJson(json['domain'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['domain'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: json['identifier'] != null
-          ? Identifier.fromJson(json['identifier'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['identifier'] as Map).cast<String, dynamic>())
           : null,
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       moiety: (json['moiety'] as List<dynamic>?)
-          ?.map((e) =>
-              SubstanceSpecificationMoiety.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SubstanceSpecificationMoiety.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       molecularWeight: (json['molecularWeight'] as List<dynamic>?)
           ?.map((e) =>
               SubstanceSpecificationStructureIsotopeMolecularWeight.fromJson(
-                  e as Map<String, dynamic>))
+                  (e as Map).cast<String, dynamic>()))
           .toList(),
       name: (json['name'] as List<dynamic>?)
-          ?.map((e) =>
-              SubstanceSpecificationName.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SubstanceSpecificationName.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       nucleicAcid: json['nucleicAcid'] != null
-          ? Reference.fromJson(json['nucleicAcid'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['nucleicAcid'] as Map).cast<String, dynamic>())
           : null,
       polymer: json['polymer'] != null
-          ? Reference.fromJson(json['polymer'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['polymer'] as Map).cast<String, dynamic>())
           : null,
       property: (json['property'] as List<dynamic>?)
           ?.map((e) => SubstanceSpecificationProperty.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       protein: json['protein'] != null
-          ? Reference.fromJson(json['protein'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['protein'] as Map).cast<String, dynamic>())
           : null,
       referenceInformation: json['referenceInformation'] != null
           ? Reference.fromJson(
-              json['referenceInformation'] as Map<String, dynamic>)
+              (json['referenceInformation'] as Map).cast<String, dynamic>())
           : null,
       relationship: (json['relationship'] as List<dynamic>?)
           ?.map((e) => SubstanceSpecificationRelationship.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       source: (json['source'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       sourceMaterial: json['sourceMaterial'] != null
-          ? Reference.fromJson(json['sourceMaterial'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['sourceMaterial'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] != null
-          ? CodeableConcept.fromJson(json['status'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['status'] as Map).cast<String, dynamic>())
           : null,
       structure: json['structure'] != null
           ? SubstanceSpecificationStructure.fromJson(
-              json['structure'] as Map<String, dynamic>)
+              (json['structure'] as Map).cast<String, dynamic>())
           : null,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

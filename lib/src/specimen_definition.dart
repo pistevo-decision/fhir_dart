@@ -49,40 +49,43 @@ class SpecimenDefinition extends DomainResource implements FhirResource {
   factory SpecimenDefinition.fromJson(Map<String, dynamic> json) {
     return SpecimenDefinition(
       collection: (json['collection'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: json['identifier'] != null
-          ? Identifier.fromJson(json['identifier'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['identifier'] as Map).cast<String, dynamic>())
           : null,
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       patientPreparation: (json['patientPreparation'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       timeAspect: json['timeAspect'] as String?,
       typeCollected: json['typeCollected'] != null
           ? CodeableConcept.fromJson(
-              json['typeCollected'] as Map<String, dynamic>)
+              (json['typeCollected'] as Map).cast<String, dynamic>())
           : null,
       typeTested: (json['typeTested'] as List<dynamic>?)
-          ?.map((e) =>
-              SpecimenDefinitionTypeTested.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SpecimenDefinitionTypeTested.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

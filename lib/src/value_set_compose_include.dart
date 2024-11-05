@@ -42,19 +42,19 @@ class ValueSetComposeInclude extends BackboneElement implements FhirResource {
   factory ValueSetComposeInclude.fromJson(Map<String, dynamic> json) {
     return ValueSetComposeInclude(
       concept: (json['concept'] as List<dynamic>?)
-          ?.map((e) =>
-              ValueSetComposeIncludeConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ValueSetComposeIncludeConcept.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       filter: (json['filter'] as List<dynamic>?)
-          ?.map((e) =>
-              ValueSetComposeIncludeFilter.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ValueSetComposeIncludeFilter.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       system: json['system'] as String?,
       valueSet: (json['valueSet'] as List<dynamic>?)

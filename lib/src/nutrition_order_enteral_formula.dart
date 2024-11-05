@@ -62,35 +62,36 @@ class NutritionOrderEnteralFormula extends BackboneElement
       additiveProductName: json['additiveProductName'] as String?,
       additiveType: json['additiveType'] != null
           ? CodeableConcept.fromJson(
-              json['additiveType'] as Map<String, dynamic>)
+              (json['additiveType'] as Map).cast<String, dynamic>())
           : null,
       administration: (json['administration'] as List<dynamic>?)
           ?.map((e) => NutritionOrderEnteralFormulaAdministration.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       administrationInstruction: json['administrationInstruction'] as String?,
       baseFormulaProductName: json['baseFormulaProductName'] as String?,
       baseFormulaType: json['baseFormulaType'] != null
           ? CodeableConcept.fromJson(
-              json['baseFormulaType'] as Map<String, dynamic>)
+              (json['baseFormulaType'] as Map).cast<String, dynamic>())
           : null,
       caloricDensity: json['caloricDensity'] != null
-          ? Quantity.fromJson(json['caloricDensity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['caloricDensity'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       maxVolumeToDeliver: json['maxVolumeToDeliver'] != null
           ? Quantity.fromJson(
-              json['maxVolumeToDeliver'] as Map<String, dynamic>)
+              (json['maxVolumeToDeliver'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       routeofAdministration: json['routeofAdministration'] != null
           ? CodeableConcept.fromJson(
-              json['routeofAdministration'] as Map<String, dynamic>)
+              (json['routeofAdministration'] as Map).cast<String, dynamic>())
           : null,
     );
   }

@@ -29,17 +29,17 @@ class ContractSigner extends BackboneElement implements FhirResource {
   factory ContractSigner.fromJson(Map<String, dynamic> json) {
     return ContractSigner(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      party: Reference.fromJson(json['party'] as Map<String, dynamic>),
+      party: Reference.fromJson((json['party'] as Map).cast<String, dynamic>()),
       signature: (json['signature'] as List<dynamic>)
-          .map((e) => Signature.fromJson(e as Map<String, dynamic>))
+          .map((e) => Signature.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      type: Coding.fromJson(json['type'] as Map<String, dynamic>),
+      type: Coding.fromJson((json['type'] as Map).cast<String, dynamic>()),
     );
   }
 

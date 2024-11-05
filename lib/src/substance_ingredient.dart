@@ -27,22 +27,22 @@ class SubstanceIngredient extends BackboneElement implements FhirResource {
   factory SubstanceIngredient.fromJson(Map<String, dynamic> json) {
     return SubstanceIngredient(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       quantity: json['quantity'] != null
-          ? Ratio.fromJson(json['quantity'] as Map<String, dynamic>)
+          ? Ratio.fromJson((json['quantity'] as Map).cast<String, dynamic>())
           : null,
       substanceCodeableConcept: json['substanceCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['substanceCodeableConcept'] as Map<String, dynamic>)
+              (json['substanceCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       substanceReference: json['substanceReference'] != null
           ? Reference.fromJson(
-              json['substanceReference'] as Map<String, dynamic>)
+              (json['substanceReference'] as Map).cast<String, dynamic>())
           : null,
     );
   }

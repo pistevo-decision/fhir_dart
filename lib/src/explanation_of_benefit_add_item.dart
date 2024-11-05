@@ -125,20 +125,21 @@ class ExplanationOfBenefitAddItem extends BackboneElement
     return ExplanationOfBenefitAddItem(
       adjudication: (json['adjudication'] as List<dynamic>?)
           ?.map((e) => ExplanationOfBenefitItemAdjudication.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       bodySite: json['bodySite'] != null
-          ? CodeableConcept.fromJson(json['bodySite'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['bodySite'] as Map).cast<String, dynamic>())
           : null,
       detail: (json['detail'] as List<dynamic>?)
           ?.map((e) => ExplanationOfBenefitAddItemDetail.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       detailSequence: (json['detailSequence'] as List<dynamic>?)
           ?.map((e) => e as int)
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       factor: json['factor'] as num?,
       id: json['id'] as String?,
@@ -146,50 +147,55 @@ class ExplanationOfBenefitAddItem extends BackboneElement
           ?.map((e) => e as int)
           .toList(),
       locationAddress: json['locationAddress'] != null
-          ? Address.fromJson(json['locationAddress'] as Map<String, dynamic>)
+          ? Address.fromJson(
+              (json['locationAddress'] as Map).cast<String, dynamic>())
           : null,
       locationCodeableConcept: json['locationCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['locationCodeableConcept'] as Map<String, dynamic>)
+              (json['locationCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       locationReference: json['locationReference'] != null
           ? Reference.fromJson(
-              json['locationReference'] as Map<String, dynamic>)
+              (json['locationReference'] as Map).cast<String, dynamic>())
           : null,
       modifier: (json['modifier'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       net: json['net'] != null
-          ? Money.fromJson(json['net'] as Map<String, dynamic>)
+          ? Money.fromJson((json['net'] as Map).cast<String, dynamic>())
           : null,
       noteNumber:
           (json['noteNumber'] as List<dynamic>?)?.map((e) => e as int).toList(),
       productOrService: CodeableConcept.fromJson(
-          json['productOrService'] as Map<String, dynamic>),
+          (json['productOrService'] as Map).cast<String, dynamic>()),
       programCode: (json['programCode'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       provider: (json['provider'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       quantity: json['quantity'] != null
-          ? Quantity.fromJson(json['quantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['quantity'] as Map).cast<String, dynamic>())
           : null,
       servicedDate: json['servicedDate'] as String?,
       servicedPeriod: json['servicedPeriod'] != null
-          ? Period.fromJson(json['servicedPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['servicedPeriod'] as Map).cast<String, dynamic>())
           : null,
       subDetailSequence: (json['subDetailSequence'] as List<dynamic>?)
           ?.map((e) => e as int)
           .toList(),
       subSite: (json['subSite'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       unitPrice: json['unitPrice'] != null
-          ? Money.fromJson(json['unitPrice'] as Map<String, dynamic>)
+          ? Money.fromJson((json['unitPrice'] as Map).cast<String, dynamic>())
           : null,
     );
   }

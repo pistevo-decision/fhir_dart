@@ -30,23 +30,23 @@ class ExampleScenarioProcessStep extends BackboneElement
     return ExampleScenarioProcessStep(
       alternative: (json['alternative'] as List<dynamic>?)
           ?.map((e) => ExampleScenarioProcessStepAlternative.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       operation: json['operation'] != null
           ? ExampleScenarioProcessStepOperation.fromJson(
-              json['operation'] as Map<String, dynamic>)
+              (json['operation'] as Map).cast<String, dynamic>())
           : null,
       pause: json['pause'] as bool?,
       process: (json['process'] as List<dynamic>?)
-          ?.map(
-              (e) => ExampleScenarioProcess.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ExampleScenarioProcess.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

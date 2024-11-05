@@ -26,20 +26,22 @@ class EncounterParticipant extends BackboneElement implements FhirResource {
   factory EncounterParticipant.fromJson(Map<String, dynamic> json) {
     return EncounterParticipant(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       individual: json['individual'] != null
-          ? Reference.fromJson(json['individual'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['individual'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       period: json['period'] != null
-          ? Period.fromJson(json['period'] as Map<String, dynamic>)
+          ? Period.fromJson((json['period'] as Map).cast<String, dynamic>())
           : null,
       type: (json['type'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

@@ -51,14 +51,14 @@ class HumanName extends Element implements FhirResource {
   factory HumanName.fromJson(Map<String, dynamic> json) {
     return HumanName(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       family: json['family'] as String?,
       given:
           (json['given'] as List<dynamic>?)?.map((e) => e as String).toList(),
       id: json['id'] as String?,
       period: json['period'] != null
-          ? Period.fromJson(json['period'] as Map<String, dynamic>)
+          ? Period.fromJson((json['period'] as Map).cast<String, dynamic>())
           : null,
       prefix:
           (json['prefix'] as List<dynamic>?)?.map((e) => e as String).toList(),

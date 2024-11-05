@@ -24,18 +24,18 @@ class MedicinalProductName extends BackboneElement implements FhirResource {
     return MedicinalProductName(
       countryLanguage: (json['countryLanguage'] as List<dynamic>?)
           ?.map((e) => MedicinalProductNameCountryLanguage.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       namePart: (json['namePart'] as List<dynamic>?)
-          ?.map((e) =>
-              MedicinalProductNameNamePart.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => MedicinalProductNameNamePart.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       productName: json['productName'] as String,
     );

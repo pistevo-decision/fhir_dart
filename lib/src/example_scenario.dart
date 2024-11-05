@@ -114,53 +114,57 @@ class ExampleScenario extends DomainResource implements FhirResource {
   factory ExampleScenario.fromJson(Map<String, dynamic> json) {
     return ExampleScenario(
       actor: (json['actor'] as List<dynamic>?)
-          ?.map((e) => ExampleScenarioActor.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              ExampleScenarioActor.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contact: (json['contact'] as List<dynamic>?)
-          ?.map((e) => ContactDetail.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactDetail.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       copyright: json['copyright'] as String?,
       date: json['date'] as String?,
       experimental: json['experimental'] as bool?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       instance: (json['instance'] as List<dynamic>?)
-          ?.map((e) =>
-              ExampleScenarioInstance.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ExampleScenarioInstance.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       jurisdiction: (json['jurisdiction'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String?,
       process: (json['process'] as List<dynamic>?)
-          ?.map(
-              (e) => ExampleScenarioProcess.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ExampleScenarioProcess.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       publisher: json['publisher'] as String?,
       purpose: json['purpose'] as String?,
       status: json['status'] as String,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       url: json['url'] as String?,
       useContext: (json['useContext'] as List<dynamic>?)
-          ?.map((e) => UsageContext.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => UsageContext.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       version: json['version'] as String?,
       workflow: (json['workflow'] as List<dynamic>?)

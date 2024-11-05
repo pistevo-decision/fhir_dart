@@ -38,22 +38,23 @@ class NutritionOrderSupplement extends BackboneElement implements FhirResource {
   factory NutritionOrderSupplement.fromJson(Map<String, dynamic> json) {
     return NutritionOrderSupplement(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       instruction: json['instruction'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       productName: json['productName'] as String?,
       quantity: json['quantity'] != null
-          ? Quantity.fromJson(json['quantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['quantity'] as Map).cast<String, dynamic>())
           : null,
       schedule: (json['schedule'] as List<dynamic>?)
-          ?.map((e) => Timing.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Timing.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

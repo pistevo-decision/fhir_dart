@@ -68,45 +68,48 @@ class DeviceMetric extends DomainResource implements FhirResource {
   factory DeviceMetric.fromJson(Map<String, dynamic> json) {
     return DeviceMetric(
       calibration: (json['calibration'] as List<dynamic>?)
-          ?.map((e) =>
-              DeviceMetricCalibration.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => DeviceMetricCalibration.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       category: json['category'] as String,
       color: json['color'] as String?,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       measurementPeriod: json['measurementPeriod'] != null
-          ? Timing.fromJson(json['measurementPeriod'] as Map<String, dynamic>)
+          ? Timing.fromJson(
+              (json['measurementPeriod'] as Map).cast<String, dynamic>())
           : null,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       operationalStatus: json['operationalStatus'] as String?,
       parent: json['parent'] != null
-          ? Reference.fromJson(json['parent'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['parent'] as Map).cast<String, dynamic>())
           : null,
       source: json['source'] != null
-          ? Reference.fromJson(json['source'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['source'] as Map).cast<String, dynamic>())
           : null,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
-      type: CodeableConcept.fromJson(json['type'] as Map<String, dynamic>),
+      type: CodeableConcept.fromJson(
+          (json['type'] as Map).cast<String, dynamic>()),
       unit: json['unit'] != null
-          ? CodeableConcept.fromJson(json['unit'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['unit'] as Map).cast<String, dynamic>())
           : null,
     );
   }

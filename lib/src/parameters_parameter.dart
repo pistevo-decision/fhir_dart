@@ -279,30 +279,34 @@ class ParametersParameter extends BackboneElement implements FhirResource {
   factory ParametersParameter.fromJson(Map<String, dynamic> json) {
     return ParametersParameter(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String,
       fhirPart: (json['part'] as List<dynamic>?)
-          ?.map((e) => ParametersParameter.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              ParametersParameter.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       resource: json['resource'] != null
-          ? Resource.fromJson(json['resource'] as Map<String, dynamic>)
+          ? Resource.fromJson((json['resource'] as Map).cast<String, dynamic>())
           : null,
       valueAddress: json['valueAddress'] != null
-          ? Address.fromJson(json['valueAddress'] as Map<String, dynamic>)
+          ? Address.fromJson(
+              (json['valueAddress'] as Map).cast<String, dynamic>())
           : null,
       valueAge: json['valueAge'] != null
-          ? Age.fromJson(json['valueAge'] as Map<String, dynamic>)
+          ? Age.fromJson((json['valueAge'] as Map).cast<String, dynamic>())
           : null,
       valueAnnotation: json['valueAnnotation'] != null
-          ? Annotation.fromJson(json['valueAnnotation'] as Map<String, dynamic>)
+          ? Annotation.fromJson(
+              (json['valueAnnotation'] as Map).cast<String, dynamic>())
           : null,
       valueAttachment: json['valueAttachment'] != null
-          ? Attachment.fromJson(json['valueAttachment'] as Map<String, dynamic>)
+          ? Attachment.fromJson(
+              (json['valueAttachment'] as Map).cast<String, dynamic>())
           : null,
       valueBase64Binary: json['valueBase64Binary'] as String?,
       valueBoolean: json['valueBoolean'] as bool?,
@@ -310,108 +314,120 @@ class ParametersParameter extends BackboneElement implements FhirResource {
       valueCode: json['valueCode'] as String?,
       valueCodeableConcept: json['valueCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['valueCodeableConcept'] as Map<String, dynamic>)
+              (json['valueCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       valueCoding: json['valueCoding'] != null
-          ? Coding.fromJson(json['valueCoding'] as Map<String, dynamic>)
+          ? Coding.fromJson(
+              (json['valueCoding'] as Map).cast<String, dynamic>())
           : null,
       valueContactDetail: json['valueContactDetail'] != null
           ? ContactDetail.fromJson(
-              json['valueContactDetail'] as Map<String, dynamic>)
+              (json['valueContactDetail'] as Map).cast<String, dynamic>())
           : null,
       valueContactPoint: json['valueContactPoint'] != null
           ? ContactPoint.fromJson(
-              json['valueContactPoint'] as Map<String, dynamic>)
+              (json['valueContactPoint'] as Map).cast<String, dynamic>())
           : null,
       valueContributor: json['valueContributor'] != null
           ? Contributor.fromJson(
-              json['valueContributor'] as Map<String, dynamic>)
+              (json['valueContributor'] as Map).cast<String, dynamic>())
           : null,
       valueCount: json['valueCount'] != null
-          ? Count.fromJson(json['valueCount'] as Map<String, dynamic>)
+          ? Count.fromJson((json['valueCount'] as Map).cast<String, dynamic>())
           : null,
       valueDataRequirement: json['valueDataRequirement'] != null
           ? DataRequirement.fromJson(
-              json['valueDataRequirement'] as Map<String, dynamic>)
+              (json['valueDataRequirement'] as Map).cast<String, dynamic>())
           : null,
       valueDate: json['valueDate'] as String?,
       valueDateTime: json['valueDateTime'] as String?,
       valueDecimal: json['valueDecimal'] as num?,
       valueDistance: json['valueDistance'] != null
-          ? Distance.fromJson(json['valueDistance'] as Map<String, dynamic>)
+          ? Distance.fromJson(
+              (json['valueDistance'] as Map).cast<String, dynamic>())
           : null,
       valueDosage: json['valueDosage'] != null
-          ? Dosage.fromJson(json['valueDosage'] as Map<String, dynamic>)
+          ? Dosage.fromJson(
+              (json['valueDosage'] as Map).cast<String, dynamic>())
           : null,
       valueDuration: json['valueDuration'] != null
-          ? Duration.fromJson(json['valueDuration'] as Map<String, dynamic>)
+          ? Duration.fromJson(
+              (json['valueDuration'] as Map).cast<String, dynamic>())
           : null,
       valueExpression: json['valueExpression'] != null
-          ? Expression.fromJson(json['valueExpression'] as Map<String, dynamic>)
+          ? Expression.fromJson(
+              (json['valueExpression'] as Map).cast<String, dynamic>())
           : null,
       valueHumanName: json['valueHumanName'] != null
-          ? HumanName.fromJson(json['valueHumanName'] as Map<String, dynamic>)
+          ? HumanName.fromJson(
+              (json['valueHumanName'] as Map).cast<String, dynamic>())
           : null,
       valueId: json['valueId'] as String?,
       valueIdentifier: json['valueIdentifier'] != null
-          ? Identifier.fromJson(json['valueIdentifier'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['valueIdentifier'] as Map).cast<String, dynamic>())
           : null,
       valueInstant: json['valueInstant'] as String?,
       valueInteger: json['valueInteger'] as int?,
       valueMarkdown: json['valueMarkdown'] as String?,
       valueMeta: json['valueMeta'] != null
-          ? Meta.fromJson(json['valueMeta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['valueMeta'] as Map).cast<String, dynamic>())
           : null,
       valueMoney: json['valueMoney'] != null
-          ? Money.fromJson(json['valueMoney'] as Map<String, dynamic>)
+          ? Money.fromJson((json['valueMoney'] as Map).cast<String, dynamic>())
           : null,
       valueOid: json['valueOid'] as String?,
       valueParameterDefinition: json['valueParameterDefinition'] != null
           ? ParameterDefinition.fromJson(
-              json['valueParameterDefinition'] as Map<String, dynamic>)
+              (json['valueParameterDefinition'] as Map).cast<String, dynamic>())
           : null,
       valuePeriod: json['valuePeriod'] != null
-          ? Period.fromJson(json['valuePeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['valuePeriod'] as Map).cast<String, dynamic>())
           : null,
       valuePositiveInt: json['valuePositiveInt'] as int?,
       valueQuantity: json['valueQuantity'] != null
-          ? Quantity.fromJson(json['valueQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['valueQuantity'] as Map).cast<String, dynamic>())
           : null,
       valueRange: json['valueRange'] != null
-          ? Range.fromJson(json['valueRange'] as Map<String, dynamic>)
+          ? Range.fromJson((json['valueRange'] as Map).cast<String, dynamic>())
           : null,
       valueRatio: json['valueRatio'] != null
-          ? Ratio.fromJson(json['valueRatio'] as Map<String, dynamic>)
+          ? Ratio.fromJson((json['valueRatio'] as Map).cast<String, dynamic>())
           : null,
       valueReference: json['valueReference'] != null
-          ? Reference.fromJson(json['valueReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['valueReference'] as Map).cast<String, dynamic>())
           : null,
       valueRelatedArtifact: json['valueRelatedArtifact'] != null
           ? RelatedArtifact.fromJson(
-              json['valueRelatedArtifact'] as Map<String, dynamic>)
+              (json['valueRelatedArtifact'] as Map).cast<String, dynamic>())
           : null,
       valueSampledData: json['valueSampledData'] != null
           ? SampledData.fromJson(
-              json['valueSampledData'] as Map<String, dynamic>)
+              (json['valueSampledData'] as Map).cast<String, dynamic>())
           : null,
       valueSignature: json['valueSignature'] != null
-          ? Signature.fromJson(json['valueSignature'] as Map<String, dynamic>)
+          ? Signature.fromJson(
+              (json['valueSignature'] as Map).cast<String, dynamic>())
           : null,
       valueString: json['valueString'] as String?,
       valueTime: json['valueTime'] as String?,
       valueTiming: json['valueTiming'] != null
-          ? Timing.fromJson(json['valueTiming'] as Map<String, dynamic>)
+          ? Timing.fromJson(
+              (json['valueTiming'] as Map).cast<String, dynamic>())
           : null,
       valueTriggerDefinition: json['valueTriggerDefinition'] != null
           ? TriggerDefinition.fromJson(
-              json['valueTriggerDefinition'] as Map<String, dynamic>)
+              (json['valueTriggerDefinition'] as Map).cast<String, dynamic>())
           : null,
       valueUnsignedInt: json['valueUnsignedInt'] as int?,
       valueUri: json['valueUri'] as String?,
       valueUrl: json['valueUrl'] as String?,
       valueUsageContext: json['valueUsageContext'] != null
           ? UsageContext.fromJson(
-              json['valueUsageContext'] as Map<String, dynamic>)
+              (json['valueUsageContext'] as Map).cast<String, dynamic>())
           : null,
       valueUuid: json['valueUuid'] as String?,
     );

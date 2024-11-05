@@ -71,56 +71,60 @@ class OrganizationAffiliation extends DomainResource implements FhirResource {
     return OrganizationAffiliation(
       active: json['active'] as bool?,
       code: (json['code'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       endpoint: (json['endpoint'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       healthcareService: (json['healthcareService'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       location: (json['location'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       network: (json['network'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       organization: json['organization'] != null
-          ? Reference.fromJson(json['organization'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['organization'] as Map).cast<String, dynamic>())
           : null,
       participatingOrganization: json['participatingOrganization'] != null
-          ? Reference.fromJson(
-              json['participatingOrganization'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['participatingOrganization'] as Map)
+              .cast<String, dynamic>())
           : null,
       period: json['period'] != null
-          ? Period.fromJson(json['period'] as Map<String, dynamic>)
+          ? Period.fromJson((json['period'] as Map).cast<String, dynamic>())
           : null,
       specialty: (json['specialty'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       telecom: (json['telecom'] as List<dynamic>?)
-          ?.map((e) => ContactPoint.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactPoint.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

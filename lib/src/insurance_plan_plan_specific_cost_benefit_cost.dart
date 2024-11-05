@@ -31,21 +31,23 @@ class InsurancePlanPlanSpecificCostBenefitCost extends BackboneElement
     return InsurancePlanPlanSpecificCostBenefitCost(
       applicability: json['applicability'] != null
           ? CodeableConcept.fromJson(
-              json['applicability'] as Map<String, dynamic>)
+              (json['applicability'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       qualifiers: (json['qualifiers'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      type: CodeableConcept.fromJson(json['type'] as Map<String, dynamic>),
+      type: CodeableConcept.fromJson(
+          (json['type'] as Map).cast<String, dynamic>()),
       value: json['value'] != null
-          ? Quantity.fromJson(json['value'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['value'] as Map).cast<String, dynamic>())
           : null,
     );
   }

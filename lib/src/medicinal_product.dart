@@ -102,90 +102,96 @@ class MedicinalProduct extends DomainResource implements FhirResource {
       additionalMonitoringIndicator:
           json['additionalMonitoringIndicator'] != null
               ? CodeableConcept.fromJson(
-                  json['additionalMonitoringIndicator'] as Map<String, dynamic>)
+                  (json['additionalMonitoringIndicator'] as Map)
+                      .cast<String, dynamic>())
               : null,
       attachedDocument: (json['attachedDocument'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       clinicalTrial: (json['clinicalTrial'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      combinedPharmaceuticalDoseForm: json['combinedPharmaceuticalDoseForm'] !=
-              null
-          ? CodeableConcept.fromJson(
-              json['combinedPharmaceuticalDoseForm'] as Map<String, dynamic>)
-          : null,
+      combinedPharmaceuticalDoseForm:
+          json['combinedPharmaceuticalDoseForm'] != null
+              ? CodeableConcept.fromJson(
+                  (json['combinedPharmaceuticalDoseForm'] as Map)
+                      .cast<String, dynamic>())
+              : null,
       contact: (json['contact'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       crossReference: (json['crossReference'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       domain: json['domain'] != null
-          ? Coding.fromJson(json['domain'] as Map<String, dynamic>)
+          ? Coding.fromJson((json['domain'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       legalStatusOfSupply: json['legalStatusOfSupply'] != null
           ? CodeableConcept.fromJson(
-              json['legalStatusOfSupply'] as Map<String, dynamic>)
+              (json['legalStatusOfSupply'] as Map).cast<String, dynamic>())
           : null,
       manufacturingBusinessOperation: (json['manufacturingBusinessOperation']
               as List<dynamic>?)
           ?.map((e) => MedicinalProductManufacturingBusinessOperation.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       marketingStatus: (json['marketingStatus'] as List<dynamic>?)
-          ?.map((e) => MarketingStatus.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              MarketingStatus.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       masterFile: (json['masterFile'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: (json['name'] as List<dynamic>)
-          .map((e) => MedicinalProductName.fromJson(e as Map<String, dynamic>))
+          .map((e) =>
+              MedicinalProductName.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      packagedMedicinalProduct:
-          (json['packagedMedicinalProduct'] as List<dynamic>?)
-              ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
-              .toList(),
+      packagedMedicinalProduct: (json['packagedMedicinalProduct']
+              as List<dynamic>?)
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
+          .toList(),
       paediatricUseIndicator: json['paediatricUseIndicator'] != null
           ? CodeableConcept.fromJson(
-              json['paediatricUseIndicator'] as Map<String, dynamic>)
+              (json['paediatricUseIndicator'] as Map).cast<String, dynamic>())
           : null,
       pharmaceuticalProduct: (json['pharmaceuticalProduct'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       productClassification: (json['productClassification'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       specialDesignation: (json['specialDesignation'] as List<dynamic>?)
           ?.map((e) => MedicinalProductSpecialDesignation.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       specialMeasures: (json['specialMeasures'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

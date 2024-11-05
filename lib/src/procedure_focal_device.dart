@@ -22,16 +22,17 @@ class ProcedureFocalDevice extends BackboneElement implements FhirResource {
   factory ProcedureFocalDevice.fromJson(Map<String, dynamic> json) {
     return ProcedureFocalDevice(
       action: json['action'] != null
-          ? CodeableConcept.fromJson(json['action'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['action'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
-      manipulated:
-          Reference.fromJson(json['manipulated'] as Map<String, dynamic>),
+      manipulated: Reference.fromJson(
+          (json['manipulated'] as Map).cast<String, dynamic>()),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

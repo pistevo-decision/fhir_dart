@@ -45,25 +45,25 @@ class SubstanceProteinSubunit extends BackboneElement implements FhirResource {
       cTerminalModification: json['cTerminalModification'] as String?,
       cTerminalModificationId: json['cTerminalModificationId'] != null
           ? Identifier.fromJson(
-              json['cTerminalModificationId'] as Map<String, dynamic>)
+              (json['cTerminalModificationId'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       length: json['length'] as int?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       nTerminalModification: json['nTerminalModification'] as String?,
       nTerminalModificationId: json['nTerminalModificationId'] != null
           ? Identifier.fromJson(
-              json['nTerminalModificationId'] as Map<String, dynamic>)
+              (json['nTerminalModificationId'] as Map).cast<String, dynamic>())
           : null,
       sequence: json['sequence'] as String?,
       sequenceAttachment: json['sequenceAttachment'] != null
           ? Attachment.fromJson(
-              json['sequenceAttachment'] as Map<String, dynamic>)
+              (json['sequenceAttachment'] as Map).cast<String, dynamic>())
           : null,
       subunit: json['subunit'] as int?,
     );

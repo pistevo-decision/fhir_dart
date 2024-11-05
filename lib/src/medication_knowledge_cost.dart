@@ -24,16 +24,17 @@ class MedicationKnowledgeCost extends BackboneElement implements FhirResource {
   @override
   factory MedicationKnowledgeCost.fromJson(Map<String, dynamic> json) {
     return MedicationKnowledgeCost(
-      cost: Money.fromJson(json['cost'] as Map<String, dynamic>),
+      cost: Money.fromJson((json['cost'] as Map).cast<String, dynamic>()),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       source: json['source'] as String?,
-      type: CodeableConcept.fromJson(json['type'] as Map<String, dynamic>),
+      type: CodeableConcept.fromJson(
+          (json['type'] as Map).cast<String, dynamic>()),
     );
   }
 

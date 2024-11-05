@@ -25,20 +25,22 @@ class SubstanceReferenceInformationGeneElement extends BackboneElement
       Map<String, dynamic> json) {
     return SubstanceReferenceInformationGeneElement(
       element: json['element'] != null
-          ? Identifier.fromJson(json['element'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['element'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       source: (json['source'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

@@ -199,44 +199,52 @@ class Procedure extends DomainResource implements FhirResource {
   factory Procedure.fromJson(Map<String, dynamic> json) {
     return Procedure(
       asserter: json['asserter'] != null
-          ? Reference.fromJson(json['asserter'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['asserter'] as Map).cast<String, dynamic>())
           : null,
       basedOn: (json['basedOn'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       bodySite: (json['bodySite'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       category: json['category'] != null
-          ? CodeableConcept.fromJson(json['category'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['category'] as Map).cast<String, dynamic>())
           : null,
       code: json['code'] != null
-          ? CodeableConcept.fromJson(json['code'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['code'] as Map).cast<String, dynamic>())
           : null,
       complication: (json['complication'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       complicationDetail: (json['complicationDetail'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       encounter: json['encounter'] != null
-          ? Reference.fromJson(json['encounter'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['encounter'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       focalDevice: (json['focalDevice'] as List<dynamic>?)
-          ?.map((e) => ProcedureFocalDevice.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              ProcedureFocalDevice.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       followUp: (json['followUp'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       instantiatesCanonical: (json['instantiatesCanonical'] as List<dynamic>?)
@@ -247,63 +255,72 @@ class Procedure extends DomainResource implements FhirResource {
           .toList(),
       language: json['language'] as String?,
       location: json['location'] != null
-          ? Reference.fromJson(json['location'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['location'] as Map).cast<String, dynamic>())
           : null,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       note: (json['note'] as List<dynamic>?)
-          ?.map((e) => Annotation.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Annotation.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       outcome: json['outcome'] != null
-          ? CodeableConcept.fromJson(json['outcome'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['outcome'] as Map).cast<String, dynamic>())
           : null,
       partOf: (json['partOf'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       performedAge: json['performedAge'] != null
-          ? Age.fromJson(json['performedAge'] as Map<String, dynamic>)
+          ? Age.fromJson((json['performedAge'] as Map).cast<String, dynamic>())
           : null,
       performedDateTime: json['performedDateTime'] as String?,
       performedPeriod: json['performedPeriod'] != null
-          ? Period.fromJson(json['performedPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['performedPeriod'] as Map).cast<String, dynamic>())
           : null,
       performedRange: json['performedRange'] != null
-          ? Range.fromJson(json['performedRange'] as Map<String, dynamic>)
+          ? Range.fromJson(
+              (json['performedRange'] as Map).cast<String, dynamic>())
           : null,
       performedString: json['performedString'] as String?,
       performer: (json['performer'] as List<dynamic>?)
-          ?.map((e) => ProcedurePerformer.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              ProcedurePerformer.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reasonCode: (json['reasonCode'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reasonReference: (json['reasonReference'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       recorder: json['recorder'] != null
-          ? Reference.fromJson(json['recorder'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['recorder'] as Map).cast<String, dynamic>())
           : null,
       report: (json['report'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       status: json['status'] as String,
       statusReason: json['statusReason'] != null
           ? CodeableConcept.fromJson(
-              json['statusReason'] as Map<String, dynamic>)
+              (json['statusReason'] as Map).cast<String, dynamic>())
           : null,
-      subject: Reference.fromJson(json['subject'] as Map<String, dynamic>),
+      subject:
+          Reference.fromJson((json['subject'] as Map).cast<String, dynamic>()),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       usedCode: (json['usedCode'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       usedReference: (json['usedReference'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

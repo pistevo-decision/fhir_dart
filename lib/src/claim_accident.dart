@@ -34,21 +34,23 @@ class ClaimAccident extends BackboneElement implements FhirResource {
     return ClaimAccident(
       date: json['date'] as String,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       locationAddress: json['locationAddress'] != null
-          ? Address.fromJson(json['locationAddress'] as Map<String, dynamic>)
+          ? Address.fromJson(
+              (json['locationAddress'] as Map).cast<String, dynamic>())
           : null,
       locationReference: json['locationReference'] != null
           ? Reference.fromJson(
-              json['locationReference'] as Map<String, dynamic>)
+              (json['locationReference'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

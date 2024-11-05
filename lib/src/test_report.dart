@@ -76,47 +76,50 @@ class TestReport extends DomainResource implements FhirResource {
   factory TestReport.fromJson(Map<String, dynamic> json) {
     return TestReport(
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: json['identifier'] != null
-          ? Identifier.fromJson(json['identifier'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['identifier'] as Map).cast<String, dynamic>())
           : null,
       implicitRules: json['implicitRules'] as String?,
       issued: json['issued'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String?,
       participant: (json['participant'] as List<dynamic>?)
-          ?.map(
-              (e) => TestReportParticipant.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => TestReportParticipant.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       result: json['result'] as String,
       score: json['score'] as num?,
       setup: json['setup'] != null
-          ? TestReportSetup.fromJson(json['setup'] as Map<String, dynamic>)
+          ? TestReportSetup.fromJson(
+              (json['setup'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String,
       teardown: json['teardown'] != null
           ? TestReportTeardown.fromJson(
-              json['teardown'] as Map<String, dynamic>)
+              (json['teardown'] as Map).cast<String, dynamic>())
           : null,
       test: (json['test'] as List<dynamic>?)
-          ?.map((e) => TestReportTest.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              TestReportTest.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       tester: json['tester'] as String?,
-      testScript:
-          Reference.fromJson(json['testScript'] as Map<String, dynamic>),
+      testScript: Reference.fromJson(
+          (json['testScript'] as Map).cast<String, dynamic>()),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

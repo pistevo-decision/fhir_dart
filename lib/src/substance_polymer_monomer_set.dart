@@ -20,18 +20,19 @@ class SubstancePolymerMonomerSet extends BackboneElement
   factory SubstancePolymerMonomerSet.fromJson(Map<String, dynamic> json) {
     return SubstancePolymerMonomerSet(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       ratioType: json['ratioType'] != null
-          ? CodeableConcept.fromJson(json['ratioType'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['ratioType'] as Map).cast<String, dynamic>())
           : null,
       startingMaterial: (json['startingMaterial'] as List<dynamic>?)
           ?.map((e) => SubstancePolymerMonomerSetStartingMaterial.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

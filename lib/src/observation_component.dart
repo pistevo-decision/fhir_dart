@@ -103,47 +103,51 @@ class ObservationComponent extends BackboneElement implements FhirResource {
   @override
   factory ObservationComponent.fromJson(Map<String, dynamic> json) {
     return ObservationComponent(
-      code: CodeableConcept.fromJson(json['code'] as Map<String, dynamic>),
+      code: CodeableConcept.fromJson(
+          (json['code'] as Map).cast<String, dynamic>()),
       dataAbsentReason: json['dataAbsentReason'] != null
           ? CodeableConcept.fromJson(
-              json['dataAbsentReason'] as Map<String, dynamic>)
+              (json['dataAbsentReason'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       interpretation: (json['interpretation'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       referenceRange: (json['referenceRange'] as List<dynamic>?)
-          ?.map((e) =>
-              ObservationReferenceRange.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ObservationReferenceRange.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       valueBoolean: json['valueBoolean'] as bool?,
       valueCodeableConcept: json['valueCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['valueCodeableConcept'] as Map<String, dynamic>)
+              (json['valueCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       valueDateTime: json['valueDateTime'] as String?,
       valueInteger: json['valueInteger'] as int?,
       valuePeriod: json['valuePeriod'] != null
-          ? Period.fromJson(json['valuePeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['valuePeriod'] as Map).cast<String, dynamic>())
           : null,
       valueQuantity: json['valueQuantity'] != null
-          ? Quantity.fromJson(json['valueQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['valueQuantity'] as Map).cast<String, dynamic>())
           : null,
       valueRange: json['valueRange'] != null
-          ? Range.fromJson(json['valueRange'] as Map<String, dynamic>)
+          ? Range.fromJson((json['valueRange'] as Map).cast<String, dynamic>())
           : null,
       valueRatio: json['valueRatio'] != null
-          ? Ratio.fromJson(json['valueRatio'] as Map<String, dynamic>)
+          ? Ratio.fromJson((json['valueRatio'] as Map).cast<String, dynamic>())
           : null,
       valueSampledData: json['valueSampledData'] != null
           ? SampledData.fromJson(
-              json['valueSampledData'] as Map<String, dynamic>)
+              (json['valueSampledData'] as Map).cast<String, dynamic>())
           : null,
       valueString: json['valueString'] as String?,
       valueTime: json['valueTime'] as String?,

@@ -33,18 +33,18 @@ class TerminologyCapabilitiesExpansion extends BackboneElement
   factory TerminologyCapabilitiesExpansion.fromJson(Map<String, dynamic> json) {
     return TerminologyCapabilitiesExpansion(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       hierarchical: json['hierarchical'] as bool?,
       id: json['id'] as String?,
       incomplete: json['incomplete'] as bool?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       paging: json['paging'] as bool?,
       parameter: (json['parameter'] as List<dynamic>?)
           ?.map((e) => TerminologyCapabilitiesExpansionParameter.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       textFilter: json['textFilter'] as String?,
     );

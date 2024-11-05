@@ -23,15 +23,16 @@ class AdverseEventSuspectEntity extends BackboneElement
     return AdverseEventSuspectEntity(
       causality: (json['causality'] as List<dynamic>?)
           ?.map((e) => AdverseEventSuspectEntityCausality.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
-      instance: Reference.fromJson(json['instance'] as Map<String, dynamic>),
+      instance:
+          Reference.fromJson((json['instance'] as Map).cast<String, dynamic>()),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

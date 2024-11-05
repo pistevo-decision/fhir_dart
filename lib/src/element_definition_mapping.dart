@@ -35,7 +35,7 @@ class ElementDefinitionMapping extends Element implements FhirResource {
     return ElementDefinitionMapping(
       comment: json['comment'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identity: json['identity'] as String,

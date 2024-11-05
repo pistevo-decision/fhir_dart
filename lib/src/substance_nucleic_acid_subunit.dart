@@ -44,32 +44,34 @@ class SubstanceNucleicAcidSubunit extends BackboneElement
   factory SubstanceNucleicAcidSubunit.fromJson(Map<String, dynamic> json) {
     return SubstanceNucleicAcidSubunit(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fivePrime: json['fivePrime'] != null
-          ? CodeableConcept.fromJson(json['fivePrime'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['fivePrime'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       length: json['length'] as int?,
       linkage: (json['linkage'] as List<dynamic>?)
           ?.map((e) => SubstanceNucleicAcidSubunitLinkage.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       sequence: json['sequence'] as String?,
       sequenceAttachment: json['sequenceAttachment'] != null
           ? Attachment.fromJson(
-              json['sequenceAttachment'] as Map<String, dynamic>)
+              (json['sequenceAttachment'] as Map).cast<String, dynamic>())
           : null,
       subunit: json['subunit'] as int?,
       sugar: (json['sugar'] as List<dynamic>?)
           ?.map((e) => SubstanceNucleicAcidSubunitSugar.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       threePrime: json['threePrime'] != null
-          ? CodeableConcept.fromJson(json['threePrime'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['threePrime'] as Map).cast<String, dynamic>())
           : null,
     );
   }

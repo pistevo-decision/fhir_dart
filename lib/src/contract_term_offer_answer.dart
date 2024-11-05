@@ -71,28 +71,32 @@ class ContractTermOfferAnswer extends BackboneElement implements FhirResource {
   factory ContractTermOfferAnswer.fromJson(Map<String, dynamic> json) {
     return ContractTermOfferAnswer(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       valueAttachment: json['valueAttachment'] != null
-          ? Attachment.fromJson(json['valueAttachment'] as Map<String, dynamic>)
+          ? Attachment.fromJson(
+              (json['valueAttachment'] as Map).cast<String, dynamic>())
           : null,
       valueBoolean: json['valueBoolean'] as bool?,
       valueCoding: json['valueCoding'] != null
-          ? Coding.fromJson(json['valueCoding'] as Map<String, dynamic>)
+          ? Coding.fromJson(
+              (json['valueCoding'] as Map).cast<String, dynamic>())
           : null,
       valueDate: json['valueDate'] as String?,
       valueDateTime: json['valueDateTime'] as String?,
       valueDecimal: json['valueDecimal'] as num?,
       valueInteger: json['valueInteger'] as int?,
       valueQuantity: json['valueQuantity'] != null
-          ? Quantity.fromJson(json['valueQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['valueQuantity'] as Map).cast<String, dynamic>())
           : null,
       valueReference: json['valueReference'] != null
-          ? Reference.fromJson(json['valueReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['valueReference'] as Map).cast<String, dynamic>())
           : null,
       valueString: json['valueString'] as String?,
       valueTime: json['valueTime'] as String?,

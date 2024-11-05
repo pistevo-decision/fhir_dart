@@ -29,14 +29,14 @@ class BiologicallyDerivedProductStorage extends BackboneElement
     return BiologicallyDerivedProductStorage(
       description: json['description'] as String?,
       duration: json['duration'] != null
-          ? Period.fromJson(json['duration'] as Map<String, dynamic>)
+          ? Period.fromJson((json['duration'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       scale: json['scale'] as String?,
       temperature: json['temperature'] as num?,

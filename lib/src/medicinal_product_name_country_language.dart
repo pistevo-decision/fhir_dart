@@ -24,20 +24,20 @@ class MedicinalProductNameCountryLanguage extends BackboneElement
   factory MedicinalProductNameCountryLanguage.fromJson(
       Map<String, dynamic> json) {
     return MedicinalProductNameCountryLanguage(
-      country:
-          CodeableConcept.fromJson(json['country'] as Map<String, dynamic>),
+      country: CodeableConcept.fromJson(
+          (json['country'] as Map).cast<String, dynamic>()),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       jurisdiction: json['jurisdiction'] != null
           ? CodeableConcept.fromJson(
-              json['jurisdiction'] as Map<String, dynamic>)
+              (json['jurisdiction'] as Map).cast<String, dynamic>())
           : null,
-      language:
-          CodeableConcept.fromJson(json['language'] as Map<String, dynamic>),
+      language: CodeableConcept.fromJson(
+          (json['language'] as Map).cast<String, dynamic>()),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

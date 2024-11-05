@@ -90,58 +90,63 @@ class SupplyDelivery extends DomainResource implements FhirResource {
   factory SupplyDelivery.fromJson(Map<String, dynamic> json) {
     return SupplyDelivery(
       basedOn: (json['basedOn'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       destination: json['destination'] != null
-          ? Reference.fromJson(json['destination'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['destination'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       occurrenceDateTime: json['occurrenceDateTime'] as String?,
       occurrencePeriod: json['occurrencePeriod'] != null
-          ? Period.fromJson(json['occurrencePeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['occurrencePeriod'] as Map).cast<String, dynamic>())
           : null,
       occurrenceTiming: json['occurrenceTiming'] != null
-          ? Timing.fromJson(json['occurrenceTiming'] as Map<String, dynamic>)
+          ? Timing.fromJson(
+              (json['occurrenceTiming'] as Map).cast<String, dynamic>())
           : null,
       partOf: (json['partOf'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       patient: json['patient'] != null
-          ? Reference.fromJson(json['patient'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['patient'] as Map).cast<String, dynamic>())
           : null,
       receiver: (json['receiver'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       status: json['status'] as String?,
       suppliedItem: json['suppliedItem'] != null
           ? SupplyDeliverySuppliedItem.fromJson(
-              json['suppliedItem'] as Map<String, dynamic>)
+              (json['suppliedItem'] as Map).cast<String, dynamic>())
           : null,
       supplier: json['supplier'] != null
-          ? Reference.fromJson(json['supplier'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['supplier'] as Map).cast<String, dynamic>())
           : null,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

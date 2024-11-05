@@ -25,17 +25,17 @@ class MedicationRequestDispenseRequestInitialFill extends BackboneElement
       Map<String, dynamic> json) {
     return MedicationRequestDispenseRequestInitialFill(
       duration: json['duration'] != null
-          ? Duration.fromJson(json['duration'] as Map<String, dynamic>)
+          ? Duration.fromJson((json['duration'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       quantity: json['quantity'] != null
-          ? Quantity.fromJson(json['quantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['quantity'] as Map).cast<String, dynamic>())
           : null,
     );
   }

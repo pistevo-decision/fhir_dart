@@ -35,18 +35,19 @@ class MessageHeaderDestination extends BackboneElement implements FhirResource {
     return MessageHeaderDestination(
       endpoint: json['endpoint'] as String,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String?,
       receiver: json['receiver'] != null
-          ? Reference.fromJson(json['receiver'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['receiver'] as Map).cast<String, dynamic>())
           : null,
       target: json['target'] != null
-          ? Reference.fromJson(json['target'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['target'] as Map).cast<String, dynamic>())
           : null,
     );
   }

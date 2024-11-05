@@ -36,19 +36,20 @@ class ClaimResponseItemAdjudication extends BackboneElement
   factory ClaimResponseItemAdjudication.fromJson(Map<String, dynamic> json) {
     return ClaimResponseItemAdjudication(
       amount: json['amount'] != null
-          ? Money.fromJson(json['amount'] as Map<String, dynamic>)
+          ? Money.fromJson((json['amount'] as Map).cast<String, dynamic>())
           : null,
-      category:
-          CodeableConcept.fromJson(json['category'] as Map<String, dynamic>),
+      category: CodeableConcept.fromJson(
+          (json['category'] as Map).cast<String, dynamic>()),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reason: json['reason'] != null
-          ? CodeableConcept.fromJson(json['reason'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['reason'] as Map).cast<String, dynamic>())
           : null,
       value: json['value'] as num?,
     );

@@ -76,46 +76,48 @@ class Practitioner extends DomainResource implements FhirResource {
     return Practitioner(
       active: json['active'] as bool?,
       address: (json['address'] as List<dynamic>?)
-          ?.map((e) => Address.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Address.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       birthDate: json['birthDate'] as String?,
       communication: (json['communication'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       gender: json['gender'] as String?,
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: (json['name'] as List<dynamic>?)
-          ?.map((e) => HumanName.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => HumanName.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       photo: (json['photo'] as List<dynamic>?)
-          ?.map((e) => Attachment.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Attachment.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       qualification: (json['qualification'] as List<dynamic>?)
-          ?.map((e) =>
-              PractitionerQualification.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => PractitionerQualification.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       telecom: (json['telecom'] as List<dynamic>?)
-          ?.map((e) => ContactPoint.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactPoint.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

@@ -23,19 +23,19 @@ class TestScriptMetadata extends BackboneElement implements FhirResource {
   factory TestScriptMetadata.fromJson(Map<String, dynamic> json) {
     return TestScriptMetadata(
       capability: (json['capability'] as List<dynamic>)
-          .map((e) =>
-              TestScriptMetadataCapability.fromJson(e as Map<String, dynamic>))
+          .map((e) => TestScriptMetadataCapability.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       link: (json['link'] as List<dynamic>?)
-          ?.map(
-              (e) => TestScriptMetadataLink.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => TestScriptMetadataLink.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

@@ -42,7 +42,7 @@ class BundleEntryRequest extends BackboneElement implements FhirResource {
   factory BundleEntryRequest.fromJson(Map<String, dynamic> json) {
     return BundleEntryRequest(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       ifMatch: json['ifMatch'] as String?,
@@ -51,7 +51,7 @@ class BundleEntryRequest extends BackboneElement implements FhirResource {
       ifNoneMatch: json['ifNoneMatch'] as String?,
       method: json['method'] as String,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       url: json['url'] as String,
     );

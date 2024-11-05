@@ -52,30 +52,33 @@ class SpecimenDefinitionTypeTested extends BackboneElement
     return SpecimenDefinitionTypeTested(
       container: json['container'] != null
           ? SpecimenDefinitionTypeTestedContainer.fromJson(
-              json['container'] as Map<String, dynamic>)
+              (json['container'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       handling: (json['handling'] as List<dynamic>?)
           ?.map((e) => SpecimenDefinitionTypeTestedHandling.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       isDerived: json['isDerived'] as bool?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       preference: json['preference'] as String,
       rejectionCriterion: (json['rejectionCriterion'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       requirement: json['requirement'] as String?,
       retentionTime: json['retentionTime'] != null
-          ? Duration.fromJson(json['retentionTime'] as Map<String, dynamic>)
+          ? Duration.fromJson(
+              (json['retentionTime'] as Map).cast<String, dynamic>())
           : null,
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

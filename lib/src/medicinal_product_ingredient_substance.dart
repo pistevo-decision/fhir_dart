@@ -20,18 +20,19 @@ class MedicinalProductIngredientSubstance extends BackboneElement
   factory MedicinalProductIngredientSubstance.fromJson(
       Map<String, dynamic> json) {
     return MedicinalProductIngredientSubstance(
-      code: CodeableConcept.fromJson(json['code'] as Map<String, dynamic>),
+      code: CodeableConcept.fromJson(
+          (json['code'] as Map).cast<String, dynamic>()),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       strength: (json['strength'] as List<dynamic>?)
           ?.map((e) =>
               MedicinalProductIngredientSpecifiedSubstanceStrength.fromJson(
-                  e as Map<String, dynamic>))
+                  (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

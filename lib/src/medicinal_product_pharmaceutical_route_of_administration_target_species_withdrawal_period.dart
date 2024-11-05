@@ -25,15 +25,16 @@ class MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawal
       Map<String, dynamic> json) {
     return MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       supportingInformation: json['supportingInformation'] as String?,
-      tissue: CodeableConcept.fromJson(json['tissue'] as Map<String, dynamic>),
-      value: Quantity.fromJson(json['value'] as Map<String, dynamic>),
+      tissue: CodeableConcept.fromJson(
+          (json['tissue'] as Map).cast<String, dynamic>()),
+      value: Quantity.fromJson((json['value'] as Map).cast<String, dynamic>()),
     );
   }
 

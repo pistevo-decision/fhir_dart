@@ -22,14 +22,16 @@ class Ratio extends Element implements FhirResource {
   factory Ratio.fromJson(Map<String, dynamic> json) {
     return Ratio(
       denominator: json['denominator'] != null
-          ? Quantity.fromJson(json['denominator'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['denominator'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       numerator: json['numerator'] != null
-          ? Quantity.fromJson(json['numerator'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['numerator'] as Map).cast<String, dynamic>())
           : null,
     );
   }

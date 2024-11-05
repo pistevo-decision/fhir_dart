@@ -52,30 +52,33 @@ class FamilyMemberHistoryCondition extends BackboneElement
   @override
   factory FamilyMemberHistoryCondition.fromJson(Map<String, dynamic> json) {
     return FamilyMemberHistoryCondition(
-      code: CodeableConcept.fromJson(json['code'] as Map<String, dynamic>),
+      code: CodeableConcept.fromJson(
+          (json['code'] as Map).cast<String, dynamic>()),
       contributedToDeath: json['contributedToDeath'] as bool?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       note: (json['note'] as List<dynamic>?)
-          ?.map((e) => Annotation.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Annotation.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       onsetAge: json['onsetAge'] != null
-          ? Age.fromJson(json['onsetAge'] as Map<String, dynamic>)
+          ? Age.fromJson((json['onsetAge'] as Map).cast<String, dynamic>())
           : null,
       onsetPeriod: json['onsetPeriod'] != null
-          ? Period.fromJson(json['onsetPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['onsetPeriod'] as Map).cast<String, dynamic>())
           : null,
       onsetRange: json['onsetRange'] != null
-          ? Range.fromJson(json['onsetRange'] as Map<String, dynamic>)
+          ? Range.fromJson((json['onsetRange'] as Map).cast<String, dynamic>())
           : null,
       onsetString: json['onsetString'] as String?,
       outcome: json['outcome'] != null
-          ? CodeableConcept.fromJson(json['outcome'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['outcome'] as Map).cast<String, dynamic>())
           : null,
     );
   }

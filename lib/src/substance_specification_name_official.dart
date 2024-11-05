@@ -25,18 +25,20 @@ class SubstanceSpecificationNameOfficial extends BackboneElement
       Map<String, dynamic> json) {
     return SubstanceSpecificationNameOfficial(
       authority: json['authority'] != null
-          ? CodeableConcept.fromJson(json['authority'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['authority'] as Map).cast<String, dynamic>())
           : null,
       date: json['date'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       status: json['status'] != null
-          ? CodeableConcept.fromJson(json['status'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['status'] as Map).cast<String, dynamic>())
           : null,
     );
   }

@@ -77,49 +77,53 @@ class Account extends DomainResource implements FhirResource {
   factory Account.fromJson(Map<String, dynamic> json) {
     return Account(
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       coverage: (json['coverage'] as List<dynamic>?)
-          ?.map((e) => AccountCoverage.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              AccountCoverage.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       description: json['description'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       guarantor: (json['guarantor'] as List<dynamic>?)
-          ?.map((e) => AccountGuarantor.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              AccountGuarantor.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String?,
       owner: json['owner'] != null
-          ? Reference.fromJson(json['owner'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['owner'] as Map).cast<String, dynamic>())
           : null,
       partOf: json['partOf'] != null
-          ? Reference.fromJson(json['partOf'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['partOf'] as Map).cast<String, dynamic>())
           : null,
       servicePeriod: json['servicePeriod'] != null
-          ? Period.fromJson(json['servicePeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['servicePeriod'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String,
       subject: (json['subject'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

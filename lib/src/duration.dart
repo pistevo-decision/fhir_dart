@@ -19,7 +19,7 @@ class Duration extends Quantity implements FhirResource {
       code: json['code'] as String?,
       comparator: json['comparator'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       system: json['system'] as String?,

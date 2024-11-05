@@ -22,12 +22,13 @@ class ContactDetail extends Element implements FhirResource {
   factory ContactDetail.fromJson(Map<String, dynamic> json) {
     return ContactDetail(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       name: json['name'] as String?,
       telecom: (json['telecom'] as List<dynamic>?)
-          ?.map((e) => ContactPoint.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactPoint.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

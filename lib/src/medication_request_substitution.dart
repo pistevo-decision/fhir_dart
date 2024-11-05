@@ -32,17 +32,18 @@ class MedicationRequestSubstitution extends BackboneElement
       allowedBoolean: json['allowedBoolean'] as bool?,
       allowedCodeableConcept: json['allowedCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['allowedCodeableConcept'] as Map<String, dynamic>)
+              (json['allowedCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reason: json['reason'] != null
-          ? CodeableConcept.fromJson(json['reason'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['reason'] as Map).cast<String, dynamic>())
           : null,
     );
   }

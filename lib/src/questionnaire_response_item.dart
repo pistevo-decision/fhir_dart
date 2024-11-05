@@ -43,20 +43,20 @@ class QuestionnaireResponseItem extends BackboneElement
     return QuestionnaireResponseItem(
       answer: (json['answer'] as List<dynamic>?)
           ?.map((e) => QuestionnaireResponseItemAnswer.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       definition: json['definition'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       item: (json['item'] as List<dynamic>?)
-          ?.map((e) =>
-              QuestionnaireResponseItem.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => QuestionnaireResponseItem.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       linkId: json['linkId'] as String,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] as String?,
     );

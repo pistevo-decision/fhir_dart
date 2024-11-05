@@ -48,20 +48,20 @@ class ConceptMapGroupElementTarget extends BackboneElement
       comment: json['comment'] as String?,
       dependsOn: (json['dependsOn'] as List<dynamic>?)
           ?.map((e) => ConceptMapGroupElementTargetDependsOn.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       display: json['display'] as String?,
       equivalence: json['equivalence'] as String,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       product: (json['product'] as List<dynamic>?)
           ?.map((e) => ConceptMapGroupElementTargetDependsOn.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

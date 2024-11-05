@@ -35,26 +35,28 @@ class SubstanceAmount extends BackboneElement implements FhirResource {
   factory SubstanceAmount.fromJson(Map<String, dynamic> json) {
     return SubstanceAmount(
       amountQuantity: json['amountQuantity'] != null
-          ? Quantity.fromJson(json['amountQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['amountQuantity'] as Map).cast<String, dynamic>())
           : null,
       amountRange: json['amountRange'] != null
-          ? Range.fromJson(json['amountRange'] as Map<String, dynamic>)
+          ? Range.fromJson((json['amountRange'] as Map).cast<String, dynamic>())
           : null,
       amountString: json['amountString'] as String?,
       amountText: json['amountText'] as String?,
       amountType: json['amountType'] != null
-          ? CodeableConcept.fromJson(json['amountType'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['amountType'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       referenceRange: json['referenceRange'] != null
           ? SubstanceAmountReferenceRange.fromJson(
-              json['referenceRange'] as Map<String, dynamic>)
+              (json['referenceRange'] as Map).cast<String, dynamic>())
           : null,
     );
   }

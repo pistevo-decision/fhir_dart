@@ -71,32 +71,35 @@ class GoalTarget extends BackboneElement implements FhirResource {
       detailBoolean: json['detailBoolean'] as bool?,
       detailCodeableConcept: json['detailCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['detailCodeableConcept'] as Map<String, dynamic>)
+              (json['detailCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       detailInteger: json['detailInteger'] as int?,
       detailQuantity: json['detailQuantity'] != null
-          ? Quantity.fromJson(json['detailQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['detailQuantity'] as Map).cast<String, dynamic>())
           : null,
       detailRange: json['detailRange'] != null
-          ? Range.fromJson(json['detailRange'] as Map<String, dynamic>)
+          ? Range.fromJson((json['detailRange'] as Map).cast<String, dynamic>())
           : null,
       detailRatio: json['detailRatio'] != null
-          ? Ratio.fromJson(json['detailRatio'] as Map<String, dynamic>)
+          ? Ratio.fromJson((json['detailRatio'] as Map).cast<String, dynamic>())
           : null,
       detailString: json['detailString'] as String?,
       dueDate: json['dueDate'] as String?,
       dueDuration: json['dueDuration'] != null
-          ? Duration.fromJson(json['dueDuration'] as Map<String, dynamic>)
+          ? Duration.fromJson(
+              (json['dueDuration'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       measure: json['measure'] != null
-          ? CodeableConcept.fromJson(json['measure'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['measure'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

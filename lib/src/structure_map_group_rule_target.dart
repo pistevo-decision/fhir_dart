@@ -48,7 +48,7 @@ class StructureMapGroupRuleTarget extends BackboneElement
       contextType: json['contextType'] as String?,
       element: json['element'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       listMode: (json['listMode'] as List<dynamic>?)
@@ -56,11 +56,11 @@ class StructureMapGroupRuleTarget extends BackboneElement
           .toList(),
       listRuleId: json['listRuleId'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       parameter: (json['parameter'] as List<dynamic>?)
           ?.map((e) => StructureMapGroupRuleTargetParameter.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       transform: json['transform'] as String?,
       variable: json['variable'] as String?,

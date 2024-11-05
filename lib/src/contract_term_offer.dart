@@ -64,40 +64,43 @@ class ContractTermOffer extends BackboneElement implements FhirResource {
   factory ContractTermOffer.fromJson(Map<String, dynamic> json) {
     return ContractTermOffer(
       answer: (json['answer'] as List<dynamic>?)
-          ?.map((e) =>
-              ContractTermOfferAnswer.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ContractTermOfferAnswer.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       decision: json['decision'] != null
-          ? CodeableConcept.fromJson(json['decision'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['decision'] as Map).cast<String, dynamic>())
           : null,
       decisionMode: (json['decisionMode'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       linkId:
           (json['linkId'] as List<dynamic>?)?.map((e) => e as String).toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       party: (json['party'] as List<dynamic>?)
-          ?.map(
-              (e) => ContractTermOfferParty.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ContractTermOfferParty.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       securityLabelNumber: (json['securityLabelNumber'] as List<dynamic>?)
           ?.map((e) => e as int)
           .toList(),
       text: json['text'] as String?,
       topic: json['topic'] != null
-          ? Reference.fromJson(json['topic'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['topic'] as Map).cast<String, dynamic>())
           : null,
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

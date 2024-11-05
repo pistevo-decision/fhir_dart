@@ -25,7 +25,7 @@ class Period extends Element implements FhirResource {
     return Period(
       end: json['end'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       start: json['start'] as String?,

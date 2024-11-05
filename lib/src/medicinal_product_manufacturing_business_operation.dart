@@ -37,30 +37,31 @@ class MedicinalProductManufacturingBusinessOperation extends BackboneElement
       Map<String, dynamic> json) {
     return MedicinalProductManufacturingBusinessOperation(
       authorisationReferenceNumber: json['authorisationReferenceNumber'] != null
-          ? Identifier.fromJson(
-              json['authorisationReferenceNumber'] as Map<String, dynamic>)
+          ? Identifier.fromJson((json['authorisationReferenceNumber'] as Map)
+              .cast<String, dynamic>())
           : null,
       confidentialityIndicator: json['confidentialityIndicator'] != null
           ? CodeableConcept.fromJson(
-              json['confidentialityIndicator'] as Map<String, dynamic>)
+              (json['confidentialityIndicator'] as Map).cast<String, dynamic>())
           : null,
       effectiveDate: json['effectiveDate'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       manufacturer: (json['manufacturer'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       operationType: json['operationType'] != null
           ? CodeableConcept.fromJson(
-              json['operationType'] as Map<String, dynamic>)
+              (json['operationType'] as Map).cast<String, dynamic>())
           : null,
       regulator: json['regulator'] != null
-          ? Reference.fromJson(json['regulator'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['regulator'] as Map).cast<String, dynamic>())
           : null,
     );
   }

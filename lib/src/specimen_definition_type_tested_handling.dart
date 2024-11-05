@@ -34,22 +34,24 @@ class SpecimenDefinitionTypeTestedHandling extends BackboneElement
       Map<String, dynamic> json) {
     return SpecimenDefinitionTypeTestedHandling(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       instruction: json['instruction'] as String?,
       maxDuration: json['maxDuration'] != null
-          ? Duration.fromJson(json['maxDuration'] as Map<String, dynamic>)
+          ? Duration.fromJson(
+              (json['maxDuration'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       temperatureQualifier: json['temperatureQualifier'] != null
           ? CodeableConcept.fromJson(
-              json['temperatureQualifier'] as Map<String, dynamic>)
+              (json['temperatureQualifier'] as Map).cast<String, dynamic>())
           : null,
       temperatureRange: json['temperatureRange'] != null
-          ? Range.fromJson(json['temperatureRange'] as Map<String, dynamic>)
+          ? Range.fromJson(
+              (json['temperatureRange'] as Map).cast<String, dynamic>())
           : null,
     );
   }

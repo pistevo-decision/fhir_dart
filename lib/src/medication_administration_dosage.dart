@@ -54,29 +54,33 @@ class MedicationAdministrationDosage extends BackboneElement
   factory MedicationAdministrationDosage.fromJson(Map<String, dynamic> json) {
     return MedicationAdministrationDosage(
       dose: json['dose'] != null
-          ? Quantity.fromJson(json['dose'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['dose'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       method: json['method'] != null
-          ? CodeableConcept.fromJson(json['method'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['method'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       rateQuantity: json['rateQuantity'] != null
-          ? Quantity.fromJson(json['rateQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['rateQuantity'] as Map).cast<String, dynamic>())
           : null,
       rateRatio: json['rateRatio'] != null
-          ? Ratio.fromJson(json['rateRatio'] as Map<String, dynamic>)
+          ? Ratio.fromJson((json['rateRatio'] as Map).cast<String, dynamic>())
           : null,
       route: json['route'] != null
-          ? CodeableConcept.fromJson(json['route'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['route'] as Map).cast<String, dynamic>())
           : null,
       site: json['site'] != null
-          ? CodeableConcept.fromJson(json['site'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['site'] as Map).cast<String, dynamic>())
           : null,
       text: json['text'] as String?,
     );

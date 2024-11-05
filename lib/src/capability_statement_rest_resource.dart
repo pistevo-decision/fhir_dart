@@ -116,19 +116,19 @@ class CapabilityStatementRestResource extends BackboneElement
       conditionalUpdate: json['conditionalUpdate'] as bool?,
       documentation: json['documentation'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       interaction: (json['interaction'] as List<dynamic>?)
           ?.map((e) => CapabilityStatementRestResourceInteraction.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       operation: (json['operation'] as List<dynamic>?)
           ?.map((e) => CapabilityStatementRestResourceOperation.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       profile: json['profile'] as String?,
       readHistory: json['readHistory'] as bool?,
@@ -140,7 +140,7 @@ class CapabilityStatementRestResource extends BackboneElement
           .toList(),
       searchParam: (json['searchParam'] as List<dynamic>?)
           ?.map((e) => CapabilityStatementRestResourceSearchParam.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       searchRevInclude: (json['searchRevInclude'] as List<dynamic>?)
           ?.map((e) => e as String)

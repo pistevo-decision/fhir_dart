@@ -37,26 +37,28 @@ class PlanDefinitionGoalTarget extends BackboneElement implements FhirResource {
     return PlanDefinitionGoalTarget(
       detailCodeableConcept: json['detailCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['detailCodeableConcept'] as Map<String, dynamic>)
+              (json['detailCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       detailQuantity: json['detailQuantity'] != null
-          ? Quantity.fromJson(json['detailQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['detailQuantity'] as Map).cast<String, dynamic>())
           : null,
       detailRange: json['detailRange'] != null
-          ? Range.fromJson(json['detailRange'] as Map<String, dynamic>)
+          ? Range.fromJson((json['detailRange'] as Map).cast<String, dynamic>())
           : null,
       due: json['due'] != null
-          ? Duration.fromJson(json['due'] as Map<String, dynamic>)
+          ? Duration.fromJson((json['due'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       measure: json['measure'] != null
-          ? CodeableConcept.fromJson(json['measure'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['measure'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

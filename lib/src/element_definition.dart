@@ -1538,38 +1538,40 @@ class ElementDefinition extends BackboneElement implements FhirResource {
       alias:
           (json['alias'] as List<dynamic>?)?.map((e) => e as String).toList(),
       base: json['base'] != null
-          ? ElementDefinitionBase.fromJson(json['base'] as Map<String, dynamic>)
+          ? ElementDefinitionBase.fromJson(
+              (json['base'] as Map).cast<String, dynamic>())
           : null,
       binding: json['binding'] != null
           ? ElementDefinitionBinding.fromJson(
-              json['binding'] as Map<String, dynamic>)
+              (json['binding'] as Map).cast<String, dynamic>())
           : null,
       code: (json['code'] as List<dynamic>?)
-          ?.map((e) => Coding.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Coding.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       comment: json['comment'] as String?,
       condition: (json['condition'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
       constraint: (json['constraint'] as List<dynamic>?)
-          ?.map((e) =>
-              ElementDefinitionConstraint.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ElementDefinitionConstraint.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       contentReference: json['contentReference'] as String?,
       defaultValueAddress: json['defaultValueAddress'] != null
           ? Address.fromJson(
-              json['defaultValueAddress'] as Map<String, dynamic>)
+              (json['defaultValueAddress'] as Map).cast<String, dynamic>())
           : null,
       defaultValueAge: json['defaultValueAge'] != null
-          ? Age.fromJson(json['defaultValueAge'] as Map<String, dynamic>)
+          ? Age.fromJson(
+              (json['defaultValueAge'] as Map).cast<String, dynamic>())
           : null,
       defaultValueAnnotation: json['defaultValueAnnotation'] != null
           ? Annotation.fromJson(
-              json['defaultValueAnnotation'] as Map<String, dynamic>)
+              (json['defaultValueAnnotation'] as Map).cast<String, dynamic>())
           : null,
       defaultValueAttachment: json['defaultValueAttachment'] != null
           ? Attachment.fromJson(
-              json['defaultValueAttachment'] as Map<String, dynamic>)
+              (json['defaultValueAttachment'] as Map).cast<String, dynamic>())
           : null,
       defaultValueBase64Binary: json['defaultValueBase64Binary'] as String?,
       defaultValueBoolean: json['defaultValueBoolean'] as bool?,
@@ -1577,140 +1579,156 @@ class ElementDefinition extends BackboneElement implements FhirResource {
       defaultValueCode: json['defaultValueCode'] as String?,
       defaultValueCodeableConcept: json['defaultValueCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['defaultValueCodeableConcept'] as Map<String, dynamic>)
+              (json['defaultValueCodeableConcept'] as Map)
+                  .cast<String, dynamic>())
           : null,
       defaultValueCoding: json['defaultValueCoding'] != null
-          ? Coding.fromJson(json['defaultValueCoding'] as Map<String, dynamic>)
+          ? Coding.fromJson(
+              (json['defaultValueCoding'] as Map).cast<String, dynamic>())
           : null,
       defaultValueContactDetail: json['defaultValueContactDetail'] != null
-          ? ContactDetail.fromJson(
-              json['defaultValueContactDetail'] as Map<String, dynamic>)
+          ? ContactDetail.fromJson((json['defaultValueContactDetail'] as Map)
+              .cast<String, dynamic>())
           : null,
       defaultValueContactPoint: json['defaultValueContactPoint'] != null
           ? ContactPoint.fromJson(
-              json['defaultValueContactPoint'] as Map<String, dynamic>)
+              (json['defaultValueContactPoint'] as Map).cast<String, dynamic>())
           : null,
       defaultValueContributor: json['defaultValueContributor'] != null
           ? Contributor.fromJson(
-              json['defaultValueContributor'] as Map<String, dynamic>)
+              (json['defaultValueContributor'] as Map).cast<String, dynamic>())
           : null,
       defaultValueCount: json['defaultValueCount'] != null
-          ? Count.fromJson(json['defaultValueCount'] as Map<String, dynamic>)
+          ? Count.fromJson(
+              (json['defaultValueCount'] as Map).cast<String, dynamic>())
           : null,
       defaultValueDataRequirement: json['defaultValueDataRequirement'] != null
           ? DataRequirement.fromJson(
-              json['defaultValueDataRequirement'] as Map<String, dynamic>)
+              (json['defaultValueDataRequirement'] as Map)
+                  .cast<String, dynamic>())
           : null,
       defaultValueDate: json['defaultValueDate'] as String?,
       defaultValueDateTime: json['defaultValueDateTime'] as String?,
       defaultValueDecimal: json['defaultValueDecimal'] as num?,
       defaultValueDistance: json['defaultValueDistance'] != null
           ? Distance.fromJson(
-              json['defaultValueDistance'] as Map<String, dynamic>)
+              (json['defaultValueDistance'] as Map).cast<String, dynamic>())
           : null,
       defaultValueDosage: json['defaultValueDosage'] != null
-          ? Dosage.fromJson(json['defaultValueDosage'] as Map<String, dynamic>)
+          ? Dosage.fromJson(
+              (json['defaultValueDosage'] as Map).cast<String, dynamic>())
           : null,
       defaultValueDuration: json['defaultValueDuration'] != null
           ? Duration.fromJson(
-              json['defaultValueDuration'] as Map<String, dynamic>)
+              (json['defaultValueDuration'] as Map).cast<String, dynamic>())
           : null,
       defaultValueExpression: json['defaultValueExpression'] != null
           ? Expression.fromJson(
-              json['defaultValueExpression'] as Map<String, dynamic>)
+              (json['defaultValueExpression'] as Map).cast<String, dynamic>())
           : null,
       defaultValueHumanName: json['defaultValueHumanName'] != null
           ? HumanName.fromJson(
-              json['defaultValueHumanName'] as Map<String, dynamic>)
+              (json['defaultValueHumanName'] as Map).cast<String, dynamic>())
           : null,
       defaultValueId: json['defaultValueId'] as String?,
       defaultValueIdentifier: json['defaultValueIdentifier'] != null
           ? Identifier.fromJson(
-              json['defaultValueIdentifier'] as Map<String, dynamic>)
+              (json['defaultValueIdentifier'] as Map).cast<String, dynamic>())
           : null,
       defaultValueInstant: json['defaultValueInstant'] as String?,
       defaultValueInteger: json['defaultValueInteger'] as int?,
       defaultValueMarkdown: json['defaultValueMarkdown'] as String?,
       defaultValueMeta: json['defaultValueMeta'] != null
-          ? Meta.fromJson(json['defaultValueMeta'] as Map<String, dynamic>)
+          ? Meta.fromJson(
+              (json['defaultValueMeta'] as Map).cast<String, dynamic>())
           : null,
       defaultValueMoney: json['defaultValueMoney'] != null
-          ? Money.fromJson(json['defaultValueMoney'] as Map<String, dynamic>)
+          ? Money.fromJson(
+              (json['defaultValueMoney'] as Map).cast<String, dynamic>())
           : null,
       defaultValueOid: json['defaultValueOid'] as String?,
       defaultValueParameterDefinition:
           json['defaultValueParameterDefinition'] != null
               ? ParameterDefinition.fromJson(
-                  json['defaultValueParameterDefinition']
-                      as Map<String, dynamic>)
+                  (json['defaultValueParameterDefinition'] as Map)
+                      .cast<String, dynamic>())
               : null,
       defaultValuePeriod: json['defaultValuePeriod'] != null
-          ? Period.fromJson(json['defaultValuePeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['defaultValuePeriod'] as Map).cast<String, dynamic>())
           : null,
       defaultValuePositiveInt: json['defaultValuePositiveInt'] as int?,
       defaultValueQuantity: json['defaultValueQuantity'] != null
           ? Quantity.fromJson(
-              json['defaultValueQuantity'] as Map<String, dynamic>)
+              (json['defaultValueQuantity'] as Map).cast<String, dynamic>())
           : null,
       defaultValueRange: json['defaultValueRange'] != null
-          ? Range.fromJson(json['defaultValueRange'] as Map<String, dynamic>)
+          ? Range.fromJson(
+              (json['defaultValueRange'] as Map).cast<String, dynamic>())
           : null,
       defaultValueRatio: json['defaultValueRatio'] != null
-          ? Ratio.fromJson(json['defaultValueRatio'] as Map<String, dynamic>)
+          ? Ratio.fromJson(
+              (json['defaultValueRatio'] as Map).cast<String, dynamic>())
           : null,
       defaultValueReference: json['defaultValueReference'] != null
           ? Reference.fromJson(
-              json['defaultValueReference'] as Map<String, dynamic>)
+              (json['defaultValueReference'] as Map).cast<String, dynamic>())
           : null,
       defaultValueRelatedArtifact: json['defaultValueRelatedArtifact'] != null
           ? RelatedArtifact.fromJson(
-              json['defaultValueRelatedArtifact'] as Map<String, dynamic>)
+              (json['defaultValueRelatedArtifact'] as Map)
+                  .cast<String, dynamic>())
           : null,
       defaultValueSampledData: json['defaultValueSampledData'] != null
           ? SampledData.fromJson(
-              json['defaultValueSampledData'] as Map<String, dynamic>)
+              (json['defaultValueSampledData'] as Map).cast<String, dynamic>())
           : null,
       defaultValueSignature: json['defaultValueSignature'] != null
           ? Signature.fromJson(
-              json['defaultValueSignature'] as Map<String, dynamic>)
+              (json['defaultValueSignature'] as Map).cast<String, dynamic>())
           : null,
       defaultValueString: json['defaultValueString'] as String?,
       defaultValueTime: json['defaultValueTime'] as String?,
       defaultValueTiming: json['defaultValueTiming'] != null
-          ? Timing.fromJson(json['defaultValueTiming'] as Map<String, dynamic>)
+          ? Timing.fromJson(
+              (json['defaultValueTiming'] as Map).cast<String, dynamic>())
           : null,
       defaultValueTriggerDefinition:
           json['defaultValueTriggerDefinition'] != null
               ? TriggerDefinition.fromJson(
-                  json['defaultValueTriggerDefinition'] as Map<String, dynamic>)
+                  (json['defaultValueTriggerDefinition'] as Map)
+                      .cast<String, dynamic>())
               : null,
       defaultValueUnsignedInt: json['defaultValueUnsignedInt'] as int?,
       defaultValueUri: json['defaultValueUri'] as String?,
       defaultValueUrl: json['defaultValueUrl'] as String?,
       defaultValueUsageContext: json['defaultValueUsageContext'] != null
           ? UsageContext.fromJson(
-              json['defaultValueUsageContext'] as Map<String, dynamic>)
+              (json['defaultValueUsageContext'] as Map).cast<String, dynamic>())
           : null,
       defaultValueUuid: json['defaultValueUuid'] as String?,
       definition: json['definition'] as String?,
       example: (json['example'] as List<dynamic>?)
-          ?.map((e) =>
-              ElementDefinitionExample.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ElementDefinitionExample.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fixedAddress: json['fixedAddress'] != null
-          ? Address.fromJson(json['fixedAddress'] as Map<String, dynamic>)
+          ? Address.fromJson(
+              (json['fixedAddress'] as Map).cast<String, dynamic>())
           : null,
       fixedAge: json['fixedAge'] != null
-          ? Age.fromJson(json['fixedAge'] as Map<String, dynamic>)
+          ? Age.fromJson((json['fixedAge'] as Map).cast<String, dynamic>())
           : null,
       fixedAnnotation: json['fixedAnnotation'] != null
-          ? Annotation.fromJson(json['fixedAnnotation'] as Map<String, dynamic>)
+          ? Annotation.fromJson(
+              (json['fixedAnnotation'] as Map).cast<String, dynamic>())
           : null,
       fixedAttachment: json['fixedAttachment'] != null
-          ? Attachment.fromJson(json['fixedAttachment'] as Map<String, dynamic>)
+          ? Attachment.fromJson(
+              (json['fixedAttachment'] as Map).cast<String, dynamic>())
           : null,
       fixedBase64Binary: json['fixedBase64Binary'] as String?,
       fixedBoolean: json['fixedBoolean'] as bool?,
@@ -1718,108 +1736,120 @@ class ElementDefinition extends BackboneElement implements FhirResource {
       fixedCode: json['fixedCode'] as String?,
       fixedCodeableConcept: json['fixedCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['fixedCodeableConcept'] as Map<String, dynamic>)
+              (json['fixedCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       fixedCoding: json['fixedCoding'] != null
-          ? Coding.fromJson(json['fixedCoding'] as Map<String, dynamic>)
+          ? Coding.fromJson(
+              (json['fixedCoding'] as Map).cast<String, dynamic>())
           : null,
       fixedContactDetail: json['fixedContactDetail'] != null
           ? ContactDetail.fromJson(
-              json['fixedContactDetail'] as Map<String, dynamic>)
+              (json['fixedContactDetail'] as Map).cast<String, dynamic>())
           : null,
       fixedContactPoint: json['fixedContactPoint'] != null
           ? ContactPoint.fromJson(
-              json['fixedContactPoint'] as Map<String, dynamic>)
+              (json['fixedContactPoint'] as Map).cast<String, dynamic>())
           : null,
       fixedContributor: json['fixedContributor'] != null
           ? Contributor.fromJson(
-              json['fixedContributor'] as Map<String, dynamic>)
+              (json['fixedContributor'] as Map).cast<String, dynamic>())
           : null,
       fixedCount: json['fixedCount'] != null
-          ? Count.fromJson(json['fixedCount'] as Map<String, dynamic>)
+          ? Count.fromJson((json['fixedCount'] as Map).cast<String, dynamic>())
           : null,
       fixedDataRequirement: json['fixedDataRequirement'] != null
           ? DataRequirement.fromJson(
-              json['fixedDataRequirement'] as Map<String, dynamic>)
+              (json['fixedDataRequirement'] as Map).cast<String, dynamic>())
           : null,
       fixedDate: json['fixedDate'] as String?,
       fixedDateTime: json['fixedDateTime'] as String?,
       fixedDecimal: json['fixedDecimal'] as num?,
       fixedDistance: json['fixedDistance'] != null
-          ? Distance.fromJson(json['fixedDistance'] as Map<String, dynamic>)
+          ? Distance.fromJson(
+              (json['fixedDistance'] as Map).cast<String, dynamic>())
           : null,
       fixedDosage: json['fixedDosage'] != null
-          ? Dosage.fromJson(json['fixedDosage'] as Map<String, dynamic>)
+          ? Dosage.fromJson(
+              (json['fixedDosage'] as Map).cast<String, dynamic>())
           : null,
       fixedDuration: json['fixedDuration'] != null
-          ? Duration.fromJson(json['fixedDuration'] as Map<String, dynamic>)
+          ? Duration.fromJson(
+              (json['fixedDuration'] as Map).cast<String, dynamic>())
           : null,
       fixedExpression: json['fixedExpression'] != null
-          ? Expression.fromJson(json['fixedExpression'] as Map<String, dynamic>)
+          ? Expression.fromJson(
+              (json['fixedExpression'] as Map).cast<String, dynamic>())
           : null,
       fixedHumanName: json['fixedHumanName'] != null
-          ? HumanName.fromJson(json['fixedHumanName'] as Map<String, dynamic>)
+          ? HumanName.fromJson(
+              (json['fixedHumanName'] as Map).cast<String, dynamic>())
           : null,
       fixedId: json['fixedId'] as String?,
       fixedIdentifier: json['fixedIdentifier'] != null
-          ? Identifier.fromJson(json['fixedIdentifier'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['fixedIdentifier'] as Map).cast<String, dynamic>())
           : null,
       fixedInstant: json['fixedInstant'] as String?,
       fixedInteger: json['fixedInteger'] as int?,
       fixedMarkdown: json['fixedMarkdown'] as String?,
       fixedMeta: json['fixedMeta'] != null
-          ? Meta.fromJson(json['fixedMeta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['fixedMeta'] as Map).cast<String, dynamic>())
           : null,
       fixedMoney: json['fixedMoney'] != null
-          ? Money.fromJson(json['fixedMoney'] as Map<String, dynamic>)
+          ? Money.fromJson((json['fixedMoney'] as Map).cast<String, dynamic>())
           : null,
       fixedOid: json['fixedOid'] as String?,
       fixedParameterDefinition: json['fixedParameterDefinition'] != null
           ? ParameterDefinition.fromJson(
-              json['fixedParameterDefinition'] as Map<String, dynamic>)
+              (json['fixedParameterDefinition'] as Map).cast<String, dynamic>())
           : null,
       fixedPeriod: json['fixedPeriod'] != null
-          ? Period.fromJson(json['fixedPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['fixedPeriod'] as Map).cast<String, dynamic>())
           : null,
       fixedPositiveInt: json['fixedPositiveInt'] as int?,
       fixedQuantity: json['fixedQuantity'] != null
-          ? Quantity.fromJson(json['fixedQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['fixedQuantity'] as Map).cast<String, dynamic>())
           : null,
       fixedRange: json['fixedRange'] != null
-          ? Range.fromJson(json['fixedRange'] as Map<String, dynamic>)
+          ? Range.fromJson((json['fixedRange'] as Map).cast<String, dynamic>())
           : null,
       fixedRatio: json['fixedRatio'] != null
-          ? Ratio.fromJson(json['fixedRatio'] as Map<String, dynamic>)
+          ? Ratio.fromJson((json['fixedRatio'] as Map).cast<String, dynamic>())
           : null,
       fixedReference: json['fixedReference'] != null
-          ? Reference.fromJson(json['fixedReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['fixedReference'] as Map).cast<String, dynamic>())
           : null,
       fixedRelatedArtifact: json['fixedRelatedArtifact'] != null
           ? RelatedArtifact.fromJson(
-              json['fixedRelatedArtifact'] as Map<String, dynamic>)
+              (json['fixedRelatedArtifact'] as Map).cast<String, dynamic>())
           : null,
       fixedSampledData: json['fixedSampledData'] != null
           ? SampledData.fromJson(
-              json['fixedSampledData'] as Map<String, dynamic>)
+              (json['fixedSampledData'] as Map).cast<String, dynamic>())
           : null,
       fixedSignature: json['fixedSignature'] != null
-          ? Signature.fromJson(json['fixedSignature'] as Map<String, dynamic>)
+          ? Signature.fromJson(
+              (json['fixedSignature'] as Map).cast<String, dynamic>())
           : null,
       fixedString: json['fixedString'] as String?,
       fixedTime: json['fixedTime'] as String?,
       fixedTiming: json['fixedTiming'] != null
-          ? Timing.fromJson(json['fixedTiming'] as Map<String, dynamic>)
+          ? Timing.fromJson(
+              (json['fixedTiming'] as Map).cast<String, dynamic>())
           : null,
       fixedTriggerDefinition: json['fixedTriggerDefinition'] != null
           ? TriggerDefinition.fromJson(
-              json['fixedTriggerDefinition'] as Map<String, dynamic>)
+              (json['fixedTriggerDefinition'] as Map).cast<String, dynamic>())
           : null,
       fixedUnsignedInt: json['fixedUnsignedInt'] as int?,
       fixedUri: json['fixedUri'] as String?,
       fixedUrl: json['fixedUrl'] as String?,
       fixedUsageContext: json['fixedUsageContext'] != null
           ? UsageContext.fromJson(
-              json['fixedUsageContext'] as Map<String, dynamic>)
+              (json['fixedUsageContext'] as Map).cast<String, dynamic>())
           : null,
       fixedUuid: json['fixedUuid'] as String?,
       id: json['id'] as String?,
@@ -1828,8 +1858,8 @@ class ElementDefinition extends BackboneElement implements FhirResource {
       isSummary: json['isSummary'] as bool?,
       label: json['label'] as String?,
       mapping: (json['mapping'] as List<dynamic>?)
-          ?.map((e) =>
-              ElementDefinitionMapping.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ElementDefinitionMapping.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       max: json['max'] as String?,
       maxLength: json['maxLength'] as int?,
@@ -1840,7 +1870,8 @@ class ElementDefinition extends BackboneElement implements FhirResource {
       maxValueInteger: json['maxValueInteger'] as int?,
       maxValuePositiveInt: json['maxValuePositiveInt'] as int?,
       maxValueQuantity: json['maxValueQuantity'] != null
-          ? Quantity.fromJson(json['maxValueQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['maxValueQuantity'] as Map).cast<String, dynamic>())
           : null,
       maxValueTime: json['maxValueTime'] as String?,
       maxValueUnsignedInt: json['maxValueUnsignedInt'] as int?,
@@ -1853,29 +1884,31 @@ class ElementDefinition extends BackboneElement implements FhirResource {
       minValueInteger: json['minValueInteger'] as int?,
       minValuePositiveInt: json['minValuePositiveInt'] as int?,
       minValueQuantity: json['minValueQuantity'] != null
-          ? Quantity.fromJson(json['minValueQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['minValueQuantity'] as Map).cast<String, dynamic>())
           : null,
       minValueTime: json['minValueTime'] as String?,
       minValueUnsignedInt: json['minValueUnsignedInt'] as int?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       mustSupport: json['mustSupport'] as bool?,
       orderMeaning: json['orderMeaning'] as String?,
       path: json['path'] as String,
       patternAddress: json['patternAddress'] != null
-          ? Address.fromJson(json['patternAddress'] as Map<String, dynamic>)
+          ? Address.fromJson(
+              (json['patternAddress'] as Map).cast<String, dynamic>())
           : null,
       patternAge: json['patternAge'] != null
-          ? Age.fromJson(json['patternAge'] as Map<String, dynamic>)
+          ? Age.fromJson((json['patternAge'] as Map).cast<String, dynamic>())
           : null,
       patternAnnotation: json['patternAnnotation'] != null
           ? Annotation.fromJson(
-              json['patternAnnotation'] as Map<String, dynamic>)
+              (json['patternAnnotation'] as Map).cast<String, dynamic>())
           : null,
       patternAttachment: json['patternAttachment'] != null
           ? Attachment.fromJson(
-              json['patternAttachment'] as Map<String, dynamic>)
+              (json['patternAttachment'] as Map).cast<String, dynamic>())
           : null,
       patternBase64Binary: json['patternBase64Binary'] as String?,
       patternBoolean: json['patternBoolean'] as bool?,
@@ -1883,110 +1916,125 @@ class ElementDefinition extends BackboneElement implements FhirResource {
       patternCode: json['patternCode'] as String?,
       patternCodeableConcept: json['patternCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['patternCodeableConcept'] as Map<String, dynamic>)
+              (json['patternCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       patternCoding: json['patternCoding'] != null
-          ? Coding.fromJson(json['patternCoding'] as Map<String, dynamic>)
+          ? Coding.fromJson(
+              (json['patternCoding'] as Map).cast<String, dynamic>())
           : null,
       patternContactDetail: json['patternContactDetail'] != null
           ? ContactDetail.fromJson(
-              json['patternContactDetail'] as Map<String, dynamic>)
+              (json['patternContactDetail'] as Map).cast<String, dynamic>())
           : null,
       patternContactPoint: json['patternContactPoint'] != null
           ? ContactPoint.fromJson(
-              json['patternContactPoint'] as Map<String, dynamic>)
+              (json['patternContactPoint'] as Map).cast<String, dynamic>())
           : null,
       patternContributor: json['patternContributor'] != null
           ? Contributor.fromJson(
-              json['patternContributor'] as Map<String, dynamic>)
+              (json['patternContributor'] as Map).cast<String, dynamic>())
           : null,
       patternCount: json['patternCount'] != null
-          ? Count.fromJson(json['patternCount'] as Map<String, dynamic>)
+          ? Count.fromJson(
+              (json['patternCount'] as Map).cast<String, dynamic>())
           : null,
       patternDataRequirement: json['patternDataRequirement'] != null
           ? DataRequirement.fromJson(
-              json['patternDataRequirement'] as Map<String, dynamic>)
+              (json['patternDataRequirement'] as Map).cast<String, dynamic>())
           : null,
       patternDate: json['patternDate'] as String?,
       patternDateTime: json['patternDateTime'] as String?,
       patternDecimal: json['patternDecimal'] as num?,
       patternDistance: json['patternDistance'] != null
-          ? Distance.fromJson(json['patternDistance'] as Map<String, dynamic>)
+          ? Distance.fromJson(
+              (json['patternDistance'] as Map).cast<String, dynamic>())
           : null,
       patternDosage: json['patternDosage'] != null
-          ? Dosage.fromJson(json['patternDosage'] as Map<String, dynamic>)
+          ? Dosage.fromJson(
+              (json['patternDosage'] as Map).cast<String, dynamic>())
           : null,
       patternDuration: json['patternDuration'] != null
-          ? Duration.fromJson(json['patternDuration'] as Map<String, dynamic>)
+          ? Duration.fromJson(
+              (json['patternDuration'] as Map).cast<String, dynamic>())
           : null,
       patternExpression: json['patternExpression'] != null
           ? Expression.fromJson(
-              json['patternExpression'] as Map<String, dynamic>)
+              (json['patternExpression'] as Map).cast<String, dynamic>())
           : null,
       patternHumanName: json['patternHumanName'] != null
-          ? HumanName.fromJson(json['patternHumanName'] as Map<String, dynamic>)
+          ? HumanName.fromJson(
+              (json['patternHumanName'] as Map).cast<String, dynamic>())
           : null,
       patternId: json['patternId'] as String?,
       patternIdentifier: json['patternIdentifier'] != null
           ? Identifier.fromJson(
-              json['patternIdentifier'] as Map<String, dynamic>)
+              (json['patternIdentifier'] as Map).cast<String, dynamic>())
           : null,
       patternInstant: json['patternInstant'] as String?,
       patternInteger: json['patternInteger'] as int?,
       patternMarkdown: json['patternMarkdown'] as String?,
       patternMeta: json['patternMeta'] != null
-          ? Meta.fromJson(json['patternMeta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['patternMeta'] as Map).cast<String, dynamic>())
           : null,
       patternMoney: json['patternMoney'] != null
-          ? Money.fromJson(json['patternMoney'] as Map<String, dynamic>)
+          ? Money.fromJson(
+              (json['patternMoney'] as Map).cast<String, dynamic>())
           : null,
       patternOid: json['patternOid'] as String?,
       patternParameterDefinition: json['patternParameterDefinition'] != null
           ? ParameterDefinition.fromJson(
-              json['patternParameterDefinition'] as Map<String, dynamic>)
+              (json['patternParameterDefinition'] as Map)
+                  .cast<String, dynamic>())
           : null,
       patternPeriod: json['patternPeriod'] != null
-          ? Period.fromJson(json['patternPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['patternPeriod'] as Map).cast<String, dynamic>())
           : null,
       patternPositiveInt: json['patternPositiveInt'] as int?,
       patternQuantity: json['patternQuantity'] != null
-          ? Quantity.fromJson(json['patternQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['patternQuantity'] as Map).cast<String, dynamic>())
           : null,
       patternRange: json['patternRange'] != null
-          ? Range.fromJson(json['patternRange'] as Map<String, dynamic>)
+          ? Range.fromJson(
+              (json['patternRange'] as Map).cast<String, dynamic>())
           : null,
       patternRatio: json['patternRatio'] != null
-          ? Ratio.fromJson(json['patternRatio'] as Map<String, dynamic>)
+          ? Ratio.fromJson(
+              (json['patternRatio'] as Map).cast<String, dynamic>())
           : null,
       patternReference: json['patternReference'] != null
-          ? Reference.fromJson(json['patternReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['patternReference'] as Map).cast<String, dynamic>())
           : null,
       patternRelatedArtifact: json['patternRelatedArtifact'] != null
           ? RelatedArtifact.fromJson(
-              json['patternRelatedArtifact'] as Map<String, dynamic>)
+              (json['patternRelatedArtifact'] as Map).cast<String, dynamic>())
           : null,
       patternSampledData: json['patternSampledData'] != null
           ? SampledData.fromJson(
-              json['patternSampledData'] as Map<String, dynamic>)
+              (json['patternSampledData'] as Map).cast<String, dynamic>())
           : null,
       patternSignature: json['patternSignature'] != null
-          ? Signature.fromJson(json['patternSignature'] as Map<String, dynamic>)
+          ? Signature.fromJson(
+              (json['patternSignature'] as Map).cast<String, dynamic>())
           : null,
       patternString: json['patternString'] as String?,
       patternTime: json['patternTime'] as String?,
       patternTiming: json['patternTiming'] != null
-          ? Timing.fromJson(json['patternTiming'] as Map<String, dynamic>)
+          ? Timing.fromJson(
+              (json['patternTiming'] as Map).cast<String, dynamic>())
           : null,
       patternTriggerDefinition: json['patternTriggerDefinition'] != null
           ? TriggerDefinition.fromJson(
-              json['patternTriggerDefinition'] as Map<String, dynamic>)
+              (json['patternTriggerDefinition'] as Map).cast<String, dynamic>())
           : null,
       patternUnsignedInt: json['patternUnsignedInt'] as int?,
       patternUri: json['patternUri'] as String?,
       patternUrl: json['patternUrl'] as String?,
       patternUsageContext: json['patternUsageContext'] != null
           ? UsageContext.fromJson(
-              json['patternUsageContext'] as Map<String, dynamic>)
+              (json['patternUsageContext'] as Map).cast<String, dynamic>())
           : null,
       patternUuid: json['patternUuid'] as String?,
       representation: (json['representation'] as List<dynamic>?)
@@ -1998,11 +2046,11 @@ class ElementDefinition extends BackboneElement implements FhirResource {
       sliceName: json['sliceName'] as String?,
       slicing: json['slicing'] != null
           ? ElementDefinitionSlicing.fromJson(
-              json['slicing'] as Map<String, dynamic>)
+              (json['slicing'] as Map).cast<String, dynamic>())
           : null,
       type: (json['type'] as List<dynamic>?)
-          ?.map(
-              (e) => ElementDefinitionType.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ElementDefinitionType.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

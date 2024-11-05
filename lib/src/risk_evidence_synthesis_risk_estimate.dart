@@ -52,24 +52,25 @@ class RiskEvidenceSynthesisRiskEstimate extends BackboneElement
       denominatorCount: json['denominatorCount'] as int?,
       description: json['description'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       numeratorCount: json['numeratorCount'] as int?,
       precisionEstimate: (json['precisionEstimate'] as List<dynamic>?)
           ?.map((e) =>
               RiskEvidenceSynthesisRiskEstimatePrecisionEstimate.fromJson(
-                  e as Map<String, dynamic>))
+                  (e as Map).cast<String, dynamic>()))
           .toList(),
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
       unitOfMeasure: json['unitOfMeasure'] != null
           ? CodeableConcept.fromJson(
-              json['unitOfMeasure'] as Map<String, dynamic>)
+              (json['unitOfMeasure'] as Map).cast<String, dynamic>())
           : null,
       value: json['value'] as num?,
     );

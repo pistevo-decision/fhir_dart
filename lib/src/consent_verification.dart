@@ -27,16 +27,17 @@ class ConsentVerification extends BackboneElement implements FhirResource {
   factory ConsentVerification.fromJson(Map<String, dynamic> json) {
     return ConsentVerification(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       verificationDate: json['verificationDate'] as String?,
       verified: json['verified'] as bool,
       verifiedWith: json['verifiedWith'] != null
-          ? Reference.fromJson(json['verifiedWith'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['verifiedWith'] as Map).cast<String, dynamic>())
           : null,
     );
   }

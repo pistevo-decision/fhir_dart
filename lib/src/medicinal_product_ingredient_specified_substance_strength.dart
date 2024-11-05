@@ -43,32 +43,35 @@ class MedicinalProductIngredientSpecifiedSubstanceStrength
       Map<String, dynamic> json) {
     return MedicinalProductIngredientSpecifiedSubstanceStrength(
       concentration: json['concentration'] != null
-          ? Ratio.fromJson(json['concentration'] as Map<String, dynamic>)
+          ? Ratio.fromJson(
+              (json['concentration'] as Map).cast<String, dynamic>())
           : null,
       concentrationLowLimit: json['concentrationLowLimit'] != null
           ? Ratio.fromJson(
-              json['concentrationLowLimit'] as Map<String, dynamic>)
+              (json['concentrationLowLimit'] as Map).cast<String, dynamic>())
           : null,
       country: (json['country'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       measurementPoint: json['measurementPoint'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       presentation:
-          Ratio.fromJson(json['presentation'] as Map<String, dynamic>),
+          Ratio.fromJson((json['presentation'] as Map).cast<String, dynamic>()),
       presentationLowLimit: json['presentationLowLimit'] != null
-          ? Ratio.fromJson(json['presentationLowLimit'] as Map<String, dynamic>)
+          ? Ratio.fromJson(
+              (json['presentationLowLimit'] as Map).cast<String, dynamic>())
           : null,
       referenceStrength: (json['referenceStrength'] as List<dynamic>?)
           ?.map((e) =>
               MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength
-                  .fromJson(e as Map<String, dynamic>))
+                  .fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

@@ -82,43 +82,47 @@ class AuditEvent extends DomainResource implements FhirResource {
     return AuditEvent(
       action: json['action'] as String?,
       agent: (json['agent'] as List<dynamic>)
-          .map((e) => AuditEventAgent.fromJson(e as Map<String, dynamic>))
+          .map((e) =>
+              AuditEventAgent.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       entity: (json['entity'] as List<dynamic>?)
-          ?.map((e) => AuditEventEntity.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              AuditEventEntity.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       outcome: json['outcome'] as String?,
       outcomeDesc: json['outcomeDesc'] as String?,
       period: json['period'] != null
-          ? Period.fromJson(json['period'] as Map<String, dynamic>)
+          ? Period.fromJson((json['period'] as Map).cast<String, dynamic>())
           : null,
       purposeOfEvent: (json['purposeOfEvent'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       recorded: json['recorded'] as String,
-      source: AuditEventSource.fromJson(json['source'] as Map<String, dynamic>),
+      source: AuditEventSource.fromJson(
+          (json['source'] as Map).cast<String, dynamic>()),
       subtype: (json['subtype'] as List<dynamic>?)
-          ?.map((e) => Coding.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Coding.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
-      type: Coding.fromJson(json['type'] as Map<String, dynamic>),
+      type: Coding.fromJson((json['type'] as Map).cast<String, dynamic>()),
     );
   }
 

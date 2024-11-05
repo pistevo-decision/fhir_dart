@@ -23,16 +23,17 @@ class MedicationKnowledgeRelatedMedicationKnowledge extends BackboneElement
       Map<String, dynamic> json) {
     return MedicationKnowledgeRelatedMedicationKnowledge(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reference: (json['reference'] as List<dynamic>)
-          .map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          .map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      type: CodeableConcept.fromJson(json['type'] as Map<String, dynamic>),
+      type: CodeableConcept.fromJson(
+          (json['type'] as Map).cast<String, dynamic>()),
     );
   }
 

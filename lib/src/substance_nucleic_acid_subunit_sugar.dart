@@ -24,14 +24,15 @@ class SubstanceNucleicAcidSubunitSugar extends BackboneElement
   factory SubstanceNucleicAcidSubunitSugar.fromJson(Map<String, dynamic> json) {
     return SubstanceNucleicAcidSubunitSugar(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: json['identifier'] != null
-          ? Identifier.fromJson(json['identifier'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['identifier'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String?,
       residueSite: json['residueSite'] as String?,

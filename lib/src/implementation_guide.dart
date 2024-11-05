@@ -137,61 +137,64 @@ class ImplementationGuide extends DomainResource implements FhirResource {
   factory ImplementationGuide.fromJson(Map<String, dynamic> json) {
     return ImplementationGuide(
       contact: (json['contact'] as List<dynamic>?)
-          ?.map((e) => ContactDetail.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactDetail.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       copyright: json['copyright'] as String?,
       date: json['date'] as String?,
       definition: json['definition'] != null
           ? ImplementationGuideDefinition.fromJson(
-              json['definition'] as Map<String, dynamic>)
+              (json['definition'] as Map).cast<String, dynamic>())
           : null,
       dependsOn: (json['dependsOn'] as List<dynamic>?)
-          ?.map((e) =>
-              ImplementationGuideDependsOn.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ImplementationGuideDependsOn.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       description: json['description'] as String?,
       experimental: json['experimental'] as bool?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirVersion: (json['fhirVersion'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
       global: (json['global'] as List<dynamic>?)
-          ?.map((e) =>
-              ImplementationGuideGlobal.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ImplementationGuideGlobal.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       implicitRules: json['implicitRules'] as String?,
       jurisdiction: (json['jurisdiction'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       language: json['language'] as String?,
       license: json['license'] as String?,
       manifest: json['manifest'] != null
           ? ImplementationGuideManifest.fromJson(
-              json['manifest'] as Map<String, dynamic>)
+              (json['manifest'] as Map).cast<String, dynamic>())
           : null,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String,
       packageId: json['packageId'] as String,
       publisher: json['publisher'] as String?,
       status: json['status'] as String,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       title: json['title'] as String?,
       url: json['url'] as String,
       useContext: (json['useContext'] as List<dynamic>?)
-          ?.map((e) => UsageContext.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => UsageContext.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       version: json['version'] as String?,
     );

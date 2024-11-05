@@ -174,14 +174,15 @@ class SearchParameter extends DomainResource implements FhirResource {
           ?.map((e) => e as String)
           .toList(),
       component: (json['component'] as List<dynamic>?)
-          ?.map((e) =>
-              SearchParameterComponent.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SearchParameterComponent.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       contact: (json['contact'] as List<dynamic>?)
-          ?.map((e) => ContactDetail.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactDetail.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       date: json['date'] as String?,
       derivedFrom: json['derivedFrom'] as String?,
@@ -189,22 +190,23 @@ class SearchParameter extends DomainResource implements FhirResource {
       experimental: json['experimental'] as bool?,
       expression: json['expression'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       implicitRules: json['implicitRules'] as String?,
       jurisdiction: (json['jurisdiction'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifier: (json['modifier'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       multipleAnd: json['multipleAnd'] as bool?,
       multipleOr: json['multipleOr'] as bool?,
@@ -215,12 +217,13 @@ class SearchParameter extends DomainResource implements FhirResource {
       target:
           (json['target'] as List<dynamic>?)?.map((e) => e as String).toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       type: json['type'] as String,
       url: json['url'] as String,
       useContext: (json['useContext'] as List<dynamic>?)
-          ?.map((e) => UsageContext.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => UsageContext.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       version: json['version'] as String?,
       xpath: json['xpath'] as String?,

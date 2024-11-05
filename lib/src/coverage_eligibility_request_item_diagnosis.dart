@@ -25,18 +25,18 @@ class CoverageEligibilityRequestItemDiagnosis extends BackboneElement
     return CoverageEligibilityRequestItemDiagnosis(
       diagnosisCodeableConcept: json['diagnosisCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['diagnosisCodeableConcept'] as Map<String, dynamic>)
+              (json['diagnosisCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       diagnosisReference: json['diagnosisReference'] != null
           ? Reference.fromJson(
-              json['diagnosisReference'] as Map<String, dynamic>)
+              (json['diagnosisReference'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

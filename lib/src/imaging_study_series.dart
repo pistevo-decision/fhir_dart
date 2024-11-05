@@ -75,35 +75,36 @@ class ImagingStudySeries extends BackboneElement implements FhirResource {
   factory ImagingStudySeries.fromJson(Map<String, dynamic> json) {
     return ImagingStudySeries(
       bodySite: json['bodySite'] != null
-          ? Coding.fromJson(json['bodySite'] as Map<String, dynamic>)
+          ? Coding.fromJson((json['bodySite'] as Map).cast<String, dynamic>())
           : null,
       description: json['description'] as String?,
       endpoint: (json['endpoint'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       instance: (json['instance'] as List<dynamic>?)
-          ?.map((e) =>
-              ImagingStudySeriesInstance.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ImagingStudySeriesInstance.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       laterality: json['laterality'] != null
-          ? Coding.fromJson(json['laterality'] as Map<String, dynamic>)
+          ? Coding.fromJson((json['laterality'] as Map).cast<String, dynamic>())
           : null,
-      modality: Coding.fromJson(json['modality'] as Map<String, dynamic>),
+      modality:
+          Coding.fromJson((json['modality'] as Map).cast<String, dynamic>()),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       number: json['number'] as int?,
       numberOfInstances: json['numberOfInstances'] as int?,
       performer: (json['performer'] as List<dynamic>?)
-          ?.map((e) =>
-              ImagingStudySeriesPerformer.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ImagingStudySeriesPerformer.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       specimen: (json['specimen'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       started: json['started'] as String?,
       uid: json['uid'] as String,

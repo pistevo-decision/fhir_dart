@@ -36,23 +36,24 @@ class NutritionOrderEnteralFormulaAdministration extends BackboneElement
       Map<String, dynamic> json) {
     return NutritionOrderEnteralFormulaAdministration(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       quantity: json['quantity'] != null
-          ? Quantity.fromJson(json['quantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['quantity'] as Map).cast<String, dynamic>())
           : null,
       rateQuantity: json['rateQuantity'] != null
-          ? Quantity.fromJson(json['rateQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['rateQuantity'] as Map).cast<String, dynamic>())
           : null,
       rateRatio: json['rateRatio'] != null
-          ? Ratio.fromJson(json['rateRatio'] as Map<String, dynamic>)
+          ? Ratio.fromJson((json['rateRatio'] as Map).cast<String, dynamic>())
           : null,
       schedule: json['schedule'] != null
-          ? Timing.fromJson(json['schedule'] as Map<String, dynamic>)
+          ? Timing.fromJson((json['schedule'] as Map).cast<String, dynamic>())
           : null,
     );
   }

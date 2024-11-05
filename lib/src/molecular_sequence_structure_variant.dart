@@ -38,24 +38,24 @@ class MolecularSequenceStructureVariant extends BackboneElement
     return MolecularSequenceStructureVariant(
       exact: json['exact'] as bool?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       inner: json['inner'] != null
           ? MolecularSequenceStructureVariantInner.fromJson(
-              json['inner'] as Map<String, dynamic>)
+              (json['inner'] as Map).cast<String, dynamic>())
           : null,
       length: json['length'] as int?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       outer: json['outer'] != null
           ? MolecularSequenceStructureVariantOuter.fromJson(
-              json['outer'] as Map<String, dynamic>)
+              (json['outer'] as Map).cast<String, dynamic>())
           : null,
       variantType: json['variantType'] != null
           ? CodeableConcept.fromJson(
-              json['variantType'] as Map<String, dynamic>)
+              (json['variantType'] as Map).cast<String, dynamic>())
           : null,
     );
   }

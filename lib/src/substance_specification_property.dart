@@ -40,31 +40,34 @@ class SubstanceSpecificationProperty extends BackboneElement
   factory SubstanceSpecificationProperty.fromJson(Map<String, dynamic> json) {
     return SubstanceSpecificationProperty(
       amountQuantity: json['amountQuantity'] != null
-          ? Quantity.fromJson(json['amountQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['amountQuantity'] as Map).cast<String, dynamic>())
           : null,
       amountString: json['amountString'] as String?,
       category: json['category'] != null
-          ? CodeableConcept.fromJson(json['category'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['category'] as Map).cast<String, dynamic>())
           : null,
       code: json['code'] != null
-          ? CodeableConcept.fromJson(json['code'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['code'] as Map).cast<String, dynamic>())
           : null,
       definingSubstanceCodeableConcept:
           json['definingSubstanceCodeableConcept'] != null
               ? CodeableConcept.fromJson(
-                  json['definingSubstanceCodeableConcept']
-                      as Map<String, dynamic>)
+                  (json['definingSubstanceCodeableConcept'] as Map)
+                      .cast<String, dynamic>())
               : null,
       definingSubstanceReference: json['definingSubstanceReference'] != null
-          ? Reference.fromJson(
-              json['definingSubstanceReference'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['definingSubstanceReference'] as Map)
+              .cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       parameters: json['parameters'] as String?,
     );

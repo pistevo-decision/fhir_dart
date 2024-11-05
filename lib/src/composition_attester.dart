@@ -25,15 +25,15 @@ class CompositionAttester extends BackboneElement implements FhirResource {
   factory CompositionAttester.fromJson(Map<String, dynamic> json) {
     return CompositionAttester(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       mode: json['mode'] as String,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       party: json['party'] != null
-          ? Reference.fromJson(json['party'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['party'] as Map).cast<String, dynamic>())
           : null,
       time: json['time'] as String?,
     );

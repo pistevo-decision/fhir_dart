@@ -120,73 +120,82 @@ class AdverseEvent extends DomainResource implements FhirResource {
     return AdverseEvent(
       actuality: json['actuality'] as String,
       category: (json['category'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contributor: (json['contributor'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       date: json['date'] as String?,
       detected: json['detected'] as String?,
       encounter: json['encounter'] != null
-          ? Reference.fromJson(json['encounter'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['encounter'] as Map).cast<String, dynamic>())
           : null,
       event: json['event'] != null
-          ? CodeableConcept.fromJson(json['event'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['event'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: json['identifier'] != null
-          ? Identifier.fromJson(json['identifier'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['identifier'] as Map).cast<String, dynamic>())
           : null,
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       location: json['location'] != null
-          ? Reference.fromJson(json['location'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['location'] as Map).cast<String, dynamic>())
           : null,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       outcome: json['outcome'] != null
-          ? CodeableConcept.fromJson(json['outcome'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['outcome'] as Map).cast<String, dynamic>())
           : null,
       recordedDate: json['recordedDate'] as String?,
       recorder: json['recorder'] != null
-          ? Reference.fromJson(json['recorder'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['recorder'] as Map).cast<String, dynamic>())
           : null,
       referenceDocument: (json['referenceDocument'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       resultingCondition: (json['resultingCondition'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       seriousness: json['seriousness'] != null
           ? CodeableConcept.fromJson(
-              json['seriousness'] as Map<String, dynamic>)
+              (json['seriousness'] as Map).cast<String, dynamic>())
           : null,
       severity: json['severity'] != null
-          ? CodeableConcept.fromJson(json['severity'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['severity'] as Map).cast<String, dynamic>())
           : null,
       study: (json['study'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      subject: Reference.fromJson(json['subject'] as Map<String, dynamic>),
+      subject:
+          Reference.fromJson((json['subject'] as Map).cast<String, dynamic>()),
       subjectMedicalHistory: (json['subjectMedicalHistory'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       suspectEntity: (json['suspectEntity'] as List<dynamic>?)
-          ?.map((e) =>
-              AdverseEventSuspectEntity.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => AdverseEventSuspectEntity.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

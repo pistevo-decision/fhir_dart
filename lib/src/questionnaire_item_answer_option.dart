@@ -56,20 +56,22 @@ class QuestionnaireItemAnswerOption extends BackboneElement
   factory QuestionnaireItemAnswerOption.fromJson(Map<String, dynamic> json) {
     return QuestionnaireItemAnswerOption(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       initialSelected: json['initialSelected'] as bool?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       valueCoding: json['valueCoding'] != null
-          ? Coding.fromJson(json['valueCoding'] as Map<String, dynamic>)
+          ? Coding.fromJson(
+              (json['valueCoding'] as Map).cast<String, dynamic>())
           : null,
       valueDate: json['valueDate'] as String?,
       valueInteger: json['valueInteger'] as int?,
       valueReference: json['valueReference'] != null
-          ? Reference.fromJson(json['valueReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['valueReference'] as Map).cast<String, dynamic>())
           : null,
       valueString: json['valueString'] as String?,
       valueTime: json['valueTime'] as String?,

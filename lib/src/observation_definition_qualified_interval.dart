@@ -53,29 +53,32 @@ class ObservationDefinitionQualifiedInterval extends BackboneElement
       Map<String, dynamic> json) {
     return ObservationDefinitionQualifiedInterval(
       age: json['age'] != null
-          ? Range.fromJson(json['age'] as Map<String, dynamic>)
+          ? Range.fromJson((json['age'] as Map).cast<String, dynamic>())
           : null,
       appliesTo: (json['appliesTo'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       category: json['category'] as String?,
       condition: json['condition'] as String?,
       context: json['context'] != null
-          ? CodeableConcept.fromJson(json['context'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['context'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       gender: json['gender'] as String?,
       gestationalAge: json['gestationalAge'] != null
-          ? Range.fromJson(json['gestationalAge'] as Map<String, dynamic>)
+          ? Range.fromJson(
+              (json['gestationalAge'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       range: json['range'] != null
-          ? Range.fromJson(json['range'] as Map<String, dynamic>)
+          ? Range.fromJson((json['range'] as Map).cast<String, dynamic>())
           : null,
     );
   }

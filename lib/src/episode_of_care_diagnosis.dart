@@ -23,17 +23,19 @@ class EpisodeOfCareDiagnosis extends BackboneElement implements FhirResource {
   @override
   factory EpisodeOfCareDiagnosis.fromJson(Map<String, dynamic> json) {
     return EpisodeOfCareDiagnosis(
-      condition: Reference.fromJson(json['condition'] as Map<String, dynamic>),
+      condition: Reference.fromJson(
+          (json['condition'] as Map).cast<String, dynamic>()),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       rank: json['rank'] as int?,
       role: json['role'] != null
-          ? CodeableConcept.fromJson(json['role'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['role'] as Map).cast<String, dynamic>())
           : null,
     );
   }

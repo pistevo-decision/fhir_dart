@@ -23,13 +23,13 @@ class EpisodeOfCareStatusHistory extends BackboneElement
   factory EpisodeOfCareStatusHistory.fromJson(Map<String, dynamic> json) {
     return EpisodeOfCareStatusHistory(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      period: Period.fromJson(json['period'] as Map<String, dynamic>),
+      period: Period.fromJson((json['period'] as Map).cast<String, dynamic>()),
       status: json['status'] as String,
     );
   }

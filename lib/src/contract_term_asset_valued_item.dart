@@ -85,44 +85,48 @@ class ContractTermAssetValuedItem extends BackboneElement
       effectiveTime: json['effectiveTime'] as String?,
       entityCodeableConcept: json['entityCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['entityCodeableConcept'] as Map<String, dynamic>)
+              (json['entityCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       entityReference: json['entityReference'] != null
-          ? Reference.fromJson(json['entityReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['entityReference'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       factor: json['factor'] as num?,
       id: json['id'] as String?,
       identifier: json['identifier'] != null
-          ? Identifier.fromJson(json['identifier'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['identifier'] as Map).cast<String, dynamic>())
           : null,
       linkId:
           (json['linkId'] as List<dynamic>?)?.map((e) => e as String).toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       net: json['net'] != null
-          ? Money.fromJson(json['net'] as Map<String, dynamic>)
+          ? Money.fromJson((json['net'] as Map).cast<String, dynamic>())
           : null,
       payment: json['payment'] as String?,
       paymentDate: json['paymentDate'] as String?,
       points: json['points'] as num?,
       quantity: json['quantity'] != null
-          ? Quantity.fromJson(json['quantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['quantity'] as Map).cast<String, dynamic>())
           : null,
       recipient: json['recipient'] != null
-          ? Reference.fromJson(json['recipient'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['recipient'] as Map).cast<String, dynamic>())
           : null,
       responsible: json['responsible'] != null
-          ? Reference.fromJson(json['responsible'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['responsible'] as Map).cast<String, dynamic>())
           : null,
       securityLabelNumber: (json['securityLabelNumber'] as List<dynamic>?)
           ?.map((e) => e as int)
           .toList(),
       unitPrice: json['unitPrice'] != null
-          ? Money.fromJson(json['unitPrice'] as Map<String, dynamic>)
+          ? Money.fromJson((json['unitPrice'] as Map).cast<String, dynamic>())
           : null,
     );
   }

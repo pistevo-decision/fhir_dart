@@ -43,11 +43,11 @@ class TerminologyCapabilitiesCodeSystemVersion extends BackboneElement
       code: json['code'] as String?,
       compositional: json['compositional'] as bool?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       filter: (json['filter'] as List<dynamic>?)
           ?.map((e) => TerminologyCapabilitiesCodeSystemVersionFilter.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       isDefault: json['isDefault'] as bool?,
@@ -55,7 +55,7 @@ class TerminologyCapabilitiesCodeSystemVersion extends BackboneElement
           ?.map((e) => e as String)
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       property: (json['property'] as List<dynamic>?)
           ?.map((e) => e as String)

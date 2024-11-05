@@ -21,17 +21,18 @@ class MedicationKnowledgeMonograph extends BackboneElement
   factory MedicationKnowledgeMonograph.fromJson(Map<String, dynamic> json) {
     return MedicationKnowledgeMonograph(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       source: json['source'] != null
-          ? Reference.fromJson(json['source'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['source'] as Map).cast<String, dynamic>())
           : null,
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

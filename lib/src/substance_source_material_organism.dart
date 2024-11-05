@@ -45,36 +45,39 @@ class SubstanceSourceMaterialOrganism extends BackboneElement
     return SubstanceSourceMaterialOrganism(
       author: (json['author'] as List<dynamic>?)
           ?.map((e) => SubstanceSourceMaterialOrganismAuthor.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       family: json['family'] != null
-          ? CodeableConcept.fromJson(json['family'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['family'] as Map).cast<String, dynamic>())
           : null,
       genus: json['genus'] != null
-          ? CodeableConcept.fromJson(json['genus'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['genus'] as Map).cast<String, dynamic>())
           : null,
       hybrid: json['hybrid'] != null
           ? SubstanceSourceMaterialOrganismHybrid.fromJson(
-              json['hybrid'] as Map<String, dynamic>)
+              (json['hybrid'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       intraspecificDescription: json['intraspecificDescription'] as String?,
       intraspecificType: json['intraspecificType'] != null
           ? CodeableConcept.fromJson(
-              json['intraspecificType'] as Map<String, dynamic>)
+              (json['intraspecificType'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       organismGeneral: json['organismGeneral'] != null
           ? SubstanceSourceMaterialOrganismOrganismGeneral.fromJson(
-              json['organismGeneral'] as Map<String, dynamic>)
+              (json['organismGeneral'] as Map).cast<String, dynamic>())
           : null,
       species: json['species'] != null
-          ? CodeableConcept.fromJson(json['species'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['species'] as Map).cast<String, dynamic>())
           : null,
     );
   }

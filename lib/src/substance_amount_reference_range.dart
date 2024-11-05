@@ -18,14 +18,15 @@ class SubstanceAmountReferenceRange extends Element implements FhirResource {
   factory SubstanceAmountReferenceRange.fromJson(Map<String, dynamic> json) {
     return SubstanceAmountReferenceRange(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       highLimit: json['highLimit'] != null
-          ? Quantity.fromJson(json['highLimit'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['highLimit'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       lowLimit: json['lowLimit'] != null
-          ? Quantity.fromJson(json['lowLimit'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['lowLimit'] as Map).cast<String, dynamic>())
           : null,
     );
   }

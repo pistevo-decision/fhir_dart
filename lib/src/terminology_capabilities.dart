@@ -150,71 +150,74 @@ class TerminologyCapabilities extends DomainResource implements FhirResource {
     return TerminologyCapabilities(
       closure: json['closure'] != null
           ? TerminologyCapabilitiesClosure.fromJson(
-              json['closure'] as Map<String, dynamic>)
+              (json['closure'] as Map).cast<String, dynamic>())
           : null,
       codeSearch: json['codeSearch'] as String?,
       codeSystem: (json['codeSystem'] as List<dynamic>?)
           ?.map((e) => TerminologyCapabilitiesCodeSystem.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       contact: (json['contact'] as List<dynamic>?)
-          ?.map((e) => ContactDetail.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactDetail.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       copyright: json['copyright'] as String?,
       date: json['date'] as String,
       description: json['description'] as String?,
       expansion: json['expansion'] != null
           ? TerminologyCapabilitiesExpansion.fromJson(
-              json['expansion'] as Map<String, dynamic>)
+              (json['expansion'] as Map).cast<String, dynamic>())
           : null,
       experimental: json['experimental'] as bool?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       implementation: json['implementation'] != null
           ? TerminologyCapabilitiesImplementation.fromJson(
-              json['implementation'] as Map<String, dynamic>)
+              (json['implementation'] as Map).cast<String, dynamic>())
           : null,
       implicitRules: json['implicitRules'] as String?,
       jurisdiction: (json['jurisdiction'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       kind: json['kind'] as String,
       language: json['language'] as String?,
       lockedDate: json['lockedDate'] as bool?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String?,
       publisher: json['publisher'] as String?,
       purpose: json['purpose'] as String?,
       software: json['software'] != null
           ? TerminologyCapabilitiesSoftware.fromJson(
-              json['software'] as Map<String, dynamic>)
+              (json['software'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       title: json['title'] as String?,
       translation: json['translation'] != null
           ? TerminologyCapabilitiesTranslation.fromJson(
-              json['translation'] as Map<String, dynamic>)
+              (json['translation'] as Map).cast<String, dynamic>())
           : null,
       url: json['url'] as String?,
       useContext: (json['useContext'] as List<dynamic>?)
-          ?.map((e) => UsageContext.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => UsageContext.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       validateCode: json['validateCode'] != null
           ? TerminologyCapabilitiesValidateCode.fromJson(
-              json['validateCode'] as Map<String, dynamic>)
+              (json['validateCode'] as Map).cast<String, dynamic>())
           : null,
       version: json['version'] as String?,
     );

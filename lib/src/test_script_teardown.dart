@@ -18,15 +18,15 @@ class TestScriptTeardown extends BackboneElement implements FhirResource {
   factory TestScriptTeardown.fromJson(Map<String, dynamic> json) {
     return TestScriptTeardown(
       action: (json['action'] as List<dynamic>)
-          .map((e) =>
-              TestScriptTeardownAction.fromJson(e as Map<String, dynamic>))
+          .map((e) => TestScriptTeardownAction.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

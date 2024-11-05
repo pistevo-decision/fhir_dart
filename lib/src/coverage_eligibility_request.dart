@@ -98,59 +98,65 @@ class CoverageEligibilityRequest extends DomainResource
   factory CoverageEligibilityRequest.fromJson(Map<String, dynamic> json) {
     return CoverageEligibilityRequest(
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       created: json['created'] as String,
       enterer: json['enterer'] != null
-          ? Reference.fromJson(json['enterer'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['enterer'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       facility: json['facility'] != null
-          ? Reference.fromJson(json['facility'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['facility'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       insurance: (json['insurance'] as List<dynamic>?)
           ?.map((e) => CoverageEligibilityRequestInsurance.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
-      insurer: Reference.fromJson(json['insurer'] as Map<String, dynamic>),
+      insurer:
+          Reference.fromJson((json['insurer'] as Map).cast<String, dynamic>()),
       item: (json['item'] as List<dynamic>?)
           ?.map((e) => CoverageEligibilityRequestItem.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      patient: Reference.fromJson(json['patient'] as Map<String, dynamic>),
+      patient:
+          Reference.fromJson((json['patient'] as Map).cast<String, dynamic>()),
       priority: json['priority'] != null
-          ? CodeableConcept.fromJson(json['priority'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['priority'] as Map).cast<String, dynamic>())
           : null,
       provider: json['provider'] != null
-          ? Reference.fromJson(json['provider'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['provider'] as Map).cast<String, dynamic>())
           : null,
       purpose:
           (json['purpose'] as List<dynamic>).map((e) => e as String).toList(),
       servicedDate: json['servicedDate'] as String?,
       servicedPeriod: json['servicedPeriod'] != null
-          ? Period.fromJson(json['servicedPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['servicedPeriod'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String,
       supportingInfo: (json['supportingInfo'] as List<dynamic>?)
           ?.map((e) => CoverageEligibilityRequestSupportingInfo.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

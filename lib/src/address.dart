@@ -67,12 +67,12 @@ class Address extends Element implements FhirResource {
       country: json['country'] as String?,
       district: json['district'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       line: (json['line'] as List<dynamic>?)?.map((e) => e as String).toList(),
       period: json['period'] != null
-          ? Period.fromJson(json['period'] as Map<String, dynamic>)
+          ? Period.fromJson((json['period'] as Map).cast<String, dynamic>())
           : null,
       postalCode: json['postalCode'] as String?,
       state: json['state'] as String?,

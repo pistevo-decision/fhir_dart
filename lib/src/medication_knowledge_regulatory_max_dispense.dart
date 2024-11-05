@@ -21,16 +21,17 @@ class MedicationKnowledgeRegulatoryMaxDispense extends BackboneElement
       Map<String, dynamic> json) {
     return MedicationKnowledgeRegulatoryMaxDispense(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       period: json['period'] != null
-          ? Duration.fromJson(json['period'] as Map<String, dynamic>)
+          ? Duration.fromJson((json['period'] as Map).cast<String, dynamic>())
           : null,
-      quantity: Quantity.fromJson(json['quantity'] as Map<String, dynamic>),
+      quantity:
+          Quantity.fromJson((json['quantity'] as Map).cast<String, dynamic>()),
     );
   }
 

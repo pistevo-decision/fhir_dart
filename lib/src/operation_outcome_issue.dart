@@ -47,21 +47,22 @@ class OperationOutcomeIssue extends BackboneElement implements FhirResource {
     return OperationOutcomeIssue(
       code: json['code'] as String,
       details: json['details'] != null
-          ? CodeableConcept.fromJson(json['details'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['details'] as Map).cast<String, dynamic>())
           : null,
       diagnostics: json['diagnostics'] as String?,
       expression: (json['expression'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       location: (json['location'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       severity: json['severity'] as String,
     );

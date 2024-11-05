@@ -45,18 +45,20 @@ class Identifier extends Element implements FhirResource {
   factory Identifier.fromJson(Map<String, dynamic> json) {
     return Identifier(
       assigner: json['assigner'] != null
-          ? Reference.fromJson(json['assigner'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['assigner'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       period: json['period'] != null
-          ? Period.fromJson(json['period'] as Map<String, dynamic>)
+          ? Period.fromJson((json['period'] as Map).cast<String, dynamic>())
           : null,
       system: json['system'] as String?,
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
       use: json['use'] as String?,
       value: json['value'] as String?,

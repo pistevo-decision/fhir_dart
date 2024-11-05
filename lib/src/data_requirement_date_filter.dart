@@ -37,17 +37,19 @@ class DataRequirementDateFilter extends Element implements FhirResource {
   factory DataRequirementDateFilter.fromJson(Map<String, dynamic> json) {
     return DataRequirementDateFilter(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       path: json['path'] as String?,
       searchParam: json['searchParam'] as String?,
       valueDateTime: json['valueDateTime'] as String?,
       valueDuration: json['valueDuration'] != null
-          ? Duration.fromJson(json['valueDuration'] as Map<String, dynamic>)
+          ? Duration.fromJson(
+              (json['valueDuration'] as Map).cast<String, dynamic>())
           : null,
       valuePeriod: json['valuePeriod'] != null
-          ? Period.fromJson(json['valuePeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['valuePeriod'] as Map).cast<String, dynamic>())
           : null,
     );
   }

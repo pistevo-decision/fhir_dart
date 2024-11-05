@@ -56,43 +56,48 @@ class SubstanceSpecificationName extends BackboneElement
   factory SubstanceSpecificationName.fromJson(Map<String, dynamic> json) {
     return SubstanceSpecificationName(
       domain: (json['domain'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       jurisdiction: (json['jurisdiction'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       language: (json['language'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String,
       official: (json['official'] as List<dynamic>?)
           ?.map((e) => SubstanceSpecificationNameOfficial.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       preferred: json['preferred'] as bool?,
       source: (json['source'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       status: json['status'] != null
-          ? CodeableConcept.fromJson(json['status'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['status'] as Map).cast<String, dynamic>())
           : null,
       synonym: (json['synonym'] as List<dynamic>?)
-          ?.map((e) =>
-              SubstanceSpecificationName.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SubstanceSpecificationName.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       translation: (json['translation'] as List<dynamic>?)
-          ?.map((e) =>
-              SubstanceSpecificationName.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SubstanceSpecificationName.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

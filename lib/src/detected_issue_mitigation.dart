@@ -28,17 +28,18 @@ class DetectedIssueMitigation extends BackboneElement implements FhirResource {
   @override
   factory DetectedIssueMitigation.fromJson(Map<String, dynamic> json) {
     return DetectedIssueMitigation(
-      action: CodeableConcept.fromJson(json['action'] as Map<String, dynamic>),
+      action: CodeableConcept.fromJson(
+          (json['action'] as Map).cast<String, dynamic>()),
       author: json['author'] != null
-          ? Reference.fromJson(json['author'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['author'] as Map).cast<String, dynamic>())
           : null,
       date: json['date'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

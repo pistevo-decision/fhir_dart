@@ -41,35 +41,39 @@ class MedicinalProductPharmaceuticalRouteOfAdministration
   factory MedicinalProductPharmaceuticalRouteOfAdministration.fromJson(
       Map<String, dynamic> json) {
     return MedicinalProductPharmaceuticalRouteOfAdministration(
-      code: CodeableConcept.fromJson(json['code'] as Map<String, dynamic>),
+      code: CodeableConcept.fromJson(
+          (json['code'] as Map).cast<String, dynamic>()),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       firstDose: json['firstDose'] != null
-          ? Quantity.fromJson(json['firstDose'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['firstDose'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       maxDosePerDay: json['maxDosePerDay'] != null
-          ? Quantity.fromJson(json['maxDosePerDay'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['maxDosePerDay'] as Map).cast<String, dynamic>())
           : null,
       maxDosePerTreatmentPeriod: json['maxDosePerTreatmentPeriod'] != null
-          ? Ratio.fromJson(
-              json['maxDosePerTreatmentPeriod'] as Map<String, dynamic>)
+          ? Ratio.fromJson((json['maxDosePerTreatmentPeriod'] as Map)
+              .cast<String, dynamic>())
           : null,
       maxSingleDose: json['maxSingleDose'] != null
-          ? Quantity.fromJson(json['maxSingleDose'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['maxSingleDose'] as Map).cast<String, dynamic>())
           : null,
       maxTreatmentPeriod: json['maxTreatmentPeriod'] != null
           ? Duration.fromJson(
-              json['maxTreatmentPeriod'] as Map<String, dynamic>)
+              (json['maxTreatmentPeriod'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       targetSpecies: (json['targetSpecies'] as List<dynamic>?)
           ?.map((e) =>
               MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies
-                  .fromJson(e as Map<String, dynamic>))
+                  .fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

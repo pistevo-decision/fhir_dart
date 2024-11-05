@@ -71,21 +71,22 @@ class SubstanceSourceMaterial extends DomainResource implements FhirResource {
   factory SubstanceSourceMaterial.fromJson(Map<String, dynamic> json) {
     return SubstanceSourceMaterial(
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       countryOfOrigin: (json['countryOfOrigin'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       developmentStage: json['developmentStage'] != null
           ? CodeableConcept.fromJson(
-              json['developmentStage'] as Map<String, dynamic>)
+              (json['developmentStage'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fractionDescription: (json['fractionDescription'] as List<dynamic>?)
           ?.map((e) => SubstanceSourceMaterialFractionDescription.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       geographicalLocation: (json['geographicalLocation'] as List<dynamic>?)
           ?.map((e) => e as String)
@@ -94,43 +95,44 @@ class SubstanceSourceMaterial extends DomainResource implements FhirResource {
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       organism: json['organism'] != null
           ? SubstanceSourceMaterialOrganism.fromJson(
-              json['organism'] as Map<String, dynamic>)
+              (json['organism'] as Map).cast<String, dynamic>())
           : null,
       organismId: json['organismId'] != null
-          ? Identifier.fromJson(json['organismId'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['organismId'] as Map).cast<String, dynamic>())
           : null,
       organismName: json['organismName'] as String?,
       parentSubstanceId: (json['parentSubstanceId'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       parentSubstanceName: (json['parentSubstanceName'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
       partDescription: (json['partDescription'] as List<dynamic>?)
           ?.map((e) => SubstanceSourceMaterialPartDescription.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       sourceMaterialClass: json['sourceMaterialClass'] != null
           ? CodeableConcept.fromJson(
-              json['sourceMaterialClass'] as Map<String, dynamic>)
+              (json['sourceMaterialClass'] as Map).cast<String, dynamic>())
           : null,
       sourceMaterialState: json['sourceMaterialState'] != null
           ? CodeableConcept.fromJson(
-              json['sourceMaterialState'] as Map<String, dynamic>)
+              (json['sourceMaterialState'] as Map).cast<String, dynamic>())
           : null,
       sourceMaterialType: json['sourceMaterialType'] != null
           ? CodeableConcept.fromJson(
-              json['sourceMaterialType'] as Map<String, dynamic>)
+              (json['sourceMaterialType'] as Map).cast<String, dynamic>())
           : null,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

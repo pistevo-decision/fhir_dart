@@ -31,23 +31,25 @@ class InsurancePlanContact extends BackboneElement implements FhirResource {
   factory InsurancePlanContact.fromJson(Map<String, dynamic> json) {
     return InsurancePlanContact(
       address: json['address'] != null
-          ? Address.fromJson(json['address'] as Map<String, dynamic>)
+          ? Address.fromJson((json['address'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] != null
-          ? HumanName.fromJson(json['name'] as Map<String, dynamic>)
+          ? HumanName.fromJson((json['name'] as Map).cast<String, dynamic>())
           : null,
       purpose: json['purpose'] != null
-          ? CodeableConcept.fromJson(json['purpose'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['purpose'] as Map).cast<String, dynamic>())
           : null,
       telecom: (json['telecom'] as List<dynamic>?)
-          ?.map((e) => ContactPoint.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactPoint.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

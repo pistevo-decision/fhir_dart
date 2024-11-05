@@ -22,17 +22,17 @@ class DocumentReferenceContent extends BackboneElement implements FhirResource {
   @override
   factory DocumentReferenceContent.fromJson(Map<String, dynamic> json) {
     return DocumentReferenceContent(
-      attachment:
-          Attachment.fromJson(json['attachment'] as Map<String, dynamic>),
+      attachment: Attachment.fromJson(
+          (json['attachment'] as Map).cast<String, dynamic>()),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       format: json['format'] != null
-          ? Coding.fromJson(json['format'] as Map<String, dynamic>)
+          ? Coding.fromJson((json['format'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

@@ -44,31 +44,34 @@ class SubstanceSpecificationMoiety extends BackboneElement
   factory SubstanceSpecificationMoiety.fromJson(Map<String, dynamic> json) {
     return SubstanceSpecificationMoiety(
       amountQuantity: json['amountQuantity'] != null
-          ? Quantity.fromJson(json['amountQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['amountQuantity'] as Map).cast<String, dynamic>())
           : null,
       amountString: json['amountString'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: json['identifier'] != null
-          ? Identifier.fromJson(json['identifier'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['identifier'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       molecularFormula: json['molecularFormula'] as String?,
       name: json['name'] as String?,
       opticalActivity: json['opticalActivity'] != null
           ? CodeableConcept.fromJson(
-              json['opticalActivity'] as Map<String, dynamic>)
+              (json['opticalActivity'] as Map).cast<String, dynamic>())
           : null,
       role: json['role'] != null
-          ? CodeableConcept.fromJson(json['role'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['role'] as Map).cast<String, dynamic>())
           : null,
       stereochemistry: json['stereochemistry'] != null
           ? CodeableConcept.fromJson(
-              json['stereochemistry'] as Map<String, dynamic>)
+              (json['stereochemistry'] as Map).cast<String, dynamic>())
           : null,
     );
   }

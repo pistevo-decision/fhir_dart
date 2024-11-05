@@ -29,15 +29,15 @@ class ExampleScenarioProcessStepAlternative extends BackboneElement
     return ExampleScenarioProcessStepAlternative(
       description: json['description'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       step: (json['step'] as List<dynamic>?)
-          ?.map((e) =>
-              ExampleScenarioProcessStep.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ExampleScenarioProcessStep.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       title: json['title'] as String,
     );

@@ -82,16 +82,17 @@ class MolecularSequenceQuality extends BackboneElement implements FhirResource {
     return MolecularSequenceQuality(
       end: json['end'] as int?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fScore: json['fScore'] as num?,
       gtFP: json['gtFP'] as num?,
       id: json['id'] as String?,
       method: json['method'] != null
-          ? CodeableConcept.fromJson(json['method'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['method'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       precision: json['precision'] as num?,
       queryFP: json['queryFP'] as num?,
@@ -99,14 +100,14 @@ class MolecularSequenceQuality extends BackboneElement implements FhirResource {
       recall: json['recall'] as num?,
       roc: json['roc'] != null
           ? MolecularSequenceQualityRoc.fromJson(
-              json['roc'] as Map<String, dynamic>)
+              (json['roc'] as Map).cast<String, dynamic>())
           : null,
       score: json['score'] != null
-          ? Quantity.fromJson(json['score'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['score'] as Map).cast<String, dynamic>())
           : null,
       standardSequence: json['standardSequence'] != null
           ? CodeableConcept.fromJson(
-              json['standardSequence'] as Map<String, dynamic>)
+              (json['standardSequence'] as Map).cast<String, dynamic>())
           : null,
       start: json['start'] as int?,
       truthFN: json['truthFN'] as num?,

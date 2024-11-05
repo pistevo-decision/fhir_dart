@@ -127,63 +127,71 @@ class RequestGroupAction extends BackboneElement implements FhirResource {
   factory RequestGroupAction.fromJson(Map<String, dynamic> json) {
     return RequestGroupAction(
       action: (json['action'] as List<dynamic>?)
-          ?.map((e) => RequestGroupAction.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              RequestGroupAction.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       cardinalityBehavior: json['cardinalityBehavior'] as String?,
       code: (json['code'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       condition: (json['condition'] as List<dynamic>?)
-          ?.map((e) =>
-              RequestGroupActionCondition.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => RequestGroupActionCondition.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       description: json['description'] as String?,
       documentation: (json['documentation'] as List<dynamic>?)
-          ?.map((e) => RelatedArtifact.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              RelatedArtifact.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       groupingBehavior: json['groupingBehavior'] as String?,
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       participant: (json['participant'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       precheckBehavior: json['precheckBehavior'] as String?,
       prefix: json['prefix'] as String?,
       priority: json['priority'] as String?,
       relatedAction: (json['relatedAction'] as List<dynamic>?)
           ?.map((e) => RequestGroupActionRelatedAction.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       requiredBehavior: json['requiredBehavior'] as String?,
       resource: json['resource'] != null
-          ? Reference.fromJson(json['resource'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['resource'] as Map).cast<String, dynamic>())
           : null,
       selectionBehavior: json['selectionBehavior'] as String?,
       textEquivalent: json['textEquivalent'] as String?,
       timingAge: json['timingAge'] != null
-          ? Age.fromJson(json['timingAge'] as Map<String, dynamic>)
+          ? Age.fromJson((json['timingAge'] as Map).cast<String, dynamic>())
           : null,
       timingDateTime: json['timingDateTime'] as String?,
       timingDuration: json['timingDuration'] != null
-          ? Duration.fromJson(json['timingDuration'] as Map<String, dynamic>)
+          ? Duration.fromJson(
+              (json['timingDuration'] as Map).cast<String, dynamic>())
           : null,
       timingPeriod: json['timingPeriod'] != null
-          ? Period.fromJson(json['timingPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['timingPeriod'] as Map).cast<String, dynamic>())
           : null,
       timingRange: json['timingRange'] != null
-          ? Range.fromJson(json['timingRange'] as Map<String, dynamic>)
+          ? Range.fromJson((json['timingRange'] as Map).cast<String, dynamic>())
           : null,
       timingTiming: json['timingTiming'] != null
-          ? Timing.fromJson(json['timingTiming'] as Map<String, dynamic>)
+          ? Timing.fromJson(
+              (json['timingTiming'] as Map).cast<String, dynamic>())
           : null,
       title: json['title'] as String?,
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

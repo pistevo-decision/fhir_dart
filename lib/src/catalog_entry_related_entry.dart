@@ -21,12 +21,12 @@ class CatalogEntryRelatedEntry extends BackboneElement implements FhirResource {
   factory CatalogEntryRelatedEntry.fromJson(Map<String, dynamic> json) {
     return CatalogEntryRelatedEntry(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
-      item: Reference.fromJson(json['item'] as Map<String, dynamic>),
+      item: Reference.fromJson((json['item'] as Map).cast<String, dynamic>()),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       relationtype: json['relationtype'] as String,
     );

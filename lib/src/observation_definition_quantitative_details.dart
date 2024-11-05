@@ -36,18 +36,19 @@ class ObservationDefinitionQuantitativeDetails extends BackboneElement
       conversionFactor: json['conversionFactor'] as num?,
       customaryUnit: json['customaryUnit'] != null
           ? CodeableConcept.fromJson(
-              json['customaryUnit'] as Map<String, dynamic>)
+              (json['customaryUnit'] as Map).cast<String, dynamic>())
           : null,
       decimalPrecision: json['decimalPrecision'] as int?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       unit: json['unit'] != null
-          ? CodeableConcept.fromJson(json['unit'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['unit'] as Map).cast<String, dynamic>())
           : null,
     );
   }

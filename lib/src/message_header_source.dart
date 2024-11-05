@@ -38,15 +38,16 @@ class MessageHeaderSource extends BackboneElement implements FhirResource {
   factory MessageHeaderSource.fromJson(Map<String, dynamic> json) {
     return MessageHeaderSource(
       contact: json['contact'] != null
-          ? ContactPoint.fromJson(json['contact'] as Map<String, dynamic>)
+          ? ContactPoint.fromJson(
+              (json['contact'] as Map).cast<String, dynamic>())
           : null,
       endpoint: json['endpoint'] as String,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String?,
       software: json['software'] as String?,

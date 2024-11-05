@@ -35,14 +35,15 @@ class ImagingStudySeriesInstance extends BackboneElement
   factory ImagingStudySeriesInstance.fromJson(Map<String, dynamic> json) {
     return ImagingStudySeriesInstance(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       number: json['number'] as int?,
-      sopClass: Coding.fromJson(json['sopClass'] as Map<String, dynamic>),
+      sopClass:
+          Coding.fromJson((json['sopClass'] as Map).cast<String, dynamic>()),
       title: json['title'] as String?,
       uid: json['uid'] as String,
     );

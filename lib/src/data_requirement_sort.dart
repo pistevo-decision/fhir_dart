@@ -22,7 +22,7 @@ class DataRequirementSort extends Element implements FhirResource {
     return DataRequirementSort(
       direction: json['direction'] as String,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       path: json['path'] as String,

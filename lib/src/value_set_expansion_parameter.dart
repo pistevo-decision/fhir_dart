@@ -55,11 +55,11 @@ class ValueSetExpansionParameter extends BackboneElement
   factory ValueSetExpansionParameter.fromJson(Map<String, dynamic> json) {
     return ValueSetExpansionParameter(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String,
       valueBoolean: json['valueBoolean'] as bool?,

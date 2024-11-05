@@ -25,18 +25,18 @@ class ChargeItemDefinitionPropertyGroup extends BackboneElement
     return ChargeItemDefinitionPropertyGroup(
       applicability: (json['applicability'] as List<dynamic>?)
           ?.map((e) => ChargeItemDefinitionApplicability.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       priceComponent: (json['priceComponent'] as List<dynamic>?)
           ?.map((e) => ChargeItemDefinitionPropertyGroupPriceComponent.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

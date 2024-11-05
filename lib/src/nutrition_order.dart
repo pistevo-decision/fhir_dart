@@ -110,31 +110,34 @@ class NutritionOrder extends DomainResource implements FhirResource {
   factory NutritionOrder.fromJson(Map<String, dynamic> json) {
     return NutritionOrder(
       allergyIntolerance: (json['allergyIntolerance'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       dateTime: json['dateTime'] as String,
       encounter: json['encounter'] != null
-          ? Reference.fromJson(json['encounter'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['encounter'] as Map).cast<String, dynamic>())
           : null,
       enteralFormula: json['enteralFormula'] != null
           ? NutritionOrderEnteralFormula.fromJson(
-              json['enteralFormula'] as Map<String, dynamic>)
+              (json['enteralFormula'] as Map).cast<String, dynamic>())
           : null,
       excludeFoodModifier: (json['excludeFoodModifier'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       foodPreferenceModifier: (json['foodPreferenceModifier'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       instantiates: (json['instantiates'] as List<dynamic>?)
@@ -149,29 +152,30 @@ class NutritionOrder extends DomainResource implements FhirResource {
       intent: json['intent'] as String,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       note: (json['note'] as List<dynamic>?)
-          ?.map((e) => Annotation.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Annotation.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       oralDiet: json['oralDiet'] != null
           ? NutritionOrderOralDiet.fromJson(
-              json['oralDiet'] as Map<String, dynamic>)
+              (json['oralDiet'] as Map).cast<String, dynamic>())
           : null,
       orderer: json['orderer'] != null
-          ? Reference.fromJson(json['orderer'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['orderer'] as Map).cast<String, dynamic>())
           : null,
-      patient: Reference.fromJson(json['patient'] as Map<String, dynamic>),
+      patient:
+          Reference.fromJson((json['patient'] as Map).cast<String, dynamic>()),
       status: json['status'] as String,
       supplement: (json['supplement'] as List<dynamic>?)
-          ?.map((e) =>
-              NutritionOrderSupplement.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => NutritionOrderSupplement.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

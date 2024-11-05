@@ -38,19 +38,19 @@ class CapabilityStatementMessaging extends BackboneElement
       documentation: json['documentation'] as String?,
       endpoint: (json['endpoint'] as List<dynamic>?)
           ?.map((e) => CapabilityStatementMessagingEndpoint.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reliableCache: json['reliableCache'] as int?,
       supportedMessage: (json['supportedMessage'] as List<dynamic>?)
           ?.map((e) => CapabilityStatementMessagingSupportedMessage.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

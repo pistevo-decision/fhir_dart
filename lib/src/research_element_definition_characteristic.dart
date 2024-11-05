@@ -119,38 +119,38 @@ class ResearchElementDefinitionCharacteristic extends BackboneElement
     return ResearchElementDefinitionCharacteristic(
       definitionCanonical: json['definitionCanonical'] as String?,
       definitionCodeableConcept: json['definitionCodeableConcept'] != null
-          ? CodeableConcept.fromJson(
-              json['definitionCodeableConcept'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson((json['definitionCodeableConcept'] as Map)
+              .cast<String, dynamic>())
           : null,
       definitionDataRequirement: json['definitionDataRequirement'] != null
-          ? DataRequirement.fromJson(
-              json['definitionDataRequirement'] as Map<String, dynamic>)
+          ? DataRequirement.fromJson((json['definitionDataRequirement'] as Map)
+              .cast<String, dynamic>())
           : null,
       definitionExpression: json['definitionExpression'] != null
           ? Expression.fromJson(
-              json['definitionExpression'] as Map<String, dynamic>)
+              (json['definitionExpression'] as Map).cast<String, dynamic>())
           : null,
       exclude: json['exclude'] as bool?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       participantEffectiveDateTime:
           json['participantEffectiveDateTime'] as String?,
       participantEffectiveDuration: json['participantEffectiveDuration'] != null
-          ? Duration.fromJson(
-              json['participantEffectiveDuration'] as Map<String, dynamic>)
+          ? Duration.fromJson((json['participantEffectiveDuration'] as Map)
+              .cast<String, dynamic>())
           : null,
       participantEffectivePeriod: json['participantEffectivePeriod'] != null
-          ? Period.fromJson(
-              json['participantEffectivePeriod'] as Map<String, dynamic>)
+          ? Period.fromJson((json['participantEffectivePeriod'] as Map)
+              .cast<String, dynamic>())
           : null,
       participantEffectiveTiming: json['participantEffectiveTiming'] != null
-          ? Timing.fromJson(
-              json['participantEffectiveTiming'] as Map<String, dynamic>)
+          ? Timing.fromJson((json['participantEffectiveTiming'] as Map)
+              .cast<String, dynamic>())
           : null,
       participantEffectiveDescription:
           json['participantEffectiveDescription'] as String?,
@@ -158,34 +158,36 @@ class ResearchElementDefinitionCharacteristic extends BackboneElement
           json['participantEffectiveGroupMeasure'] as String?,
       participantEffectiveTimeFromStart:
           json['participantEffectiveTimeFromStart'] != null
-              ? Duration.fromJson(json['participantEffectiveTimeFromStart']
-                  as Map<String, dynamic>)
+              ? Duration.fromJson(
+                  (json['participantEffectiveTimeFromStart'] as Map)
+                      .cast<String, dynamic>())
               : null,
       studyEffectiveDateTime: json['studyEffectiveDateTime'] as String?,
       studyEffectiveDuration: json['studyEffectiveDuration'] != null
           ? Duration.fromJson(
-              json['studyEffectiveDuration'] as Map<String, dynamic>)
+              (json['studyEffectiveDuration'] as Map).cast<String, dynamic>())
           : null,
       studyEffectivePeriod: json['studyEffectivePeriod'] != null
           ? Period.fromJson(
-              json['studyEffectivePeriod'] as Map<String, dynamic>)
+              (json['studyEffectivePeriod'] as Map).cast<String, dynamic>())
           : null,
       studyEffectiveTiming: json['studyEffectiveTiming'] != null
           ? Timing.fromJson(
-              json['studyEffectiveTiming'] as Map<String, dynamic>)
+              (json['studyEffectiveTiming'] as Map).cast<String, dynamic>())
           : null,
       studyEffectiveDescription: json['studyEffectiveDescription'] as String?,
       studyEffectiveGroupMeasure: json['studyEffectiveGroupMeasure'] as String?,
       studyEffectiveTimeFromStart: json['studyEffectiveTimeFromStart'] != null
-          ? Duration.fromJson(
-              json['studyEffectiveTimeFromStart'] as Map<String, dynamic>)
+          ? Duration.fromJson((json['studyEffectiveTimeFromStart'] as Map)
+              .cast<String, dynamic>())
           : null,
       unitOfMeasure: json['unitOfMeasure'] != null
           ? CodeableConcept.fromJson(
-              json['unitOfMeasure'] as Map<String, dynamic>)
+              (json['unitOfMeasure'] as Map).cast<String, dynamic>())
           : null,
       usageContext: (json['usageContext'] as List<dynamic>?)
-          ?.map((e) => UsageContext.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => UsageContext.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

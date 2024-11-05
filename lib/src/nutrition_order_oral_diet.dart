@@ -43,29 +43,31 @@ class NutritionOrderOralDiet extends BackboneElement implements FhirResource {
   factory NutritionOrderOralDiet.fromJson(Map<String, dynamic> json) {
     return NutritionOrderOralDiet(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fluidConsistencyType: (json['fluidConsistencyType'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       instruction: json['instruction'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       nutrient: (json['nutrient'] as List<dynamic>?)
           ?.map((e) => NutritionOrderOralDietNutrient.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       schedule: (json['schedule'] as List<dynamic>?)
-          ?.map((e) => Timing.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Timing.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       texture: (json['texture'] as List<dynamic>?)
-          ?.map((e) =>
-              NutritionOrderOralDietTexture.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => NutritionOrderOralDietTexture.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       type: (json['type'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

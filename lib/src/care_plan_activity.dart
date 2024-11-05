@@ -43,26 +43,28 @@ class CarePlanActivity extends BackboneElement implements FhirResource {
     return CarePlanActivity(
       detail: json['detail'] != null
           ? CarePlanActivityDetail.fromJson(
-              json['detail'] as Map<String, dynamic>)
+              (json['detail'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       outcomeCodeableConcept: (json['outcomeCodeableConcept'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       outcomeReference: (json['outcomeReference'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       progress: (json['progress'] as List<dynamic>?)
-          ?.map((e) => Annotation.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Annotation.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reference: json['reference'] != null
-          ? Reference.fromJson(json['reference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['reference'] as Map).cast<String, dynamic>())
           : null,
     );
   }

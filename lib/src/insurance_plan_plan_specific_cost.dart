@@ -23,16 +23,16 @@ class InsurancePlanPlanSpecificCost extends BackboneElement
     return InsurancePlanPlanSpecificCost(
       benefit: (json['benefit'] as List<dynamic>?)
           ?.map((e) => InsurancePlanPlanSpecificCostBenefit.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
-      category:
-          CodeableConcept.fromJson(json['category'] as Map<String, dynamic>),
+      category: CodeableConcept.fromJson(
+          (json['category'] as Map).cast<String, dynamic>()),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

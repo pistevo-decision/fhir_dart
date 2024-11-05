@@ -116,19 +116,19 @@ class TestScriptSetupActionOperation extends BackboneElement
       destination: json['destination'] as int?,
       encodeRequestUrl: json['encodeRequestUrl'] as bool,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       label: json['label'] as String?,
       method: json['method'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       origin: json['origin'] as int?,
       params: json['params'] as String?,
       requestHeader: (json['requestHeader'] as List<dynamic>?)
           ?.map((e) => TestScriptSetupActionOperationRequestHeader.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       requestId: json['requestId'] as String?,
       resource: json['resource'] as String?,
@@ -136,7 +136,7 @@ class TestScriptSetupActionOperation extends BackboneElement
       sourceId: json['sourceId'] as String?,
       targetId: json['targetId'] as String?,
       type: json['type'] != null
-          ? Coding.fromJson(json['type'] as Map<String, dynamic>)
+          ? Coding.fromJson((json['type'] as Map).cast<String, dynamic>())
           : null,
       url: json['url'] as String?,
     );

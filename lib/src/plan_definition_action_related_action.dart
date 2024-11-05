@@ -36,17 +36,18 @@ class PlanDefinitionActionRelatedAction extends BackboneElement
     return PlanDefinitionActionRelatedAction(
       actionId: json['actionId'] as String,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       offsetDuration: json['offsetDuration'] != null
-          ? Duration.fromJson(json['offsetDuration'] as Map<String, dynamic>)
+          ? Duration.fromJson(
+              (json['offsetDuration'] as Map).cast<String, dynamic>())
           : null,
       offsetRange: json['offsetRange'] != null
-          ? Range.fromJson(json['offsetRange'] as Map<String, dynamic>)
+          ? Range.fromJson((json['offsetRange'] as Map).cast<String, dynamic>())
           : null,
       relationship: json['relationship'] as String,
     );

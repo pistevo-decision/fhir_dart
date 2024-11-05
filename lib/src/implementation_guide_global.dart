@@ -26,11 +26,11 @@ class ImplementationGuideGlobal extends BackboneElement
   factory ImplementationGuideGlobal.fromJson(Map<String, dynamic> json) {
     return ImplementationGuideGlobal(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       profile: json['profile'] as String,
       type: json['type'] as String,

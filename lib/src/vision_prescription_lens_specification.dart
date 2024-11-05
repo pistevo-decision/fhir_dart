@@ -92,26 +92,26 @@ class VisionPrescriptionLensSpecification extends BackboneElement
       cylinder: json['cylinder'] as num?,
       diameter: json['diameter'] as num?,
       duration: json['duration'] != null
-          ? Quantity.fromJson(json['duration'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['duration'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       eye: json['eye'] as String,
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       note: (json['note'] as List<dynamic>?)
-          ?.map((e) => Annotation.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Annotation.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       power: json['power'] as num?,
       prism: (json['prism'] as List<dynamic>?)
           ?.map((e) => VisionPrescriptionLensSpecificationPrism.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
-      product:
-          CodeableConcept.fromJson(json['product'] as Map<String, dynamic>),
+      product: CodeableConcept.fromJson(
+          (json['product'] as Map).cast<String, dynamic>()),
       sphere: json['sphere'] as num?,
     );
   }

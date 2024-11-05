@@ -33,22 +33,26 @@ class MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength
       Map<String, dynamic> json) {
     return MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength(
       country: (json['country'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       measurementPoint: json['measurementPoint'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      strength: Ratio.fromJson(json['strength'] as Map<String, dynamic>),
+      strength:
+          Ratio.fromJson((json['strength'] as Map).cast<String, dynamic>()),
       strengthLowLimit: json['strengthLowLimit'] != null
-          ? Ratio.fromJson(json['strengthLowLimit'] as Map<String, dynamic>)
+          ? Ratio.fromJson(
+              (json['strengthLowLimit'] as Map).cast<String, dynamic>())
           : null,
       substance: json['substance'] != null
-          ? CodeableConcept.fromJson(json['substance'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['substance'] as Map).cast<String, dynamic>())
           : null,
     );
   }

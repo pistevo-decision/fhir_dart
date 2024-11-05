@@ -56,13 +56,13 @@ class DeviceUdiCarrier extends BackboneElement implements FhirResource {
       deviceIdentifier: json['deviceIdentifier'] as String?,
       entryType: json['entryType'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       issuer: json['issuer'] as String?,
       jurisdiction: json['jurisdiction'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

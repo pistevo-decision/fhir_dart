@@ -188,89 +188,101 @@ class PlanDefinitionAction extends BackboneElement implements FhirResource {
   factory PlanDefinitionAction.fromJson(Map<String, dynamic> json) {
     return PlanDefinitionAction(
       action: (json['action'] as List<dynamic>?)
-          ?.map((e) => PlanDefinitionAction.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              PlanDefinitionAction.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       cardinalityBehavior: json['cardinalityBehavior'] as String?,
       code: (json['code'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       condition: (json['condition'] as List<dynamic>?)
-          ?.map((e) =>
-              PlanDefinitionActionCondition.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => PlanDefinitionActionCondition.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       definitionCanonical: json['definitionCanonical'] as String?,
       definitionUri: json['definitionUri'] as String?,
       description: json['description'] as String?,
       documentation: (json['documentation'] as List<dynamic>?)
-          ?.map((e) => RelatedArtifact.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              RelatedArtifact.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       dynamicValue: (json['dynamicValue'] as List<dynamic>?)
           ?.map((e) => PlanDefinitionActionDynamicValue.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       goalId:
           (json['goalId'] as List<dynamic>?)?.map((e) => e as String).toList(),
       groupingBehavior: json['groupingBehavior'] as String?,
       id: json['id'] as String?,
       input: (json['input'] as List<dynamic>?)
-          ?.map((e) => DataRequirement.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              DataRequirement.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       output: (json['output'] as List<dynamic>?)
-          ?.map((e) => DataRequirement.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              DataRequirement.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       participant: (json['participant'] as List<dynamic>?)
           ?.map((e) => PlanDefinitionActionParticipant.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       precheckBehavior: json['precheckBehavior'] as String?,
       prefix: json['prefix'] as String?,
       priority: json['priority'] as String?,
       reason: (json['reason'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       relatedAction: (json['relatedAction'] as List<dynamic>?)
           ?.map((e) => PlanDefinitionActionRelatedAction.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       requiredBehavior: json['requiredBehavior'] as String?,
       selectionBehavior: json['selectionBehavior'] as String?,
       subjectCodeableConcept: json['subjectCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['subjectCodeableConcept'] as Map<String, dynamic>)
+              (json['subjectCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       subjectReference: json['subjectReference'] != null
-          ? Reference.fromJson(json['subjectReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['subjectReference'] as Map).cast<String, dynamic>())
           : null,
       textEquivalent: json['textEquivalent'] as String?,
       timingAge: json['timingAge'] != null
-          ? Age.fromJson(json['timingAge'] as Map<String, dynamic>)
+          ? Age.fromJson((json['timingAge'] as Map).cast<String, dynamic>())
           : null,
       timingDateTime: json['timingDateTime'] as String?,
       timingDuration: json['timingDuration'] != null
-          ? Duration.fromJson(json['timingDuration'] as Map<String, dynamic>)
+          ? Duration.fromJson(
+              (json['timingDuration'] as Map).cast<String, dynamic>())
           : null,
       timingPeriod: json['timingPeriod'] != null
-          ? Period.fromJson(json['timingPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['timingPeriod'] as Map).cast<String, dynamic>())
           : null,
       timingRange: json['timingRange'] != null
-          ? Range.fromJson(json['timingRange'] as Map<String, dynamic>)
+          ? Range.fromJson((json['timingRange'] as Map).cast<String, dynamic>())
           : null,
       timingTiming: json['timingTiming'] != null
-          ? Timing.fromJson(json['timingTiming'] as Map<String, dynamic>)
+          ? Timing.fromJson(
+              (json['timingTiming'] as Map).cast<String, dynamic>())
           : null,
       title: json['title'] as String?,
       transform: json['transform'] as String?,
       trigger: (json['trigger'] as List<dynamic>?)
-          ?.map((e) => TriggerDefinition.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              TriggerDefinition.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

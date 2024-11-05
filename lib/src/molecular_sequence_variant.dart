@@ -41,17 +41,18 @@ class MolecularSequenceVariant extends BackboneElement implements FhirResource {
       cigar: json['cigar'] as String?,
       end: json['end'] as int?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       observedAllele: json['observedAllele'] as String?,
       referenceAllele: json['referenceAllele'] as String?,
       start: json['start'] as int?,
       variantPointer: json['variantPointer'] != null
-          ? Reference.fromJson(json['variantPointer'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['variantPointer'] as Map).cast<String, dynamic>())
           : null,
     );
   }

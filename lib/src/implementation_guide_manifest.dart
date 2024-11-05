@@ -38,24 +38,24 @@ class ImplementationGuideManifest extends BackboneElement
   factory ImplementationGuideManifest.fromJson(Map<String, dynamic> json) {
     return ImplementationGuideManifest(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       image:
           (json['image'] as List<dynamic>?)?.map((e) => e as String).toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       other:
           (json['other'] as List<dynamic>?)?.map((e) => e as String).toList(),
       page: (json['page'] as List<dynamic>?)
           ?.map((e) => ImplementationGuideManifestPage.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       rendering: json['rendering'] as String?,
       resource: (json['resource'] as List<dynamic>)
           .map((e) => ImplementationGuideManifestResource.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

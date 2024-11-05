@@ -75,26 +75,26 @@ class OperationDefinitionParameter extends BackboneElement
     return OperationDefinitionParameter(
       binding: json['binding'] != null
           ? OperationDefinitionParameterBinding.fromJson(
-              json['binding'] as Map<String, dynamic>)
+              (json['binding'] as Map).cast<String, dynamic>())
           : null,
       documentation: json['documentation'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       max: json['max'] as String,
       min: json['min'] as int,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String,
       fhirPart: (json['part'] as List<dynamic>?)
-          ?.map((e) =>
-              OperationDefinitionParameter.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => OperationDefinitionParameter.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       referencedFrom: (json['referencedFrom'] as List<dynamic>?)
           ?.map((e) => OperationDefinitionParameterReferencedFrom.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       searchType: json['searchType'] as String?,
       targetProfile: (json['targetProfile'] as List<dynamic>?)

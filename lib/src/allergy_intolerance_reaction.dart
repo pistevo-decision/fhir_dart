@@ -54,25 +54,27 @@ class AllergyIntoleranceReaction extends BackboneElement
       description: json['description'] as String?,
       exposureRoute: json['exposureRoute'] != null
           ? CodeableConcept.fromJson(
-              json['exposureRoute'] as Map<String, dynamic>)
+              (json['exposureRoute'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       manifestation: (json['manifestation'] as List<dynamic>)
-          .map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          .map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       note: (json['note'] as List<dynamic>?)
-          ?.map((e) => Annotation.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Annotation.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       onset: json['onset'] as String?,
       severity: json['severity'] as String?,
       substance: json['substance'] != null
-          ? CodeableConcept.fromJson(json['substance'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['substance'] as Map).cast<String, dynamic>())
           : null,
     );
   }

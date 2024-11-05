@@ -21,17 +21,19 @@ class SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation
       Map<String, dynamic> json) {
     return SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation(
       amount: json['amount'] != null
-          ? SubstanceAmount.fromJson(json['amount'] as Map<String, dynamic>)
+          ? SubstanceAmount.fromJson(
+              (json['amount'] as Map).cast<String, dynamic>())
           : null,
       degree: json['degree'] != null
-          ? CodeableConcept.fromJson(json['degree'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['degree'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

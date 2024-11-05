@@ -37,22 +37,25 @@ class ProvenanceAgent extends BackboneElement implements FhirResource {
   factory ProvenanceAgent.fromJson(Map<String, dynamic> json) {
     return ProvenanceAgent(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       onBehalfOf: json['onBehalfOf'] != null
-          ? Reference.fromJson(json['onBehalfOf'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['onBehalfOf'] as Map).cast<String, dynamic>())
           : null,
       role: (json['role'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
-      who: Reference.fromJson(json['who'] as Map<String, dynamic>),
+      who: Reference.fromJson((json['who'] as Map).cast<String, dynamic>()),
     );
   }
 

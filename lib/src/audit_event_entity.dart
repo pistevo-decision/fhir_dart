@@ -64,32 +64,32 @@ class AuditEventEntity extends BackboneElement implements FhirResource {
     return AuditEventEntity(
       description: json['description'] as String?,
       detail: (json['detail'] as List<dynamic>?)
-          ?.map(
-              (e) => AuditEventEntityDetail.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => AuditEventEntityDetail.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       lifecycle: json['lifecycle'] != null
-          ? Coding.fromJson(json['lifecycle'] as Map<String, dynamic>)
+          ? Coding.fromJson((json['lifecycle'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String?,
       query: json['query'] as String?,
       role: json['role'] != null
-          ? Coding.fromJson(json['role'] as Map<String, dynamic>)
+          ? Coding.fromJson((json['role'] as Map).cast<String, dynamic>())
           : null,
       securityLabel: (json['securityLabel'] as List<dynamic>?)
-          ?.map((e) => Coding.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Coding.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       type: json['type'] != null
-          ? Coding.fromJson(json['type'] as Map<String, dynamic>)
+          ? Coding.fromJson((json['type'] as Map).cast<String, dynamic>())
           : null,
       what: json['what'] != null
-          ? Reference.fromJson(json['what'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['what'] as Map).cast<String, dynamic>())
           : null,
     );
   }

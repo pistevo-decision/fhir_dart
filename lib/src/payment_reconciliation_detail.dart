@@ -64,38 +64,44 @@ class PaymentReconciliationDetail extends BackboneElement
   factory PaymentReconciliationDetail.fromJson(Map<String, dynamic> json) {
     return PaymentReconciliationDetail(
       amount: json['amount'] != null
-          ? Money.fromJson(json['amount'] as Map<String, dynamic>)
+          ? Money.fromJson((json['amount'] as Map).cast<String, dynamic>())
           : null,
       date: json['date'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: json['identifier'] != null
-          ? Identifier.fromJson(json['identifier'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['identifier'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       payee: json['payee'] != null
-          ? Reference.fromJson(json['payee'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['payee'] as Map).cast<String, dynamic>())
           : null,
       predecessor: json['predecessor'] != null
-          ? Identifier.fromJson(json['predecessor'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['predecessor'] as Map).cast<String, dynamic>())
           : null,
       request: json['request'] != null
-          ? Reference.fromJson(json['request'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['request'] as Map).cast<String, dynamic>())
           : null,
       response: json['response'] != null
-          ? Reference.fromJson(json['response'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['response'] as Map).cast<String, dynamic>())
           : null,
       responsible: json['responsible'] != null
-          ? Reference.fromJson(json['responsible'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['responsible'] as Map).cast<String, dynamic>())
           : null,
       submitter: json['submitter'] != null
-          ? Reference.fromJson(json['submitter'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['submitter'] as Map).cast<String, dynamic>())
           : null,
-      type: CodeableConcept.fromJson(json['type'] as Map<String, dynamic>),
+      type: CodeableConcept.fromJson(
+          (json['type'] as Map).cast<String, dynamic>()),
     );
   }
 

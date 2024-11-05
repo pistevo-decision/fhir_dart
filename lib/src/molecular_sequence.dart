@@ -93,67 +93,69 @@ class MolecularSequence extends DomainResource implements FhirResource {
   factory MolecularSequence.fromJson(Map<String, dynamic> json) {
     return MolecularSequence(
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       coordinateSystem: json['coordinateSystem'] as int,
       device: json['device'] != null
-          ? Reference.fromJson(json['device'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['device'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       observedSeq: json['observedSeq'] as String?,
       patient: json['patient'] != null
-          ? Reference.fromJson(json['patient'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['patient'] as Map).cast<String, dynamic>())
           : null,
       performer: json['performer'] != null
-          ? Reference.fromJson(json['performer'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['performer'] as Map).cast<String, dynamic>())
           : null,
       pointer: (json['pointer'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       quality: (json['quality'] as List<dynamic>?)
-          ?.map((e) =>
-              MolecularSequenceQuality.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => MolecularSequenceQuality.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       quantity: json['quantity'] != null
-          ? Quantity.fromJson(json['quantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['quantity'] as Map).cast<String, dynamic>())
           : null,
       readCoverage: json['readCoverage'] as int?,
       referenceSeq: json['referenceSeq'] != null
           ? MolecularSequenceReferenceSeq.fromJson(
-              json['referenceSeq'] as Map<String, dynamic>)
+              (json['referenceSeq'] as Map).cast<String, dynamic>())
           : null,
       repository: (json['repository'] as List<dynamic>?)
-          ?.map((e) =>
-              MolecularSequenceRepository.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => MolecularSequenceRepository.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       specimen: json['specimen'] != null
-          ? Reference.fromJson(json['specimen'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['specimen'] as Map).cast<String, dynamic>())
           : null,
       structureVariant: (json['structureVariant'] as List<dynamic>?)
           ?.map((e) => MolecularSequenceStructureVariant.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       type: json['type'] as String?,
       variant: (json['variant'] as List<dynamic>?)
-          ?.map((e) =>
-              MolecularSequenceVariant.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => MolecularSequenceVariant.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

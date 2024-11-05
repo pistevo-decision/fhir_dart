@@ -61,46 +61,52 @@ class MedicinalProductPackagedPackageItem extends BackboneElement
       Map<String, dynamic> json) {
     return MedicinalProductPackagedPackageItem(
       alternateMaterial: (json['alternateMaterial'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       device: (json['device'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       manufacturedItem: (json['manufacturedItem'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       manufacturer: (json['manufacturer'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       material: (json['material'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       otherCharacteristics: (json['otherCharacteristics'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       packageItem: (json['packageItem'] as List<dynamic>?)
           ?.map((e) => MedicinalProductPackagedPackageItem.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       physicalCharacteristics: json['physicalCharacteristics'] != null
           ? ProdCharacteristic.fromJson(
-              json['physicalCharacteristics'] as Map<String, dynamic>)
+              (json['physicalCharacteristics'] as Map).cast<String, dynamic>())
           : null,
-      quantity: Quantity.fromJson(json['quantity'] as Map<String, dynamic>),
+      quantity:
+          Quantity.fromJson((json['quantity'] as Map).cast<String, dynamic>()),
       shelfLifeStorage: (json['shelfLifeStorage'] as List<dynamic>?)
-          ?.map((e) => ProductShelfLife.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              ProductShelfLife.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      type: CodeableConcept.fromJson(json['type'] as Map<String, dynamic>),
+      type: CodeableConcept.fromJson(
+          (json['type'] as Map).cast<String, dynamic>()),
     );
   }
 

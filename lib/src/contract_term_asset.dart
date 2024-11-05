@@ -81,54 +81,59 @@ class ContractTermAsset extends BackboneElement implements FhirResource {
   factory ContractTermAsset.fromJson(Map<String, dynamic> json) {
     return ContractTermAsset(
       answer: (json['answer'] as List<dynamic>?)
-          ?.map((e) =>
-              ContractTermOfferAnswer.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ContractTermOfferAnswer.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       condition: json['condition'] as String?,
       context: (json['context'] as List<dynamic>?)
-          ?.map((e) =>
-              ContractTermAssetContext.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ContractTermAssetContext.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       linkId:
           (json['linkId'] as List<dynamic>?)?.map((e) => e as String).toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       period: (json['period'] as List<dynamic>?)
-          ?.map((e) => Period.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Period.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       periodType: (json['periodType'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       relationship: json['relationship'] != null
-          ? Coding.fromJson(json['relationship'] as Map<String, dynamic>)
+          ? Coding.fromJson(
+              (json['relationship'] as Map).cast<String, dynamic>())
           : null,
       scope: json['scope'] != null
-          ? CodeableConcept.fromJson(json['scope'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['scope'] as Map).cast<String, dynamic>())
           : null,
       securityLabelNumber: (json['securityLabelNumber'] as List<dynamic>?)
           ?.map((e) => e as int)
           .toList(),
       subtype: (json['subtype'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] as String?,
       type: (json['type'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       typeReference: (json['typeReference'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       usePeriod: (json['usePeriod'] as List<dynamic>?)
-          ?.map((e) => Period.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Period.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       valuedItem: (json['valuedItem'] as List<dynamic>?)
-          ?.map((e) =>
-              ContractTermAssetValuedItem.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ContractTermAssetValuedItem.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

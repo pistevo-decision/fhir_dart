@@ -70,37 +70,40 @@ class CompositionSection extends BackboneElement implements FhirResource {
   factory CompositionSection.fromJson(Map<String, dynamic> json) {
     return CompositionSection(
       author: (json['author'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       code: json['code'] != null
-          ? CodeableConcept.fromJson(json['code'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['code'] as Map).cast<String, dynamic>())
           : null,
       emptyReason: json['emptyReason'] != null
           ? CodeableConcept.fromJson(
-              json['emptyReason'] as Map<String, dynamic>)
+              (json['emptyReason'] as Map).cast<String, dynamic>())
           : null,
       entry: (json['entry'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       focus: json['focus'] != null
-          ? Reference.fromJson(json['focus'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['focus'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       mode: json['mode'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       orderedBy: json['orderedBy'] != null
-          ? CodeableConcept.fromJson(json['orderedBy'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['orderedBy'] as Map).cast<String, dynamic>())
           : null,
       section: (json['section'] as List<dynamic>?)
-          ?.map((e) => CompositionSection.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CompositionSection.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       title: json['title'] as String?,
     );

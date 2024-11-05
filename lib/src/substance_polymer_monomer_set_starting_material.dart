@@ -29,21 +29,24 @@ class SubstancePolymerMonomerSetStartingMaterial extends BackboneElement
       Map<String, dynamic> json) {
     return SubstancePolymerMonomerSetStartingMaterial(
       amount: json['amount'] != null
-          ? SubstanceAmount.fromJson(json['amount'] as Map<String, dynamic>)
+          ? SubstanceAmount.fromJson(
+              (json['amount'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       isDefining: json['isDefining'] as bool?,
       material: json['material'] != null
-          ? CodeableConcept.fromJson(json['material'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['material'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

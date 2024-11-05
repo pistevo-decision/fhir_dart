@@ -30,11 +30,11 @@ class ValueSetComposeIncludeFilter extends BackboneElement
   factory ValueSetComposeIncludeFilter.fromJson(Map<String, dynamic> json) {
     return ValueSetComposeIncludeFilter(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       op: json['op'] as String,
       property: json['property'] as String,

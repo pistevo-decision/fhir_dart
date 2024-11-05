@@ -30,23 +30,25 @@ class SubstanceReferenceInformationClassification extends BackboneElement
     return SubstanceReferenceInformationClassification(
       classification: json['classification'] != null
           ? CodeableConcept.fromJson(
-              json['classification'] as Map<String, dynamic>)
+              (json['classification'] as Map).cast<String, dynamic>())
           : null,
       domain: json['domain'] != null
-          ? CodeableConcept.fromJson(json['domain'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['domain'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       source: (json['source'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       subtype: (json['subtype'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

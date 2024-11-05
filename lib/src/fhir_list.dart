@@ -90,53 +90,56 @@ class FhirList extends DomainResource implements FhirResource {
   factory FhirList.fromJson(Map<String, dynamic> json) {
     return FhirList(
       code: json['code'] != null
-          ? CodeableConcept.fromJson(json['code'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['code'] as Map).cast<String, dynamic>())
           : null,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       date: json['date'] as String?,
       emptyReason: json['emptyReason'] != null
           ? CodeableConcept.fromJson(
-              json['emptyReason'] as Map<String, dynamic>)
+              (json['emptyReason'] as Map).cast<String, dynamic>())
           : null,
       encounter: json['encounter'] != null
-          ? Reference.fromJson(json['encounter'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['encounter'] as Map).cast<String, dynamic>())
           : null,
       entry: (json['entry'] as List<dynamic>?)
-          ?.map((e) => ListEntry.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ListEntry.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       mode: json['mode'] as String,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       note: (json['note'] as List<dynamic>?)
-          ?.map((e) => Annotation.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Annotation.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       orderedBy: json['orderedBy'] != null
-          ? CodeableConcept.fromJson(json['orderedBy'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['orderedBy'] as Map).cast<String, dynamic>())
           : null,
       source: json['source'] != null
-          ? Reference.fromJson(json['source'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['source'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String,
       subject: json['subject'] != null
-          ? Reference.fromJson(json['subject'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['subject'] as Map).cast<String, dynamic>())
           : null,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       title: json['title'] as String?,
     );

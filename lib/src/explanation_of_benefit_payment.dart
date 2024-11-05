@@ -45,28 +45,30 @@ class ExplanationOfBenefitPayment extends BackboneElement
   factory ExplanationOfBenefitPayment.fromJson(Map<String, dynamic> json) {
     return ExplanationOfBenefitPayment(
       adjustment: json['adjustment'] != null
-          ? Money.fromJson(json['adjustment'] as Map<String, dynamic>)
+          ? Money.fromJson((json['adjustment'] as Map).cast<String, dynamic>())
           : null,
       adjustmentReason: json['adjustmentReason'] != null
           ? CodeableConcept.fromJson(
-              json['adjustmentReason'] as Map<String, dynamic>)
+              (json['adjustmentReason'] as Map).cast<String, dynamic>())
           : null,
       amount: json['amount'] != null
-          ? Money.fromJson(json['amount'] as Map<String, dynamic>)
+          ? Money.fromJson((json['amount'] as Map).cast<String, dynamic>())
           : null,
       date: json['date'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: json['identifier'] != null
-          ? Identifier.fromJson(json['identifier'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['identifier'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

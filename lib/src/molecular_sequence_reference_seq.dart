@@ -52,24 +52,25 @@ class MolecularSequenceReferenceSeq extends BackboneElement
   factory MolecularSequenceReferenceSeq.fromJson(Map<String, dynamic> json) {
     return MolecularSequenceReferenceSeq(
       chromosome: json['chromosome'] != null
-          ? CodeableConcept.fromJson(json['chromosome'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['chromosome'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       genomeBuild: json['genomeBuild'] as String?,
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       orientation: json['orientation'] as String?,
       referenceSeqId: json['referenceSeqId'] != null
           ? CodeableConcept.fromJson(
-              json['referenceSeqId'] as Map<String, dynamic>)
+              (json['referenceSeqId'] as Map).cast<String, dynamic>())
           : null,
       referenceSeqPointer: json['referenceSeqPointer'] != null
           ? Reference.fromJson(
-              json['referenceSeqPointer'] as Map<String, dynamic>)
+              (json['referenceSeqPointer'] as Map).cast<String, dynamic>())
           : null,
       referenceSeqString: json['referenceSeqString'] as String?,
       strand: json['strand'] as String?,

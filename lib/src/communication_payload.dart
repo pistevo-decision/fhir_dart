@@ -28,18 +28,19 @@ class CommunicationPayload extends BackboneElement implements FhirResource {
     return CommunicationPayload(
       contentAttachment: json['contentAttachment'] != null
           ? Attachment.fromJson(
-              json['contentAttachment'] as Map<String, dynamic>)
+              (json['contentAttachment'] as Map).cast<String, dynamic>())
           : null,
       contentReference: json['contentReference'] != null
-          ? Reference.fromJson(json['contentReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['contentReference'] as Map).cast<String, dynamic>())
           : null,
       contentString: json['contentString'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

@@ -26,17 +26,18 @@ class GroupMember extends BackboneElement implements FhirResource {
   @override
   factory GroupMember.fromJson(Map<String, dynamic> json) {
     return GroupMember(
-      entity: Reference.fromJson(json['entity'] as Map<String, dynamic>),
+      entity:
+          Reference.fromJson((json['entity'] as Map).cast<String, dynamic>()),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       inactive: json['inactive'] as bool?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       period: json['period'] != null
-          ? Period.fromJson(json['period'] as Map<String, dynamic>)
+          ? Period.fromJson((json['period'] as Map).cast<String, dynamic>())
           : null,
     );
   }

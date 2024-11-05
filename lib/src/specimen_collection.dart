@@ -59,38 +59,43 @@ class SpecimenCollection extends BackboneElement implements FhirResource {
   factory SpecimenCollection.fromJson(Map<String, dynamic> json) {
     return SpecimenCollection(
       bodySite: json['bodySite'] != null
-          ? CodeableConcept.fromJson(json['bodySite'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['bodySite'] as Map).cast<String, dynamic>())
           : null,
       collectedDateTime: json['collectedDateTime'] as String?,
       collectedPeriod: json['collectedPeriod'] != null
-          ? Period.fromJson(json['collectedPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['collectedPeriod'] as Map).cast<String, dynamic>())
           : null,
       collector: json['collector'] != null
-          ? Reference.fromJson(json['collector'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['collector'] as Map).cast<String, dynamic>())
           : null,
       duration: json['duration'] != null
-          ? Duration.fromJson(json['duration'] as Map<String, dynamic>)
+          ? Duration.fromJson((json['duration'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fastingStatusCodeableConcept: json['fastingStatusCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['fastingStatusCodeableConcept'] as Map<String, dynamic>)
+              (json['fastingStatusCodeableConcept'] as Map)
+                  .cast<String, dynamic>())
           : null,
       fastingStatusDuration: json['fastingStatusDuration'] != null
           ? Duration.fromJson(
-              json['fastingStatusDuration'] as Map<String, dynamic>)
+              (json['fastingStatusDuration'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       method: json['method'] != null
-          ? CodeableConcept.fromJson(json['method'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['method'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       quantity: json['quantity'] != null
-          ? Quantity.fromJson(json['quantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['quantity'] as Map).cast<String, dynamic>())
           : null,
     );
   }

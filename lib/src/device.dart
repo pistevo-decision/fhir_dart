@@ -148,80 +148,91 @@ class Device extends DomainResource implements FhirResource {
   factory Device.fromJson(Map<String, dynamic> json) {
     return Device(
       contact: (json['contact'] as List<dynamic>?)
-          ?.map((e) => ContactPoint.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactPoint.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       definition: json['definition'] != null
-          ? Reference.fromJson(json['definition'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['definition'] as Map).cast<String, dynamic>())
           : null,
       deviceName: (json['deviceName'] as List<dynamic>?)
-          ?.map((e) => DeviceDeviceName.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              DeviceDeviceName.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       distinctIdentifier: json['distinctIdentifier'] as String?,
       expirationDate: json['expirationDate'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       location: json['location'] != null
-          ? Reference.fromJson(json['location'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['location'] as Map).cast<String, dynamic>())
           : null,
       lotNumber: json['lotNumber'] as String?,
       manufactureDate: json['manufactureDate'] as String?,
       manufacturer: json['manufacturer'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modelNumber: json['modelNumber'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       note: (json['note'] as List<dynamic>?)
-          ?.map((e) => Annotation.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Annotation.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       owner: json['owner'] != null
-          ? Reference.fromJson(json['owner'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['owner'] as Map).cast<String, dynamic>())
           : null,
       parent: json['parent'] != null
-          ? Reference.fromJson(json['parent'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['parent'] as Map).cast<String, dynamic>())
           : null,
       partNumber: json['partNumber'] as String?,
       patient: json['patient'] != null
-          ? Reference.fromJson(json['patient'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['patient'] as Map).cast<String, dynamic>())
           : null,
       property: (json['property'] as List<dynamic>?)
-          ?.map((e) => DeviceProperty.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              DeviceProperty.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       safety: (json['safety'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       serialNumber: json['serialNumber'] as String?,
       specialization: (json['specialization'] as List<dynamic>?)
-          ?.map((e) => DeviceSpecialization.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              DeviceSpecialization.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       status: json['status'] as String?,
       statusReason: (json['statusReason'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
       udiCarrier: (json['udiCarrier'] as List<dynamic>?)
-          ?.map((e) => DeviceUdiCarrier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              DeviceUdiCarrier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       url: json['url'] as String?,
       version: (json['version'] as List<dynamic>?)
-          ?.map((e) => DeviceVersion.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => DeviceVersion.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

@@ -33,11 +33,12 @@ class Annotation extends Element implements FhirResource {
   factory Annotation.fromJson(Map<String, dynamic> json) {
     return Annotation(
       authorReference: json['authorReference'] != null
-          ? Reference.fromJson(json['authorReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['authorReference'] as Map).cast<String, dynamic>())
           : null,
       authorString: json['authorString'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       text: json['text'] as String,

@@ -128,61 +128,67 @@ class ClinicalImpression extends DomainResource implements FhirResource {
   factory ClinicalImpression.fromJson(Map<String, dynamic> json) {
     return ClinicalImpression(
       assessor: json['assessor'] != null
-          ? Reference.fromJson(json['assessor'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['assessor'] as Map).cast<String, dynamic>())
           : null,
       code: json['code'] != null
-          ? CodeableConcept.fromJson(json['code'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['code'] as Map).cast<String, dynamic>())
           : null,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       date: json['date'] as String?,
       description: json['description'] as String?,
       effectiveDateTime: json['effectiveDateTime'] as String?,
       effectivePeriod: json['effectivePeriod'] != null
-          ? Period.fromJson(json['effectivePeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['effectivePeriod'] as Map).cast<String, dynamic>())
           : null,
       encounter: json['encounter'] != null
-          ? Reference.fromJson(json['encounter'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['encounter'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       finding: (json['finding'] as List<dynamic>?)
-          ?.map((e) =>
-              ClinicalImpressionFinding.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ClinicalImpressionFinding.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       investigation: (json['investigation'] as List<dynamic>?)
           ?.map((e) => ClinicalImpressionInvestigation.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       note: (json['note'] as List<dynamic>?)
-          ?.map((e) => Annotation.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Annotation.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       previous: json['previous'] != null
-          ? Reference.fromJson(json['previous'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['previous'] as Map).cast<String, dynamic>())
           : null,
       problem: (json['problem'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       prognosisCodeableConcept:
           (json['prognosisCodeableConcept'] as List<dynamic>?)
-              ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+              ?.map((e) =>
+                  CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
               .toList(),
       prognosisReference: (json['prognosisReference'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       protocol: (json['protocol'] as List<dynamic>?)
           ?.map((e) => e as String)
@@ -190,15 +196,16 @@ class ClinicalImpression extends DomainResource implements FhirResource {
       status: json['status'] as String,
       statusReason: json['statusReason'] != null
           ? CodeableConcept.fromJson(
-              json['statusReason'] as Map<String, dynamic>)
+              (json['statusReason'] as Map).cast<String, dynamic>())
           : null,
-      subject: Reference.fromJson(json['subject'] as Map<String, dynamic>),
+      subject:
+          Reference.fromJson((json['subject'] as Map).cast<String, dynamic>()),
       summary: json['summary'] as String?,
       supportingInfo: (json['supportingInfo'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

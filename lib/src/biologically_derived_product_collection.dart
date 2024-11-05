@@ -32,20 +32,22 @@ class BiologicallyDerivedProductCollection extends BackboneElement
     return BiologicallyDerivedProductCollection(
       collectedDateTime: json['collectedDateTime'] as String?,
       collectedPeriod: json['collectedPeriod'] != null
-          ? Period.fromJson(json['collectedPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['collectedPeriod'] as Map).cast<String, dynamic>())
           : null,
       collector: json['collector'] != null
-          ? Reference.fromJson(json['collector'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['collector'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       source: json['source'] != null
-          ? Reference.fromJson(json['source'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['source'] as Map).cast<String, dynamic>())
           : null,
     );
   }

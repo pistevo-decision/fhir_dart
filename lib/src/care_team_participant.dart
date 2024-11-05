@@ -35,23 +35,25 @@ class CareTeamParticipant extends BackboneElement implements FhirResource {
   factory CareTeamParticipant.fromJson(Map<String, dynamic> json) {
     return CareTeamParticipant(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       member: json['member'] != null
-          ? Reference.fromJson(json['member'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['member'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       onBehalfOf: json['onBehalfOf'] != null
-          ? Reference.fromJson(json['onBehalfOf'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['onBehalfOf'] as Map).cast<String, dynamic>())
           : null,
       period: json['period'] != null
-          ? Period.fromJson(json['period'] as Map<String, dynamic>)
+          ? Period.fromJson((json['period'] as Map).cast<String, dynamic>())
           : null,
       role: (json['role'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

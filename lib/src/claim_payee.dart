@@ -24,16 +24,17 @@ class ClaimPayee extends BackboneElement implements FhirResource {
   factory ClaimPayee.fromJson(Map<String, dynamic> json) {
     return ClaimPayee(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       party: json['party'] != null
-          ? Reference.fromJson(json['party'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['party'] as Map).cast<String, dynamic>())
           : null,
-      type: CodeableConcept.fromJson(json['type'] as Map<String, dynamic>),
+      type: CodeableConcept.fromJson(
+          (json['type'] as Map).cast<String, dynamic>()),
     );
   }
 

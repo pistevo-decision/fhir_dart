@@ -35,24 +35,26 @@ class MeasureReportGroupStratifierStratum extends BackboneElement
     return MeasureReportGroupStratifierStratum(
       component: (json['component'] as List<dynamic>?)
           ?.map((e) => MeasureReportGroupStratifierStratumComponent.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       measureScore: json['measureScore'] != null
-          ? Quantity.fromJson(json['measureScore'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['measureScore'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       population: (json['population'] as List<dynamic>?)
           ?.map((e) => MeasureReportGroupStratifierStratumPopulation.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       value: json['value'] != null
-          ? CodeableConcept.fromJson(json['value'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['value'] as Map).cast<String, dynamic>())
           : null,
     );
   }

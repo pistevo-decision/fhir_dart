@@ -25,22 +25,22 @@ class MedicinalProductContraindicationOtherTherapy extends BackboneElement
       Map<String, dynamic> json) {
     return MedicinalProductContraindicationOtherTherapy(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       medicationCodeableConcept: json['medicationCodeableConcept'] != null
-          ? CodeableConcept.fromJson(
-              json['medicationCodeableConcept'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson((json['medicationCodeableConcept'] as Map)
+              .cast<String, dynamic>())
           : null,
       medicationReference: json['medicationReference'] != null
           ? Reference.fromJson(
-              json['medicationReference'] as Map<String, dynamic>)
+              (json['medicationReference'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       therapyRelationshipType: CodeableConcept.fromJson(
-          json['therapyRelationshipType'] as Map<String, dynamic>),
+          (json['therapyRelationshipType'] as Map).cast<String, dynamic>()),
     );
   }
 

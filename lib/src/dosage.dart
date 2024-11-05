@@ -81,48 +81,54 @@ class Dosage extends BackboneElement implements FhirResource {
   factory Dosage.fromJson(Map<String, dynamic> json) {
     return Dosage(
       additionalInstruction: (json['additionalInstruction'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       asNeededBoolean: json['asNeededBoolean'] as bool?,
       asNeededCodeableConcept: json['asNeededCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['asNeededCodeableConcept'] as Map<String, dynamic>)
+              (json['asNeededCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       doseAndRate: (json['doseAndRate'] as List<dynamic>?)
-          ?.map((e) => DosageDoseAndRate.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              DosageDoseAndRate.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       maxDosePerAdministration: json['maxDosePerAdministration'] != null
           ? Quantity.fromJson(
-              json['maxDosePerAdministration'] as Map<String, dynamic>)
+              (json['maxDosePerAdministration'] as Map).cast<String, dynamic>())
           : null,
       maxDosePerLifetime: json['maxDosePerLifetime'] != null
           ? Quantity.fromJson(
-              json['maxDosePerLifetime'] as Map<String, dynamic>)
+              (json['maxDosePerLifetime'] as Map).cast<String, dynamic>())
           : null,
       maxDosePerPeriod: json['maxDosePerPeriod'] != null
-          ? Ratio.fromJson(json['maxDosePerPeriod'] as Map<String, dynamic>)
+          ? Ratio.fromJson(
+              (json['maxDosePerPeriod'] as Map).cast<String, dynamic>())
           : null,
       method: json['method'] != null
-          ? CodeableConcept.fromJson(json['method'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['method'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       patientInstruction: json['patientInstruction'] as String?,
       route: json['route'] != null
-          ? CodeableConcept.fromJson(json['route'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['route'] as Map).cast<String, dynamic>())
           : null,
       sequence: json['sequence'] as int?,
       site: json['site'] != null
-          ? CodeableConcept.fromJson(json['site'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['site'] as Map).cast<String, dynamic>())
           : null,
       text: json['text'] as String?,
       timing: json['timing'] != null
-          ? Timing.fromJson(json['timing'] as Map<String, dynamic>)
+          ? Timing.fromJson((json['timing'] as Map).cast<String, dynamic>())
           : null,
     );
   }

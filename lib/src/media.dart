@@ -144,72 +144,81 @@ class Media extends DomainResource implements FhirResource {
   factory Media.fromJson(Map<String, dynamic> json) {
     return Media(
       basedOn: (json['basedOn'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       bodySite: json['bodySite'] != null
-          ? CodeableConcept.fromJson(json['bodySite'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['bodySite'] as Map).cast<String, dynamic>())
           : null,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      content: Attachment.fromJson(json['content'] as Map<String, dynamic>),
+      content:
+          Attachment.fromJson((json['content'] as Map).cast<String, dynamic>()),
       createdDateTime: json['createdDateTime'] as String?,
       createdPeriod: json['createdPeriod'] != null
-          ? Period.fromJson(json['createdPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['createdPeriod'] as Map).cast<String, dynamic>())
           : null,
       device: json['device'] != null
-          ? Reference.fromJson(json['device'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['device'] as Map).cast<String, dynamic>())
           : null,
       deviceName: json['deviceName'] as String?,
       duration: json['duration'] as num?,
       encounter: json['encounter'] != null
-          ? Reference.fromJson(json['encounter'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['encounter'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       frames: json['frames'] as int?,
       height: json['height'] as int?,
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       issued: json['issued'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modality: json['modality'] != null
-          ? CodeableConcept.fromJson(json['modality'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['modality'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       note: (json['note'] as List<dynamic>?)
-          ?.map((e) => Annotation.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Annotation.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirOperator: json['operator'] != null
-          ? Reference.fromJson(json['operator'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['operator'] as Map).cast<String, dynamic>())
           : null,
       partOf: (json['partOf'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reasonCode: (json['reasonCode'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       status: json['status'] as String,
       subject: json['subject'] != null
-          ? Reference.fromJson(json['subject'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['subject'] as Map).cast<String, dynamic>())
           : null,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
       view: json['view'] != null
-          ? CodeableConcept.fromJson(json['view'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['view'] as Map).cast<String, dynamic>())
           : null,
       width: json['width'] as int?,
     );

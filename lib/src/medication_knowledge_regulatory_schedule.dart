@@ -17,14 +17,14 @@ class MedicationKnowledgeRegulatorySchedule extends BackboneElement
       Map<String, dynamic> json) {
     return MedicationKnowledgeRegulatorySchedule(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      schedule:
-          CodeableConcept.fromJson(json['schedule'] as Map<String, dynamic>),
+      schedule: CodeableConcept.fromJson(
+          (json['schedule'] as Map).cast<String, dynamic>()),
     );
   }
 

@@ -52,22 +52,24 @@ class ImmunizationProtocolApplied extends BackboneElement
   factory ImmunizationProtocolApplied.fromJson(Map<String, dynamic> json) {
     return ImmunizationProtocolApplied(
       authority: json['authority'] != null
-          ? Reference.fromJson(json['authority'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['authority'] as Map).cast<String, dynamic>())
           : null,
       doseNumberPositiveInt: json['doseNumberPositiveInt'] as int?,
       doseNumberString: json['doseNumberString'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       series: json['series'] as String?,
       seriesDosesPositiveInt: json['seriesDosesPositiveInt'] as int?,
       seriesDosesString: json['seriesDosesString'] as String?,
       targetDisease: (json['targetDisease'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

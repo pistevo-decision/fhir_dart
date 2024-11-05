@@ -40,20 +40,22 @@ class ExplanationOfBenefitCareTeam extends BackboneElement
   factory ExplanationOfBenefitCareTeam.fromJson(Map<String, dynamic> json) {
     return ExplanationOfBenefitCareTeam(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      provider: Reference.fromJson(json['provider'] as Map<String, dynamic>),
+      provider:
+          Reference.fromJson((json['provider'] as Map).cast<String, dynamic>()),
       qualification: json['qualification'] != null
           ? CodeableConcept.fromJson(
-              json['qualification'] as Map<String, dynamic>)
+              (json['qualification'] as Map).cast<String, dynamic>())
           : null,
       responsible: json['responsible'] as bool?,
       role: json['role'] != null
-          ? CodeableConcept.fromJson(json['role'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['role'] as Map).cast<String, dynamic>())
           : null,
       sequence: json['sequence'] as int,
     );

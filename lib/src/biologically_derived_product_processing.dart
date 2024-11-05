@@ -33,22 +33,24 @@ class BiologicallyDerivedProductProcessing extends BackboneElement
       Map<String, dynamic> json) {
     return BiologicallyDerivedProductProcessing(
       additive: json['additive'] != null
-          ? Reference.fromJson(json['additive'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['additive'] as Map).cast<String, dynamic>())
           : null,
       description: json['description'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       procedure: json['procedure'] != null
-          ? CodeableConcept.fromJson(json['procedure'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['procedure'] as Map).cast<String, dynamic>())
           : null,
       timeDateTime: json['timeDateTime'] as String?,
       timePeriod: json['timePeriod'] != null
-          ? Period.fromJson(json['timePeriod'] as Map<String, dynamic>)
+          ? Period.fromJson((json['timePeriod'] as Map).cast<String, dynamic>())
           : null,
     );
   }

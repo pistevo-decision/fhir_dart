@@ -43,19 +43,20 @@ class StructureMapGroup extends BackboneElement implements FhirResource {
       documentation: json['documentation'] as String?,
       fhirExtends: json['extends'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       input: (json['input'] as List<dynamic>)
-          .map(
-              (e) => StructureMapGroupInput.fromJson(e as Map<String, dynamic>))
+          .map((e) => StructureMapGroupInput.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String,
       rule: (json['rule'] as List<dynamic>)
-          .map((e) => StructureMapGroupRule.fromJson(e as Map<String, dynamic>))
+          .map((e) => StructureMapGroupRule.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       typeMode: json['typeMode'] as String,
     );

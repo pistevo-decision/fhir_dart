@@ -33,19 +33,19 @@ class ContractTermSecurityLabel extends BackboneElement
   factory ContractTermSecurityLabel.fromJson(Map<String, dynamic> json) {
     return ContractTermSecurityLabel(
       category: (json['category'] as List<dynamic>?)
-          ?.map((e) => Coding.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Coding.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      classification:
-          Coding.fromJson(json['classification'] as Map<String, dynamic>),
+      classification: Coding.fromJson(
+          (json['classification'] as Map).cast<String, dynamic>()),
       control: (json['control'] as List<dynamic>?)
-          ?.map((e) => Coding.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Coding.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       number: (json['number'] as List<dynamic>?)?.map((e) => e as int).toList(),
     );

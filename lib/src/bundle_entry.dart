@@ -46,28 +46,31 @@ class BundleEntry extends BackboneElement implements FhirResource {
   factory BundleEntry.fromJson(Map<String, dynamic> json) {
     return BundleEntry(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fullUrl: json['fullUrl'] as String?,
       id: json['id'] as String?,
       link: (json['link'] as List<dynamic>?)
-          ?.map((e) => BundleLink.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => BundleLink.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       request: json['request'] != null
-          ? BundleEntryRequest.fromJson(json['request'] as Map<String, dynamic>)
+          ? BundleEntryRequest.fromJson(
+              (json['request'] as Map).cast<String, dynamic>())
           : null,
       resource: json['resource'] != null
-          ? FhirResource.fromJson(json['resource'] as Map<String, dynamic>)
+          ? FhirResource.fromJson(
+              (json['resource'] as Map).cast<String, dynamic>())
           : null,
       response: json['response'] != null
           ? BundleEntryResponse.fromJson(
-              json['response'] as Map<String, dynamic>)
+              (json['response'] as Map).cast<String, dynamic>())
           : null,
       search: json['search'] != null
-          ? BundleEntrySearch.fromJson(json['search'] as Map<String, dynamic>)
+          ? BundleEntrySearch.fromJson(
+              (json['search'] as Map).cast<String, dynamic>())
           : null,
     );
   }

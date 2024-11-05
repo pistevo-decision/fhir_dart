@@ -88,55 +88,58 @@ class MessageHeader extends DomainResource implements FhirResource {
   factory MessageHeader.fromJson(Map<String, dynamic> json) {
     return MessageHeader(
       author: json['author'] != null
-          ? Reference.fromJson(json['author'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['author'] as Map).cast<String, dynamic>())
           : null,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       definition: json['definition'] as String?,
       destination: (json['destination'] as List<dynamic>?)
-          ?.map((e) =>
-              MessageHeaderDestination.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => MessageHeaderDestination.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       enterer: json['enterer'] != null
-          ? Reference.fromJson(json['enterer'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['enterer'] as Map).cast<String, dynamic>())
           : null,
       eventCoding: json['eventCoding'] != null
-          ? Coding.fromJson(json['eventCoding'] as Map<String, dynamic>)
+          ? Coding.fromJson(
+              (json['eventCoding'] as Map).cast<String, dynamic>())
           : null,
       eventUri: json['eventUri'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       focus: (json['focus'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reason: json['reason'] != null
-          ? CodeableConcept.fromJson(json['reason'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['reason'] as Map).cast<String, dynamic>())
           : null,
       response: json['response'] != null
           ? MessageHeaderResponse.fromJson(
-              json['response'] as Map<String, dynamic>)
+              (json['response'] as Map).cast<String, dynamic>())
           : null,
       responsible: json['responsible'] != null
-          ? Reference.fromJson(json['responsible'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['responsible'] as Map).cast<String, dynamic>())
           : null,
       sender: json['sender'] != null
-          ? Reference.fromJson(json['sender'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['sender'] as Map).cast<String, dynamic>())
           : null,
-      source:
-          MessageHeaderSource.fromJson(json['source'] as Map<String, dynamic>),
+      source: MessageHeaderSource.fromJson(
+          (json['source'] as Map).cast<String, dynamic>()),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

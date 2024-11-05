@@ -78,50 +78,56 @@ class Provenance extends DomainResource implements FhirResource {
   factory Provenance.fromJson(Map<String, dynamic> json) {
     return Provenance(
       activity: json['activity'] != null
-          ? CodeableConcept.fromJson(json['activity'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['activity'] as Map).cast<String, dynamic>())
           : null,
       agent: (json['agent'] as List<dynamic>)
-          .map((e) => ProvenanceAgent.fromJson(e as Map<String, dynamic>))
+          .map((e) =>
+              ProvenanceAgent.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       entity: (json['entity'] as List<dynamic>?)
-          ?.map((e) => ProvenanceEntity.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              ProvenanceEntity.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       location: json['location'] != null
-          ? Reference.fromJson(json['location'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['location'] as Map).cast<String, dynamic>())
           : null,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       occurredDateTime: json['occurredDateTime'] as String?,
       occurredPeriod: json['occurredPeriod'] != null
-          ? Period.fromJson(json['occurredPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['occurredPeriod'] as Map).cast<String, dynamic>())
           : null,
       policy:
           (json['policy'] as List<dynamic>?)?.map((e) => e as String).toList(),
       reason: (json['reason'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       recorded: json['recorded'] as String,
       signature: (json['signature'] as List<dynamic>?)
-          ?.map((e) => Signature.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Signature.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       target: (json['target'] as List<dynamic>)
-          .map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          .map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

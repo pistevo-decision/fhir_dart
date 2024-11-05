@@ -44,24 +44,25 @@ class CodeSystemConcept extends BackboneElement implements FhirResource {
     return CodeSystemConcept(
       code: json['code'] as String,
       concept: (json['concept'] as List<dynamic>?)
-          ?.map((e) => CodeSystemConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeSystemConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       definition: json['definition'] as String?,
       designation: (json['designation'] as List<dynamic>?)
-          ?.map((e) =>
-              CodeSystemConceptDesignation.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => CodeSystemConceptDesignation.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       display: json['display'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       property: (json['property'] as List<dynamic>?)
-          ?.map((e) =>
-              CodeSystemConceptProperty.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => CodeSystemConceptProperty.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

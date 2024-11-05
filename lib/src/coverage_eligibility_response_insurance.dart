@@ -35,20 +35,22 @@ class CoverageEligibilityResponseInsurance extends BackboneElement
       Map<String, dynamic> json) {
     return CoverageEligibilityResponseInsurance(
       benefitPeriod: json['benefitPeriod'] != null
-          ? Period.fromJson(json['benefitPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['benefitPeriod'] as Map).cast<String, dynamic>())
           : null,
-      coverage: Reference.fromJson(json['coverage'] as Map<String, dynamic>),
+      coverage:
+          Reference.fromJson((json['coverage'] as Map).cast<String, dynamic>()),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       inforce: json['inforce'] as bool?,
       item: (json['item'] as List<dynamic>?)
           ?.map((e) => CoverageEligibilityResponseInsuranceItem.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

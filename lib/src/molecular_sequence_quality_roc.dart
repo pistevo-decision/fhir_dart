@@ -47,13 +47,13 @@ class MolecularSequenceQualityRoc extends BackboneElement
   factory MolecularSequenceQualityRoc.fromJson(Map<String, dynamic> json) {
     return MolecularSequenceQualityRoc(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fMeasure:
           (json['fMeasure'] as List<dynamic>?)?.map((e) => e as num).toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       numFN: (json['numFN'] as List<dynamic>?)?.map((e) => e as int).toList(),
       numFP: (json['numFP'] as List<dynamic>?)?.map((e) => e as int).toList(),

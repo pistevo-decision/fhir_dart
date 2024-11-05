@@ -36,28 +36,28 @@ class StructureMapGroupRule extends BackboneElement implements FhirResource {
     return StructureMapGroupRule(
       dependent: (json['dependent'] as List<dynamic>?)
           ?.map((e) => StructureMapGroupRuleDependent.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       documentation: json['documentation'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String,
       rule: (json['rule'] as List<dynamic>?)
-          ?.map(
-              (e) => StructureMapGroupRule.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => StructureMapGroupRule.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       source: (json['source'] as List<dynamic>)
-          .map((e) =>
-              StructureMapGroupRuleSource.fromJson(e as Map<String, dynamic>))
+          .map((e) => StructureMapGroupRuleSource.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       target: (json['target'] as List<dynamic>?)
-          ?.map((e) =>
-              StructureMapGroupRuleTarget.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => StructureMapGroupRuleTarget.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

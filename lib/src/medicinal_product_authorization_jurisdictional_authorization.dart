@@ -33,27 +33,30 @@ class MedicinalProductAuthorizationJurisdictionalAuthorization
       Map<String, dynamic> json) {
     return MedicinalProductAuthorizationJurisdictionalAuthorization(
       country: json['country'] != null
-          ? CodeableConcept.fromJson(json['country'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['country'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       jurisdiction: (json['jurisdiction'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       legalStatusOfSupply: json['legalStatusOfSupply'] != null
           ? CodeableConcept.fromJson(
-              json['legalStatusOfSupply'] as Map<String, dynamic>)
+              (json['legalStatusOfSupply'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       validityPeriod: json['validityPeriod'] != null
-          ? Period.fromJson(json['validityPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['validityPeriod'] as Map).cast<String, dynamic>())
           : null,
     );
   }

@@ -55,39 +55,42 @@ class EnrollmentRequest extends DomainResource implements FhirResource {
   factory EnrollmentRequest.fromJson(Map<String, dynamic> json) {
     return EnrollmentRequest(
       candidate: json['candidate'] != null
-          ? Reference.fromJson(json['candidate'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['candidate'] as Map).cast<String, dynamic>())
           : null,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       coverage: json['coverage'] != null
-          ? Reference.fromJson(json['coverage'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['coverage'] as Map).cast<String, dynamic>())
           : null,
       created: json['created'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       insurer: json['insurer'] != null
-          ? Reference.fromJson(json['insurer'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['insurer'] as Map).cast<String, dynamic>())
           : null,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       provider: json['provider'] != null
-          ? Reference.fromJson(json['provider'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['provider'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String?,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

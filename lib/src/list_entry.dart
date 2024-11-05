@@ -37,15 +37,16 @@ class ListEntry extends BackboneElement implements FhirResource {
       date: json['date'] as String?,
       deleted: json['deleted'] as bool?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       flag: json['flag'] != null
-          ? CodeableConcept.fromJson(json['flag'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['flag'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
-      item: Reference.fromJson(json['item'] as Map<String, dynamic>),
+      item: Reference.fromJson((json['item'] as Map).cast<String, dynamic>()),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

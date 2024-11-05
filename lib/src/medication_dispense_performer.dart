@@ -22,16 +22,17 @@ class MedicationDispensePerformer extends BackboneElement
   @override
   factory MedicationDispensePerformer.fromJson(Map<String, dynamic> json) {
     return MedicationDispensePerformer(
-      actor: Reference.fromJson(json['actor'] as Map<String, dynamic>),
+      actor: Reference.fromJson((json['actor'] as Map).cast<String, dynamic>()),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       function: json['function'] != null
-          ? CodeableConcept.fromJson(json['function'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['function'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

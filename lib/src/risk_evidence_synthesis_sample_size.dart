@@ -29,11 +29,11 @@ class RiskEvidenceSynthesisSampleSize extends BackboneElement
     return RiskEvidenceSynthesisSampleSize(
       description: json['description'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       numberOfParticipants: json['numberOfParticipants'] as int?,
       numberOfStudies: json['numberOfStudies'] as int?,

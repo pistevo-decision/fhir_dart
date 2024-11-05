@@ -34,18 +34,19 @@ class ChargeItemDefinitionPropertyGroupPriceComponent extends BackboneElement
       Map<String, dynamic> json) {
     return ChargeItemDefinitionPropertyGroupPriceComponent(
       amount: json['amount'] != null
-          ? Money.fromJson(json['amount'] as Map<String, dynamic>)
+          ? Money.fromJson((json['amount'] as Map).cast<String, dynamic>())
           : null,
       code: json['code'] != null
-          ? CodeableConcept.fromJson(json['code'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['code'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       factor: json['factor'] as num?,
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       type: json['type'] as String,
     );

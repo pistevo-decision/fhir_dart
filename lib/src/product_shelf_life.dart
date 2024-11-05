@@ -27,21 +27,25 @@ class ProductShelfLife extends BackboneElement implements FhirResource {
   factory ProductShelfLife.fromJson(Map<String, dynamic> json) {
     return ProductShelfLife(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: json['identifier'] != null
-          ? Identifier.fromJson(json['identifier'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['identifier'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      period: Quantity.fromJson(json['period'] as Map<String, dynamic>),
+      period:
+          Quantity.fromJson((json['period'] as Map).cast<String, dynamic>()),
       specialPrecautionsForStorage:
           (json['specialPrecautionsForStorage'] as List<dynamic>?)
-              ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+              ?.map((e) =>
+                  CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
               .toList(),
-      type: CodeableConcept.fromJson(json['type'] as Map<String, dynamic>),
+      type: CodeableConcept.fromJson(
+          (json['type'] as Map).cast<String, dynamic>()),
     );
   }
 

@@ -102,63 +102,67 @@ class Invoice extends DomainResource implements FhirResource {
   factory Invoice.fromJson(Map<String, dynamic> json) {
     return Invoice(
       account: json['account'] != null
-          ? Reference.fromJson(json['account'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['account'] as Map).cast<String, dynamic>())
           : null,
       cancelledReason: json['cancelledReason'] as String?,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       date: json['date'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       issuer: json['issuer'] != null
-          ? Reference.fromJson(json['issuer'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['issuer'] as Map).cast<String, dynamic>())
           : null,
       language: json['language'] as String?,
       lineItem: (json['lineItem'] as List<dynamic>?)
-          ?.map((e) => InvoiceLineItem.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              InvoiceLineItem.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       note: (json['note'] as List<dynamic>?)
-          ?.map((e) => Annotation.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Annotation.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       participant: (json['participant'] as List<dynamic>?)
-          ?.map((e) => InvoiceParticipant.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              InvoiceParticipant.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       paymentTerms: json['paymentTerms'] as String?,
       recipient: json['recipient'] != null
-          ? Reference.fromJson(json['recipient'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['recipient'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String,
       subject: json['subject'] != null
-          ? Reference.fromJson(json['subject'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['subject'] as Map).cast<String, dynamic>())
           : null,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       totalGross: json['totalGross'] != null
-          ? Money.fromJson(json['totalGross'] as Map<String, dynamic>)
+          ? Money.fromJson((json['totalGross'] as Map).cast<String, dynamic>())
           : null,
       totalNet: json['totalNet'] != null
-          ? Money.fromJson(json['totalNet'] as Map<String, dynamic>)
+          ? Money.fromJson((json['totalNet'] as Map).cast<String, dynamic>())
           : null,
       totalPriceComponent: (json['totalPriceComponent'] as List<dynamic>?)
-          ?.map((e) =>
-              InvoiceLineItemPriceComponent.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => InvoiceLineItemPriceComponent.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

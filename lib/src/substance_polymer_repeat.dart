@@ -28,20 +28,20 @@ class SubstancePolymerRepeat extends BackboneElement implements FhirResource {
     return SubstancePolymerRepeat(
       averageMolecularFormula: json['averageMolecularFormula'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       numberOfUnits: json['numberOfUnits'] as int?,
       repeatUnit: (json['repeatUnit'] as List<dynamic>?)
           ?.map((e) => SubstancePolymerRepeatRepeatUnit.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       repeatUnitAmountType: json['repeatUnitAmountType'] != null
           ? CodeableConcept.fromJson(
-              json['repeatUnitAmountType'] as Map<String, dynamic>)
+              (json['repeatUnitAmountType'] as Map).cast<String, dynamic>())
           : null,
     );
   }

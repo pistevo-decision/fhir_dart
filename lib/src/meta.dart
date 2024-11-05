@@ -46,18 +46,18 @@ class Meta extends Element implements FhirResource {
   factory Meta.fromJson(Map<String, dynamic> json) {
     return Meta(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       lastUpdated: json['lastUpdated'] as String?,
       profile:
           (json['profile'] as List<dynamic>?)?.map((e) => e as String).toList(),
       security: (json['security'] as List<dynamic>?)
-          ?.map((e) => Coding.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Coding.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       source: json['source'] as String?,
       tag: (json['tag'] as List<dynamic>?)
-          ?.map((e) => Coding.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Coding.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       versionId: json['versionId'] as String?,
     );

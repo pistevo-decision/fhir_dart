@@ -20,11 +20,11 @@ class DeviceDefinitionSpecialization extends BackboneElement
   factory DeviceDefinitionSpecialization.fromJson(Map<String, dynamic> json) {
     return DeviceDefinitionSpecialization(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       systemType: json['systemType'] as String,
       version: json['version'] as String?,

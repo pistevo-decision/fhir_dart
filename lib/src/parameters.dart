@@ -24,10 +24,11 @@ class Parameters extends Resource implements FhirResource {
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       parameter: (json['parameter'] as List<dynamic>?)
-          ?.map((e) => ParametersParameter.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              ParametersParameter.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

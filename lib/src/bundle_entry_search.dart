@@ -23,12 +23,12 @@ class BundleEntrySearch extends BackboneElement implements FhirResource {
   factory BundleEntrySearch.fromJson(Map<String, dynamic> json) {
     return BundleEntrySearch(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       mode: json['mode'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       score: json['score'] as num?,
     );

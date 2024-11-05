@@ -33,27 +33,27 @@ class MedicationKnowledgeAdministrationGuidelines extends BackboneElement
       dosage: (json['dosage'] as List<dynamic>?)
           ?.map((e) =>
               MedicationKnowledgeAdministrationGuidelinesDosage.fromJson(
-                  e as Map<String, dynamic>))
+                  (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       indicationCodeableConcept: json['indicationCodeableConcept'] != null
-          ? CodeableConcept.fromJson(
-              json['indicationCodeableConcept'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson((json['indicationCodeableConcept'] as Map)
+              .cast<String, dynamic>())
           : null,
       indicationReference: json['indicationReference'] != null
           ? Reference.fromJson(
-              json['indicationReference'] as Map<String, dynamic>)
+              (json['indicationReference'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       patientCharacteristics: (json['patientCharacteristics'] as List<dynamic>?)
           ?.map((e) =>
               MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics
-                  .fromJson(e as Map<String, dynamic>))
+                  .fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

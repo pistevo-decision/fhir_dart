@@ -32,27 +32,29 @@ class Population extends BackboneElement implements FhirResource {
     return Population(
       ageCodeableConcept: json['ageCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['ageCodeableConcept'] as Map<String, dynamic>)
+              (json['ageCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       ageRange: json['ageRange'] != null
-          ? Range.fromJson(json['ageRange'] as Map<String, dynamic>)
+          ? Range.fromJson((json['ageRange'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       gender: json['gender'] != null
-          ? CodeableConcept.fromJson(json['gender'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['gender'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       physiologicalCondition: json['physiologicalCondition'] != null
           ? CodeableConcept.fromJson(
-              json['physiologicalCondition'] as Map<String, dynamic>)
+              (json['physiologicalCondition'] as Map).cast<String, dynamic>())
           : null,
       race: json['race'] != null
-          ? CodeableConcept.fromJson(json['race'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['race'] as Map).cast<String, dynamic>())
           : null,
     );
   }

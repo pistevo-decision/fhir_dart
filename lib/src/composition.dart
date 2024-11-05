@@ -108,58 +108,67 @@ class Composition extends DomainResource implements FhirResource {
   factory Composition.fromJson(Map<String, dynamic> json) {
     return Composition(
       attester: (json['attester'] as List<dynamic>?)
-          ?.map((e) => CompositionAttester.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CompositionAttester.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       author: (json['author'] as List<dynamic>)
-          .map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          .map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       category: (json['category'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       confidentiality: json['confidentiality'] as String?,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       custodian: json['custodian'] != null
-          ? Reference.fromJson(json['custodian'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['custodian'] as Map).cast<String, dynamic>())
           : null,
       date: json['date'] as String,
       encounter: json['encounter'] != null
-          ? Reference.fromJson(json['encounter'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['encounter'] as Map).cast<String, dynamic>())
           : null,
       event: (json['event'] as List<dynamic>?)
-          ?.map((e) => CompositionEvent.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CompositionEvent.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: json['identifier'] != null
-          ? Identifier.fromJson(json['identifier'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['identifier'] as Map).cast<String, dynamic>())
           : null,
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       relatesTo: (json['relatesTo'] as List<dynamic>?)
-          ?.map((e) => CompositionRelatesTo.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CompositionRelatesTo.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       section: (json['section'] as List<dynamic>?)
-          ?.map((e) => CompositionSection.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CompositionSection.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       status: json['status'] as String,
       subject: json['subject'] != null
-          ? Reference.fromJson(json['subject'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['subject'] as Map).cast<String, dynamic>())
           : null,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       title: json['title'] as String,
-      type: CodeableConcept.fromJson(json['type'] as Map<String, dynamic>),
+      type: CodeableConcept.fromJson(
+          (json['type'] as Map).cast<String, dynamic>()),
     );
   }
 

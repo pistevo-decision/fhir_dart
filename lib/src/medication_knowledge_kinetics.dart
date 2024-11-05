@@ -25,20 +25,21 @@ class MedicationKnowledgeKinetics extends BackboneElement
   factory MedicationKnowledgeKinetics.fromJson(Map<String, dynamic> json) {
     return MedicationKnowledgeKinetics(
       areaUnderCurve: (json['areaUnderCurve'] as List<dynamic>?)
-          ?.map((e) => Quantity.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Quantity.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       halfLifePeriod: json['halfLifePeriod'] != null
-          ? Duration.fromJson(json['halfLifePeriod'] as Map<String, dynamic>)
+          ? Duration.fromJson(
+              (json['halfLifePeriod'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       lethalDose50: (json['lethalDose50'] as List<dynamic>?)
-          ?.map((e) => Quantity.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Quantity.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

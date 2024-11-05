@@ -45,27 +45,29 @@ class ObservationReferenceRange extends BackboneElement
   factory ObservationReferenceRange.fromJson(Map<String, dynamic> json) {
     return ObservationReferenceRange(
       age: json['age'] != null
-          ? Range.fromJson(json['age'] as Map<String, dynamic>)
+          ? Range.fromJson((json['age'] as Map).cast<String, dynamic>())
           : null,
       appliesTo: (json['appliesTo'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       high: json['high'] != null
-          ? Quantity.fromJson(json['high'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['high'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       low: json['low'] != null
-          ? Quantity.fromJson(json['low'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['low'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] as String?,
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

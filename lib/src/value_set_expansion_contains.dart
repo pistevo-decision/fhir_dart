@@ -59,21 +59,21 @@ class ValueSetExpansionContains extends BackboneElement
       fhirAbstract: json['abstract'] as bool?,
       code: json['code'] as String?,
       contains: (json['contains'] as List<dynamic>?)
-          ?.map((e) =>
-              ValueSetExpansionContains.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ValueSetExpansionContains.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       designation: (json['designation'] as List<dynamic>?)
           ?.map((e) => ValueSetComposeIncludeConceptDesignation.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       display: json['display'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       inactive: json['inactive'] as bool?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       system: json['system'] as String?,
       version: json['version'] as String?,

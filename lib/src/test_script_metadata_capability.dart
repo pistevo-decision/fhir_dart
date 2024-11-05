@@ -50,12 +50,12 @@ class TestScriptMetadataCapability extends BackboneElement
       description: json['description'] as String?,
       destination: json['destination'] as int?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       link: (json['link'] as List<dynamic>?)?.map((e) => e as String).toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       origin: (json['origin'] as List<dynamic>?)?.map((e) => e as int).toList(),
       required: json['required'] as bool,

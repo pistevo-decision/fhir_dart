@@ -58,33 +58,36 @@ class SpecimenDefinitionTypeTestedContainer extends BackboneElement
     return SpecimenDefinitionTypeTestedContainer(
       additive: (json['additive'] as List<dynamic>?)
           ?.map((e) => SpecimenDefinitionTypeTestedContainerAdditive.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       cap: json['cap'] != null
-          ? CodeableConcept.fromJson(json['cap'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['cap'] as Map).cast<String, dynamic>())
           : null,
       capacity: json['capacity'] != null
-          ? Quantity.fromJson(json['capacity'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['capacity'] as Map).cast<String, dynamic>())
           : null,
       description: json['description'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       material: json['material'] != null
-          ? CodeableConcept.fromJson(json['material'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['material'] as Map).cast<String, dynamic>())
           : null,
       minimumVolumeQuantity: json['minimumVolumeQuantity'] != null
           ? Quantity.fromJson(
-              json['minimumVolumeQuantity'] as Map<String, dynamic>)
+              (json['minimumVolumeQuantity'] as Map).cast<String, dynamic>())
           : null,
       minimumVolumeString: json['minimumVolumeString'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       preparation: json['preparation'] as String?,
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

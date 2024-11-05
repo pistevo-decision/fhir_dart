@@ -32,23 +32,23 @@ class InvoiceLineItem extends BackboneElement implements FhirResource {
   factory InvoiceLineItem.fromJson(Map<String, dynamic> json) {
     return InvoiceLineItem(
       chargeItemCodeableConcept: json['chargeItemCodeableConcept'] != null
-          ? CodeableConcept.fromJson(
-              json['chargeItemCodeableConcept'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson((json['chargeItemCodeableConcept'] as Map)
+              .cast<String, dynamic>())
           : null,
       chargeItemReference: json['chargeItemReference'] != null
           ? Reference.fromJson(
-              json['chargeItemReference'] as Map<String, dynamic>)
+              (json['chargeItemReference'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       priceComponent: (json['priceComponent'] as List<dynamic>?)
-          ?.map((e) =>
-              InvoiceLineItemPriceComponent.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => InvoiceLineItemPriceComponent.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       sequence: json['sequence'] as int?,
     );

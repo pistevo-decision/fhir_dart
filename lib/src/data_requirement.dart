@@ -59,15 +59,15 @@ class DataRequirement extends Element implements FhirResource {
   factory DataRequirement.fromJson(Map<String, dynamic> json) {
     return DataRequirement(
       codeFilter: (json['codeFilter'] as List<dynamic>?)
-          ?.map((e) =>
-              DataRequirementCodeFilter.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => DataRequirementCodeFilter.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       dateFilter: (json['dateFilter'] as List<dynamic>?)
-          ?.map((e) =>
-              DataRequirementDateFilter.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => DataRequirementDateFilter.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       limit: json['limit'] as int?,
@@ -77,14 +77,16 @@ class DataRequirement extends Element implements FhirResource {
       profile:
           (json['profile'] as List<dynamic>?)?.map((e) => e as String).toList(),
       sort: (json['sort'] as List<dynamic>?)
-          ?.map((e) => DataRequirementSort.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              DataRequirementSort.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       subjectCodeableConcept: json['subjectCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['subjectCodeableConcept'] as Map<String, dynamic>)
+              (json['subjectCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       subjectReference: json['subjectReference'] != null
-          ? Reference.fromJson(json['subjectReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['subjectReference'] as Map).cast<String, dynamic>())
           : null,
       type: json['type'] as String,
     );

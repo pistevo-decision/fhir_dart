@@ -22,11 +22,11 @@ class DeviceDefinitionDeviceName extends BackboneElement
   factory DeviceDefinitionDeviceName.fromJson(Map<String, dynamic> json) {
     return DeviceDefinitionDeviceName(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String,
       type: json['type'] as String,

@@ -63,39 +63,43 @@ class BodyStructure extends DomainResource implements FhirResource {
     return BodyStructure(
       active: json['active'] as bool?,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       description: json['description'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       image: (json['image'] as List<dynamic>?)
-          ?.map((e) => Attachment.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Attachment.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       location: json['location'] != null
-          ? CodeableConcept.fromJson(json['location'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['location'] as Map).cast<String, dynamic>())
           : null,
       locationQualifier: (json['locationQualifier'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       morphology: json['morphology'] != null
-          ? CodeableConcept.fromJson(json['morphology'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['morphology'] as Map).cast<String, dynamic>())
           : null,
-      patient: Reference.fromJson(json['patient'] as Map<String, dynamic>),
+      patient:
+          Reference.fromJson((json['patient'] as Map).cast<String, dynamic>()),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

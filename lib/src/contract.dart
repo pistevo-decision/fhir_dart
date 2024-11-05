@@ -204,113 +204,123 @@ class Contract extends DomainResource implements FhirResource {
       alias:
           (json['alias'] as List<dynamic>?)?.map((e) => e as String).toList(),
       applies: json['applies'] != null
-          ? Period.fromJson(json['applies'] as Map<String, dynamic>)
+          ? Period.fromJson((json['applies'] as Map).cast<String, dynamic>())
           : null,
       author: json['author'] != null
-          ? Reference.fromJson(json['author'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['author'] as Map).cast<String, dynamic>())
           : null,
       authority: (json['authority'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contentDefinition: json['contentDefinition'] != null
           ? ContractContentDefinition.fromJson(
-              json['contentDefinition'] as Map<String, dynamic>)
+              (json['contentDefinition'] as Map).cast<String, dynamic>())
           : null,
       contentDerivative: json['contentDerivative'] != null
           ? CodeableConcept.fromJson(
-              json['contentDerivative'] as Map<String, dynamic>)
+              (json['contentDerivative'] as Map).cast<String, dynamic>())
           : null,
       domain: (json['domain'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       expirationType: json['expirationType'] != null
           ? CodeableConcept.fromJson(
-              json['expirationType'] as Map<String, dynamic>)
+              (json['expirationType'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       friendly: (json['friendly'] as List<dynamic>?)
-          ?.map((e) => ContractFriendly.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              ContractFriendly.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       instantiatesCanonical: json['instantiatesCanonical'] != null
           ? Reference.fromJson(
-              json['instantiatesCanonical'] as Map<String, dynamic>)
+              (json['instantiatesCanonical'] as Map).cast<String, dynamic>())
           : null,
       instantiatesUri: json['instantiatesUri'] as String?,
       issued: json['issued'] as String?,
       language: json['language'] as String?,
       legal: (json['legal'] as List<dynamic>?)
-          ?.map((e) => ContractLegal.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContractLegal.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       legallyBindingAttachment: json['legallyBindingAttachment'] != null
           ? Attachment.fromJson(
-              json['legallyBindingAttachment'] as Map<String, dynamic>)
+              (json['legallyBindingAttachment'] as Map).cast<String, dynamic>())
           : null,
       legallyBindingReference: json['legallyBindingReference'] != null
           ? Reference.fromJson(
-              json['legallyBindingReference'] as Map<String, dynamic>)
+              (json['legallyBindingReference'] as Map).cast<String, dynamic>())
           : null,
       legalState: json['legalState'] != null
-          ? CodeableConcept.fromJson(json['legalState'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['legalState'] as Map).cast<String, dynamic>())
           : null,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String?,
       relevantHistory: (json['relevantHistory'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       rule: (json['rule'] as List<dynamic>?)
-          ?.map((e) => ContractRule.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContractRule.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       scope: json['scope'] != null
-          ? CodeableConcept.fromJson(json['scope'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['scope'] as Map).cast<String, dynamic>())
           : null,
       signer: (json['signer'] as List<dynamic>?)
-          ?.map((e) => ContractSigner.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              ContractSigner.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       site: (json['site'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       status: json['status'] as String?,
       subject: (json['subject'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       subtitle: json['subtitle'] as String?,
       subType: (json['subType'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       supportingInfo: (json['supportingInfo'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       term: (json['term'] as List<dynamic>?)
-          ?.map((e) => ContractTerm.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContractTerm.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       title: json['title'] as String?,
       topicCodeableConcept: json['topicCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['topicCodeableConcept'] as Map<String, dynamic>)
+              (json['topicCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       topicReference: json['topicReference'] != null
-          ? Reference.fromJson(json['topicReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['topicReference'] as Map).cast<String, dynamic>())
           : null,
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
       url: json['url'] as String?,
       version: json['version'] as String?,

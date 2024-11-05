@@ -22,18 +22,19 @@ class MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies
   factory MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies.fromJson(
       Map<String, dynamic> json) {
     return MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies(
-      code: CodeableConcept.fromJson(json['code'] as Map<String, dynamic>),
+      code: CodeableConcept.fromJson(
+          (json['code'] as Map).cast<String, dynamic>()),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       withdrawalPeriod: (json['withdrawalPeriod'] as List<dynamic>?)
           ?.map((e) =>
               MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod
-                  .fromJson(e as Map<String, dynamic>))
+                  .fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

@@ -40,35 +40,35 @@ class SubstanceNucleicAcid extends DomainResource implements FhirResource {
     return SubstanceNucleicAcid(
       areaOfHybridisation: json['areaOfHybridisation'] as String?,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       numberOfSubunits: json['numberOfSubunits'] as int?,
       oligoNucleotideType: json['oligoNucleotideType'] != null
           ? CodeableConcept.fromJson(
-              json['oligoNucleotideType'] as Map<String, dynamic>)
+              (json['oligoNucleotideType'] as Map).cast<String, dynamic>())
           : null,
       sequenceType: json['sequenceType'] != null
           ? CodeableConcept.fromJson(
-              json['sequenceType'] as Map<String, dynamic>)
+              (json['sequenceType'] as Map).cast<String, dynamic>())
           : null,
       subunit: (json['subunit'] as List<dynamic>?)
-          ?.map((e) =>
-              SubstanceNucleicAcidSubunit.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SubstanceNucleicAcidSubunit.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

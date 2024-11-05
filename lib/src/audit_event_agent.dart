@@ -72,37 +72,41 @@ class AuditEventAgent extends BackboneElement implements FhirResource {
     return AuditEventAgent(
       altId: json['altId'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       location: json['location'] != null
-          ? Reference.fromJson(json['location'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['location'] as Map).cast<String, dynamic>())
           : null,
       media: json['media'] != null
-          ? Coding.fromJson(json['media'] as Map<String, dynamic>)
+          ? Coding.fromJson((json['media'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String?,
       network: json['network'] != null
           ? AuditEventAgentNetwork.fromJson(
-              json['network'] as Map<String, dynamic>)
+              (json['network'] as Map).cast<String, dynamic>())
           : null,
       policy:
           (json['policy'] as List<dynamic>?)?.map((e) => e as String).toList(),
       purposeOfUse: (json['purposeOfUse'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       requestor: json['requestor'] as bool,
       role: (json['role'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
       who: json['who'] != null
-          ? Reference.fromJson(json['who'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['who'] as Map).cast<String, dynamic>())
           : null,
     );
   }

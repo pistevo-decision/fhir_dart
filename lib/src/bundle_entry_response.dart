@@ -42,16 +42,16 @@ class BundleEntryResponse extends BackboneElement implements FhirResource {
     return BundleEntryResponse(
       etag: json['etag'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       lastModified: json['lastModified'] as String?,
       location: json['location'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       outcome: json['outcome'] != null
-          ? Resource.fromJson(json['outcome'] as Map<String, dynamic>)
+          ? Resource.fromJson((json['outcome'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String,
     );

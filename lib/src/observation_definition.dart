@@ -88,41 +88,44 @@ class ObservationDefinition extends DomainResource implements FhirResource {
     return ObservationDefinition(
       abnormalCodedValueSet: json['abnormalCodedValueSet'] != null
           ? Reference.fromJson(
-              json['abnormalCodedValueSet'] as Map<String, dynamic>)
+              (json['abnormalCodedValueSet'] as Map).cast<String, dynamic>())
           : null,
       category: (json['category'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      code: CodeableConcept.fromJson(json['code'] as Map<String, dynamic>),
+      code: CodeableConcept.fromJson(
+          (json['code'] as Map).cast<String, dynamic>()),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       criticalCodedValueSet: json['criticalCodedValueSet'] != null
           ? Reference.fromJson(
-              json['criticalCodedValueSet'] as Map<String, dynamic>)
+              (json['criticalCodedValueSet'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       method: json['method'] != null
-          ? CodeableConcept.fromJson(json['method'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['method'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       multipleResultsAllowed: json['multipleResultsAllowed'] as bool?,
       normalCodedValueSet: json['normalCodedValueSet'] != null
           ? Reference.fromJson(
-              json['normalCodedValueSet'] as Map<String, dynamic>)
+              (json['normalCodedValueSet'] as Map).cast<String, dynamic>())
           : null,
       permittedDataType: (json['permittedDataType'] as List<dynamic>?)
           ?.map((e) => e as String)
@@ -130,18 +133,18 @@ class ObservationDefinition extends DomainResource implements FhirResource {
       preferredReportName: json['preferredReportName'] as String?,
       qualifiedInterval: (json['qualifiedInterval'] as List<dynamic>?)
           ?.map((e) => ObservationDefinitionQualifiedInterval.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       quantitativeDetails: json['quantitativeDetails'] != null
           ? ObservationDefinitionQuantitativeDetails.fromJson(
-              json['quantitativeDetails'] as Map<String, dynamic>)
+              (json['quantitativeDetails'] as Map).cast<String, dynamic>())
           : null,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       validCodedValueSet: json['validCodedValueSet'] != null
           ? Reference.fromJson(
-              json['validCodedValueSet'] as Map<String, dynamic>)
+              (json['validCodedValueSet'] as Map).cast<String, dynamic>())
           : null,
     );
   }

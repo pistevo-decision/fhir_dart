@@ -53,41 +53,45 @@ class SubstanceReferenceInformationTarget extends BackboneElement
       Map<String, dynamic> json) {
     return SubstanceReferenceInformationTarget(
       amountQuantity: json['amountQuantity'] != null
-          ? Quantity.fromJson(json['amountQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['amountQuantity'] as Map).cast<String, dynamic>())
           : null,
       amountRange: json['amountRange'] != null
-          ? Range.fromJson(json['amountRange'] as Map<String, dynamic>)
+          ? Range.fromJson((json['amountRange'] as Map).cast<String, dynamic>())
           : null,
       amountString: json['amountString'] as String?,
       amountType: json['amountType'] != null
-          ? CodeableConcept.fromJson(json['amountType'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['amountType'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       interaction: json['interaction'] != null
           ? CodeableConcept.fromJson(
-              json['interaction'] as Map<String, dynamic>)
+              (json['interaction'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       organism: json['organism'] != null
-          ? CodeableConcept.fromJson(json['organism'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['organism'] as Map).cast<String, dynamic>())
           : null,
       organismType: json['organismType'] != null
           ? CodeableConcept.fromJson(
-              json['organismType'] as Map<String, dynamic>)
+              (json['organismType'] as Map).cast<String, dynamic>())
           : null,
       source: (json['source'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       target: json['target'] != null
-          ? Identifier.fromJson(json['target'] as Map<String, dynamic>)
+          ? Identifier.fromJson((json['target'] as Map).cast<String, dynamic>())
           : null,
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

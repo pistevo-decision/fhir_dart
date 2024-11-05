@@ -28,16 +28,17 @@ class AuditEventSource extends BackboneElement implements FhirResource {
   factory AuditEventSource.fromJson(Map<String, dynamic> json) {
     return AuditEventSource(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      observer: Reference.fromJson(json['observer'] as Map<String, dynamic>),
+      observer:
+          Reference.fromJson((json['observer'] as Map).cast<String, dynamic>()),
       site: json['site'] as String?,
       type: (json['type'] as List<dynamic>?)
-          ?.map((e) => Coding.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Coding.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

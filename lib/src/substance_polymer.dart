@@ -43,42 +43,45 @@ class SubstancePolymer extends DomainResource implements FhirResource {
   factory SubstancePolymer.fromJson(Map<String, dynamic> json) {
     return SubstancePolymer(
       fhirClass: json['class'] != null
-          ? CodeableConcept.fromJson(json['class'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['class'] as Map).cast<String, dynamic>())
           : null,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       copolymerConnectivity: (json['copolymerConnectivity'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       geometry: json['geometry'] != null
-          ? CodeableConcept.fromJson(json['geometry'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['geometry'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modification: (json['modification'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       monomerSet: (json['monomerSet'] as List<dynamic>?)
-          ?.map((e) =>
-              SubstancePolymerMonomerSet.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SubstancePolymerMonomerSet.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       repeat: (json['repeat'] as List<dynamic>?)
-          ?.map(
-              (e) => SubstancePolymerRepeat.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SubstancePolymerRepeat.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

@@ -44,36 +44,36 @@ class SubstanceSpecificationStructure extends BackboneElement
   factory SubstanceSpecificationStructure.fromJson(Map<String, dynamic> json) {
     return SubstanceSpecificationStructure(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       isotope: (json['isotope'] as List<dynamic>?)
           ?.map((e) => SubstanceSpecificationStructureIsotope.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       molecularFormula: json['molecularFormula'] as String?,
       molecularFormulaByMoiety: json['molecularFormulaByMoiety'] as String?,
       molecularWeight: json['molecularWeight'] != null
           ? SubstanceSpecificationStructureIsotopeMolecularWeight.fromJson(
-              json['molecularWeight'] as Map<String, dynamic>)
+              (json['molecularWeight'] as Map).cast<String, dynamic>())
           : null,
       opticalActivity: json['opticalActivity'] != null
           ? CodeableConcept.fromJson(
-              json['opticalActivity'] as Map<String, dynamic>)
+              (json['opticalActivity'] as Map).cast<String, dynamic>())
           : null,
       representation: (json['representation'] as List<dynamic>?)
           ?.map((e) => SubstanceSpecificationStructureRepresentation.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       source: (json['source'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       stereochemistry: json['stereochemistry'] != null
           ? CodeableConcept.fromJson(
-              json['stereochemistry'] as Map<String, dynamic>)
+              (json['stereochemistry'] as Map).cast<String, dynamic>())
           : null,
     );
   }

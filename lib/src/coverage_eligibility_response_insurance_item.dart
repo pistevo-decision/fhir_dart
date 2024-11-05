@@ -91,44 +91,51 @@ class CoverageEligibilityResponseInsuranceItem extends BackboneElement
       authorizationRequired: json['authorizationRequired'] as bool?,
       authorizationSupporting:
           (json['authorizationSupporting'] as List<dynamic>?)
-              ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+              ?.map((e) =>
+                  CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
               .toList(),
       authorizationUrl: json['authorizationUrl'] as String?,
       benefit: (json['benefit'] as List<dynamic>?)
           ?.map((e) => CoverageEligibilityResponseInsuranceItemBenefit.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       category: json['category'] != null
-          ? CodeableConcept.fromJson(json['category'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['category'] as Map).cast<String, dynamic>())
           : null,
       description: json['description'] as String?,
       excluded: json['excluded'] as bool?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifier: (json['modifier'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String?,
       network: json['network'] != null
-          ? CodeableConcept.fromJson(json['network'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['network'] as Map).cast<String, dynamic>())
           : null,
       productOrService: json['productOrService'] != null
           ? CodeableConcept.fromJson(
-              json['productOrService'] as Map<String, dynamic>)
+              (json['productOrService'] as Map).cast<String, dynamic>())
           : null,
       provider: json['provider'] != null
-          ? Reference.fromJson(json['provider'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['provider'] as Map).cast<String, dynamic>())
           : null,
       term: json['term'] != null
-          ? CodeableConcept.fromJson(json['term'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['term'] as Map).cast<String, dynamic>())
           : null,
       unit: json['unit'] != null
-          ? CodeableConcept.fromJson(json['unit'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['unit'] as Map).cast<String, dynamic>())
           : null,
     );
   }

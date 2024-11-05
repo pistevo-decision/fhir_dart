@@ -59,31 +59,32 @@ class ExplanationOfBenefitAddItemDetailSubDetail extends BackboneElement
     return ExplanationOfBenefitAddItemDetailSubDetail(
       adjudication: (json['adjudication'] as List<dynamic>?)
           ?.map((e) => ExplanationOfBenefitItemAdjudication.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       factor: json['factor'] as num?,
       id: json['id'] as String?,
       modifier: (json['modifier'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       net: json['net'] != null
-          ? Money.fromJson(json['net'] as Map<String, dynamic>)
+          ? Money.fromJson((json['net'] as Map).cast<String, dynamic>())
           : null,
       noteNumber:
           (json['noteNumber'] as List<dynamic>?)?.map((e) => e as int).toList(),
       productOrService: CodeableConcept.fromJson(
-          json['productOrService'] as Map<String, dynamic>),
+          (json['productOrService'] as Map).cast<String, dynamic>()),
       quantity: json['quantity'] != null
-          ? Quantity.fromJson(json['quantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['quantity'] as Map).cast<String, dynamic>())
           : null,
       unitPrice: json['unitPrice'] != null
-          ? Money.fromJson(json['unitPrice'] as Map<String, dynamic>)
+          ? Money.fromJson((json['unitPrice'] as Map).cast<String, dynamic>())
           : null,
     );
   }

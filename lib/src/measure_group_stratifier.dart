@@ -32,22 +32,24 @@ class MeasureGroupStratifier extends BackboneElement implements FhirResource {
   factory MeasureGroupStratifier.fromJson(Map<String, dynamic> json) {
     return MeasureGroupStratifier(
       code: json['code'] != null
-          ? CodeableConcept.fromJson(json['code'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['code'] as Map).cast<String, dynamic>())
           : null,
       component: (json['component'] as List<dynamic>?)
           ?.map((e) => MeasureGroupStratifierComponent.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       criteria: json['criteria'] != null
-          ? Expression.fromJson(json['criteria'] as Map<String, dynamic>)
+          ? Expression.fromJson(
+              (json['criteria'] as Map).cast<String, dynamic>())
           : null,
       description: json['description'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

@@ -29,14 +29,14 @@ class ImmunizationReaction extends BackboneElement implements FhirResource {
     return ImmunizationReaction(
       date: json['date'] as String?,
       detail: json['detail'] != null
-          ? Reference.fromJson(json['detail'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['detail'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reported: json['reported'] as bool?,
     );

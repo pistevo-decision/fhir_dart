@@ -54,23 +54,27 @@ class TriggerDefinition extends Element implements FhirResource {
   factory TriggerDefinition.fromJson(Map<String, dynamic> json) {
     return TriggerDefinition(
       condition: json['condition'] != null
-          ? Expression.fromJson(json['condition'] as Map<String, dynamic>)
+          ? Expression.fromJson(
+              (json['condition'] as Map).cast<String, dynamic>())
           : null,
       data: (json['data'] as List<dynamic>?)
-          ?.map((e) => DataRequirement.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              DataRequirement.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       name: json['name'] as String?,
       timingDate: json['timingDate'] as String?,
       timingDateTime: json['timingDateTime'] as String?,
       timingReference: json['timingReference'] != null
-          ? Reference.fromJson(json['timingReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['timingReference'] as Map).cast<String, dynamic>())
           : null,
       timingTiming: json['timingTiming'] != null
-          ? Timing.fromJson(json['timingTiming'] as Map<String, dynamic>)
+          ? Timing.fromJson(
+              (json['timingTiming'] as Map).cast<String, dynamic>())
           : null,
       type: json['type'] as String,
     );

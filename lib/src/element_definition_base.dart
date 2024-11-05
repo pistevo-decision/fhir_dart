@@ -29,7 +29,7 @@ class ElementDefinitionBase extends Element implements FhirResource {
   factory ElementDefinitionBase.fromJson(Map<String, dynamic> json) {
     return ElementDefinitionBase(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       max: json['max'] as String,

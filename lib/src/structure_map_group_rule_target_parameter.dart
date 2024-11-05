@@ -33,11 +33,11 @@ class StructureMapGroupRuleTargetParameter extends BackboneElement
       Map<String, dynamic> json) {
     return StructureMapGroupRuleTargetParameter(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       valueBoolean: json['valueBoolean'] as bool?,
       valueDecimal: json['valueDecimal'] as num?,

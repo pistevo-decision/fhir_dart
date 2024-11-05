@@ -21,18 +21,18 @@ class MedicinalProductPackagedBatchIdentifier extends BackboneElement
       Map<String, dynamic> json) {
     return MedicinalProductPackagedBatchIdentifier(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       immediatePackaging: json['immediatePackaging'] != null
           ? Identifier.fromJson(
-              json['immediatePackaging'] as Map<String, dynamic>)
+              (json['immediatePackaging'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      outerPackaging:
-          Identifier.fromJson(json['outerPackaging'] as Map<String, dynamic>),
+      outerPackaging: Identifier.fromJson(
+          (json['outerPackaging'] as Map).cast<String, dynamic>()),
     );
   }
 

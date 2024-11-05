@@ -27,18 +27,19 @@ class InsurancePlanCoverageBenefit extends BackboneElement
   factory InsurancePlanCoverageBenefit.fromJson(Map<String, dynamic> json) {
     return InsurancePlanCoverageBenefit(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       limit: (json['limit'] as List<dynamic>?)
           ?.map((e) => InsurancePlanCoverageBenefitLimit.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       requirement: json['requirement'] as String?,
-      type: CodeableConcept.fromJson(json['type'] as Map<String, dynamic>),
+      type: CodeableConcept.fromJson(
+          (json['type'] as Map).cast<String, dynamic>()),
     );
   }
 

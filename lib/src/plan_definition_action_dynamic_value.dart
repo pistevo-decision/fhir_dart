@@ -26,14 +26,15 @@ class PlanDefinitionActionDynamicValue extends BackboneElement
   factory PlanDefinitionActionDynamicValue.fromJson(Map<String, dynamic> json) {
     return PlanDefinitionActionDynamicValue(
       expression: json['expression'] != null
-          ? Expression.fromJson(json['expression'] as Map<String, dynamic>)
+          ? Expression.fromJson(
+              (json['expression'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       path: json['path'] as String?,
     );

@@ -44,26 +44,27 @@ class ExplanationOfBenefitProcedure extends BackboneElement
     return ExplanationOfBenefitProcedure(
       date: json['date'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       procedureCodeableConcept: json['procedureCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['procedureCodeableConcept'] as Map<String, dynamic>)
+              (json['procedureCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       procedureReference: json['procedureReference'] != null
           ? Reference.fromJson(
-              json['procedureReference'] as Map<String, dynamic>)
+              (json['procedureReference'] as Map).cast<String, dynamic>())
           : null,
       sequence: json['sequence'] as int,
       type: (json['type'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       udi: (json['udi'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

@@ -157,30 +157,33 @@ class DeviceRequest extends DomainResource implements FhirResource {
     return DeviceRequest(
       authoredOn: json['authoredOn'] as String?,
       basedOn: (json['basedOn'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       codeCodeableConcept: json['codeCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['codeCodeableConcept'] as Map<String, dynamic>)
+              (json['codeCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       codeReference: json['codeReference'] != null
-          ? Reference.fromJson(json['codeReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['codeReference'] as Map).cast<String, dynamic>())
           : null,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       encounter: json['encounter'] != null
-          ? Reference.fromJson(json['encounter'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['encounter'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       groupIdentifier: json['groupIdentifier'] != null
-          ? Identifier.fromJson(json['groupIdentifier'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['groupIdentifier'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       instantiatesCanonical: (json['instantiatesCanonical'] as List<dynamic>?)
@@ -190,60 +193,66 @@ class DeviceRequest extends DomainResource implements FhirResource {
           ?.map((e) => e as String)
           .toList(),
       insurance: (json['insurance'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       intent: json['intent'] as String,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       note: (json['note'] as List<dynamic>?)
-          ?.map((e) => Annotation.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Annotation.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       occurrenceDateTime: json['occurrenceDateTime'] as String?,
       occurrencePeriod: json['occurrencePeriod'] != null
-          ? Period.fromJson(json['occurrencePeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['occurrencePeriod'] as Map).cast<String, dynamic>())
           : null,
       occurrenceTiming: json['occurrenceTiming'] != null
-          ? Timing.fromJson(json['occurrenceTiming'] as Map<String, dynamic>)
+          ? Timing.fromJson(
+              (json['occurrenceTiming'] as Map).cast<String, dynamic>())
           : null,
       parameter: (json['parameter'] as List<dynamic>?)
-          ?.map(
-              (e) => DeviceRequestParameter.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => DeviceRequestParameter.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       performer: json['performer'] != null
-          ? Reference.fromJson(json['performer'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['performer'] as Map).cast<String, dynamic>())
           : null,
       performerType: json['performerType'] != null
           ? CodeableConcept.fromJson(
-              json['performerType'] as Map<String, dynamic>)
+              (json['performerType'] as Map).cast<String, dynamic>())
           : null,
       priority: json['priority'] as String?,
       priorRequest: (json['priorRequest'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reasonCode: (json['reasonCode'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reasonReference: (json['reasonReference'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       relevantHistory: (json['relevantHistory'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       requester: json['requester'] != null
-          ? Reference.fromJson(json['requester'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['requester'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String?,
-      subject: Reference.fromJson(json['subject'] as Map<String, dynamic>),
+      subject:
+          Reference.fromJson((json['subject'] as Map).cast<String, dynamic>()),
       supportingInfo: (json['supportingInfo'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

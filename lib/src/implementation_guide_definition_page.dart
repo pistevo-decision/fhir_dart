@@ -42,20 +42,21 @@ class ImplementationGuideDefinitionPage extends BackboneElement
       Map<String, dynamic> json) {
     return ImplementationGuideDefinitionPage(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       generation: json['generation'] as String,
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       nameReference: json['nameReference'] != null
-          ? Reference.fromJson(json['nameReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['nameReference'] as Map).cast<String, dynamic>())
           : null,
       nameUrl: json['nameUrl'] as String?,
       page: (json['page'] as List<dynamic>?)
           ?.map((e) => ImplementationGuideDefinitionPage.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       title: json['title'] as String,
     );

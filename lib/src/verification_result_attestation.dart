@@ -47,29 +47,32 @@ class VerificationResultAttestation extends BackboneElement
     return VerificationResultAttestation(
       communicationMethod: json['communicationMethod'] != null
           ? CodeableConcept.fromJson(
-              json['communicationMethod'] as Map<String, dynamic>)
+              (json['communicationMethod'] as Map).cast<String, dynamic>())
           : null,
       date: json['date'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       onBehalfOf: json['onBehalfOf'] != null
-          ? Reference.fromJson(json['onBehalfOf'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['onBehalfOf'] as Map).cast<String, dynamic>())
           : null,
       proxyIdentityCertificate: json['proxyIdentityCertificate'] as String?,
       proxySignature: json['proxySignature'] != null
-          ? Signature.fromJson(json['proxySignature'] as Map<String, dynamic>)
+          ? Signature.fromJson(
+              (json['proxySignature'] as Map).cast<String, dynamic>())
           : null,
       sourceIdentityCertificate: json['sourceIdentityCertificate'] as String?,
       sourceSignature: json['sourceSignature'] != null
-          ? Signature.fromJson(json['sourceSignature'] as Map<String, dynamic>)
+          ? Signature.fromJson(
+              (json['sourceSignature'] as Map).cast<String, dynamic>())
           : null,
       who: json['who'] != null
-          ? Reference.fromJson(json['who'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['who'] as Map).cast<String, dynamic>())
           : null,
     );
   }

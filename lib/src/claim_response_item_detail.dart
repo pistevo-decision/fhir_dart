@@ -32,22 +32,22 @@ class ClaimResponseItemDetail extends BackboneElement implements FhirResource {
   factory ClaimResponseItemDetail.fromJson(Map<String, dynamic> json) {
     return ClaimResponseItemDetail(
       adjudication: (json['adjudication'] as List<dynamic>)
-          .map((e) =>
-              ClaimResponseItemAdjudication.fromJson(e as Map<String, dynamic>))
+          .map((e) => ClaimResponseItemAdjudication.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       detailSequence: json['detailSequence'] as int,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       noteNumber:
           (json['noteNumber'] as List<dynamic>?)?.map((e) => e as int).toList(),
       subDetail: (json['subDetail'] as List<dynamic>?)
           ?.map((e) => ClaimResponseItemDetailSubDetail.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

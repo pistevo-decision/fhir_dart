@@ -43,21 +43,24 @@ class ContractContentDefinition extends BackboneElement
     return ContractContentDefinition(
       copyright: json['copyright'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       publicationDate: json['publicationDate'] as String?,
       publicationStatus: json['publicationStatus'] as String,
       publisher: json['publisher'] != null
-          ? Reference.fromJson(json['publisher'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['publisher'] as Map).cast<String, dynamic>())
           : null,
       subType: json['subType'] != null
-          ? CodeableConcept.fromJson(json['subType'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['subType'] as Map).cast<String, dynamic>())
           : null,
-      type: CodeableConcept.fromJson(json['type'] as Map<String, dynamic>),
+      type: CodeableConcept.fromJson(
+          (json['type'] as Map).cast<String, dynamic>()),
     );
   }
 

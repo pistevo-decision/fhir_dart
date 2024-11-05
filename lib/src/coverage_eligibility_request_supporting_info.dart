@@ -32,13 +32,13 @@ class CoverageEligibilityRequestSupportingInfo extends BackboneElement
     return CoverageEligibilityRequestSupportingInfo(
       appliesToAll: json['appliesToAll'] as bool?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
-      information:
-          Reference.fromJson(json['information'] as Map<String, dynamic>),
+      information: Reference.fromJson(
+          (json['information'] as Map).cast<String, dynamic>()),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       sequence: json['sequence'] as int,
     );

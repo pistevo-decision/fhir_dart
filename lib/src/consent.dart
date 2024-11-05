@@ -97,59 +97,66 @@ class Consent extends DomainResource implements FhirResource {
   factory Consent.fromJson(Map<String, dynamic> json) {
     return Consent(
       category: (json['category'] as List<dynamic>)
-          .map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          .map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       dateTime: json['dateTime'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       organization: (json['organization'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       patient: json['patient'] != null
-          ? Reference.fromJson(json['patient'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['patient'] as Map).cast<String, dynamic>())
           : null,
       performer: (json['performer'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       policy: (json['policy'] as List<dynamic>?)
-          ?.map((e) => ConsentPolicy.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ConsentPolicy.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       policyRule: json['policyRule'] != null
-          ? CodeableConcept.fromJson(json['policyRule'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['policyRule'] as Map).cast<String, dynamic>())
           : null,
       provision: json['provision'] != null
-          ? ConsentProvision.fromJson(json['provision'] as Map<String, dynamic>)
+          ? ConsentProvision.fromJson(
+              (json['provision'] as Map).cast<String, dynamic>())
           : null,
-      scope: CodeableConcept.fromJson(json['scope'] as Map<String, dynamic>),
+      scope: CodeableConcept.fromJson(
+          (json['scope'] as Map).cast<String, dynamic>()),
       sourceAttachment: json['sourceAttachment'] != null
           ? Attachment.fromJson(
-              json['sourceAttachment'] as Map<String, dynamic>)
+              (json['sourceAttachment'] as Map).cast<String, dynamic>())
           : null,
       sourceReference: json['sourceReference'] != null
-          ? Reference.fromJson(json['sourceReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['sourceReference'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       verification: (json['verification'] as List<dynamic>?)
-          ?.map((e) => ConsentVerification.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              ConsentVerification.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

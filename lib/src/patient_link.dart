@@ -24,13 +24,13 @@ class PatientLink extends BackboneElement implements FhirResource {
   factory PatientLink.fromJson(Map<String, dynamic> json) {
     return PatientLink(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      other: Reference.fromJson(json['other'] as Map<String, dynamic>),
+      other: Reference.fromJson((json['other'] as Map).cast<String, dynamic>()),
       type: json['type'] as String,
     );
   }

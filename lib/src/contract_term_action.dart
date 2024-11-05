@@ -124,58 +124,64 @@ class ContractTermAction extends BackboneElement implements FhirResource {
   factory ContractTermAction.fromJson(Map<String, dynamic> json) {
     return ContractTermAction(
       context: json['context'] != null
-          ? Reference.fromJson(json['context'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['context'] as Map).cast<String, dynamic>())
           : null,
       contextLinkId: (json['contextLinkId'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
       doNotPerform: json['doNotPerform'] as bool?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
-      intent: CodeableConcept.fromJson(json['intent'] as Map<String, dynamic>),
+      intent: CodeableConcept.fromJson(
+          (json['intent'] as Map).cast<String, dynamic>()),
       linkId:
           (json['linkId'] as List<dynamic>?)?.map((e) => e as String).toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       note: (json['note'] as List<dynamic>?)
-          ?.map((e) => Annotation.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Annotation.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       occurrenceDateTime: json['occurrenceDateTime'] as String?,
       occurrencePeriod: json['occurrencePeriod'] != null
-          ? Period.fromJson(json['occurrencePeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['occurrencePeriod'] as Map).cast<String, dynamic>())
           : null,
       occurrenceTiming: json['occurrenceTiming'] != null
-          ? Timing.fromJson(json['occurrenceTiming'] as Map<String, dynamic>)
+          ? Timing.fromJson(
+              (json['occurrenceTiming'] as Map).cast<String, dynamic>())
           : null,
       performer: json['performer'] != null
-          ? Reference.fromJson(json['performer'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['performer'] as Map).cast<String, dynamic>())
           : null,
       performerLinkId: (json['performerLinkId'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
       performerRole: json['performerRole'] != null
           ? CodeableConcept.fromJson(
-              json['performerRole'] as Map<String, dynamic>)
+              (json['performerRole'] as Map).cast<String, dynamic>())
           : null,
       performerType: (json['performerType'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reason:
           (json['reason'] as List<dynamic>?)?.map((e) => e as String).toList(),
       reasonCode: (json['reasonCode'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reasonLinkId: (json['reasonLinkId'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
       reasonReference: (json['reasonReference'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       requester: (json['requester'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       requesterLinkId: (json['requesterLinkId'] as List<dynamic>?)
           ?.map((e) => e as String)
@@ -183,12 +189,14 @@ class ContractTermAction extends BackboneElement implements FhirResource {
       securityLabelNumber: (json['securityLabelNumber'] as List<dynamic>?)
           ?.map((e) => e as int)
           .toList(),
-      status: CodeableConcept.fromJson(json['status'] as Map<String, dynamic>),
+      status: CodeableConcept.fromJson(
+          (json['status'] as Map).cast<String, dynamic>()),
       subject: (json['subject'] as List<dynamic>?)
-          ?.map((e) =>
-              ContractTermActionSubject.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ContractTermActionSubject.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
-      type: CodeableConcept.fromJson(json['type'] as Map<String, dynamic>),
+      type: CodeableConcept.fromJson(
+          (json['type'] as Map).cast<String, dynamic>()),
     );
   }
 

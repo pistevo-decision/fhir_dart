@@ -35,34 +35,34 @@ class SubstanceProtein extends DomainResource implements FhirResource {
   factory SubstanceProtein.fromJson(Map<String, dynamic> json) {
     return SubstanceProtein(
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       disulfideLinkage: (json['disulfideLinkage'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       numberOfSubunits: json['numberOfSubunits'] as int?,
       sequenceType: json['sequenceType'] != null
           ? CodeableConcept.fromJson(
-              json['sequenceType'] as Map<String, dynamic>)
+              (json['sequenceType'] as Map).cast<String, dynamic>())
           : null,
       subunit: (json['subunit'] as List<dynamic>?)
-          ?.map((e) =>
-              SubstanceProteinSubunit.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SubstanceProteinSubunit.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

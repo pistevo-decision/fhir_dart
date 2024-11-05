@@ -97,46 +97,49 @@ class ImmunizationEvaluation extends DomainResource implements FhirResource {
   factory ImmunizationEvaluation.fromJson(Map<String, dynamic> json) {
     return ImmunizationEvaluation(
       authority: json['authority'] != null
-          ? Reference.fromJson(json['authority'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['authority'] as Map).cast<String, dynamic>())
           : null,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       date: json['date'] as String?,
       description: json['description'] as String?,
       doseNumberPositiveInt: json['doseNumberPositiveInt'] as int?,
       doseNumberString: json['doseNumberString'] as String?,
-      doseStatus:
-          CodeableConcept.fromJson(json['doseStatus'] as Map<String, dynamic>),
+      doseStatus: CodeableConcept.fromJson(
+          (json['doseStatus'] as Map).cast<String, dynamic>()),
       doseStatusReason: (json['doseStatusReason'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      immunizationEvent:
-          Reference.fromJson(json['immunizationEvent'] as Map<String, dynamic>),
+      immunizationEvent: Reference.fromJson(
+          (json['immunizationEvent'] as Map).cast<String, dynamic>()),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      patient: Reference.fromJson(json['patient'] as Map<String, dynamic>),
+      patient:
+          Reference.fromJson((json['patient'] as Map).cast<String, dynamic>()),
       series: json['series'] as String?,
       seriesDosesPositiveInt: json['seriesDosesPositiveInt'] as int?,
       seriesDosesString: json['seriesDosesString'] as String?,
       status: json['status'] as String,
       targetDisease: CodeableConcept.fromJson(
-          json['targetDisease'] as Map<String, dynamic>),
+          (json['targetDisease'] as Map).cast<String, dynamic>()),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

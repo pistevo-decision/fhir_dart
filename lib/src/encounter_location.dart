@@ -35,19 +35,20 @@ class EncounterLocation extends BackboneElement implements FhirResource {
   factory EncounterLocation.fromJson(Map<String, dynamic> json) {
     return EncounterLocation(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
-      location: Reference.fromJson(json['location'] as Map<String, dynamic>),
+      location:
+          Reference.fromJson((json['location'] as Map).cast<String, dynamic>()),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       period: json['period'] != null
-          ? Period.fromJson(json['period'] as Map<String, dynamic>)
+          ? Period.fromJson((json['period'] as Map).cast<String, dynamic>())
           : null,
       physicalType: json['physicalType'] != null
           ? CodeableConcept.fromJson(
-              json['physicalType'] as Map<String, dynamic>)
+              (json['physicalType'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String?,
     );

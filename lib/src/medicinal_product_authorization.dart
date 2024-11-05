@@ -85,67 +85,73 @@ class MedicinalProductAuthorization extends DomainResource
   factory MedicinalProductAuthorization.fromJson(Map<String, dynamic> json) {
     return MedicinalProductAuthorization(
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       country: (json['country'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       dataExclusivityPeriod: json['dataExclusivityPeriod'] != null
           ? Period.fromJson(
-              json['dataExclusivityPeriod'] as Map<String, dynamic>)
+              (json['dataExclusivityPeriod'] as Map).cast<String, dynamic>())
           : null,
       dateOfFirstAuthorization: json['dateOfFirstAuthorization'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       holder: json['holder'] != null
-          ? Reference.fromJson(json['holder'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['holder'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       internationalBirthDate: json['internationalBirthDate'] as String?,
       jurisdiction: (json['jurisdiction'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       jurisdictionalAuthorization: (json['jurisdictionalAuthorization']
               as List<dynamic>?)
           ?.map((e) =>
               MedicinalProductAuthorizationJurisdictionalAuthorization.fromJson(
-                  e as Map<String, dynamic>))
+                  (e as Map).cast<String, dynamic>()))
           .toList(),
       language: json['language'] as String?,
       legalBasis: json['legalBasis'] != null
-          ? CodeableConcept.fromJson(json['legalBasis'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['legalBasis'] as Map).cast<String, dynamic>())
           : null,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       procedure: json['procedure'] != null
           ? MedicinalProductAuthorizationProcedure.fromJson(
-              json['procedure'] as Map<String, dynamic>)
+              (json['procedure'] as Map).cast<String, dynamic>())
           : null,
       regulator: json['regulator'] != null
-          ? Reference.fromJson(json['regulator'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['regulator'] as Map).cast<String, dynamic>())
           : null,
       restoreDate: json['restoreDate'] as String?,
       status: json['status'] != null
-          ? CodeableConcept.fromJson(json['status'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['status'] as Map).cast<String, dynamic>())
           : null,
       statusDate: json['statusDate'] as String?,
       subject: json['subject'] != null
-          ? Reference.fromJson(json['subject'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['subject'] as Map).cast<String, dynamic>())
           : null,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       validityPeriod: json['validityPeriod'] != null
-          ? Period.fromJson(json['validityPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['validityPeriod'] as Map).cast<String, dynamic>())
           : null,
     );
   }

@@ -30,19 +30,21 @@ class Timing extends BackboneElement implements FhirResource {
   factory Timing.fromJson(Map<String, dynamic> json) {
     return Timing(
       code: json['code'] != null
-          ? CodeableConcept.fromJson(json['code'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['code'] as Map).cast<String, dynamic>())
           : null,
       event:
           (json['event'] as List<dynamic>?)?.map((e) => e as String).toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       repeat: json['repeat'] != null
-          ? TimingRepeat.fromJson(json['repeat'] as Map<String, dynamic>)
+          ? TimingRepeat.fromJson(
+              (json['repeat'] as Map).cast<String, dynamic>())
           : null,
     );
   }

@@ -33,16 +33,17 @@ class SubstanceSourceMaterialOrganismHybrid extends BackboneElement
       Map<String, dynamic> json) {
     return SubstanceSourceMaterialOrganismHybrid(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       hybridType: json['hybridType'] != null
-          ? CodeableConcept.fromJson(json['hybridType'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['hybridType'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       maternalOrganismId: json['maternalOrganismId'] as String?,
       maternalOrganismName: json['maternalOrganismName'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       paternalOrganismId: json['paternalOrganismId'] as String?,
       paternalOrganismName: json['paternalOrganismName'] as String?,

@@ -32,15 +32,16 @@ class ClaimResponseError extends BackboneElement implements FhirResource {
   @override
   factory ClaimResponseError.fromJson(Map<String, dynamic> json) {
     return ClaimResponseError(
-      code: CodeableConcept.fromJson(json['code'] as Map<String, dynamic>),
+      code: CodeableConcept.fromJson(
+          (json['code'] as Map).cast<String, dynamic>()),
       detailSequence: json['detailSequence'] as int?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       itemSequence: json['itemSequence'] as int?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       subDetailSequence: json['subDetailSequence'] as int?,
     );

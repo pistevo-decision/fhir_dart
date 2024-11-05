@@ -75,26 +75,29 @@ class QuestionnaireItemEnableWhen extends BackboneElement
     return QuestionnaireItemEnableWhen(
       answerBoolean: json['answerBoolean'] as bool?,
       answerCoding: json['answerCoding'] != null
-          ? Coding.fromJson(json['answerCoding'] as Map<String, dynamic>)
+          ? Coding.fromJson(
+              (json['answerCoding'] as Map).cast<String, dynamic>())
           : null,
       answerDate: json['answerDate'] as String?,
       answerDateTime: json['answerDateTime'] as String?,
       answerDecimal: json['answerDecimal'] as num?,
       answerInteger: json['answerInteger'] as int?,
       answerQuantity: json['answerQuantity'] != null
-          ? Quantity.fromJson(json['answerQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['answerQuantity'] as Map).cast<String, dynamic>())
           : null,
       answerReference: json['answerReference'] != null
-          ? Reference.fromJson(json['answerReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['answerReference'] as Map).cast<String, dynamic>())
           : null,
       answerString: json['answerString'] as String?,
       answerTime: json['answerTime'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirOperator: json['operator'] as String,
       question: json['question'] as String,

@@ -54,16 +54,17 @@ class CodeSystemConceptProperty extends BackboneElement
     return CodeSystemConceptProperty(
       code: json['code'] as String,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       valueBoolean: json['valueBoolean'] as bool?,
       valueCode: json['valueCode'] as String?,
       valueCoding: json['valueCoding'] != null
-          ? Coding.fromJson(json['valueCoding'] as Map<String, dynamic>)
+          ? Coding.fromJson(
+              (json['valueCoding'] as Map).cast<String, dynamic>())
           : null,
       valueDateTime: json['valueDateTime'] as String?,
       valueDecimal: json['valueDecimal'] as num?,

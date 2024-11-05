@@ -46,35 +46,38 @@ class MedicinalProductSpecialDesignation extends BackboneElement
     return MedicinalProductSpecialDesignation(
       date: json['date'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       indicationCodeableConcept: json['indicationCodeableConcept'] != null
-          ? CodeableConcept.fromJson(
-              json['indicationCodeableConcept'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson((json['indicationCodeableConcept'] as Map)
+              .cast<String, dynamic>())
           : null,
       indicationReference: json['indicationReference'] != null
           ? Reference.fromJson(
-              json['indicationReference'] as Map<String, dynamic>)
+              (json['indicationReference'] as Map).cast<String, dynamic>())
           : null,
       intendedUse: json['intendedUse'] != null
           ? CodeableConcept.fromJson(
-              json['intendedUse'] as Map<String, dynamic>)
+              (json['intendedUse'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       species: json['species'] != null
-          ? CodeableConcept.fromJson(json['species'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['species'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] != null
-          ? CodeableConcept.fromJson(json['status'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['status'] as Map).cast<String, dynamic>())
           : null,
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

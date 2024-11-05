@@ -21,16 +21,17 @@ class ContractTermOfferParty extends BackboneElement implements FhirResource {
   factory ContractTermOfferParty.fromJson(Map<String, dynamic> json) {
     return ContractTermOfferParty(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reference: (json['reference'] as List<dynamic>)
-          .map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          .map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      role: CodeableConcept.fromJson(json['role'] as Map<String, dynamic>),
+      role: CodeableConcept.fromJson(
+          (json['role'] as Map).cast<String, dynamic>()),
     );
   }
 

@@ -41,25 +41,27 @@ class SupplyRequestParameter extends BackboneElement implements FhirResource {
   factory SupplyRequestParameter.fromJson(Map<String, dynamic> json) {
     return SupplyRequestParameter(
       code: json['code'] != null
-          ? CodeableConcept.fromJson(json['code'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['code'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       valueBoolean: json['valueBoolean'] as bool?,
       valueCodeableConcept: json['valueCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['valueCodeableConcept'] as Map<String, dynamic>)
+              (json['valueCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       valueQuantity: json['valueQuantity'] != null
-          ? Quantity.fromJson(json['valueQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['valueQuantity'] as Map).cast<String, dynamic>())
           : null,
       valueRange: json['valueRange'] != null
-          ? Range.fromJson(json['valueRange'] as Map<String, dynamic>)
+          ? Range.fromJson((json['valueRange'] as Map).cast<String, dynamic>())
           : null,
     );
   }

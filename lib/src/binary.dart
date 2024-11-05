@@ -40,10 +40,11 @@ class Binary extends Resource implements FhirResource {
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       securityContext: json['securityContext'] != null
-          ? Reference.fromJson(json['securityContext'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['securityContext'] as Map).cast<String, dynamic>())
           : null,
     );
   }

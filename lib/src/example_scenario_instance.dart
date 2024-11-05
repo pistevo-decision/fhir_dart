@@ -36,22 +36,22 @@ class ExampleScenarioInstance extends BackboneElement implements FhirResource {
     return ExampleScenarioInstance(
       containedInstance: (json['containedInstance'] as List<dynamic>?)
           ?.map((e) => ExampleScenarioInstanceContainedInstance.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       description: json['description'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String?,
       resourceId: json['resourceId'] as String,
       resourceType: json['resourceType'] as String,
       version: (json['version'] as List<dynamic>?)
           ?.map((e) => ExampleScenarioInstanceVersion.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

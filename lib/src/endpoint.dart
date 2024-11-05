@@ -84,48 +84,50 @@ class Endpoint extends DomainResource implements FhirResource {
   factory Endpoint.fromJson(Map<String, dynamic> json) {
     return Endpoint(
       address: json['address'] as String,
-      connectionType:
-          Coding.fromJson(json['connectionType'] as Map<String, dynamic>),
+      connectionType: Coding.fromJson(
+          (json['connectionType'] as Map).cast<String, dynamic>()),
       contact: (json['contact'] as List<dynamic>?)
-          ?.map((e) => ContactPoint.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactPoint.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       header:
           (json['header'] as List<dynamic>?)?.map((e) => e as String).toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       managingOrganization: json['managingOrganization'] != null
           ? Reference.fromJson(
-              json['managingOrganization'] as Map<String, dynamic>)
+              (json['managingOrganization'] as Map).cast<String, dynamic>())
           : null,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String?,
       payloadMimeType: (json['payloadMimeType'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
       payloadType: (json['payloadType'] as List<dynamic>)
-          .map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          .map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       period: json['period'] != null
-          ? Period.fromJson(json['period'] as Map<String, dynamic>)
+          ? Period.fromJson((json['period'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

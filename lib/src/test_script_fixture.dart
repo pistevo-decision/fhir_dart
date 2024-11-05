@@ -27,14 +27,15 @@ class TestScriptFixture extends BackboneElement implements FhirResource {
       autocreate: json['autocreate'] as bool,
       autodelete: json['autodelete'] as bool,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       resource: json['resource'] != null
-          ? Reference.fromJson(json['resource'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['resource'] as Map).cast<String, dynamic>())
           : null,
     );
   }

@@ -50,20 +50,22 @@ class CoverageEligibilityResponseInsuranceItemBenefit extends BackboneElement
       Map<String, dynamic> json) {
     return CoverageEligibilityResponseInsuranceItemBenefit(
       allowedMoney: json['allowedMoney'] != null
-          ? Money.fromJson(json['allowedMoney'] as Map<String, dynamic>)
+          ? Money.fromJson(
+              (json['allowedMoney'] as Map).cast<String, dynamic>())
           : null,
       allowedString: json['allowedString'] as String?,
       allowedUnsignedInt: json['allowedUnsignedInt'] as int?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      type: CodeableConcept.fromJson(json['type'] as Map<String, dynamic>),
+      type: CodeableConcept.fromJson(
+          (json['type'] as Map).cast<String, dynamic>()),
       usedMoney: json['usedMoney'] != null
-          ? Money.fromJson(json['usedMoney'] as Map<String, dynamic>)
+          ? Money.fromJson((json['usedMoney'] as Map).cast<String, dynamic>())
           : null,
       usedString: json['usedString'] as String?,
       usedUnsignedInt: json['usedUnsignedInt'] as int?,

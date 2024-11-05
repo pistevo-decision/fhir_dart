@@ -23,17 +23,19 @@ class DeviceVersion extends BackboneElement implements FhirResource {
   factory DeviceVersion.fromJson(Map<String, dynamic> json) {
     return DeviceVersion(
       component: json['component'] != null
-          ? Identifier.fromJson(json['component'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['component'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
       value: json['value'] as String,
     );

@@ -30,17 +30,17 @@ class TerminologyCapabilitiesCodeSystem extends BackboneElement
       Map<String, dynamic> json) {
     return TerminologyCapabilitiesCodeSystem(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       subsumption: json['subsumption'] as bool?,
       uri: json['uri'] as String?,
       version: (json['version'] as List<dynamic>?)
           ?.map((e) => TerminologyCapabilitiesCodeSystemVersion.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

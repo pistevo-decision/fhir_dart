@@ -20,14 +20,14 @@ class MedicinalProductNameNamePart extends BackboneElement
   factory MedicinalProductNameNamePart.fromJson(Map<String, dynamic> json) {
     return MedicinalProductNameNamePart(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirPart: json['part'] as String,
-      type: Coding.fromJson(json['type'] as Map<String, dynamic>),
+      type: Coding.fromJson((json['type'] as Map).cast<String, dynamic>()),
     );
   }
 

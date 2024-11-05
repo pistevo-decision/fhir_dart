@@ -41,16 +41,18 @@ class ClaimResponseInsurance extends BackboneElement implements FhirResource {
     return ClaimResponseInsurance(
       businessArrangement: json['businessArrangement'] as String?,
       claimResponse: json['claimResponse'] != null
-          ? Reference.fromJson(json['claimResponse'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['claimResponse'] as Map).cast<String, dynamic>())
           : null,
-      coverage: Reference.fromJson(json['coverage'] as Map<String, dynamic>),
+      coverage:
+          Reference.fromJson((json['coverage'] as Map).cast<String, dynamic>()),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       focal: json['focal'] as bool,
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       sequence: json['sequence'] as int,
     );

@@ -60,32 +60,32 @@ class CapabilityStatementRest extends BackboneElement implements FhirResource {
           .toList(),
       documentation: json['documentation'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       interaction: (json['interaction'] as List<dynamic>?)
           ?.map((e) => CapabilityStatementRestInteraction.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       mode: json['mode'] as String,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       operation: (json['operation'] as List<dynamic>?)
           ?.map((e) => CapabilityStatementRestResourceOperation.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       resource: (json['resource'] as List<dynamic>?)
           ?.map((e) => CapabilityStatementRestResource.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       searchParam: (json['searchParam'] as List<dynamic>?)
           ?.map((e) => CapabilityStatementRestResourceSearchParam.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       security: json['security'] != null
           ? CapabilityStatementRestSecurity.fromJson(
-              json['security'] as Map<String, dynamic>)
+              (json['security'] as Map).cast<String, dynamic>())
           : null,
     );
   }

@@ -98,59 +98,62 @@ class PaymentReconciliation extends DomainResource implements FhirResource {
   factory PaymentReconciliation.fromJson(Map<String, dynamic> json) {
     return PaymentReconciliation(
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       created: json['created'] as String,
       detail: (json['detail'] as List<dynamic>?)
-          ?.map((e) =>
-              PaymentReconciliationDetail.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => PaymentReconciliationDetail.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       disposition: json['disposition'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       formCode: json['formCode'] != null
-          ? CodeableConcept.fromJson(json['formCode'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['formCode'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       outcome: json['outcome'] as String?,
-      paymentAmount:
-          Money.fromJson(json['paymentAmount'] as Map<String, dynamic>),
+      paymentAmount: Money.fromJson(
+          (json['paymentAmount'] as Map).cast<String, dynamic>()),
       paymentDate: json['paymentDate'] as String,
       paymentIdentifier: json['paymentIdentifier'] != null
           ? Identifier.fromJson(
-              json['paymentIdentifier'] as Map<String, dynamic>)
+              (json['paymentIdentifier'] as Map).cast<String, dynamic>())
           : null,
       paymentIssuer: json['paymentIssuer'] != null
-          ? Reference.fromJson(json['paymentIssuer'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['paymentIssuer'] as Map).cast<String, dynamic>())
           : null,
       period: json['period'] != null
-          ? Period.fromJson(json['period'] as Map<String, dynamic>)
+          ? Period.fromJson((json['period'] as Map).cast<String, dynamic>())
           : null,
       processNote: (json['processNote'] as List<dynamic>?)
           ?.map((e) => PaymentReconciliationProcessNote.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       request: json['request'] != null
-          ? Reference.fromJson(json['request'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['request'] as Map).cast<String, dynamic>())
           : null,
       requestor: json['requestor'] != null
-          ? Reference.fromJson(json['requestor'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['requestor'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

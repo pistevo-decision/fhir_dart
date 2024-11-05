@@ -70,46 +70,47 @@ class Person extends DomainResource implements FhirResource {
     return Person(
       active: json['active'] as bool?,
       address: (json['address'] as List<dynamic>?)
-          ?.map((e) => Address.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Address.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       birthDate: json['birthDate'] as String?,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       gender: json['gender'] as String?,
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       link: (json['link'] as List<dynamic>?)
-          ?.map((e) => PersonLink.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => PersonLink.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       managingOrganization: json['managingOrganization'] != null
           ? Reference.fromJson(
-              json['managingOrganization'] as Map<String, dynamic>)
+              (json['managingOrganization'] as Map).cast<String, dynamic>())
           : null,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: (json['name'] as List<dynamic>?)
-          ?.map((e) => HumanName.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => HumanName.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       photo: json['photo'] != null
-          ? Attachment.fromJson(json['photo'] as Map<String, dynamic>)
+          ? Attachment.fromJson((json['photo'] as Map).cast<String, dynamic>())
           : null,
       telecom: (json['telecom'] as List<dynamic>?)
-          ?.map((e) => ContactPoint.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactPoint.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

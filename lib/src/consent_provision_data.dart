@@ -21,14 +21,15 @@ class ConsentProvisionData extends BackboneElement implements FhirResource {
   factory ConsentProvisionData.fromJson(Map<String, dynamic> json) {
     return ConsentProvisionData(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       meaning: json['meaning'] as String,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      reference: Reference.fromJson(json['reference'] as Map<String, dynamic>),
+      reference: Reference.fromJson(
+          (json['reference'] as Map).cast<String, dynamic>()),
     );
   }
 

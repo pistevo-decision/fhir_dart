@@ -23,15 +23,17 @@ class MeasureReportGroupStratifierStratumComponent extends BackboneElement
   factory MeasureReportGroupStratifierStratumComponent.fromJson(
       Map<String, dynamic> json) {
     return MeasureReportGroupStratifierStratumComponent(
-      code: CodeableConcept.fromJson(json['code'] as Map<String, dynamic>),
+      code: CodeableConcept.fromJson(
+          (json['code'] as Map).cast<String, dynamic>()),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      value: CodeableConcept.fromJson(json['value'] as Map<String, dynamic>),
+      value: CodeableConcept.fromJson(
+          (json['value'] as Map).cast<String, dynamic>()),
     );
   }
 

@@ -50,35 +50,36 @@ class DocumentReferenceContext extends BackboneElement implements FhirResource {
   factory DocumentReferenceContext.fromJson(Map<String, dynamic> json) {
     return DocumentReferenceContext(
       encounter: (json['encounter'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       event: (json['event'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       facilityType: json['facilityType'] != null
           ? CodeableConcept.fromJson(
-              json['facilityType'] as Map<String, dynamic>)
+              (json['facilityType'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       period: json['period'] != null
-          ? Period.fromJson(json['period'] as Map<String, dynamic>)
+          ? Period.fromJson((json['period'] as Map).cast<String, dynamic>())
           : null,
       practiceSetting: json['practiceSetting'] != null
           ? CodeableConcept.fromJson(
-              json['practiceSetting'] as Map<String, dynamic>)
+              (json['practiceSetting'] as Map).cast<String, dynamic>())
           : null,
       related: (json['related'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       sourcePatientInfo: json['sourcePatientInfo'] != null
           ? Reference.fromJson(
-              json['sourcePatientInfo'] as Map<String, dynamic>)
+              (json['sourcePatientInfo'] as Map).cast<String, dynamic>())
           : null,
     );
   }

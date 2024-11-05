@@ -32,18 +32,19 @@ class InsurancePlanPlanGeneralCost extends BackboneElement
     return InsurancePlanPlanGeneralCost(
       comment: json['comment'] as String?,
       cost: json['cost'] != null
-          ? Money.fromJson(json['cost'] as Map<String, dynamic>)
+          ? Money.fromJson((json['cost'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       groupSize: json['groupSize'] as int?,
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

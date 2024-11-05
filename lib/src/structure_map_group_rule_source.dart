@@ -360,18 +360,19 @@ class StructureMapGroupRuleSource extends BackboneElement
       context: json['context'] as String,
       defaultValueAddress: json['defaultValueAddress'] != null
           ? Address.fromJson(
-              json['defaultValueAddress'] as Map<String, dynamic>)
+              (json['defaultValueAddress'] as Map).cast<String, dynamic>())
           : null,
       defaultValueAge: json['defaultValueAge'] != null
-          ? Age.fromJson(json['defaultValueAge'] as Map<String, dynamic>)
+          ? Age.fromJson(
+              (json['defaultValueAge'] as Map).cast<String, dynamic>())
           : null,
       defaultValueAnnotation: json['defaultValueAnnotation'] != null
           ? Annotation.fromJson(
-              json['defaultValueAnnotation'] as Map<String, dynamic>)
+              (json['defaultValueAnnotation'] as Map).cast<String, dynamic>())
           : null,
       defaultValueAttachment: json['defaultValueAttachment'] != null
           ? Attachment.fromJson(
-              json['defaultValueAttachment'] as Map<String, dynamic>)
+              (json['defaultValueAttachment'] as Map).cast<String, dynamic>())
           : null,
       defaultValueBase64Binary: json['defaultValueBase64Binary'] as String?,
       defaultValueBoolean: json['defaultValueBoolean'] as bool?,
@@ -379,124 +380,137 @@ class StructureMapGroupRuleSource extends BackboneElement
       defaultValueCode: json['defaultValueCode'] as String?,
       defaultValueCodeableConcept: json['defaultValueCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['defaultValueCodeableConcept'] as Map<String, dynamic>)
+              (json['defaultValueCodeableConcept'] as Map)
+                  .cast<String, dynamic>())
           : null,
       defaultValueCoding: json['defaultValueCoding'] != null
-          ? Coding.fromJson(json['defaultValueCoding'] as Map<String, dynamic>)
+          ? Coding.fromJson(
+              (json['defaultValueCoding'] as Map).cast<String, dynamic>())
           : null,
       defaultValueContactDetail: json['defaultValueContactDetail'] != null
-          ? ContactDetail.fromJson(
-              json['defaultValueContactDetail'] as Map<String, dynamic>)
+          ? ContactDetail.fromJson((json['defaultValueContactDetail'] as Map)
+              .cast<String, dynamic>())
           : null,
       defaultValueContactPoint: json['defaultValueContactPoint'] != null
           ? ContactPoint.fromJson(
-              json['defaultValueContactPoint'] as Map<String, dynamic>)
+              (json['defaultValueContactPoint'] as Map).cast<String, dynamic>())
           : null,
       defaultValueContributor: json['defaultValueContributor'] != null
           ? Contributor.fromJson(
-              json['defaultValueContributor'] as Map<String, dynamic>)
+              (json['defaultValueContributor'] as Map).cast<String, dynamic>())
           : null,
       defaultValueCount: json['defaultValueCount'] != null
-          ? Count.fromJson(json['defaultValueCount'] as Map<String, dynamic>)
+          ? Count.fromJson(
+              (json['defaultValueCount'] as Map).cast<String, dynamic>())
           : null,
       defaultValueDataRequirement: json['defaultValueDataRequirement'] != null
           ? DataRequirement.fromJson(
-              json['defaultValueDataRequirement'] as Map<String, dynamic>)
+              (json['defaultValueDataRequirement'] as Map)
+                  .cast<String, dynamic>())
           : null,
       defaultValueDate: json['defaultValueDate'] as String?,
       defaultValueDateTime: json['defaultValueDateTime'] as String?,
       defaultValueDecimal: json['defaultValueDecimal'] as num?,
       defaultValueDistance: json['defaultValueDistance'] != null
           ? Distance.fromJson(
-              json['defaultValueDistance'] as Map<String, dynamic>)
+              (json['defaultValueDistance'] as Map).cast<String, dynamic>())
           : null,
       defaultValueDosage: json['defaultValueDosage'] != null
-          ? Dosage.fromJson(json['defaultValueDosage'] as Map<String, dynamic>)
+          ? Dosage.fromJson(
+              (json['defaultValueDosage'] as Map).cast<String, dynamic>())
           : null,
       defaultValueDuration: json['defaultValueDuration'] != null
           ? Duration.fromJson(
-              json['defaultValueDuration'] as Map<String, dynamic>)
+              (json['defaultValueDuration'] as Map).cast<String, dynamic>())
           : null,
       defaultValueExpression: json['defaultValueExpression'] != null
           ? Expression.fromJson(
-              json['defaultValueExpression'] as Map<String, dynamic>)
+              (json['defaultValueExpression'] as Map).cast<String, dynamic>())
           : null,
       defaultValueHumanName: json['defaultValueHumanName'] != null
           ? HumanName.fromJson(
-              json['defaultValueHumanName'] as Map<String, dynamic>)
+              (json['defaultValueHumanName'] as Map).cast<String, dynamic>())
           : null,
       defaultValueId: json['defaultValueId'] as String?,
       defaultValueIdentifier: json['defaultValueIdentifier'] != null
           ? Identifier.fromJson(
-              json['defaultValueIdentifier'] as Map<String, dynamic>)
+              (json['defaultValueIdentifier'] as Map).cast<String, dynamic>())
           : null,
       defaultValueInstant: json['defaultValueInstant'] as String?,
       defaultValueInteger: json['defaultValueInteger'] as int?,
       defaultValueMarkdown: json['defaultValueMarkdown'] as String?,
       defaultValueMeta: json['defaultValueMeta'] != null
-          ? Meta.fromJson(json['defaultValueMeta'] as Map<String, dynamic>)
+          ? Meta.fromJson(
+              (json['defaultValueMeta'] as Map).cast<String, dynamic>())
           : null,
       defaultValueMoney: json['defaultValueMoney'] != null
-          ? Money.fromJson(json['defaultValueMoney'] as Map<String, dynamic>)
+          ? Money.fromJson(
+              (json['defaultValueMoney'] as Map).cast<String, dynamic>())
           : null,
       defaultValueOid: json['defaultValueOid'] as String?,
       defaultValueParameterDefinition:
           json['defaultValueParameterDefinition'] != null
               ? ParameterDefinition.fromJson(
-                  json['defaultValueParameterDefinition']
-                      as Map<String, dynamic>)
+                  (json['defaultValueParameterDefinition'] as Map)
+                      .cast<String, dynamic>())
               : null,
       defaultValuePeriod: json['defaultValuePeriod'] != null
-          ? Period.fromJson(json['defaultValuePeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['defaultValuePeriod'] as Map).cast<String, dynamic>())
           : null,
       defaultValuePositiveInt: json['defaultValuePositiveInt'] as int?,
       defaultValueQuantity: json['defaultValueQuantity'] != null
           ? Quantity.fromJson(
-              json['defaultValueQuantity'] as Map<String, dynamic>)
+              (json['defaultValueQuantity'] as Map).cast<String, dynamic>())
           : null,
       defaultValueRange: json['defaultValueRange'] != null
-          ? Range.fromJson(json['defaultValueRange'] as Map<String, dynamic>)
+          ? Range.fromJson(
+              (json['defaultValueRange'] as Map).cast<String, dynamic>())
           : null,
       defaultValueRatio: json['defaultValueRatio'] != null
-          ? Ratio.fromJson(json['defaultValueRatio'] as Map<String, dynamic>)
+          ? Ratio.fromJson(
+              (json['defaultValueRatio'] as Map).cast<String, dynamic>())
           : null,
       defaultValueReference: json['defaultValueReference'] != null
           ? Reference.fromJson(
-              json['defaultValueReference'] as Map<String, dynamic>)
+              (json['defaultValueReference'] as Map).cast<String, dynamic>())
           : null,
       defaultValueRelatedArtifact: json['defaultValueRelatedArtifact'] != null
           ? RelatedArtifact.fromJson(
-              json['defaultValueRelatedArtifact'] as Map<String, dynamic>)
+              (json['defaultValueRelatedArtifact'] as Map)
+                  .cast<String, dynamic>())
           : null,
       defaultValueSampledData: json['defaultValueSampledData'] != null
           ? SampledData.fromJson(
-              json['defaultValueSampledData'] as Map<String, dynamic>)
+              (json['defaultValueSampledData'] as Map).cast<String, dynamic>())
           : null,
       defaultValueSignature: json['defaultValueSignature'] != null
           ? Signature.fromJson(
-              json['defaultValueSignature'] as Map<String, dynamic>)
+              (json['defaultValueSignature'] as Map).cast<String, dynamic>())
           : null,
       defaultValueString: json['defaultValueString'] as String?,
       defaultValueTime: json['defaultValueTime'] as String?,
       defaultValueTiming: json['defaultValueTiming'] != null
-          ? Timing.fromJson(json['defaultValueTiming'] as Map<String, dynamic>)
+          ? Timing.fromJson(
+              (json['defaultValueTiming'] as Map).cast<String, dynamic>())
           : null,
       defaultValueTriggerDefinition:
           json['defaultValueTriggerDefinition'] != null
               ? TriggerDefinition.fromJson(
-                  json['defaultValueTriggerDefinition'] as Map<String, dynamic>)
+                  (json['defaultValueTriggerDefinition'] as Map)
+                      .cast<String, dynamic>())
               : null,
       defaultValueUnsignedInt: json['defaultValueUnsignedInt'] as int?,
       defaultValueUri: json['defaultValueUri'] as String?,
       defaultValueUrl: json['defaultValueUrl'] as String?,
       defaultValueUsageContext: json['defaultValueUsageContext'] != null
           ? UsageContext.fromJson(
-              json['defaultValueUsageContext'] as Map<String, dynamic>)
+              (json['defaultValueUsageContext'] as Map).cast<String, dynamic>())
           : null,
       defaultValueUuid: json['defaultValueUuid'] as String?,
       element: json['element'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       listMode: json['listMode'] as String?,
@@ -504,7 +518,7 @@ class StructureMapGroupRuleSource extends BackboneElement
       max: json['max'] as String?,
       min: json['min'] as int?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       type: json['type'] as String?,
       variable: json['variable'] as String?,

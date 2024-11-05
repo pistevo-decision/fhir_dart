@@ -180,14 +180,15 @@ class StructureDefinition extends DomainResource implements FhirResource {
       fhirAbstract: json['abstract'] as bool,
       baseDefinition: json['baseDefinition'] as String?,
       contact: (json['contact'] as List<dynamic>?)
-          ?.map((e) => ContactDetail.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactDetail.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       context: (json['context'] as List<dynamic>?)
-          ?.map((e) =>
-              StructureDefinitionContext.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => StructureDefinitionContext.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       contextInvariant: (json['contextInvariant'] as List<dynamic>?)
           ?.map((e) => e as String)
@@ -198,52 +199,54 @@ class StructureDefinition extends DomainResource implements FhirResource {
       description: json['description'] as String?,
       differential: json['differential'] != null
           ? StructureDefinitionDifferential.fromJson(
-              json['differential'] as Map<String, dynamic>)
+              (json['differential'] as Map).cast<String, dynamic>())
           : null,
       experimental: json['experimental'] as bool?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirVersion: json['fhirVersion'] as String?,
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       jurisdiction: (json['jurisdiction'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       keyword: (json['keyword'] as List<dynamic>?)
-          ?.map((e) => Coding.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Coding.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       kind: json['kind'] as String,
       language: json['language'] as String?,
       mapping: (json['mapping'] as List<dynamic>?)
-          ?.map((e) =>
-              StructureDefinitionMapping.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => StructureDefinitionMapping.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String,
       publisher: json['publisher'] as String?,
       purpose: json['purpose'] as String?,
       snapshot: json['snapshot'] != null
           ? StructureDefinitionSnapshot.fromJson(
-              json['snapshot'] as Map<String, dynamic>)
+              (json['snapshot'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       title: json['title'] as String?,
       type: json['type'] as String,
       url: json['url'] as String,
       useContext: (json['useContext'] as List<dynamic>?)
-          ?.map((e) => UsageContext.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => UsageContext.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       version: json['version'] as String?,
     );

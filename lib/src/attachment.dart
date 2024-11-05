@@ -59,7 +59,7 @@ class Attachment extends Element implements FhirResource {
       creation: json['creation'] as String?,
       data: json['data'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       hash: json['hash'] as String?,
       id: json['id'] as String?,

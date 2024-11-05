@@ -66,7 +66,7 @@ class ImplementationGuideDefinitionResource extends BackboneElement
       exampleBoolean: json['exampleBoolean'] as bool?,
       exampleCanonical: json['exampleCanonical'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirVersion: (json['fhirVersion'] as List<dynamic>?)
           ?.map((e) => e as String)
@@ -74,10 +74,11 @@ class ImplementationGuideDefinitionResource extends BackboneElement
       groupingId: json['groupingId'] as String?,
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String?,
-      reference: Reference.fromJson(json['reference'] as Map<String, dynamic>),
+      reference: Reference.fromJson(
+          (json['reference'] as Map).cast<String, dynamic>()),
     );
   }
 

@@ -23,17 +23,18 @@ class NutritionOrderOralDietNutrient extends BackboneElement
   factory NutritionOrderOralDietNutrient.fromJson(Map<String, dynamic> json) {
     return NutritionOrderOralDietNutrient(
       amount: json['amount'] != null
-          ? Quantity.fromJson(json['amount'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['amount'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifier: json['modifier'] != null
-          ? CodeableConcept.fromJson(json['modifier'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['modifier'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

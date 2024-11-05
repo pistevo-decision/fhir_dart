@@ -24,12 +24,12 @@ class MessageDefinitionAllowedResponse extends BackboneElement
   factory MessageDefinitionAllowedResponse.fromJson(Map<String, dynamic> json) {
     return MessageDefinitionAllowedResponse(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       message: json['message'] as String,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       situation: json['situation'] as String?,
     );

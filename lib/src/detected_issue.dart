@@ -84,53 +84,55 @@ class DetectedIssue extends DomainResource implements FhirResource {
   factory DetectedIssue.fromJson(Map<String, dynamic> json) {
     return DetectedIssue(
       author: json['author'] != null
-          ? Reference.fromJson(json['author'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['author'] as Map).cast<String, dynamic>())
           : null,
       code: json['code'] != null
-          ? CodeableConcept.fromJson(json['code'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['code'] as Map).cast<String, dynamic>())
           : null,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       detail: json['detail'] as String?,
       evidence: (json['evidence'] as List<dynamic>?)
-          ?.map(
-              (e) => DetectedIssueEvidence.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => DetectedIssueEvidence.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifiedDateTime: json['identifiedDateTime'] as String?,
       identifiedPeriod: json['identifiedPeriod'] != null
-          ? Period.fromJson(json['identifiedPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['identifiedPeriod'] as Map).cast<String, dynamic>())
           : null,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicated: (json['implicated'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       mitigation: (json['mitigation'] as List<dynamic>?)
-          ?.map((e) =>
-              DetectedIssueMitigation.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => DetectedIssueMitigation.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       patient: json['patient'] != null
-          ? Reference.fromJson(json['patient'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['patient'] as Map).cast<String, dynamic>())
           : null,
       reference: json['reference'] as String?,
       severity: json['severity'] as String?,
       status: json['status'] as String,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

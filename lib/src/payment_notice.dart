@@ -80,48 +80,52 @@ class PaymentNotice extends DomainResource implements FhirResource {
   @override
   factory PaymentNotice.fromJson(Map<String, dynamic> json) {
     return PaymentNotice(
-      amount: Money.fromJson(json['amount'] as Map<String, dynamic>),
+      amount: Money.fromJson((json['amount'] as Map).cast<String, dynamic>()),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       created: json['created'] as String,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       payee: json['payee'] != null
-          ? Reference.fromJson(json['payee'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['payee'] as Map).cast<String, dynamic>())
           : null,
-      payment: Reference.fromJson(json['payment'] as Map<String, dynamic>),
+      payment:
+          Reference.fromJson((json['payment'] as Map).cast<String, dynamic>()),
       paymentDate: json['paymentDate'] as String?,
       paymentStatus: json['paymentStatus'] != null
           ? CodeableConcept.fromJson(
-              json['paymentStatus'] as Map<String, dynamic>)
+              (json['paymentStatus'] as Map).cast<String, dynamic>())
           : null,
       provider: json['provider'] != null
-          ? Reference.fromJson(json['provider'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['provider'] as Map).cast<String, dynamic>())
           : null,
-      recipient: Reference.fromJson(json['recipient'] as Map<String, dynamic>),
+      recipient: Reference.fromJson(
+          (json['recipient'] as Map).cast<String, dynamic>()),
       request: json['request'] != null
-          ? Reference.fromJson(json['request'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['request'] as Map).cast<String, dynamic>())
           : null,
       response: json['response'] != null
-          ? Reference.fromJson(json['response'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['response'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

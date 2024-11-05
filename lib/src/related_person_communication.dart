@@ -25,13 +25,13 @@ class RelatedPersonCommunication extends BackboneElement
   factory RelatedPersonCommunication.fromJson(Map<String, dynamic> json) {
     return RelatedPersonCommunication(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
-      language:
-          CodeableConcept.fromJson(json['language'] as Map<String, dynamic>),
+      language: CodeableConcept.fromJson(
+          (json['language'] as Map).cast<String, dynamic>()),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       preferred: json['preferred'] as bool?,
     );

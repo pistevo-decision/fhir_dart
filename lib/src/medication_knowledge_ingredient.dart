@@ -33,22 +33,23 @@ class MedicationKnowledgeIngredient extends BackboneElement
   factory MedicationKnowledgeIngredient.fromJson(Map<String, dynamic> json) {
     return MedicationKnowledgeIngredient(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       isActive: json['isActive'] as bool?,
       itemCodeableConcept: json['itemCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['itemCodeableConcept'] as Map<String, dynamic>)
+              (json['itemCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       itemReference: json['itemReference'] != null
-          ? Reference.fromJson(json['itemReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['itemReference'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       strength: json['strength'] != null
-          ? Ratio.fromJson(json['strength'] as Map<String, dynamic>)
+          ? Ratio.fromJson((json['strength'] as Map).cast<String, dynamic>())
           : null,
     );
   }

@@ -120,18 +120,20 @@ class CarePlanActivityDetail extends BackboneElement implements FhirResource {
   factory CarePlanActivityDetail.fromJson(Map<String, dynamic> json) {
     return CarePlanActivityDetail(
       code: json['code'] != null
-          ? CodeableConcept.fromJson(json['code'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['code'] as Map).cast<String, dynamic>())
           : null,
       dailyAmount: json['dailyAmount'] != null
-          ? Quantity.fromJson(json['dailyAmount'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['dailyAmount'] as Map).cast<String, dynamic>())
           : null,
       description: json['description'] as String?,
       doNotPerform: json['doNotPerform'] as bool?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       goal: (json['goal'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       instantiatesCanonical: (json['instantiatesCanonical'] as List<dynamic>?)
@@ -142,41 +144,46 @@ class CarePlanActivityDetail extends BackboneElement implements FhirResource {
           .toList(),
       kind: json['kind'] as String?,
       location: json['location'] != null
-          ? Reference.fromJson(json['location'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['location'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       performer: (json['performer'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       productCodeableConcept: json['productCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['productCodeableConcept'] as Map<String, dynamic>)
+              (json['productCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       productReference: json['productReference'] != null
-          ? Reference.fromJson(json['productReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['productReference'] as Map).cast<String, dynamic>())
           : null,
       quantity: json['quantity'] != null
-          ? Quantity.fromJson(json['quantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['quantity'] as Map).cast<String, dynamic>())
           : null,
       reasonCode: (json['reasonCode'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reasonReference: (json['reasonReference'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       scheduledPeriod: json['scheduledPeriod'] != null
-          ? Period.fromJson(json['scheduledPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['scheduledPeriod'] as Map).cast<String, dynamic>())
           : null,
       scheduledString: json['scheduledString'] as String?,
       scheduledTiming: json['scheduledTiming'] != null
-          ? Timing.fromJson(json['scheduledTiming'] as Map<String, dynamic>)
+          ? Timing.fromJson(
+              (json['scheduledTiming'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String,
       statusReason: json['statusReason'] != null
           ? CodeableConcept.fromJson(
-              json['statusReason'] as Map<String, dynamic>)
+              (json['statusReason'] as Map).cast<String, dynamic>())
           : null,
     );
   }

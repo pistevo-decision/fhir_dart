@@ -27,16 +27,16 @@ class AccountGuarantor extends BackboneElement implements FhirResource {
   factory AccountGuarantor.fromJson(Map<String, dynamic> json) {
     return AccountGuarantor(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       onHold: json['onHold'] as bool?,
-      party: Reference.fromJson(json['party'] as Map<String, dynamic>),
+      party: Reference.fromJson((json['party'] as Map).cast<String, dynamic>()),
       period: json['period'] != null
-          ? Period.fromJson(json['period'] as Map<String, dynamic>)
+          ? Period.fromJson((json['period'] as Map).cast<String, dynamic>())
           : null,
     );
   }

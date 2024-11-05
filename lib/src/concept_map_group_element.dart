@@ -32,15 +32,15 @@ class ConceptMapGroupElement extends BackboneElement implements FhirResource {
       code: json['code'] as String?,
       display: json['display'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       target: (json['target'] as List<dynamic>?)
-          ?.map((e) =>
-              ConceptMapGroupElementTarget.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ConceptMapGroupElementTarget.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

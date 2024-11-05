@@ -73,42 +73,46 @@ class ConsentProvision extends BackboneElement implements FhirResource {
   factory ConsentProvision.fromJson(Map<String, dynamic> json) {
     return ConsentProvision(
       action: (json['action'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       actor: (json['actor'] as List<dynamic>?)
-          ?.map(
-              (e) => ConsentProvisionActor.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ConsentProvisionActor.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirClass: (json['class'] as List<dynamic>?)
-          ?.map((e) => Coding.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Coding.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       code: (json['code'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       data: (json['data'] as List<dynamic>?)
-          ?.map((e) => ConsentProvisionData.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              ConsentProvisionData.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       dataPeriod: json['dataPeriod'] != null
-          ? Period.fromJson(json['dataPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson((json['dataPeriod'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       period: json['period'] != null
-          ? Period.fromJson(json['period'] as Map<String, dynamic>)
+          ? Period.fromJson((json['period'] as Map).cast<String, dynamic>())
           : null,
       provision: (json['provision'] as List<dynamic>?)
-          ?.map((e) => ConsentProvision.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              ConsentProvision.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       purpose: (json['purpose'] as List<dynamic>?)
-          ?.map((e) => Coding.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Coding.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       securityLabel: (json['securityLabel'] as List<dynamic>?)
-          ?.map((e) => Coding.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Coding.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       type: json['type'] as String?,
     );

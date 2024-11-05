@@ -26,18 +26,18 @@ class VerificationResultValidator extends BackboneElement
     return VerificationResultValidator(
       attestationSignature: json['attestationSignature'] != null
           ? Signature.fromJson(
-              json['attestationSignature'] as Map<String, dynamic>)
+              (json['attestationSignature'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identityCertificate: json['identityCertificate'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      organization:
-          Reference.fromJson(json['organization'] as Map<String, dynamic>),
+      organization: Reference.fromJson(
+          (json['organization'] as Map).cast<String, dynamic>()),
     );
   }
 

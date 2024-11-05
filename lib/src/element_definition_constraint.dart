@@ -53,7 +53,7 @@ class ElementDefinitionConstraint extends Element implements FhirResource {
     return ElementDefinitionConstraint(
       expression: json['expression'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       human: json['human'] as String,
       id: json['id'] as String?,

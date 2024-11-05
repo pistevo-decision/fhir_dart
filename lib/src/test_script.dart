@@ -155,74 +155,83 @@ class TestScript extends DomainResource implements FhirResource {
   factory TestScript.fromJson(Map<String, dynamic> json) {
     return TestScript(
       contact: (json['contact'] as List<dynamic>?)
-          ?.map((e) => ContactDetail.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactDetail.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       copyright: json['copyright'] as String?,
       date: json['date'] as String?,
       description: json['description'] as String?,
       destination: (json['destination'] as List<dynamic>?)
-          ?.map(
-              (e) => TestScriptDestination.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => TestScriptDestination.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       experimental: json['experimental'] as bool?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fixture: (json['fixture'] as List<dynamic>?)
-          ?.map((e) => TestScriptFixture.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              TestScriptFixture.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: json['identifier'] != null
-          ? Identifier.fromJson(json['identifier'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['identifier'] as Map).cast<String, dynamic>())
           : null,
       implicitRules: json['implicitRules'] as String?,
       jurisdiction: (json['jurisdiction'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       metadata: json['metadata'] != null
           ? TestScriptMetadata.fromJson(
-              json['metadata'] as Map<String, dynamic>)
+              (json['metadata'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String,
       origin: (json['origin'] as List<dynamic>?)
-          ?.map((e) => TestScriptOrigin.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              TestScriptOrigin.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       profile: (json['profile'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       publisher: json['publisher'] as String?,
       purpose: json['purpose'] as String?,
       setup: json['setup'] != null
-          ? TestScriptSetup.fromJson(json['setup'] as Map<String, dynamic>)
+          ? TestScriptSetup.fromJson(
+              (json['setup'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String,
       teardown: json['teardown'] != null
           ? TestScriptTeardown.fromJson(
-              json['teardown'] as Map<String, dynamic>)
+              (json['teardown'] as Map).cast<String, dynamic>())
           : null,
       test: (json['test'] as List<dynamic>?)
-          ?.map((e) => TestScriptTest.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              TestScriptTest.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       title: json['title'] as String?,
       url: json['url'] as String,
       useContext: (json['useContext'] as List<dynamic>?)
-          ?.map((e) => UsageContext.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => UsageContext.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       variable: (json['variable'] as List<dynamic>?)
-          ?.map((e) => TestScriptVariable.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              TestScriptVariable.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       version: json['version'] as String?,
     );

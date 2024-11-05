@@ -100,65 +100,69 @@ class Location extends DomainResource implements FhirResource {
   factory Location.fromJson(Map<String, dynamic> json) {
     return Location(
       address: json['address'] != null
-          ? Address.fromJson(json['address'] as Map<String, dynamic>)
+          ? Address.fromJson((json['address'] as Map).cast<String, dynamic>())
           : null,
       alias:
           (json['alias'] as List<dynamic>?)?.map((e) => e as String).toList(),
       availabilityExceptions: json['availabilityExceptions'] as String?,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       description: json['description'] as String?,
       endpoint: (json['endpoint'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       hoursOfOperation: (json['hoursOfOperation'] as List<dynamic>?)
-          ?.map((e) =>
-              LocationHoursOfOperation.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => LocationHoursOfOperation.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       managingOrganization: json['managingOrganization'] != null
           ? Reference.fromJson(
-              json['managingOrganization'] as Map<String, dynamic>)
+              (json['managingOrganization'] as Map).cast<String, dynamic>())
           : null,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       mode: json['mode'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String?,
       operationalStatus: json['operationalStatus'] != null
-          ? Coding.fromJson(json['operationalStatus'] as Map<String, dynamic>)
+          ? Coding.fromJson(
+              (json['operationalStatus'] as Map).cast<String, dynamic>())
           : null,
       partOf: json['partOf'] != null
-          ? Reference.fromJson(json['partOf'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['partOf'] as Map).cast<String, dynamic>())
           : null,
       physicalType: json['physicalType'] != null
           ? CodeableConcept.fromJson(
-              json['physicalType'] as Map<String, dynamic>)
+              (json['physicalType'] as Map).cast<String, dynamic>())
           : null,
       position: json['position'] != null
-          ? LocationPosition.fromJson(json['position'] as Map<String, dynamic>)
+          ? LocationPosition.fromJson(
+              (json['position'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String?,
       telecom: (json['telecom'] as List<dynamic>?)
-          ?.map((e) => ContactPoint.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactPoint.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       type: (json['type'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

@@ -20,7 +20,7 @@ class Money extends Element implements FhirResource {
     return Money(
       currency: json['currency'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       value: json['value'] as num?,

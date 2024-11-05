@@ -25,11 +25,11 @@ class BundleLink extends BackboneElement implements FhirResource {
   factory BundleLink.fromJson(Map<String, dynamic> json) {
     return BundleLink(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       relation: json['relation'] as String,
       url: json['url'] as String,

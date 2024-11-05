@@ -33,28 +33,30 @@ class SubstanceSpecificationStructureIsotope extends BackboneElement
       Map<String, dynamic> json) {
     return SubstanceSpecificationStructureIsotope(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       halfLife: json['halfLife'] != null
-          ? Quantity.fromJson(json['halfLife'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['halfLife'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       identifier: json['identifier'] != null
-          ? Identifier.fromJson(json['identifier'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['identifier'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       molecularWeight: json['molecularWeight'] != null
           ? SubstanceSpecificationStructureIsotopeMolecularWeight.fromJson(
-              json['molecularWeight'] as Map<String, dynamic>)
+              (json['molecularWeight'] as Map).cast<String, dynamic>())
           : null,
       name: json['name'] != null
-          ? CodeableConcept.fromJson(json['name'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['name'] as Map).cast<String, dynamic>())
           : null,
       substitution: json['substitution'] != null
           ? CodeableConcept.fromJson(
-              json['substitution'] as Map<String, dynamic>)
+              (json['substitution'] as Map).cast<String, dynamic>())
           : null,
     );
   }

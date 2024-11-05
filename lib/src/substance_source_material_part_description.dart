@@ -21,18 +21,19 @@ class SubstanceSourceMaterialPartDescription extends BackboneElement
       Map<String, dynamic> json) {
     return SubstanceSourceMaterialPartDescription(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirPart: json['part'] != null
-          ? CodeableConcept.fromJson(json['part'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['part'] as Map).cast<String, dynamic>())
           : null,
       partLocation: json['partLocation'] != null
           ? CodeableConcept.fromJson(
-              json['partLocation'] as Map<String, dynamic>)
+              (json['partLocation'] as Map).cast<String, dynamic>())
           : null,
     );
   }

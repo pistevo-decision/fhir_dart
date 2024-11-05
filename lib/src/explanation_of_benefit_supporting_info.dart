@@ -77,35 +77,40 @@ class ExplanationOfBenefitSupportingInfo extends BackboneElement
   factory ExplanationOfBenefitSupportingInfo.fromJson(
       Map<String, dynamic> json) {
     return ExplanationOfBenefitSupportingInfo(
-      category:
-          CodeableConcept.fromJson(json['category'] as Map<String, dynamic>),
+      category: CodeableConcept.fromJson(
+          (json['category'] as Map).cast<String, dynamic>()),
       code: json['code'] != null
-          ? CodeableConcept.fromJson(json['code'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['code'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reason: json['reason'] != null
-          ? Coding.fromJson(json['reason'] as Map<String, dynamic>)
+          ? Coding.fromJson((json['reason'] as Map).cast<String, dynamic>())
           : null,
       sequence: json['sequence'] as int,
       timingDate: json['timingDate'] as String?,
       timingPeriod: json['timingPeriod'] != null
-          ? Period.fromJson(json['timingPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['timingPeriod'] as Map).cast<String, dynamic>())
           : null,
       valueAttachment: json['valueAttachment'] != null
-          ? Attachment.fromJson(json['valueAttachment'] as Map<String, dynamic>)
+          ? Attachment.fromJson(
+              (json['valueAttachment'] as Map).cast<String, dynamic>())
           : null,
       valueBoolean: json['valueBoolean'] as bool?,
       valueQuantity: json['valueQuantity'] != null
-          ? Quantity.fromJson(json['valueQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['valueQuantity'] as Map).cast<String, dynamic>())
           : null,
       valueReference: json['valueReference'] != null
-          ? Reference.fromJson(json['valueReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['valueReference'] as Map).cast<String, dynamic>())
           : null,
       valueString: json['valueString'] as String?,
     );

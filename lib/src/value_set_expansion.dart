@@ -49,21 +49,21 @@ class ValueSetExpansion extends BackboneElement implements FhirResource {
   factory ValueSetExpansion.fromJson(Map<String, dynamic> json) {
     return ValueSetExpansion(
       contains: (json['contains'] as List<dynamic>?)
-          ?.map((e) =>
-              ValueSetExpansionContains.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ValueSetExpansionContains.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: json['identifier'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       offset: json['offset'] as int?,
       parameter: (json['parameter'] as List<dynamic>?)
-          ?.map((e) =>
-              ValueSetExpansionParameter.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ValueSetExpansionParameter.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       timestamp: json['timestamp'] as String,
       total: json['total'] as int?,

@@ -42,39 +42,39 @@ class MedicinalProductUndesirableEffect extends DomainResource
     return MedicinalProductUndesirableEffect(
       classification: json['classification'] != null
           ? CodeableConcept.fromJson(
-              json['classification'] as Map<String, dynamic>)
+              (json['classification'] as Map).cast<String, dynamic>())
           : null,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       frequencyOfOccurrence: json['frequencyOfOccurrence'] != null
           ? CodeableConcept.fromJson(
-              json['frequencyOfOccurrence'] as Map<String, dynamic>)
+              (json['frequencyOfOccurrence'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       population: (json['population'] as List<dynamic>?)
-          ?.map((e) => Population.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Population.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       subject: (json['subject'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       symptomConditionEffect: json['symptomConditionEffect'] != null
           ? CodeableConcept.fromJson(
-              json['symptomConditionEffect'] as Map<String, dynamic>)
+              (json['symptomConditionEffect'] as Map).cast<String, dynamic>())
           : null,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

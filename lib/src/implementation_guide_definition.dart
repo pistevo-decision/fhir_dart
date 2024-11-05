@@ -39,31 +39,31 @@ class ImplementationGuideDefinition extends BackboneElement
   factory ImplementationGuideDefinition.fromJson(Map<String, dynamic> json) {
     return ImplementationGuideDefinition(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       grouping: (json['grouping'] as List<dynamic>?)
           ?.map((e) => ImplementationGuideDefinitionGrouping.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       page: json['page'] != null
           ? ImplementationGuideDefinitionPage.fromJson(
-              json['page'] as Map<String, dynamic>)
+              (json['page'] as Map).cast<String, dynamic>())
           : null,
       parameter: (json['parameter'] as List<dynamic>?)
           ?.map((e) => ImplementationGuideDefinitionParameter.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       resource: (json['resource'] as List<dynamic>)
           .map((e) => ImplementationGuideDefinitionResource.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       template: (json['template'] as List<dynamic>?)
           ?.map((e) => ImplementationGuideDefinitionTemplate.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

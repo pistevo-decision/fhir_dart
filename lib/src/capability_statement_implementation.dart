@@ -29,15 +29,16 @@ class CapabilityStatementImplementation extends BackboneElement
       Map<String, dynamic> json) {
     return CapabilityStatementImplementation(
       custodian: json['custodian'] != null
-          ? Reference.fromJson(json['custodian'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['custodian'] as Map).cast<String, dynamic>())
           : null,
       description: json['description'] as String,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       url: json['url'] as String?,
     );

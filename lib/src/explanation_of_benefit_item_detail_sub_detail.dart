@@ -86,44 +86,48 @@ class ExplanationOfBenefitItemDetailSubDetail extends BackboneElement
     return ExplanationOfBenefitItemDetailSubDetail(
       adjudication: (json['adjudication'] as List<dynamic>?)
           ?.map((e) => ExplanationOfBenefitItemAdjudication.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       category: json['category'] != null
-          ? CodeableConcept.fromJson(json['category'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['category'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       factor: json['factor'] as num?,
       id: json['id'] as String?,
       modifier: (json['modifier'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       net: json['net'] != null
-          ? Money.fromJson(json['net'] as Map<String, dynamic>)
+          ? Money.fromJson((json['net'] as Map).cast<String, dynamic>())
           : null,
       noteNumber:
           (json['noteNumber'] as List<dynamic>?)?.map((e) => e as int).toList(),
       productOrService: CodeableConcept.fromJson(
-          json['productOrService'] as Map<String, dynamic>),
+          (json['productOrService'] as Map).cast<String, dynamic>()),
       programCode: (json['programCode'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       quantity: json['quantity'] != null
-          ? Quantity.fromJson(json['quantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['quantity'] as Map).cast<String, dynamic>())
           : null,
       revenue: json['revenue'] != null
-          ? CodeableConcept.fromJson(json['revenue'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['revenue'] as Map).cast<String, dynamic>())
           : null,
       sequence: json['sequence'] as int,
       udi: (json['udi'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       unitPrice: json['unitPrice'] != null
-          ? Money.fromJson(json['unitPrice'] as Map<String, dynamic>)
+          ? Money.fromJson((json['unitPrice'] as Map).cast<String, dynamic>())
           : null,
     );
   }

@@ -24,14 +24,14 @@ class Range extends Element implements FhirResource {
   factory Range.fromJson(Map<String, dynamic> json) {
     return Range(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       high: json['high'] != null
-          ? Quantity.fromJson(json['high'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['high'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       low: json['low'] != null
-          ? Quantity.fromJson(json['low'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['low'] as Map).cast<String, dynamic>())
           : null,
     );
   }

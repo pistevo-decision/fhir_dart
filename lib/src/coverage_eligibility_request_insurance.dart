@@ -31,14 +31,15 @@ class CoverageEligibilityRequestInsurance extends BackboneElement
       Map<String, dynamic> json) {
     return CoverageEligibilityRequestInsurance(
       businessArrangement: json['businessArrangement'] as String?,
-      coverage: Reference.fromJson(json['coverage'] as Map<String, dynamic>),
+      coverage:
+          Reference.fromJson((json['coverage'] as Map).cast<String, dynamic>()),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       focal: json['focal'] as bool?,
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

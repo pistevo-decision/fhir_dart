@@ -29,23 +29,27 @@ class SubstanceSourceMaterialOrganismOrganismGeneral extends BackboneElement
       Map<String, dynamic> json) {
     return SubstanceSourceMaterialOrganismOrganismGeneral(
       fhirClass: json['class'] != null
-          ? CodeableConcept.fromJson(json['class'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['class'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       kingdom: json['kingdom'] != null
-          ? CodeableConcept.fromJson(json['kingdom'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['kingdom'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       order: json['order'] != null
-          ? CodeableConcept.fromJson(json['order'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['order'] as Map).cast<String, dynamic>())
           : null,
       phylum: json['phylum'] != null
-          ? CodeableConcept.fromJson(json['phylum'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['phylum'] as Map).cast<String, dynamic>())
           : null,
     );
   }

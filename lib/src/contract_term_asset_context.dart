@@ -25,17 +25,19 @@ class ContractTermAssetContext extends BackboneElement implements FhirResource {
   factory ContractTermAssetContext.fromJson(Map<String, dynamic> json) {
     return ContractTermAssetContext(
       code: (json['code'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reference: json['reference'] != null
-          ? Reference.fromJson(json['reference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['reference'] as Map).cast<String, dynamic>())
           : null,
       text: json['text'] as String?,
     );

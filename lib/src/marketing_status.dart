@@ -30,22 +30,24 @@ class MarketingStatus extends BackboneElement implements FhirResource {
   @override
   factory MarketingStatus.fromJson(Map<String, dynamic> json) {
     return MarketingStatus(
-      country:
-          CodeableConcept.fromJson(json['country'] as Map<String, dynamic>),
-      dateRange: Period.fromJson(json['dateRange'] as Map<String, dynamic>),
+      country: CodeableConcept.fromJson(
+          (json['country'] as Map).cast<String, dynamic>()),
+      dateRange:
+          Period.fromJson((json['dateRange'] as Map).cast<String, dynamic>()),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       jurisdiction: json['jurisdiction'] != null
           ? CodeableConcept.fromJson(
-              json['jurisdiction'] as Map<String, dynamic>)
+              (json['jurisdiction'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       restoreDate: json['restoreDate'] as String?,
-      status: CodeableConcept.fromJson(json['status'] as Map<String, dynamic>),
+      status: CodeableConcept.fromJson(
+          (json['status'] as Map).cast<String, dynamic>()),
     );
   }
 

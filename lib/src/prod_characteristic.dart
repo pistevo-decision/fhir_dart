@@ -57,38 +57,41 @@ class ProdCharacteristic extends BackboneElement implements FhirResource {
       color:
           (json['color'] as List<dynamic>?)?.map((e) => e as String).toList(),
       depth: json['depth'] != null
-          ? Quantity.fromJson(json['depth'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['depth'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       externalDiameter: json['externalDiameter'] != null
-          ? Quantity.fromJson(json['externalDiameter'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['externalDiameter'] as Map).cast<String, dynamic>())
           : null,
       height: json['height'] != null
-          ? Quantity.fromJson(json['height'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['height'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       image: (json['image'] as List<dynamic>?)
-          ?.map((e) => Attachment.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Attachment.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       imprint:
           (json['imprint'] as List<dynamic>?)?.map((e) => e as String).toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       nominalVolume: json['nominalVolume'] != null
-          ? Quantity.fromJson(json['nominalVolume'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['nominalVolume'] as Map).cast<String, dynamic>())
           : null,
       scoring: json['scoring'] != null
-          ? CodeableConcept.fromJson(json['scoring'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['scoring'] as Map).cast<String, dynamic>())
           : null,
       shape: json['shape'] as String?,
       weight: json['weight'] != null
-          ? Quantity.fromJson(json['weight'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['weight'] as Map).cast<String, dynamic>())
           : null,
       width: json['width'] != null
-          ? Quantity.fromJson(json['width'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['width'] as Map).cast<String, dynamic>())
           : null,
     );
   }

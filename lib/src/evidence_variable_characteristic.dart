@@ -89,54 +89,57 @@ class EvidenceVariableCharacteristic extends BackboneElement
     return EvidenceVariableCharacteristic(
       definitionCanonical: json['definitionCanonical'] as String?,
       definitionCodeableConcept: json['definitionCodeableConcept'] != null
-          ? CodeableConcept.fromJson(
-              json['definitionCodeableConcept'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson((json['definitionCodeableConcept'] as Map)
+              .cast<String, dynamic>())
           : null,
       definitionDataRequirement: json['definitionDataRequirement'] != null
-          ? DataRequirement.fromJson(
-              json['definitionDataRequirement'] as Map<String, dynamic>)
+          ? DataRequirement.fromJson((json['definitionDataRequirement'] as Map)
+              .cast<String, dynamic>())
           : null,
       definitionExpression: json['definitionExpression'] != null
           ? Expression.fromJson(
-              json['definitionExpression'] as Map<String, dynamic>)
+              (json['definitionExpression'] as Map).cast<String, dynamic>())
           : null,
       definitionReference: json['definitionReference'] != null
           ? Reference.fromJson(
-              json['definitionReference'] as Map<String, dynamic>)
+              (json['definitionReference'] as Map).cast<String, dynamic>())
           : null,
       definitionTriggerDefinition: json['definitionTriggerDefinition'] != null
           ? TriggerDefinition.fromJson(
-              json['definitionTriggerDefinition'] as Map<String, dynamic>)
+              (json['definitionTriggerDefinition'] as Map)
+                  .cast<String, dynamic>())
           : null,
       description: json['description'] as String?,
       exclude: json['exclude'] as bool?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       groupMeasure: json['groupMeasure'] as String?,
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       participantEffectiveDateTime:
           json['participantEffectiveDateTime'] as String?,
       participantEffectiveDuration: json['participantEffectiveDuration'] != null
-          ? Duration.fromJson(
-              json['participantEffectiveDuration'] as Map<String, dynamic>)
+          ? Duration.fromJson((json['participantEffectiveDuration'] as Map)
+              .cast<String, dynamic>())
           : null,
       participantEffectivePeriod: json['participantEffectivePeriod'] != null
-          ? Period.fromJson(
-              json['participantEffectivePeriod'] as Map<String, dynamic>)
+          ? Period.fromJson((json['participantEffectivePeriod'] as Map)
+              .cast<String, dynamic>())
           : null,
       participantEffectiveTiming: json['participantEffectiveTiming'] != null
-          ? Timing.fromJson(
-              json['participantEffectiveTiming'] as Map<String, dynamic>)
+          ? Timing.fromJson((json['participantEffectiveTiming'] as Map)
+              .cast<String, dynamic>())
           : null,
       timeFromStart: json['timeFromStart'] != null
-          ? Duration.fromJson(json['timeFromStart'] as Map<String, dynamic>)
+          ? Duration.fromJson(
+              (json['timeFromStart'] as Map).cast<String, dynamic>())
           : null,
       usageContext: (json['usageContext'] as List<dynamic>?)
-          ?.map((e) => UsageContext.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => UsageContext.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

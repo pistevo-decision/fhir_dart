@@ -66,43 +66,47 @@ class CoverageEligibilityRequestItem extends BackboneElement
   factory CoverageEligibilityRequestItem.fromJson(Map<String, dynamic> json) {
     return CoverageEligibilityRequestItem(
       category: json['category'] != null
-          ? CodeableConcept.fromJson(json['category'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['category'] as Map).cast<String, dynamic>())
           : null,
       detail: (json['detail'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       diagnosis: (json['diagnosis'] as List<dynamic>?)
           ?.map((e) => CoverageEligibilityRequestItemDiagnosis.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       facility: json['facility'] != null
-          ? Reference.fromJson(json['facility'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['facility'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       modifier: (json['modifier'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       productOrService: json['productOrService'] != null
           ? CodeableConcept.fromJson(
-              json['productOrService'] as Map<String, dynamic>)
+              (json['productOrService'] as Map).cast<String, dynamic>())
           : null,
       provider: json['provider'] != null
-          ? Reference.fromJson(json['provider'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['provider'] as Map).cast<String, dynamic>())
           : null,
       quantity: json['quantity'] != null
-          ? Quantity.fromJson(json['quantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['quantity'] as Map).cast<String, dynamic>())
           : null,
       supportingInfoSequence: (json['supportingInfoSequence'] as List<dynamic>?)
           ?.map((e) => e as int)
           .toList(),
       unitPrice: json['unitPrice'] != null
-          ? Money.fromJson(json['unitPrice'] as Map<String, dynamic>)
+          ? Money.fromJson((json['unitPrice'] as Map).cast<String, dynamic>())
           : null,
     );
   }

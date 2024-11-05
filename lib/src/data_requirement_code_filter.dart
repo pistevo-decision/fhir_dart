@@ -32,10 +32,10 @@ class DataRequirementCodeFilter extends Element implements FhirResource {
   factory DataRequirementCodeFilter.fromJson(Map<String, dynamic> json) {
     return DataRequirementCodeFilter(
       code: (json['code'] as List<dynamic>?)
-          ?.map((e) => Coding.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Coding.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       path: json['path'] as String?,

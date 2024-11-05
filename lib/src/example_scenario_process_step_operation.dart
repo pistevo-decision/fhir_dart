@@ -54,13 +54,13 @@ class ExampleScenarioProcessStepOperation extends BackboneElement
     return ExampleScenarioProcessStepOperation(
       description: json['description'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       initiator: json['initiator'] as String?,
       initiatorActive: json['initiatorActive'] as bool?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String?,
       number: json['number'] as String,
@@ -68,11 +68,11 @@ class ExampleScenarioProcessStepOperation extends BackboneElement
       receiverActive: json['receiverActive'] as bool?,
       request: json['request'] != null
           ? ExampleScenarioInstanceContainedInstance.fromJson(
-              json['request'] as Map<String, dynamic>)
+              (json['request'] as Map).cast<String, dynamic>())
           : null,
       response: json['response'] != null
           ? ExampleScenarioInstanceContainedInstance.fromJson(
-              json['response'] as Map<String, dynamic>)
+              (json['response'] as Map).cast<String, dynamic>())
           : null,
       type: json['type'] as String?,
     );

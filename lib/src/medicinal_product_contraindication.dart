@@ -48,45 +48,47 @@ class MedicinalProductContraindication extends DomainResource
   factory MedicinalProductContraindication.fromJson(Map<String, dynamic> json) {
     return MedicinalProductContraindication(
       comorbidity: (json['comorbidity'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       disease: json['disease'] != null
-          ? CodeableConcept.fromJson(json['disease'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['disease'] as Map).cast<String, dynamic>())
           : null,
       diseaseStatus: json['diseaseStatus'] != null
           ? CodeableConcept.fromJson(
-              json['diseaseStatus'] as Map<String, dynamic>)
+              (json['diseaseStatus'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       otherTherapy: (json['otherTherapy'] as List<dynamic>?)
           ?.map((e) => MedicinalProductContraindicationOtherTherapy.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       population: (json['population'] as List<dynamic>?)
-          ?.map((e) => Population.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Population.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       subject: (json['subject'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       therapeuticIndication: (json['therapeuticIndication'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

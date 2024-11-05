@@ -159,45 +159,46 @@ class FamilyMemberHistory extends DomainResource implements FhirResource {
   factory FamilyMemberHistory.fromJson(Map<String, dynamic> json) {
     return FamilyMemberHistory(
       ageAge: json['ageAge'] != null
-          ? Age.fromJson(json['ageAge'] as Map<String, dynamic>)
+          ? Age.fromJson((json['ageAge'] as Map).cast<String, dynamic>())
           : null,
       ageRange: json['ageRange'] != null
-          ? Range.fromJson(json['ageRange'] as Map<String, dynamic>)
+          ? Range.fromJson((json['ageRange'] as Map).cast<String, dynamic>())
           : null,
       ageString: json['ageString'] as String?,
       bornDate: json['bornDate'] as String?,
       bornPeriod: json['bornPeriod'] != null
-          ? Period.fromJson(json['bornPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson((json['bornPeriod'] as Map).cast<String, dynamic>())
           : null,
       bornString: json['bornString'] as String?,
       condition: (json['condition'] as List<dynamic>?)
-          ?.map((e) =>
-              FamilyMemberHistoryCondition.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => FamilyMemberHistoryCondition.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       dataAbsentReason: json['dataAbsentReason'] != null
           ? CodeableConcept.fromJson(
-              json['dataAbsentReason'] as Map<String, dynamic>)
+              (json['dataAbsentReason'] as Map).cast<String, dynamic>())
           : null,
       date: json['date'] as String?,
       deceasedAge: json['deceasedAge'] != null
-          ? Age.fromJson(json['deceasedAge'] as Map<String, dynamic>)
+          ? Age.fromJson((json['deceasedAge'] as Map).cast<String, dynamic>())
           : null,
       deceasedBoolean: json['deceasedBoolean'] as bool?,
       deceasedDate: json['deceasedDate'] as String?,
       deceasedRange: json['deceasedRange'] != null
-          ? Range.fromJson(json['deceasedRange'] as Map<String, dynamic>)
+          ? Range.fromJson(
+              (json['deceasedRange'] as Map).cast<String, dynamic>())
           : null,
       deceasedString: json['deceasedString'] as String?,
       estimatedAge: json['estimatedAge'] as bool?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       instantiatesCanonical: (json['instantiatesCanonical'] as List<dynamic>?)
@@ -208,30 +209,33 @@ class FamilyMemberHistory extends DomainResource implements FhirResource {
           .toList(),
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       name: json['name'] as String?,
       note: (json['note'] as List<dynamic>?)
-          ?.map((e) => Annotation.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Annotation.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      patient: Reference.fromJson(json['patient'] as Map<String, dynamic>),
+      patient:
+          Reference.fromJson((json['patient'] as Map).cast<String, dynamic>()),
       reasonCode: (json['reasonCode'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reasonReference: (json['reasonReference'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       relationship: CodeableConcept.fromJson(
-          json['relationship'] as Map<String, dynamic>),
+          (json['relationship'] as Map).cast<String, dynamic>()),
       sex: json['sex'] != null
-          ? CodeableConcept.fromJson(json['sex'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['sex'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

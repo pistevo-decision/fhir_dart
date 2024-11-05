@@ -57,43 +57,46 @@ class SubstanceSpecificationRelationship extends BackboneElement
       Map<String, dynamic> json) {
     return SubstanceSpecificationRelationship(
       amountQuantity: json['amountQuantity'] != null
-          ? Quantity.fromJson(json['amountQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['amountQuantity'] as Map).cast<String, dynamic>())
           : null,
       amountRange: json['amountRange'] != null
-          ? Range.fromJson(json['amountRange'] as Map<String, dynamic>)
+          ? Range.fromJson((json['amountRange'] as Map).cast<String, dynamic>())
           : null,
       amountRatio: json['amountRatio'] != null
-          ? Ratio.fromJson(json['amountRatio'] as Map<String, dynamic>)
+          ? Ratio.fromJson((json['amountRatio'] as Map).cast<String, dynamic>())
           : null,
       amountString: json['amountString'] as String?,
       amountRatioLowLimit: json['amountRatioLowLimit'] != null
-          ? Ratio.fromJson(json['amountRatioLowLimit'] as Map<String, dynamic>)
+          ? Ratio.fromJson(
+              (json['amountRatioLowLimit'] as Map).cast<String, dynamic>())
           : null,
       amountType: json['amountType'] != null
-          ? CodeableConcept.fromJson(json['amountType'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['amountType'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       isDefining: json['isDefining'] as bool?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       relationship: json['relationship'] != null
           ? CodeableConcept.fromJson(
-              json['relationship'] as Map<String, dynamic>)
+              (json['relationship'] as Map).cast<String, dynamic>())
           : null,
       source: (json['source'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       substanceCodeableConcept: json['substanceCodeableConcept'] != null
           ? CodeableConcept.fromJson(
-              json['substanceCodeableConcept'] as Map<String, dynamic>)
+              (json['substanceCodeableConcept'] as Map).cast<String, dynamic>())
           : null,
       substanceReference: json['substanceReference'] != null
           ? Reference.fromJson(
-              json['substanceReference'] as Map<String, dynamic>)
+              (json['substanceReference'] as Map).cast<String, dynamic>())
           : null,
     );
   }

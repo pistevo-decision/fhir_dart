@@ -51,10 +51,11 @@ class RelatedArtifact extends Element implements FhirResource {
       citation: json['citation'] as String?,
       display: json['display'] as String?,
       document: json['document'] != null
-          ? Attachment.fromJson(json['document'] as Map<String, dynamic>)
+          ? Attachment.fromJson(
+              (json['document'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       label: json['label'] as String?,

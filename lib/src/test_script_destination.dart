@@ -27,14 +27,15 @@ class TestScriptDestination extends BackboneElement implements FhirResource {
   factory TestScriptDestination.fromJson(Map<String, dynamic> json) {
     return TestScriptDestination(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       index: json['index'] as int,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      profile: Coding.fromJson(json['profile'] as Map<String, dynamic>),
+      profile:
+          Coding.fromJson((json['profile'] as Map).cast<String, dynamic>()),
     );
   }
 

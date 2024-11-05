@@ -59,38 +59,40 @@ class EnrollmentResponse extends DomainResource implements FhirResource {
   factory EnrollmentResponse.fromJson(Map<String, dynamic> json) {
     return EnrollmentResponse(
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       created: json['created'] as String?,
       disposition: json['disposition'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       organization: json['organization'] != null
-          ? Reference.fromJson(json['organization'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['organization'] as Map).cast<String, dynamic>())
           : null,
       outcome: json['outcome'] as String?,
       request: json['request'] != null
-          ? Reference.fromJson(json['request'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['request'] as Map).cast<String, dynamic>())
           : null,
       requestProvider: json['requestProvider'] != null
-          ? Reference.fromJson(json['requestProvider'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['requestProvider'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String?,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

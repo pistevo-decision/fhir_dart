@@ -27,17 +27,18 @@ class ProvenanceEntity extends BackboneElement implements FhirResource {
   factory ProvenanceEntity.fromJson(Map<String, dynamic> json) {
     return ProvenanceEntity(
       agent: (json['agent'] as List<dynamic>?)
-          ?.map((e) => ProvenanceAgent.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              ProvenanceAgent.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       role: json['role'] as String,
-      what: Reference.fromJson(json['what'] as Map<String, dynamic>),
+      what: Reference.fromJson((json['what'] as Map).cast<String, dynamic>()),
     );
   }
 

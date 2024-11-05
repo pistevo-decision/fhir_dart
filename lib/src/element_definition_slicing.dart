@@ -37,10 +37,10 @@ class ElementDefinitionSlicing extends Element implements FhirResource {
       description: json['description'] as String?,
       discriminator: (json['discriminator'] as List<dynamic>?)
           ?.map((e) => ElementDefinitionSlicingDiscriminator.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       ordered: json['ordered'] as bool?,

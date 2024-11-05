@@ -36,17 +36,18 @@ class GraphDefinitionLinkTarget extends BackboneElement
     return GraphDefinitionLinkTarget(
       compartment: (json['compartment'] as List<dynamic>?)
           ?.map((e) => GraphDefinitionLinkTargetCompartment.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       link: (json['link'] as List<dynamic>?)
-          ?.map((e) => GraphDefinitionLink.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              GraphDefinitionLink.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       params: json['params'] as String?,
       profile: json['profile'] as String?,

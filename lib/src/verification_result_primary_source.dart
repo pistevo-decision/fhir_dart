@@ -45,31 +45,34 @@ class VerificationResultPrimarySource extends BackboneElement
     return VerificationResultPrimarySource(
       canPushUpdates: json['canPushUpdates'] != null
           ? CodeableConcept.fromJson(
-              json['canPushUpdates'] as Map<String, dynamic>)
+              (json['canPushUpdates'] as Map).cast<String, dynamic>())
           : null,
       communicationMethod: (json['communicationMethod'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       pushTypeAvailable: (json['pushTypeAvailable'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       type: (json['type'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       validationDate: json['validationDate'] as String?,
       validationStatus: json['validationStatus'] != null
           ? CodeableConcept.fromJson(
-              json['validationStatus'] as Map<String, dynamic>)
+              (json['validationStatus'] as Map).cast<String, dynamic>())
           : null,
       who: json['who'] != null
-          ? Reference.fromJson(json['who'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['who'] as Map).cast<String, dynamic>())
           : null,
     );
   }

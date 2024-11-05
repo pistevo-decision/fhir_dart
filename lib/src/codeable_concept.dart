@@ -24,10 +24,10 @@ class CodeableConcept extends Element implements FhirResource {
   factory CodeableConcept.fromJson(Map<String, dynamic> json) {
     return CodeableConcept(
       coding: (json['coding'] as List<dynamic>?)
-          ?.map((e) => Coding.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Coding.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       text: json['text'] as String?,

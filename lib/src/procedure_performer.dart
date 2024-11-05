@@ -26,19 +26,21 @@ class ProcedurePerformer extends BackboneElement implements FhirResource {
   @override
   factory ProcedurePerformer.fromJson(Map<String, dynamic> json) {
     return ProcedurePerformer(
-      actor: Reference.fromJson(json['actor'] as Map<String, dynamic>),
+      actor: Reference.fromJson((json['actor'] as Map).cast<String, dynamic>()),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       function: json['function'] != null
-          ? CodeableConcept.fromJson(json['function'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['function'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       onBehalfOf: json['onBehalfOf'] != null
-          ? Reference.fromJson(json['onBehalfOf'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['onBehalfOf'] as Map).cast<String, dynamic>())
           : null,
     );
   }

@@ -79,60 +79,62 @@ class VerificationResult extends DomainResource implements FhirResource {
     return VerificationResult(
       attestation: json['attestation'] != null
           ? VerificationResultAttestation.fromJson(
-              json['attestation'] as Map<String, dynamic>)
+              (json['attestation'] as Map).cast<String, dynamic>())
           : null,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       failureAction: json['failureAction'] != null
           ? CodeableConcept.fromJson(
-              json['failureAction'] as Map<String, dynamic>)
+              (json['failureAction'] as Map).cast<String, dynamic>())
           : null,
       frequency: json['frequency'] != null
-          ? Timing.fromJson(json['frequency'] as Map<String, dynamic>)
+          ? Timing.fromJson((json['frequency'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       lastPerformed: json['lastPerformed'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       need: json['need'] != null
-          ? CodeableConcept.fromJson(json['need'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['need'] as Map).cast<String, dynamic>())
           : null,
       nextScheduled: json['nextScheduled'] as String?,
       primarySource: (json['primarySource'] as List<dynamic>?)
           ?.map((e) => VerificationResultPrimarySource.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       status: json['status'] as String,
       statusDate: json['statusDate'] as String?,
       target: (json['target'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       targetLocation: (json['targetLocation'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       validationProcess: (json['validationProcess'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       validationType: json['validationType'] != null
           ? CodeableConcept.fromJson(
-              json['validationType'] as Map<String, dynamic>)
+              (json['validationType'] as Map).cast<String, dynamic>())
           : null,
       validator: (json['validator'] as List<dynamic>?)
-          ?.map((e) =>
-              VerificationResultValidator.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => VerificationResultValidator.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

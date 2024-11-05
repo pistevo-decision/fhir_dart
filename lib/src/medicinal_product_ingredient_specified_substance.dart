@@ -28,23 +28,25 @@ class MedicinalProductIngredientSpecifiedSubstance extends BackboneElement
   factory MedicinalProductIngredientSpecifiedSubstance.fromJson(
       Map<String, dynamic> json) {
     return MedicinalProductIngredientSpecifiedSubstance(
-      code: CodeableConcept.fromJson(json['code'] as Map<String, dynamic>),
+      code: CodeableConcept.fromJson(
+          (json['code'] as Map).cast<String, dynamic>()),
       confidentiality: json['confidentiality'] != null
           ? CodeableConcept.fromJson(
-              json['confidentiality'] as Map<String, dynamic>)
+              (json['confidentiality'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      group: CodeableConcept.fromJson(json['group'] as Map<String, dynamic>),
+      group: CodeableConcept.fromJson(
+          (json['group'] as Map).cast<String, dynamic>()),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       strength: (json['strength'] as List<dynamic>?)
           ?.map((e) =>
               MedicinalProductIngredientSpecifiedSubstanceStrength.fromJson(
-                  e as Map<String, dynamic>))
+                  (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

@@ -32,14 +32,15 @@ class ClaimResponseProcessNote extends BackboneElement implements FhirResource {
   factory ClaimResponseProcessNote.fromJson(Map<String, dynamic> json) {
     return ClaimResponseProcessNote(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       language: json['language'] != null
-          ? CodeableConcept.fromJson(json['language'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['language'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       number: json['number'] as int?,
       text: json['text'] as String,

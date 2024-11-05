@@ -24,11 +24,11 @@ class DeviceMetricCalibration extends BackboneElement implements FhirResource {
   factory DeviceMetricCalibration.fromJson(Map<String, dynamic> json) {
     return DeviceMetricCalibration(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       state: json['state'] as String?,
       time: json['time'] as String?,

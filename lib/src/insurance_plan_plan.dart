@@ -41,31 +41,32 @@ class InsurancePlanPlan extends BackboneElement implements FhirResource {
   factory InsurancePlanPlan.fromJson(Map<String, dynamic> json) {
     return InsurancePlanPlan(
       coverageArea: (json['coverageArea'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       generalCost: (json['generalCost'] as List<dynamic>?)
-          ?.map((e) =>
-              InsurancePlanPlanGeneralCost.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => InsurancePlanPlanGeneralCost.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       network: (json['network'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       specificCost: (json['specificCost'] as List<dynamic>?)
-          ?.map((e) =>
-              InsurancePlanPlanSpecificCost.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => InsurancePlanPlanSpecificCost.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

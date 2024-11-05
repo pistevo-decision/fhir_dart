@@ -100,13 +100,15 @@ class TimingRepeat extends Element implements FhirResource {
   factory TimingRepeat.fromJson(Map<String, dynamic> json) {
     return TimingRepeat(
       boundsDuration: json['boundsDuration'] != null
-          ? Duration.fromJson(json['boundsDuration'] as Map<String, dynamic>)
+          ? Duration.fromJson(
+              (json['boundsDuration'] as Map).cast<String, dynamic>())
           : null,
       boundsPeriod: json['boundsPeriod'] != null
-          ? Period.fromJson(json['boundsPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['boundsPeriod'] as Map).cast<String, dynamic>())
           : null,
       boundsRange: json['boundsRange'] != null
-          ? Range.fromJson(json['boundsRange'] as Map<String, dynamic>)
+          ? Range.fromJson((json['boundsRange'] as Map).cast<String, dynamic>())
           : null,
       count: json['count'] as int?,
       countMax: json['countMax'] as int?,
@@ -117,7 +119,7 @@ class TimingRepeat extends Element implements FhirResource {
       durationMax: json['durationMax'] as num?,
       durationUnit: json['durationUnit'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       frequency: json['frequency'] as int?,
       frequencyMax: json['frequencyMax'] as int?,

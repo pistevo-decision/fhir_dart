@@ -29,18 +29,19 @@ class CompositionRelatesTo extends BackboneElement implements FhirResource {
     return CompositionRelatesTo(
       code: json['code'] as String,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       targetIdentifier: json['targetIdentifier'] != null
           ? Identifier.fromJson(
-              json['targetIdentifier'] as Map<String, dynamic>)
+              (json['targetIdentifier'] as Map).cast<String, dynamic>())
           : null,
       targetReference: json['targetReference'] != null
-          ? Reference.fromJson(json['targetReference'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['targetReference'] as Map).cast<String, dynamic>())
           : null,
     );
   }

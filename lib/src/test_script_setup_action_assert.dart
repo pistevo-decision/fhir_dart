@@ -144,14 +144,14 @@ class TestScriptSetupActionAssert extends BackboneElement
       direction: json['direction'] as String?,
       expression: json['expression'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       headerField: json['headerField'] as String?,
       id: json['id'] as String?,
       label: json['label'] as String?,
       minimumId: json['minimumId'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       navigationLinks: json['navigationLinks'] as bool?,
       fhirOperator: json['operator'] as String?,

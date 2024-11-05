@@ -24,13 +24,14 @@ class AccountCoverage extends BackboneElement implements FhirResource {
   @override
   factory AccountCoverage.fromJson(Map<String, dynamic> json) {
     return AccountCoverage(
-      coverage: Reference.fromJson(json['coverage'] as Map<String, dynamic>),
+      coverage:
+          Reference.fromJson((json['coverage'] as Map).cast<String, dynamic>()),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       priority: json['priority'] as int?,
     );

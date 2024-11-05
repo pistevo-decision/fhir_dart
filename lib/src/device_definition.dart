@@ -123,87 +123,93 @@ class DeviceDefinition extends DomainResource implements FhirResource {
   factory DeviceDefinition.fromJson(Map<String, dynamic> json) {
     return DeviceDefinition(
       capability: (json['capability'] as List<dynamic>?)
-          ?.map((e) =>
-              DeviceDefinitionCapability.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => DeviceDefinitionCapability.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       contact: (json['contact'] as List<dynamic>?)
-          ?.map((e) => ContactPoint.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => ContactPoint.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       deviceName: (json['deviceName'] as List<dynamic>?)
-          ?.map((e) =>
-              DeviceDefinitionDeviceName.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => DeviceDefinitionDeviceName.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       languageCode: (json['languageCode'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       manufacturerReference: json['manufacturerReference'] != null
           ? Reference.fromJson(
-              json['manufacturerReference'] as Map<String, dynamic>)
+              (json['manufacturerReference'] as Map).cast<String, dynamic>())
           : null,
       manufacturerString: json['manufacturerString'] as String?,
       material: (json['material'] as List<dynamic>?)
-          ?.map((e) =>
-              DeviceDefinitionMaterial.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => DeviceDefinitionMaterial.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modelNumber: json['modelNumber'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       note: (json['note'] as List<dynamic>?)
-          ?.map((e) => Annotation.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Annotation.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       onlineInformation: json['onlineInformation'] as String?,
       owner: json['owner'] != null
-          ? Reference.fromJson(json['owner'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['owner'] as Map).cast<String, dynamic>())
           : null,
       parentDevice: json['parentDevice'] != null
-          ? Reference.fromJson(json['parentDevice'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['parentDevice'] as Map).cast<String, dynamic>())
           : null,
       physicalCharacteristics: json['physicalCharacteristics'] != null
           ? ProdCharacteristic.fromJson(
-              json['physicalCharacteristics'] as Map<String, dynamic>)
+              (json['physicalCharacteristics'] as Map).cast<String, dynamic>())
           : null,
       property: (json['property'] as List<dynamic>?)
-          ?.map((e) =>
-              DeviceDefinitionProperty.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => DeviceDefinitionProperty.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       quantity: json['quantity'] != null
-          ? Quantity.fromJson(json['quantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['quantity'] as Map).cast<String, dynamic>())
           : null,
       safety: (json['safety'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       shelfLifeStorage: (json['shelfLifeStorage'] as List<dynamic>?)
-          ?.map((e) => ProductShelfLife.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              ProductShelfLife.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       specialization: (json['specialization'] as List<dynamic>?)
           ?.map((e) => DeviceDefinitionSpecialization.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
       udiDeviceIdentifier: (json['udiDeviceIdentifier'] as List<dynamic>?)
           ?.map((e) => DeviceDefinitionUdiDeviceIdentifier.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       url: json['url'] as String?,
       version:

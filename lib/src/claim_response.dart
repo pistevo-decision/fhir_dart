@@ -165,90 +165,102 @@ class ClaimResponse extends DomainResource implements FhirResource {
   factory ClaimResponse.fromJson(Map<String, dynamic> json) {
     return ClaimResponse(
       addItem: (json['addItem'] as List<dynamic>?)
-          ?.map((e) => ClaimResponseAddItem.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              ClaimResponseAddItem.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       adjudication: (json['adjudication'] as List<dynamic>?)
-          ?.map((e) =>
-              ClaimResponseItemAdjudication.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ClaimResponseItemAdjudication.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       communicationRequest: (json['communicationRequest'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       created: json['created'] as String,
       disposition: json['disposition'] as String?,
       error: (json['error'] as List<dynamic>?)
-          ?.map((e) => ClaimResponseError.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              ClaimResponseError.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       form: json['form'] != null
-          ? Attachment.fromJson(json['form'] as Map<String, dynamic>)
+          ? Attachment.fromJson((json['form'] as Map).cast<String, dynamic>())
           : null,
       formCode: json['formCode'] != null
-          ? CodeableConcept.fromJson(json['formCode'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['formCode'] as Map).cast<String, dynamic>())
           : null,
       fundsReserve: json['fundsReserve'] != null
           ? CodeableConcept.fromJson(
-              json['fundsReserve'] as Map<String, dynamic>)
+              (json['fundsReserve'] as Map).cast<String, dynamic>())
           : null,
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       insurance: (json['insurance'] as List<dynamic>?)
-          ?.map(
-              (e) => ClaimResponseInsurance.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ClaimResponseInsurance.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
-      insurer: Reference.fromJson(json['insurer'] as Map<String, dynamic>),
+      insurer:
+          Reference.fromJson((json['insurer'] as Map).cast<String, dynamic>()),
       item: (json['item'] as List<dynamic>?)
-          ?.map((e) => ClaimResponseItem.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              ClaimResponseItem.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       language: json['language'] as String?,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       outcome: json['outcome'] as String,
-      patient: Reference.fromJson(json['patient'] as Map<String, dynamic>),
+      patient:
+          Reference.fromJson((json['patient'] as Map).cast<String, dynamic>()),
       payeeType: json['payeeType'] != null
-          ? CodeableConcept.fromJson(json['payeeType'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['payeeType'] as Map).cast<String, dynamic>())
           : null,
       payment: json['payment'] != null
           ? ClaimResponsePayment.fromJson(
-              json['payment'] as Map<String, dynamic>)
+              (json['payment'] as Map).cast<String, dynamic>())
           : null,
       preAuthPeriod: json['preAuthPeriod'] != null
-          ? Period.fromJson(json['preAuthPeriod'] as Map<String, dynamic>)
+          ? Period.fromJson(
+              (json['preAuthPeriod'] as Map).cast<String, dynamic>())
           : null,
       preAuthRef: json['preAuthRef'] as String?,
       processNote: (json['processNote'] as List<dynamic>?)
-          ?.map((e) =>
-              ClaimResponseProcessNote.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ClaimResponseProcessNote.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       request: json['request'] != null
-          ? Reference.fromJson(json['request'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['request'] as Map).cast<String, dynamic>())
           : null,
       requestor: json['requestor'] != null
-          ? Reference.fromJson(json['requestor'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['requestor'] as Map).cast<String, dynamic>())
           : null,
       status: json['status'] as String,
       subType: json['subType'] != null
-          ? CodeableConcept.fromJson(json['subType'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['subType'] as Map).cast<String, dynamic>())
           : null,
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
       total: (json['total'] as List<dynamic>?)
-          ?.map((e) => ClaimResponseTotal.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              ClaimResponseTotal.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      type: CodeableConcept.fromJson(json['type'] as Map<String, dynamic>),
+      type: CodeableConcept.fromJson(
+          (json['type'] as Map).cast<String, dynamic>()),
       use: json['use'] as String,
     );
   }

@@ -23,12 +23,12 @@ class DiagnosticReportMedia extends BackboneElement implements FhirResource {
     return DiagnosticReportMedia(
       comment: json['comment'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
-      link: Reference.fromJson(json['link'] as Map<String, dynamic>),
+      link: Reference.fromJson((json['link'] as Map).cast<String, dynamic>()),
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

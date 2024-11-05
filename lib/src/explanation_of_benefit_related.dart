@@ -31,21 +31,22 @@ class ExplanationOfBenefitRelated extends BackboneElement
   factory ExplanationOfBenefitRelated.fromJson(Map<String, dynamic> json) {
     return ExplanationOfBenefitRelated(
       claim: json['claim'] != null
-          ? Reference.fromJson(json['claim'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['claim'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       reference: json['reference'] != null
-          ? Identifier.fromJson(json['reference'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['reference'] as Map).cast<String, dynamic>())
           : null,
       relationship: json['relationship'] != null
           ? CodeableConcept.fromJson(
-              json['relationship'] as Map<String, dynamic>)
+              (json['relationship'] as Map).cast<String, dynamic>())
           : null,
     );
   }

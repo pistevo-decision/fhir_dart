@@ -48,32 +48,37 @@ class PlanDefinitionGoal extends BackboneElement implements FhirResource {
   factory PlanDefinitionGoal.fromJson(Map<String, dynamic> json) {
     return PlanDefinitionGoal(
       addresses: (json['addresses'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       category: json['category'] != null
-          ? CodeableConcept.fromJson(json['category'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['category'] as Map).cast<String, dynamic>())
           : null,
-      description:
-          CodeableConcept.fromJson(json['description'] as Map<String, dynamic>),
+      description: CodeableConcept.fromJson(
+          (json['description'] as Map).cast<String, dynamic>()),
       documentation: (json['documentation'] as List<dynamic>?)
-          ?.map((e) => RelatedArtifact.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              RelatedArtifact.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       priority: json['priority'] != null
-          ? CodeableConcept.fromJson(json['priority'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['priority'] as Map).cast<String, dynamic>())
           : null,
       start: json['start'] != null
-          ? CodeableConcept.fromJson(json['start'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['start'] as Map).cast<String, dynamic>())
           : null,
       target: (json['target'] as List<dynamic>?)
-          ?.map((e) =>
-              PlanDefinitionGoalTarget.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => PlanDefinitionGoalTarget.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

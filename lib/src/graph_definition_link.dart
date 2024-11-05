@@ -39,19 +39,19 @@ class GraphDefinitionLink extends BackboneElement implements FhirResource {
     return GraphDefinitionLink(
       description: json['description'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       max: json['max'] as String?,
       min: json['min'] as int?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       path: json['path'] as String?,
       sliceName: json['sliceName'] as String?,
       target: (json['target'] as List<dynamic>?)
-          ?.map((e) =>
-              GraphDefinitionLinkTarget.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => GraphDefinitionLinkTarget.fromJson(
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

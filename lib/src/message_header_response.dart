@@ -28,15 +28,15 @@ class MessageHeaderResponse extends BackboneElement implements FhirResource {
     return MessageHeaderResponse(
       code: json['code'] as String,
       details: json['details'] != null
-          ? Reference.fromJson(json['details'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['details'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: json['identifier'] as String,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

@@ -29,25 +29,25 @@ class MedicationKnowledgeRegulatory extends BackboneElement
   factory MedicationKnowledgeRegulatory.fromJson(Map<String, dynamic> json) {
     return MedicationKnowledgeRegulatory(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       maxDispense: json['maxDispense'] != null
           ? MedicationKnowledgeRegulatoryMaxDispense.fromJson(
-              json['maxDispense'] as Map<String, dynamic>)
+              (json['maxDispense'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       regulatoryAuthority: Reference.fromJson(
-          json['regulatoryAuthority'] as Map<String, dynamic>),
+          (json['regulatoryAuthority'] as Map).cast<String, dynamic>()),
       schedule: (json['schedule'] as List<dynamic>?)
           ?.map((e) => MedicationKnowledgeRegulatorySchedule.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       substitution: (json['substitution'] as List<dynamic>?)
           ?.map((e) => MedicationKnowledgeRegulatorySubstitution.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

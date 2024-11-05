@@ -72,53 +72,53 @@ class BiologicallyDerivedProduct extends DomainResource
     return BiologicallyDerivedProduct(
       collection: json['collection'] != null
           ? BiologicallyDerivedProductCollection.fromJson(
-              json['collection'] as Map<String, dynamic>)
+              (json['collection'] as Map).cast<String, dynamic>())
           : null,
       contained: (json['contained'] as List<dynamic>?)
-          ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Resource.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: (json['identifier'] as List<dynamic>?)
-          ?.map((e) => Identifier.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Identifier.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       manipulation: json['manipulation'] != null
           ? BiologicallyDerivedProductManipulation.fromJson(
-              json['manipulation'] as Map<String, dynamic>)
+              (json['manipulation'] as Map).cast<String, dynamic>())
           : null,
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       parent: (json['parent'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       processing: (json['processing'] as List<dynamic>?)
           ?.map((e) => BiologicallyDerivedProductProcessing.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       productCategory: json['productCategory'] as String?,
       productCode: json['productCode'] != null
           ? CodeableConcept.fromJson(
-              json['productCode'] as Map<String, dynamic>)
+              (json['productCode'] as Map).cast<String, dynamic>())
           : null,
       quantity: json['quantity'] as int?,
       request: (json['request'] as List<dynamic>?)
-          ?.map((e) => Reference.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Reference.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       status: json['status'] as String?,
       storage: (json['storage'] as List<dynamic>?)
           ?.map((e) => BiologicallyDerivedProductStorage.fromJson(
-              e as Map<String, dynamic>))
+              (e as Map).cast<String, dynamic>()))
           .toList(),
       text: json['text'] != null
-          ? Narrative.fromJson(json['text'] as Map<String, dynamic>)
+          ? Narrative.fromJson((json['text'] as Map).cast<String, dynamic>())
           : null,
     );
   }

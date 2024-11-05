@@ -27,18 +27,19 @@ class MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics
       characteristicCodeableConcept:
           json['characteristicCodeableConcept'] != null
               ? CodeableConcept.fromJson(
-                  json['characteristicCodeableConcept'] as Map<String, dynamic>)
+                  (json['characteristicCodeableConcept'] as Map)
+                      .cast<String, dynamic>())
               : null,
       characteristicQuantity: json['characteristicQuantity'] != null
           ? Quantity.fromJson(
-              json['characteristicQuantity'] as Map<String, dynamic>)
+              (json['characteristicQuantity'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       value:
           (json['value'] as List<dynamic>?)?.map((e) => e as String).toList(),

@@ -64,22 +64,24 @@ class Bundle extends Resource implements FhirResource {
   factory Bundle.fromJson(Map<String, dynamic> json) {
     return Bundle(
       entry: (json['entry'] as List<dynamic>?)
-          ?.map((e) => BundleEntry.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => BundleEntry.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       identifier: json['identifier'] != null
-          ? Identifier.fromJson(json['identifier'] as Map<String, dynamic>)
+          ? Identifier.fromJson(
+              (json['identifier'] as Map).cast<String, dynamic>())
           : null,
       implicitRules: json['implicitRules'] as String?,
       language: json['language'] as String?,
       link: (json['link'] as List<dynamic>?)
-          ?.map((e) => BundleLink.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => BundleLink.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       meta: json['meta'] != null
-          ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
+          ? Meta.fromJson((json['meta'] as Map).cast<String, dynamic>())
           : null,
       signature: json['signature'] != null
-          ? Signature.fromJson(json['signature'] as Map<String, dynamic>)
+          ? Signature.fromJson(
+              (json['signature'] as Map).cast<String, dynamic>())
           : null,
       timestamp: json['timestamp'] as String?,
       total: json['total'] as int?,

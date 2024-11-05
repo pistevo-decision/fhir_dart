@@ -36,13 +36,13 @@ class SubscriptionChannel extends BackboneElement implements FhirResource {
     return SubscriptionChannel(
       endpoint: json['endpoint'] as String?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       header:
           (json['header'] as List<dynamic>?)?.map((e) => e as String).toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       payload: json['payload'] as String?,
       type: json['type'] as String,

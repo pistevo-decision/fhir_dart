@@ -53,41 +53,45 @@ class EncounterHospitalization extends BackboneElement implements FhirResource {
     return EncounterHospitalization(
       admitSource: json['admitSource'] != null
           ? CodeableConcept.fromJson(
-              json['admitSource'] as Map<String, dynamic>)
+              (json['admitSource'] as Map).cast<String, dynamic>())
           : null,
       destination: json['destination'] != null
-          ? Reference.fromJson(json['destination'] as Map<String, dynamic>)
+          ? Reference.fromJson(
+              (json['destination'] as Map).cast<String, dynamic>())
           : null,
       dietPreference: (json['dietPreference'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       dischargeDisposition: json['dischargeDisposition'] != null
           ? CodeableConcept.fromJson(
-              json['dischargeDisposition'] as Map<String, dynamic>)
+              (json['dischargeDisposition'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       origin: json['origin'] != null
-          ? Reference.fromJson(json['origin'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['origin'] as Map).cast<String, dynamic>())
           : null,
       preAdmissionIdentifier: json['preAdmissionIdentifier'] != null
           ? Identifier.fromJson(
-              json['preAdmissionIdentifier'] as Map<String, dynamic>)
+              (json['preAdmissionIdentifier'] as Map).cast<String, dynamic>())
           : null,
       reAdmission: json['reAdmission'] != null
           ? CodeableConcept.fromJson(
-              json['reAdmission'] as Map<String, dynamic>)
+              (json['reAdmission'] as Map).cast<String, dynamic>())
           : null,
       specialArrangement: (json['specialArrangement'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       specialCourtesy: (json['specialCourtesy'] as List<dynamic>?)
-          ?.map((e) => CodeableConcept.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              CodeableConcept.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
     );
   }

@@ -25,14 +25,14 @@ class DeviceDefinitionMaterial extends BackboneElement implements FhirResource {
       allergenicIndicator: json['allergenicIndicator'] as bool?,
       alternate: json['alternate'] as bool?,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
-      substance:
-          CodeableConcept.fromJson(json['substance'] as Map<String, dynamic>),
+      substance: CodeableConcept.fromJson(
+          (json['substance'] as Map).cast<String, dynamic>()),
     );
   }
 

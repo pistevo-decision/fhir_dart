@@ -43,26 +43,29 @@ class DosageDoseAndRate extends Element implements FhirResource {
   factory DosageDoseAndRate.fromJson(Map<String, dynamic> json) {
     return DosageDoseAndRate(
       doseQuantity: json['doseQuantity'] != null
-          ? Quantity.fromJson(json['doseQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['doseQuantity'] as Map).cast<String, dynamic>())
           : null,
       doseRange: json['doseRange'] != null
-          ? Range.fromJson(json['doseRange'] as Map<String, dynamic>)
+          ? Range.fromJson((json['doseRange'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       rateQuantity: json['rateQuantity'] != null
-          ? Quantity.fromJson(json['rateQuantity'] as Map<String, dynamic>)
+          ? Quantity.fromJson(
+              (json['rateQuantity'] as Map).cast<String, dynamic>())
           : null,
       rateRange: json['rateRange'] != null
-          ? Range.fromJson(json['rateRange'] as Map<String, dynamic>)
+          ? Range.fromJson((json['rateRange'] as Map).cast<String, dynamic>())
           : null,
       rateRatio: json['rateRatio'] != null
-          ? Ratio.fromJson(json['rateRatio'] as Map<String, dynamic>)
+          ? Ratio.fromJson((json['rateRatio'] as Map).cast<String, dynamic>())
           : null,
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }

@@ -29,20 +29,22 @@ class AdverseEventSuspectEntityCausality extends BackboneElement
       Map<String, dynamic> json) {
     return AdverseEventSuspectEntityCausality(
       assessment: json['assessment'] != null
-          ? CodeableConcept.fromJson(json['assessment'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['assessment'] as Map).cast<String, dynamic>())
           : null,
       author: json['author'] != null
-          ? Reference.fromJson(json['author'] as Map<String, dynamic>)
+          ? Reference.fromJson((json['author'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       method: json['method'] != null
-          ? CodeableConcept.fromJson(json['method'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['method'] as Map).cast<String, dynamic>())
           : null,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       productRelatedness: json['productRelatedness'] as String?,
     );

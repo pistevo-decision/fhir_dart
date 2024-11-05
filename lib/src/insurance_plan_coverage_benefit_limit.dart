@@ -26,17 +26,18 @@ class InsurancePlanCoverageBenefitLimit extends BackboneElement
       Map<String, dynamic> json) {
     return InsurancePlanCoverageBenefitLimit(
       code: json['code'] != null
-          ? CodeableConcept.fromJson(json['code'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['code'] as Map).cast<String, dynamic>())
           : null,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       id: json['id'] as String?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       value: json['value'] != null
-          ? Quantity.fromJson(json['value'] as Map<String, dynamic>)
+          ? Quantity.fromJson((json['value'] as Map).cast<String, dynamic>())
           : null,
     );
   }

@@ -52,12 +52,13 @@ class SampledData extends Element implements FhirResource {
       data: json['data'] as String?,
       dimensions: json['dimensions'] as int,
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       factor: json['factor'] as num?,
       id: json['id'] as String?,
       lowerLimit: json['lowerLimit'] as num?,
-      origin: Quantity.fromJson(json['origin'] as Map<String, dynamic>),
+      origin:
+          Quantity.fromJson((json['origin'] as Map).cast<String, dynamic>()),
       period: json['period'] as num,
       upperLimit: json['upperLimit'] as num?,
     );

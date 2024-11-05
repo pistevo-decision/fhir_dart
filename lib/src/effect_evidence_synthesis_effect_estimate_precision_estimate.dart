@@ -32,17 +32,18 @@ class EffectEvidenceSynthesisEffectEstimatePrecisionEstimate
       Map<String, dynamic> json) {
     return EffectEvidenceSynthesisEffectEstimatePrecisionEstimate(
       fhirExtension: (json['extension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       from: json['from'] as num?,
       id: json['id'] as String?,
       level: json['level'] as num?,
       modifierExtension: (json['modifierExtension'] as List<dynamic>?)
-          ?.map((e) => Extension.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Extension.fromJson((e as Map).cast<String, dynamic>()))
           .toList(),
       to: json['to'] as num?,
       type: json['type'] != null
-          ? CodeableConcept.fromJson(json['type'] as Map<String, dynamic>)
+          ? CodeableConcept.fromJson(
+              (json['type'] as Map).cast<String, dynamic>())
           : null,
     );
   }
