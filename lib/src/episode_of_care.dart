@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.
 class EpisodeOfCare extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'EpisodeOfCare';
+  static const fhirResourceType = 'EpisodeOfCare';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// The set of accounts that may be used for billing for this EpisodeOfCare.
   /// The billing system may choose to allocate billable items associated with the EpisodeOfCare to different referenced Accounts based on internal business rules.
@@ -138,6 +142,7 @@ class EpisodeOfCare extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'account': account?.map((e) => e.toJson()).toList(),
         'careManager': careManager?.toJson(),
         'contained': contained?.map((e) => e.toJson()).toList(),

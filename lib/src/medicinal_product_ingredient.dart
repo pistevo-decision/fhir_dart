@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 class MedicinalProductIngredient extends DomainResource
     implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'MedicinalProductIngredient';
+  static const fhirResourceType = 'MedicinalProductIngredient';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// If the ingredient is a known or suspected allergen.
   final bool? allergenicIndicator;
@@ -85,6 +89,7 @@ class MedicinalProductIngredient extends DomainResource
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'allergenicIndicator': allergenicIndicator,
         'contained': contained?.map((e) => e.toJson()).toList(),
         'extension': fhirExtension?.map((e) => e.toJson()).toList(),

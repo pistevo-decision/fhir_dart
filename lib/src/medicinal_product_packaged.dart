@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A medicinal product in a container or package.
 class MedicinalProductPackaged extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'MedicinalProductPackaged';
+  static const fhirResourceType = 'MedicinalProductPackaged';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Batch numbering.
   final List<MedicinalProductPackagedBatchIdentifier>? batchIdentifier;
@@ -107,6 +111,7 @@ class MedicinalProductPackaged extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'batchIdentifier': batchIdentifier?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'description': description,

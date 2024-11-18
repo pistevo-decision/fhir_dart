@@ -5,7 +5,11 @@ part of '../fhir_dart.dart';
 /// To support structured, hierarchical reporting of data gathered using digital forms and other questionnaires.
 class QuestionnaireResponse extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'QuestionnaireResponse';
+  static const fhirResourceType = 'QuestionnaireResponse';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Person who received and recorded the answers
   /// Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.
@@ -136,6 +140,7 @@ class QuestionnaireResponse extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'author': author?.toJson(),
         'authored': authored,
         'basedOn': basedOn?.map((e) => e.toJson()).toList(),

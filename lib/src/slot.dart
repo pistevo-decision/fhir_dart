@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A slot of time on a schedule that may be available for booking appointments.
 class Slot extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Slot';
+  static const fhirResourceType = 'Slot';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// The style of appointment or patient that may be booked in the slot (not service type).
   final CodeableConcept? appointmentType;
@@ -112,6 +116,7 @@ class Slot extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'appointmentType': appointmentType?.toJson(),
         'comment': comment,
         'contained': contained?.map((e) => e.toJson()).toList(),

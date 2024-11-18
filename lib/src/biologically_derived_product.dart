@@ -6,7 +6,11 @@ part of '../fhir_dart.dart';
 class BiologicallyDerivedProduct extends DomainResource
     implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'BiologicallyDerivedProduct';
+  static const fhirResourceType = 'BiologicallyDerivedProduct';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// How this product was collected.
   final BiologicallyDerivedProductCollection? collection;
@@ -125,6 +129,7 @@ class BiologicallyDerivedProduct extends DomainResource
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'collection': collection?.toJson(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'extension': fhirExtension?.map((e) => e.toJson()).toList(),

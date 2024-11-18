@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// A collection of error, warning, or information messages that result from a system action.
 class OperationOutcome extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'OperationOutcome';
+  static const fhirResourceType = 'OperationOutcome';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// A single issue associated with the action
   /// An error, warning, or information message that results from a system action.
@@ -51,6 +55,7 @@ class OperationOutcome extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contained': contained?.map((e) => e.toJson()).toList(),
         'extension': fhirExtension?.map((e) => e.toJson()).toList(),
         'id': id,

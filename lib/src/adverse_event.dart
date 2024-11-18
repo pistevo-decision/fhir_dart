@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Actual or  potential/avoided event causing unintended physical injury resulting from or contributed to by medical care, a research study or other healthcare setting factors that requires additional monitoring, treatment, or hospitalization, or that results in death.
 class AdverseEvent extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'AdverseEvent';
+  static const fhirResourceType = 'AdverseEvent';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// actual | potential
   /// Whether the event actually happened, or just had the potential to. Note that this is independent of whether anyone was affected or harmed or how severely.
@@ -202,6 +206,7 @@ class AdverseEvent extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'actuality': actuality,
         'category': category?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),

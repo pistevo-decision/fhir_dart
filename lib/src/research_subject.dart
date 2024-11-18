@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// A physical entity which is the primary unit of operational and/or administrative interest in a study.
 class ResearchSubject extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'ResearchSubject';
+  static const fhirResourceType = 'ResearchSubject';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// What path was followed
   /// The name of the arm in the study the subject actually followed as part of this study.
@@ -96,6 +100,7 @@ class ResearchSubject extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'actualArm': actualArm,
         'assignedArm': assignedArm,
         'consent': consent?.toJson(),

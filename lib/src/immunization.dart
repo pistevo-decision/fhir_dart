@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.
 class Immunization extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Immunization';
+  static const fhirResourceType = 'Immunization';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Amount of vaccine administered
   /// The quantity of vaccine product that was administered.
@@ -278,6 +282,7 @@ class Immunization extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contained': contained?.map((e) => e.toJson()).toList(),
         'doseQuantity': doseQuantity?.toJson(),
         'education': education?.map((e) => e.toJson()).toList(),

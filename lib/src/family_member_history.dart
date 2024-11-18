@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Significant health conditions for a person related to the patient relevant in the context of care for the patient.
 class FamilyMemberHistory extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'FamilyMemberHistory';
+  static const fhirResourceType = 'FamilyMemberHistory';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// (approximate) age
   /// The age of the relative at the time the family member history is recorded.
@@ -242,6 +246,7 @@ class FamilyMemberHistory extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'ageAge': ageAge?.toJson(),
         'ageRange': ageRange?.toJson(),
         'ageString': ageString,

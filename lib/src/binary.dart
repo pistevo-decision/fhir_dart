@@ -8,7 +8,11 @@ part of '../fhir_dart.dart';
 /// There are situations where it is useful or required to handle pure binary content using the same framework as other resources.
 class Binary extends Resource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Binary';
+  static const fhirResourceType = 'Binary';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// MimeType of the binary content represented as a standard MimeType (BCP 13).
   final String contentType;
@@ -51,6 +55,7 @@ class Binary extends Resource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contentType': contentType,
         'data': data,
         'id': id,

@@ -3,297 +3,297 @@ part of '../fhir_dart.dart';
 abstract class FhirResource {
   factory FhirResource.fromJson(Map<String, dynamic> json) {
     switch (json['resourceType']) {
-      case Account.resourceType:
+      case Account.fhirResourceType:
         return Account.fromJson(json);
-      case ActivityDefinition.resourceType:
+      case ActivityDefinition.fhirResourceType:
         return ActivityDefinition.fromJson(json);
-      case AdverseEvent.resourceType:
+      case AdverseEvent.fhirResourceType:
         return AdverseEvent.fromJson(json);
-      case AllergyIntolerance.resourceType:
+      case AllergyIntolerance.fhirResourceType:
         return AllergyIntolerance.fromJson(json);
-      case Appointment.resourceType:
+      case Appointment.fhirResourceType:
         return Appointment.fromJson(json);
-      case AppointmentResponse.resourceType:
+      case AppointmentResponse.fhirResourceType:
         return AppointmentResponse.fromJson(json);
-      case AuditEvent.resourceType:
+      case AuditEvent.fhirResourceType:
         return AuditEvent.fromJson(json);
-      case Basic.resourceType:
+      case Basic.fhirResourceType:
         return Basic.fromJson(json);
-      case Binary.resourceType:
+      case Binary.fhirResourceType:
         return Binary.fromJson(json);
-      case BiologicallyDerivedProduct.resourceType:
+      case BiologicallyDerivedProduct.fhirResourceType:
         return BiologicallyDerivedProduct.fromJson(json);
-      case BodyStructure.resourceType:
+      case BodyStructure.fhirResourceType:
         return BodyStructure.fromJson(json);
-      case Bundle.resourceType:
+      case Bundle.fhirResourceType:
         return Bundle.fromJson(json);
-      case CapabilityStatement.resourceType:
+      case CapabilityStatement.fhirResourceType:
         return CapabilityStatement.fromJson(json);
-      case CarePlan.resourceType:
+      case CarePlan.fhirResourceType:
         return CarePlan.fromJson(json);
-      case CareTeam.resourceType:
+      case CareTeam.fhirResourceType:
         return CareTeam.fromJson(json);
-      case CatalogEntry.resourceType:
+      case CatalogEntry.fhirResourceType:
         return CatalogEntry.fromJson(json);
-      case ChargeItem.resourceType:
+      case ChargeItem.fhirResourceType:
         return ChargeItem.fromJson(json);
-      case ChargeItemDefinition.resourceType:
+      case ChargeItemDefinition.fhirResourceType:
         return ChargeItemDefinition.fromJson(json);
-      case Claim.resourceType:
+      case Claim.fhirResourceType:
         return Claim.fromJson(json);
-      case ClaimResponse.resourceType:
+      case ClaimResponse.fhirResourceType:
         return ClaimResponse.fromJson(json);
-      case ClinicalImpression.resourceType:
+      case ClinicalImpression.fhirResourceType:
         return ClinicalImpression.fromJson(json);
-      case CodeSystem.resourceType:
+      case CodeSystem.fhirResourceType:
         return CodeSystem.fromJson(json);
-      case Communication.resourceType:
+      case Communication.fhirResourceType:
         return Communication.fromJson(json);
-      case CommunicationRequest.resourceType:
+      case CommunicationRequest.fhirResourceType:
         return CommunicationRequest.fromJson(json);
-      case CompartmentDefinition.resourceType:
+      case CompartmentDefinition.fhirResourceType:
         return CompartmentDefinition.fromJson(json);
-      case Composition.resourceType:
+      case Composition.fhirResourceType:
         return Composition.fromJson(json);
-      case ConceptMap.resourceType:
+      case ConceptMap.fhirResourceType:
         return ConceptMap.fromJson(json);
-      case Condition.resourceType:
+      case Condition.fhirResourceType:
         return Condition.fromJson(json);
-      case Consent.resourceType:
+      case Consent.fhirResourceType:
         return Consent.fromJson(json);
-      case Contract.resourceType:
+      case Contract.fhirResourceType:
         return Contract.fromJson(json);
-      case Coverage.resourceType:
+      case Coverage.fhirResourceType:
         return Coverage.fromJson(json);
-      case CoverageEligibilityRequest.resourceType:
+      case CoverageEligibilityRequest.fhirResourceType:
         return CoverageEligibilityRequest.fromJson(json);
-      case CoverageEligibilityResponse.resourceType:
+      case CoverageEligibilityResponse.fhirResourceType:
         return CoverageEligibilityResponse.fromJson(json);
-      case DetectedIssue.resourceType:
+      case DetectedIssue.fhirResourceType:
         return DetectedIssue.fromJson(json);
-      case Device.resourceType:
+      case Device.fhirResourceType:
         return Device.fromJson(json);
-      case DeviceDefinition.resourceType:
+      case DeviceDefinition.fhirResourceType:
         return DeviceDefinition.fromJson(json);
-      case DeviceMetric.resourceType:
+      case DeviceMetric.fhirResourceType:
         return DeviceMetric.fromJson(json);
-      case DeviceRequest.resourceType:
+      case DeviceRequest.fhirResourceType:
         return DeviceRequest.fromJson(json);
-      case DeviceUseStatement.resourceType:
+      case DeviceUseStatement.fhirResourceType:
         return DeviceUseStatement.fromJson(json);
-      case DiagnosticReport.resourceType:
+      case DiagnosticReport.fhirResourceType:
         return DiagnosticReport.fromJson(json);
-      case DocumentManifest.resourceType:
+      case DocumentManifest.fhirResourceType:
         return DocumentManifest.fromJson(json);
-      case DocumentReference.resourceType:
+      case DocumentReference.fhirResourceType:
         return DocumentReference.fromJson(json);
-      case EffectEvidenceSynthesis.resourceType:
+      case EffectEvidenceSynthesis.fhirResourceType:
         return EffectEvidenceSynthesis.fromJson(json);
-      case Encounter.resourceType:
+      case Encounter.fhirResourceType:
         return Encounter.fromJson(json);
-      case Endpoint.resourceType:
+      case Endpoint.fhirResourceType:
         return Endpoint.fromJson(json);
-      case EnrollmentRequest.resourceType:
+      case EnrollmentRequest.fhirResourceType:
         return EnrollmentRequest.fromJson(json);
-      case EnrollmentResponse.resourceType:
+      case EnrollmentResponse.fhirResourceType:
         return EnrollmentResponse.fromJson(json);
-      case EpisodeOfCare.resourceType:
+      case EpisodeOfCare.fhirResourceType:
         return EpisodeOfCare.fromJson(json);
-      case EventDefinition.resourceType:
+      case EventDefinition.fhirResourceType:
         return EventDefinition.fromJson(json);
-      case Evidence.resourceType:
+      case Evidence.fhirResourceType:
         return Evidence.fromJson(json);
-      case EvidenceVariable.resourceType:
+      case EvidenceVariable.fhirResourceType:
         return EvidenceVariable.fromJson(json);
-      case ExampleScenario.resourceType:
+      case ExampleScenario.fhirResourceType:
         return ExampleScenario.fromJson(json);
-      case ExplanationOfBenefit.resourceType:
+      case ExplanationOfBenefit.fhirResourceType:
         return ExplanationOfBenefit.fromJson(json);
-      case FamilyMemberHistory.resourceType:
+      case FamilyMemberHistory.fhirResourceType:
         return FamilyMemberHistory.fromJson(json);
-      case FhirList.resourceType:
+      case FhirList.fhirResourceType:
         return FhirList.fromJson(json);
-      case Flag.resourceType:
+      case Flag.fhirResourceType:
         return Flag.fromJson(json);
-      case Goal.resourceType:
+      case Goal.fhirResourceType:
         return Goal.fromJson(json);
-      case GraphDefinition.resourceType:
+      case GraphDefinition.fhirResourceType:
         return GraphDefinition.fromJson(json);
-      case Group.resourceType:
+      case Group.fhirResourceType:
         return Group.fromJson(json);
-      case GuidanceResponse.resourceType:
+      case GuidanceResponse.fhirResourceType:
         return GuidanceResponse.fromJson(json);
-      case HealthcareService.resourceType:
+      case HealthcareService.fhirResourceType:
         return HealthcareService.fromJson(json);
-      case ImagingStudy.resourceType:
+      case ImagingStudy.fhirResourceType:
         return ImagingStudy.fromJson(json);
-      case Immunization.resourceType:
+      case Immunization.fhirResourceType:
         return Immunization.fromJson(json);
-      case ImmunizationEvaluation.resourceType:
+      case ImmunizationEvaluation.fhirResourceType:
         return ImmunizationEvaluation.fromJson(json);
-      case ImmunizationRecommendation.resourceType:
+      case ImmunizationRecommendation.fhirResourceType:
         return ImmunizationRecommendation.fromJson(json);
-      case ImplementationGuide.resourceType:
+      case ImplementationGuide.fhirResourceType:
         return ImplementationGuide.fromJson(json);
-      case InsurancePlan.resourceType:
+      case InsurancePlan.fhirResourceType:
         return InsurancePlan.fromJson(json);
-      case Invoice.resourceType:
+      case Invoice.fhirResourceType:
         return Invoice.fromJson(json);
-      case Library.resourceType:
+      case Library.fhirResourceType:
         return Library.fromJson(json);
-      case Linkage.resourceType:
+      case Linkage.fhirResourceType:
         return Linkage.fromJson(json);
-      case Location.resourceType:
+      case Location.fhirResourceType:
         return Location.fromJson(json);
-      case Measure.resourceType:
+      case Measure.fhirResourceType:
         return Measure.fromJson(json);
-      case MeasureReport.resourceType:
+      case MeasureReport.fhirResourceType:
         return MeasureReport.fromJson(json);
-      case Media.resourceType:
+      case Media.fhirResourceType:
         return Media.fromJson(json);
-      case Medication.resourceType:
+      case Medication.fhirResourceType:
         return Medication.fromJson(json);
-      case MedicationAdministration.resourceType:
+      case MedicationAdministration.fhirResourceType:
         return MedicationAdministration.fromJson(json);
-      case MedicationDispense.resourceType:
+      case MedicationDispense.fhirResourceType:
         return MedicationDispense.fromJson(json);
-      case MedicationKnowledge.resourceType:
+      case MedicationKnowledge.fhirResourceType:
         return MedicationKnowledge.fromJson(json);
-      case MedicationRequest.resourceType:
+      case MedicationRequest.fhirResourceType:
         return MedicationRequest.fromJson(json);
-      case MedicationStatement.resourceType:
+      case MedicationStatement.fhirResourceType:
         return MedicationStatement.fromJson(json);
-      case MedicinalProduct.resourceType:
+      case MedicinalProduct.fhirResourceType:
         return MedicinalProduct.fromJson(json);
-      case MedicinalProductAuthorization.resourceType:
+      case MedicinalProductAuthorization.fhirResourceType:
         return MedicinalProductAuthorization.fromJson(json);
-      case MedicinalProductContraindication.resourceType:
+      case MedicinalProductContraindication.fhirResourceType:
         return MedicinalProductContraindication.fromJson(json);
-      case MedicinalProductIndication.resourceType:
+      case MedicinalProductIndication.fhirResourceType:
         return MedicinalProductIndication.fromJson(json);
-      case MedicinalProductIngredient.resourceType:
+      case MedicinalProductIngredient.fhirResourceType:
         return MedicinalProductIngredient.fromJson(json);
-      case MedicinalProductInteraction.resourceType:
+      case MedicinalProductInteraction.fhirResourceType:
         return MedicinalProductInteraction.fromJson(json);
-      case MedicinalProductManufactured.resourceType:
+      case MedicinalProductManufactured.fhirResourceType:
         return MedicinalProductManufactured.fromJson(json);
-      case MedicinalProductPackaged.resourceType:
+      case MedicinalProductPackaged.fhirResourceType:
         return MedicinalProductPackaged.fromJson(json);
-      case MedicinalProductPharmaceutical.resourceType:
+      case MedicinalProductPharmaceutical.fhirResourceType:
         return MedicinalProductPharmaceutical.fromJson(json);
-      case MedicinalProductUndesirableEffect.resourceType:
+      case MedicinalProductUndesirableEffect.fhirResourceType:
         return MedicinalProductUndesirableEffect.fromJson(json);
-      case MessageDefinition.resourceType:
+      case MessageDefinition.fhirResourceType:
         return MessageDefinition.fromJson(json);
-      case MessageHeader.resourceType:
+      case MessageHeader.fhirResourceType:
         return MessageHeader.fromJson(json);
-      case MolecularSequence.resourceType:
+      case MolecularSequence.fhirResourceType:
         return MolecularSequence.fromJson(json);
-      case NamingSystem.resourceType:
+      case NamingSystem.fhirResourceType:
         return NamingSystem.fromJson(json);
-      case NutritionOrder.resourceType:
+      case NutritionOrder.fhirResourceType:
         return NutritionOrder.fromJson(json);
-      case Observation.resourceType:
+      case Observation.fhirResourceType:
         return Observation.fromJson(json);
-      case ObservationDefinition.resourceType:
+      case ObservationDefinition.fhirResourceType:
         return ObservationDefinition.fromJson(json);
-      case OperationDefinition.resourceType:
+      case OperationDefinition.fhirResourceType:
         return OperationDefinition.fromJson(json);
-      case OperationOutcome.resourceType:
+      case OperationOutcome.fhirResourceType:
         return OperationOutcome.fromJson(json);
-      case Organization.resourceType:
+      case Organization.fhirResourceType:
         return Organization.fromJson(json);
-      case OrganizationAffiliation.resourceType:
+      case OrganizationAffiliation.fhirResourceType:
         return OrganizationAffiliation.fromJson(json);
-      case Parameters.resourceType:
+      case Parameters.fhirResourceType:
         return Parameters.fromJson(json);
-      case Patient.resourceType:
+      case Patient.fhirResourceType:
         return Patient.fromJson(json);
-      case PaymentNotice.resourceType:
+      case PaymentNotice.fhirResourceType:
         return PaymentNotice.fromJson(json);
-      case PaymentReconciliation.resourceType:
+      case PaymentReconciliation.fhirResourceType:
         return PaymentReconciliation.fromJson(json);
-      case Person.resourceType:
+      case Person.fhirResourceType:
         return Person.fromJson(json);
-      case PlanDefinition.resourceType:
+      case PlanDefinition.fhirResourceType:
         return PlanDefinition.fromJson(json);
-      case Practitioner.resourceType:
+      case Practitioner.fhirResourceType:
         return Practitioner.fromJson(json);
-      case PractitionerRole.resourceType:
+      case PractitionerRole.fhirResourceType:
         return PractitionerRole.fromJson(json);
-      case Procedure.resourceType:
+      case Procedure.fhirResourceType:
         return Procedure.fromJson(json);
-      case Provenance.resourceType:
+      case Provenance.fhirResourceType:
         return Provenance.fromJson(json);
-      case Questionnaire.resourceType:
+      case Questionnaire.fhirResourceType:
         return Questionnaire.fromJson(json);
-      case QuestionnaireResponse.resourceType:
+      case QuestionnaireResponse.fhirResourceType:
         return QuestionnaireResponse.fromJson(json);
-      case RelatedPerson.resourceType:
+      case RelatedPerson.fhirResourceType:
         return RelatedPerson.fromJson(json);
-      case RequestGroup.resourceType:
+      case RequestGroup.fhirResourceType:
         return RequestGroup.fromJson(json);
-      case ResearchDefinition.resourceType:
+      case ResearchDefinition.fhirResourceType:
         return ResearchDefinition.fromJson(json);
-      case ResearchElementDefinition.resourceType:
+      case ResearchElementDefinition.fhirResourceType:
         return ResearchElementDefinition.fromJson(json);
-      case ResearchStudy.resourceType:
+      case ResearchStudy.fhirResourceType:
         return ResearchStudy.fromJson(json);
-      case ResearchSubject.resourceType:
+      case ResearchSubject.fhirResourceType:
         return ResearchSubject.fromJson(json);
-      case RiskAssessment.resourceType:
+      case RiskAssessment.fhirResourceType:
         return RiskAssessment.fromJson(json);
-      case RiskEvidenceSynthesis.resourceType:
+      case RiskEvidenceSynthesis.fhirResourceType:
         return RiskEvidenceSynthesis.fromJson(json);
-      case Schedule.resourceType:
+      case Schedule.fhirResourceType:
         return Schedule.fromJson(json);
-      case SearchParameter.resourceType:
+      case SearchParameter.fhirResourceType:
         return SearchParameter.fromJson(json);
-      case ServiceRequest.resourceType:
+      case ServiceRequest.fhirResourceType:
         return ServiceRequest.fromJson(json);
-      case Slot.resourceType:
+      case Slot.fhirResourceType:
         return Slot.fromJson(json);
-      case Specimen.resourceType:
+      case Specimen.fhirResourceType:
         return Specimen.fromJson(json);
-      case SpecimenDefinition.resourceType:
+      case SpecimenDefinition.fhirResourceType:
         return SpecimenDefinition.fromJson(json);
-      case StructureDefinition.resourceType:
+      case StructureDefinition.fhirResourceType:
         return StructureDefinition.fromJson(json);
-      case StructureMap.resourceType:
+      case StructureMap.fhirResourceType:
         return StructureMap.fromJson(json);
-      case Subscription.resourceType:
+      case Subscription.fhirResourceType:
         return Subscription.fromJson(json);
-      case Substance.resourceType:
+      case Substance.fhirResourceType:
         return Substance.fromJson(json);
-      case SubstanceNucleicAcid.resourceType:
+      case SubstanceNucleicAcid.fhirResourceType:
         return SubstanceNucleicAcid.fromJson(json);
-      case SubstancePolymer.resourceType:
+      case SubstancePolymer.fhirResourceType:
         return SubstancePolymer.fromJson(json);
-      case SubstanceProtein.resourceType:
+      case SubstanceProtein.fhirResourceType:
         return SubstanceProtein.fromJson(json);
-      case SubstanceReferenceInformation.resourceType:
+      case SubstanceReferenceInformation.fhirResourceType:
         return SubstanceReferenceInformation.fromJson(json);
-      case SubstanceSourceMaterial.resourceType:
+      case SubstanceSourceMaterial.fhirResourceType:
         return SubstanceSourceMaterial.fromJson(json);
-      case SubstanceSpecification.resourceType:
+      case SubstanceSpecification.fhirResourceType:
         return SubstanceSpecification.fromJson(json);
-      case SupplyDelivery.resourceType:
+      case SupplyDelivery.fhirResourceType:
         return SupplyDelivery.fromJson(json);
-      case SupplyRequest.resourceType:
+      case SupplyRequest.fhirResourceType:
         return SupplyRequest.fromJson(json);
-      case Task.resourceType:
+      case Task.fhirResourceType:
         return Task.fromJson(json);
-      case TerminologyCapabilities.resourceType:
+      case TerminologyCapabilities.fhirResourceType:
         return TerminologyCapabilities.fromJson(json);
-      case TestReport.resourceType:
+      case TestReport.fhirResourceType:
         return TestReport.fromJson(json);
-      case TestScript.resourceType:
+      case TestScript.fhirResourceType:
         return TestScript.fromJson(json);
-      case ValueSet.resourceType:
+      case ValueSet.fhirResourceType:
         return ValueSet.fromJson(json);
-      case VerificationResult.resourceType:
+      case VerificationResult.fhirResourceType:
         return VerificationResult.fromJson(json);
-      case VisionPrescription.resourceType:
+      case VisionPrescription.fhirResourceType:
         return VisionPrescription.fromJson(json);
       default:
         throw Exception('Invalid resource type: ${json['resourceType']}');

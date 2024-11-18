@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// An action that is or was performed on or for a patient. This can be a physical intervention like an operation, or less invasive like long term services, counseling, or hypnotherapy.
 class Procedure extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Procedure';
+  static const fhirResourceType = 'Procedure';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Person who asserts this procedure
   /// Individual who is making the procedure statement.
@@ -327,6 +331,7 @@ class Procedure extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'asserter': asserter?.toJson(),
         'basedOn': basedOn?.map((e) => e.toJson()).toList(),
         'bodySite': bodySite?.map((e) => e.toJson()).toList(),

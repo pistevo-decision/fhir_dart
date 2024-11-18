@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// Need to track doctors, staff, locums etc. for both healthcare practitioners, funders, etc.
 class Practitioner extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Practitioner';
+  static const fhirResourceType = 'Practitioner';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Whether this practitioner's record is in active use.
   /// If the practitioner is not in use by one organization, then it should mark the period on the PractitonerRole with an end date (even if they are active) as they may be active in another role.
@@ -124,6 +128,7 @@ class Practitioner extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'active': active,
         'address': address?.map((e) => e.toJson()).toList(),
         'birthDate': birthDate,

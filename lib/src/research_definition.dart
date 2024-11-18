@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// The ResearchDefinition resource describes the conditional state (population and any exposures being compared within the population) and outcome (if specified) that the knowledge (evidence, assertion, recommendation) is about.
 class ResearchDefinition extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'ResearchDefinition';
+  static const fhirResourceType = 'ResearchDefinition';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// When the research definition was approved by publisher
   /// The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
@@ -321,6 +325,7 @@ class ResearchDefinition extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'approvalDate': approvalDate,
         'author': author?.map((e) => e.toJson()).toList(),
         'comment': comment?.map((e) => e).toList(),

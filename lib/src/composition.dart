@@ -5,7 +5,11 @@ part of '../fhir_dart.dart';
 /// To support documents, and also to capture the EN13606 notion of an attested commit to the patient EHR, and to allow a set of disparate resources at the information/engineering level to be gathered into a clinical statement.
 class Composition extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Composition';
+  static const fhirResourceType = 'Composition';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Attests to accuracy of composition
   /// A participant who has attested to the accuracy of the composition/document.
@@ -174,6 +178,7 @@ class Composition extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'attester': attester?.map((e) => e.toJson()).toList(),
         'author': author.map((e) => e.toJson()).toList(),
         'category': category?.map((e) => e.toJson()).toList(),

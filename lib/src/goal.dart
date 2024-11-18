@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.
 class Goal extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Goal';
+  static const fhirResourceType = 'Goal';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// in-progress | improving | worsening | no-change | achieved | sustaining | not-achieved | no-progress | not-attainable
   /// Describes the progression, or lack thereof, towards the goal against the target.
@@ -185,6 +189,7 @@ class Goal extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'achievementStatus': achievementStatus?.toJson(),
         'addresses': addresses?.map((e) => e.toJson()).toList(),
         'category': category?.map((e) => e.toJson()).toList(),

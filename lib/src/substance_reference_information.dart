@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 class SubstanceReferenceInformation extends DomainResource
     implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'SubstanceReferenceInformation';
+  static const fhirResourceType = 'SubstanceReferenceInformation';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Todo.
   final List<SubstanceReferenceInformationClassification>? classification;
@@ -79,6 +83,7 @@ class SubstanceReferenceInformation extends DomainResource
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'classification': classification?.map((e) => e.toJson()).toList(),
         'comment': comment,
         'contained': contained?.map((e) => e.toJson()).toList(),

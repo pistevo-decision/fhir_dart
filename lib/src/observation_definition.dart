@@ -5,7 +5,11 @@ part of '../fhir_dart.dart';
 /// In a catalog of health-related services that use or produce observations and measurements, this resource describes the expected characteristics of these observation / measurements.
 class ObservationDefinition extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'ObservationDefinition';
+  static const fhirResourceType = 'ObservationDefinition';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Value set of abnormal coded values for the observations conforming to this ObservationDefinition
   /// The set of abnormal coded results for the observation conforming to this ObservationDefinition.
@@ -151,6 +155,7 @@ class ObservationDefinition extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'abnormalCodedValueSet': abnormalCodedValueSet?.toJson(),
         'category': category?.map((e) => e.toJson()).toList(),
         'code': code.toJson(),

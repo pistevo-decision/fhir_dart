@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Catalog entries are wrappers that contextualize items included in a catalog.
 class CatalogEntry extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'CatalogEntry';
+  static const fhirResourceType = 'CatalogEntry';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Additional characteristics of the catalog entry
   /// Used for examplefor Out of Formulary, or any specifics.
@@ -140,6 +144,7 @@ class CatalogEntry extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'additionalCharacteristic':
             additionalCharacteristic?.map((e) => e.toJson()).toList(),
         'additionalClassification':

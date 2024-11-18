@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Nucleic acids are defined by three distinct elements: the base, sugar and linkage. Individual substance/moiety IDs will be created for each of these elements. The nucleotide sequence will be always entered in the 5’-3’ direction.
 class SubstanceNucleicAcid extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'SubstanceNucleicAcid';
+  static const fhirResourceType = 'SubstanceNucleicAcid';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// The area of hybridisation shall be described if applicable for double stranded RNA or DNA. The number associated with the subunit followed by the number associated to the residue shall be specified in increasing order. The underscore “” shall be used as separator as follows: “Subunitnumber Residue”.
   final String? areaOfHybridisation;
@@ -75,6 +79,7 @@ class SubstanceNucleicAcid extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'areaOfHybridisation': areaOfHybridisation,
         'contained': contained?.map((e) => e.toJson()).toList(),
         'extension': fhirExtension?.map((e) => e.toJson()).toList(),

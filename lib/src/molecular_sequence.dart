@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Raw data describing a biological sequence.
 class MolecularSequence extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'MolecularSequence';
+  static const fhirResourceType = 'MolecularSequence';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Base number of coordinate system (0 for 0-based numbering or coordinates, inclusive start, exclusive end, 1 for 1-based numbering, inclusive start, inclusive end)
   /// Whether the sequence is numbered starting at 0 (0-based numbering or coordinates, inclusive start, exclusive end) or starting at 1 (1-based numbering, inclusive start and inclusive end).
@@ -162,6 +166,7 @@ class MolecularSequence extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contained': contained?.map((e) => e.toJson()).toList(),
         'coordinateSystem': coordinateSystem,
         'device': device?.toJson(),

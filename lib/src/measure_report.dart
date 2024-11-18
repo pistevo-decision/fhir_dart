@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// The MeasureReport resource contains the results of the calculation of a measure; and optionally a reference to the resources involved in that calculation.
 class MeasureReport extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'MeasureReport';
+  static const fhirResourceType = 'MeasureReport';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// When the report was generated
   /// The date this measure report was generated.
@@ -124,6 +128,7 @@ class MeasureReport extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contained': contained?.map((e) => e.toJson()).toList(),
         'date': date,
         'evaluatedResource': evaluatedResource?.map((e) => e.toJson()).toList(),

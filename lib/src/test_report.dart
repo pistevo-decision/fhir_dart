@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A summary of information based on the results of executing a TestScript.
 class TestReport extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'TestReport';
+  static const fhirResourceType = 'TestReport';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// External identifier
   /// Identifier for the TestScript assigned for external purposes outside the context of FHIR.
@@ -126,6 +130,7 @@ class TestReport extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contained': contained?.map((e) => e.toJson()).toList(),
         'extension': fhirExtension?.map((e) => e.toJson()).toList(),
         'id': id,

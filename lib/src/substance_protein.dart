@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A SubstanceProtein is defined as a single unit of a linear amino acid sequence, or a combination of subunits that are either covalently linked or have a defined invariant stoichiometric relationship. This includes all synthetic, recombinant and purified SubstanceProteins of defined sequence, whether the use is therapeutic or prophylactic. This set of elements will be used to describe albumins, coagulation factors, cytokines, growth factors, peptide/SubstanceProtein hormones, enzymes, toxins, toxoids, recombinant vaccines, and immunomodulators.
 class SubstanceProtein extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'SubstanceProtein';
+  static const fhirResourceType = 'SubstanceProtein';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// The disulphide bond between two cysteine residues either on the same subunit or on two different subunits shall be described. The position of the disulfide bonds in the SubstanceProtein shall be listed in increasing order of subunit number and position within subunit followed by the abbreviation of the amino acids involved. The disulfide linkage positions shall actually contain the amino acid Cysteine at the respective positions.
   final List<String>? disulfideLinkage;
@@ -69,6 +73,7 @@ class SubstanceProtein extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contained': contained?.map((e) => e.toJson()).toList(),
         'disulfideLinkage': disulfideLinkage?.map((e) => e).toList(),
         'extension': fhirExtension?.map((e) => e.toJson()).toList(),

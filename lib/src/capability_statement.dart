@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
 class CapabilityStatement extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'CapabilityStatement';
+  static const fhirResourceType = 'CapabilityStatement';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Contact details for the publisher
   /// Contact details to assist a user in finding and communicating with the publisher.
@@ -250,6 +254,7 @@ class CapabilityStatement extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contact': contact?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'copyright': copyright,

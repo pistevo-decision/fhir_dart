@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A group of related requests that can be used to capture intended activities that have inter-dependencies such as "give this medication after that one".
 class RequestGroup extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'RequestGroup';
+  static const fhirResourceType = 'RequestGroup';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Proposed actions, if any
   /// The actions, if any, produced by the evaluation of the artifact.
@@ -182,6 +186,7 @@ class RequestGroup extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'action': action?.map((e) => e.toJson()).toList(),
         'author': author?.toJson(),
         'authoredOn': authoredOn,

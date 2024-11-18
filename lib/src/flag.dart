@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Prospective warnings of potential issues when providing care to the patient.
 class Flag extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Flag';
+  static const fhirResourceType = 'Flag';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Flag creator
   /// The person, organization or device that created the flag.
@@ -106,6 +110,7 @@ class Flag extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'author': author?.toJson(),
         'category': category?.map((e) => e.toJson()).toList(),
         'code': code.toJson(),

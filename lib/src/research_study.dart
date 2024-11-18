@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.
 class ResearchStudy extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'ResearchStudy';
+  static const fhirResourceType = 'ResearchStudy';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Defined path through the study for a subject
   /// Describes an expected sequence of events for one of the participants of a study.  E.g. Exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up.
@@ -240,6 +244,7 @@ class ResearchStudy extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'arm': arm?.map((e) => e.toJson()).toList(),
         'category': category?.map((e) => e.toJson()).toList(),
         'condition': condition?.map((e) => e.toJson()).toList(),

@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b or a REST endpoint for another FHIR server. This may include any security context information.
 class Endpoint extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Endpoint';
+  static const fhirResourceType = 'Endpoint';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// The technical base address for connecting to this endpoint
   /// The uri that describes the actual end-point to connect to.
@@ -134,6 +138,7 @@ class Endpoint extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'address': address,
         'connectionType': connectionType.toJson(),
         'contact': contact?.map((e) => e.toJson()).toList(),

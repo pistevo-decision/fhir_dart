@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.  Questionnaires provide greater control over presentation and allow capture of data in a domain-independent way (i.e. capturing information that would otherwise require multiple distinct types of resources).
 class Questionnaire extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Questionnaire';
+  static const fhirResourceType = 'Questionnaire';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// When the questionnaire was approved by publisher
   /// The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
@@ -215,6 +219,7 @@ class Questionnaire extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'approvalDate': approvalDate,
         'code': code?.map((e) => e.toJson()).toList(),
         'contact': contact?.map((e) => e.toJson()).toList(),

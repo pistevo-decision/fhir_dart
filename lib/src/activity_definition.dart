@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.
 class ActivityDefinition extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'ActivityDefinition';
+  static const fhirResourceType = 'ActivityDefinition';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// When the activity definition was approved by publisher
   /// The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
@@ -468,6 +472,7 @@ class ActivityDefinition extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'approvalDate': approvalDate,
         'author': author?.map((e) => e.toJson()).toList(),
         'bodySite': bodySite?.map((e) => e.toJson()).toList(),

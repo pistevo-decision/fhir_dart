@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.
 class Condition extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Condition';
+  static const fhirResourceType = 'Condition';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// When in resolution/remission
   /// The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.
@@ -260,6 +264,7 @@ class Condition extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'abatementAge': abatementAge?.toJson(),
         'abatementDateTime': abatementDateTime,
         'abatementPeriod': abatementPeriod?.toJson(),

@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Details of a Health Insurance product/plan provided by an organization.
 class InsurancePlan extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'InsurancePlan';
+  static const fhirResourceType = 'InsurancePlan';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Product administrator
   /// An organization which administer other services such as underwriting, customer service and/or claims processing on behalf of the health insurance product owner.
@@ -155,6 +159,7 @@ class InsurancePlan extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'administeredBy': administeredBy?.toJson(),
         'alias': alias?.map((e) => e).toList(),
         'contact': contact?.map((e) => e.toJson()).toList(),

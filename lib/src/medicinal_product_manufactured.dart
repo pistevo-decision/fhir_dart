@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 class MedicinalProductManufactured extends DomainResource
     implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'MedicinalProductManufactured';
+  static const fhirResourceType = 'MedicinalProductManufactured';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Ingredient.
   final List<Reference>? ingredient;
@@ -92,6 +96,7 @@ class MedicinalProductManufactured extends DomainResource
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contained': contained?.map((e) => e.toJson()).toList(),
         'extension': fhirExtension?.map((e) => e.toJson()).toList(),
         'id': id,

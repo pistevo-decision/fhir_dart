@@ -5,7 +5,11 @@ part of '../fhir_dart.dart';
 /// To support reporting for any diagnostic report into a clinical data repository.
 class DiagnosticReport extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'DiagnosticReport';
+  static const fhirResourceType = 'DiagnosticReport';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// What was requested
   /// Details concerning a service requested.
@@ -203,6 +207,7 @@ class DiagnosticReport extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'basedOn': basedOn?.map((e) => e.toJson()).toList(),
         'category': category?.map((e) => e.toJson()).toList(),
         'code': code.toJson(),

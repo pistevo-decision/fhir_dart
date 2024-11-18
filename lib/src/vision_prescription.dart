@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// An authorization for the provision of glasses and/or contact lenses to a patient.
 class VisionPrescription extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'VisionPrescription';
+  static const fhirResourceType = 'VisionPrescription';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Response creation date
   /// The date this resource was created.
@@ -101,6 +105,7 @@ class VisionPrescription extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contained': contained?.map((e) => e.toJson()).toList(),
         'created': created,
         'dateWritten': dateWritten,

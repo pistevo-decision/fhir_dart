@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// The Measure resource provides the definition of a quality measure.
 class Measure extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Measure';
+  static const fhirResourceType = 'Measure';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// When the measure was approved by publisher
   /// The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
@@ -377,6 +381,7 @@ class Measure extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'approvalDate': approvalDate,
         'author': author?.map((e) => e.toJson()).toList(),
         'clinicalRecommendationStatement': clinicalRecommendationStatement,

@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc.
 class Account extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Account';
+  static const fhirResourceType = 'Account';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// The party(s) that are responsible for covering the payment of this account, and what order should they be applied to the account.
   /// Typically. this may be some form of insurance, internal charges, or self-pay.
@@ -130,6 +134,7 @@ class Account extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contained': contained?.map((e) => e.toJson()).toList(),
         'coverage': coverage?.map((e) => e.toJson()).toList(),
         'description': description,

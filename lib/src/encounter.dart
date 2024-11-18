@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.
 class Encounter extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Encounter';
+  static const fhirResourceType = 'Encounter';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// The set of accounts that may be used for billing for this Encounter.
   /// The billing system may choose to allocate billable items associated with the Encounter to different referenced Accounts based on internal business rules.
@@ -237,6 +241,7 @@ class Encounter extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'account': account?.map((e) => e.toJson()).toList(),
         'appointment': appointment?.map((e) => e.toJson()).toList(),
         'basedOn': basedOn?.map((e) => e.toJson()).toList(),

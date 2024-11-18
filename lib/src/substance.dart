@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A homogeneous material with a definite composition.
 class Substance extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Substance';
+  static const fhirResourceType = 'Substance';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// What class/type of substance this is
   /// A code that classifies the general type of substance.  This is used  for searching, sorting and display purposes.
@@ -97,6 +101,7 @@ class Substance extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'category': category?.map((e) => e.toJson()).toList(),
         'code': code.toJson(),
         'contained': contained?.map((e) => e.toJson()).toList(),

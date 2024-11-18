@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// The EventDefinition resource provides a reusable description of when a particular event can occur.
 class EventDefinition extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'EventDefinition';
+  static const fhirResourceType = 'EventDefinition';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// When the event definition was approved by publisher
   /// The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
@@ -275,6 +279,7 @@ class EventDefinition extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'approvalDate': approvalDate,
         'author': author?.map((e) => e.toJson()).toList(),
         'contact': contact?.map((e) => e.toJson()).toList(),

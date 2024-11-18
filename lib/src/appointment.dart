@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).
 class Appointment extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Appointment';
+  static const fhirResourceType = 'Appointment';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// The style of appointment or patient that has been booked in the slot (not service type).
   final CodeableConcept? appointmentType;
@@ -206,6 +210,7 @@ class Appointment extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'appointmentType': appointmentType?.toJson(),
         'basedOn': basedOn?.map((e) => e.toJson()).toList(),
         'cancelationReason': cancelationReason?.toJson(),

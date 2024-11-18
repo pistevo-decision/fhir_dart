@@ -5,7 +5,11 @@ part of '../fhir_dart.dart';
 /// Need to track persons potentially across multiple roles.
 class Person extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Person';
+  static const fhirResourceType = 'Person';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// This person's record is in active use
   /// Whether this person's record is in active use.
@@ -117,6 +121,7 @@ class Person extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'active': active,
         'address': address?.map((e) => e.toJson()).toList(),
         'birthDate': birthDate,

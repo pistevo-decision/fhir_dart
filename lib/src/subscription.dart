@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// The subscription resource is used to define a push-based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined "channel" so that another system can take an appropriate action.
 class Subscription extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Subscription';
+  static const fhirResourceType = 'Subscription';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// The channel on which to report matches to the criteria
   /// Details where to send notifications when resources are received that meet the criteria.
@@ -90,6 +94,7 @@ class Subscription extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'channel': channel.toJson(),
         'contact': contact?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),

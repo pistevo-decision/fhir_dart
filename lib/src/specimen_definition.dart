@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A kind of specimen with associated set of requirements.
 class SpecimenDefinition extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'SpecimenDefinition';
+  static const fhirResourceType = 'SpecimenDefinition';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Specimen collection procedure
   /// The action to be performed for collecting the specimen.
@@ -92,6 +96,7 @@ class SpecimenDefinition extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'collection': collection?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'extension': fhirExtension?.map((e) => e.toJson()).toList(),

@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// Allows institutions to track their devices.
 class Device extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Device';
+  static const fhirResourceType = 'Device';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Details for human/organization for support
   /// Contact details for an organization or a particular human that is responsible for the device.
@@ -239,6 +243,7 @@ class Device extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contact': contact?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'definition': definition?.toJson(),

@@ -5,7 +5,11 @@ part of '../fhir_dart.dart';
 /// Need to be able to define and reuse the definition of individual elements of a research question.
 class EvidenceVariable extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'EvidenceVariable';
+  static const fhirResourceType = 'EvidenceVariable';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// When the evidence variable was approved by publisher
   /// The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
@@ -259,6 +263,7 @@ class EvidenceVariable extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'approvalDate': approvalDate,
         'author': author?.map((e) => e.toJson()).toList(),
         'characteristic': characteristic.map((e) => e.toJson()).toList(),

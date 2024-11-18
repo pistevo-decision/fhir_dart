@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.
 class CodeSystem extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'CodeSystem';
+  static const fhirResourceType = 'CodeSystem';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// If code comparison is case sensitive when codes within this system are compared to each other.
   /// If this value is missing, then it is not specified whether a code system is case sensitive or not. When the rule is not known, Postel's law should be followed: produce codes with the correct case, and accept codes in any case. This element is primarily provided to support validation software.
@@ -240,6 +244,7 @@ class CodeSystem extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'caseSensitive': caseSensitive,
         'compositional': compositional,
         'concept': concept?.map((e) => e.toJson()).toList(),

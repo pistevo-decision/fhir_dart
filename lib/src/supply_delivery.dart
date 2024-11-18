@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Record of delivery of what is supplied.
 class SupplyDelivery extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'SupplyDelivery';
+  static const fhirResourceType = 'SupplyDelivery';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Fulfills plan, proposal or order
   /// A plan, proposal or order that is fulfilled in whole or in part by this event.
@@ -153,6 +157,7 @@ class SupplyDelivery extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'basedOn': basedOn?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'destination': destination?.toJson(),

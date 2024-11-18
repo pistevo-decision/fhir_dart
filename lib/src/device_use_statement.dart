@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.
 class DeviceUseStatement extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'DeviceUseStatement';
+  static const fhirResourceType = 'DeviceUseStatement';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Fulfills plan, proposal or order
   /// A plan, proposal or order that is fulfilled in whole or in part by this DeviceUseStatement.
@@ -159,6 +163,7 @@ class DeviceUseStatement extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'basedOn': basedOn?.map((e) => e.toJson()).toList(),
         'bodySite': bodySite?.toJson(),
         'contained': contained?.map((e) => e.toJson()).toList(),

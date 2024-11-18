@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings, including care plans, etc., and to harmonize with workflow patterns.
 class MedicationRequest extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'MedicationRequest';
+  static const fhirResourceType = 'MedicationRequest';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// When request was initially authored
   /// The date (and perhaps time) when the prescription was initially written or authored on.
@@ -332,6 +336,7 @@ class MedicationRequest extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'authoredOn': authoredOn,
         'basedOn': basedOn?.map((e) => e.toJson()).toList(),
         'category': category?.map((e) => e.toJson()).toList(),

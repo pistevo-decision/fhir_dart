@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.
 class DeviceRequest extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'DeviceRequest';
+  static const fhirResourceType = 'DeviceRequest';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// When recorded
   /// When the request transitioned to being actionable.
@@ -259,6 +263,7 @@ class DeviceRequest extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'authoredOn': authoredOn,
         'basedOn': basedOn?.map((e) => e.toJson()).toList(),
         'codeCodeableConcept': codeCodeableConcept?.toJson(),

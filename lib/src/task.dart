@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A task to be performed.
 class Task extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Task';
+  static const fhirResourceType = 'Task';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Task Creation Date
   /// The date and time this task was created.
@@ -292,6 +296,7 @@ class Task extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'authoredOn': authoredOn,
         'basedOn': basedOn?.map((e) => e.toJson()).toList(),
         'businessStatus': businessStatus?.toJson(),

@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Todo.
 class SubstancePolymer extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'SubstancePolymer';
+  static const fhirResourceType = 'SubstancePolymer';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Todo.
   final CodeableConcept? fhirClass;
@@ -88,6 +92,7 @@ class SubstancePolymer extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'class': fhirClass?.toJson(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'copolymerConnectivity':

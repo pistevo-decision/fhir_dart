@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// This resource provides the details including amount of a payment and allocates the payment items being paid.
 class PaymentReconciliation extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'PaymentReconciliation';
+  static const fhirResourceType = 'PaymentReconciliation';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Creation date
   /// The date when the resource was created.
@@ -160,6 +164,7 @@ class PaymentReconciliation extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contained': contained?.map((e) => e.toJson()).toList(),
         'created': created,
         'detail': detail?.map((e) => e.toJson()).toList(),

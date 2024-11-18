@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 class MedicinalProductPharmaceutical extends DomainResource
     implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'MedicinalProductPharmaceutical';
+  static const fhirResourceType = 'MedicinalProductPharmaceutical';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// The administrable dose form, after necessary reconstitution.
   final CodeableConcept administrableDoseForm;
@@ -95,6 +99,7 @@ class MedicinalProductPharmaceutical extends DomainResource
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'administrableDoseForm': administrableDoseForm.toJson(),
         'characteristics': characteristics?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),

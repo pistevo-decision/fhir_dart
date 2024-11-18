@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 class MedicinalProductUndesirableEffect extends DomainResource
     implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'MedicinalProductUndesirableEffect';
+  static const fhirResourceType = 'MedicinalProductUndesirableEffect';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Classification of the effect.
   final CodeableConcept? classification;
@@ -81,6 +85,7 @@ class MedicinalProductUndesirableEffect extends DomainResource
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'classification': classification?.toJson(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'extension': fhirExtension?.map((e) => e.toJson()).toList(),

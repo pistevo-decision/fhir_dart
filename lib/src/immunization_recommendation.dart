@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 class ImmunizationRecommendation extends DomainResource
     implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'ImmunizationRecommendation';
+  static const fhirResourceType = 'ImmunizationRecommendation';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Who is responsible for protocol
   /// Indicates the authority who published the protocol (e.g. ACIP).
@@ -80,6 +84,7 @@ class ImmunizationRecommendation extends DomainResource
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'authority': authority?.toJson(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'date': date,

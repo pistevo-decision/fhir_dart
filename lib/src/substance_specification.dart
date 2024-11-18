@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// The detailed description of a substance, typically at a level beyond what is used for prescribing.
 class SubstanceSpecification extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'SubstanceSpecification';
+  static const fhirResourceType = 'SubstanceSpecification';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Codes associated with the substance.
   final List<SubstanceSpecificationCode>? code;
@@ -186,6 +190,7 @@ class SubstanceSpecification extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'code': code?.map((e) => e.toJson()).toList(),
         'comment': comment,
         'contained': contained?.map((e) => e.toJson()).toList(),

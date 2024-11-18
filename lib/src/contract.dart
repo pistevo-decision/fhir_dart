@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement.
 class Contract extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Contract';
+  static const fhirResourceType = 'Contract';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Acronym or short name
   /// Alternative representation of the title for this Contract definition, derivative, or instance in any legal state., e.g., a domain specific contract number related to legislation.
@@ -329,6 +333,7 @@ class Contract extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'alias': alias?.map((e) => e).toList(),
         'applies': applies?.toJson(),
         'author': author?.toJson(),

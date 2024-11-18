@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.
 class ServiceRequest extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'ServiceRequest';
+  static const fhirResourceType = 'ServiceRequest';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Preconditions for service
   /// If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example "pain", "on flare-up", etc.
@@ -360,6 +364,7 @@ class ServiceRequest extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'asNeededBoolean': asNeededBoolean,
         'asNeededCodeableConcept': asNeededCodeableConcept?.toJson(),
         'authoredOn': authoredOn,

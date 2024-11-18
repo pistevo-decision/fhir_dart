@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A container for a collection of resources.
 class Bundle extends Resource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Bundle';
+  static const fhirResourceType = 'Bundle';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Entry in the bundle - will have a resource or information
   /// An entry in a bundle resource - will either contain a resource or information about a resource (transactions and history only).
@@ -91,6 +95,7 @@ class Bundle extends Resource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'entry': entry?.map((e) => e.toJson()).toList(),
         'id': id,
         'identifier': identifier?.toJson(),

@@ -5,7 +5,11 @@ part of '../fhir_dart.dart';
 /// Coverage provides a link between covered parties (patients) and the payors of their healthcare costs (both insurance and self-pay).
 class Coverage extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Coverage';
+  static const fhirResourceType = 'Coverage';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Plan beneficiary
   /// The party who benefits from the insurance coverage; the patient when products and/or services are provided.
@@ -182,6 +186,7 @@ class Coverage extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'beneficiary': beneficiary.toJson(),
         'class': fhirClass?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),

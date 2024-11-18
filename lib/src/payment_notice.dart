@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// This resource provides the status of the payment for goods and services rendered, and the request and response resource references.
 class PaymentNotice extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'PaymentNotice';
+  static const fhirResourceType = 'PaymentNotice';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Monetary amount of the payment
   /// The amount sent to the payee.
@@ -132,6 +136,7 @@ class PaymentNotice extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'amount': amount.toJson(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'created': created,

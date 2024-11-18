@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Identifies two or more records (resource instances) that refer to the same real-world "occurrence".
 class Linkage extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Linkage';
+  static const fhirResourceType = 'Linkage';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Whether this linkage assertion is active or not
   /// Indicates whether the asserted set of linkages are considered to be "in effect".
@@ -64,6 +68,7 @@ class Linkage extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'active': active,
         'author': author?.toJson(),
         'contained': contained?.map((e) => e.toJson()).toList(),

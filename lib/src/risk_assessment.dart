@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.
 class RiskAssessment extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'RiskAssessment';
+  static const fhirResourceType = 'RiskAssessment';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Request fulfilled by this assessment
   /// A reference to the request that is fulfilled by this risk assessment.
@@ -186,6 +190,7 @@ class RiskAssessment extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'basedOn': basedOn?.toJson(),
         'basis': basis?.map((e) => e.toJson()).toList(),
         'code': code?.toJson(),

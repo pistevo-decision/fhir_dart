@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A TerminologyCapabilities resource documents a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
 class TerminologyCapabilities extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'TerminologyCapabilities';
+  static const fhirResourceType = 'TerminologyCapabilities';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Information about the [ConceptMap/$closure](conceptmap-operation-closure.html) operation
   /// Whether the $closure operation is supported.
@@ -225,6 +229,7 @@ class TerminologyCapabilities extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'closure': closure?.toJson(),
         'codeSearch': codeSearch,
         'codeSystem': codeSystem?.map((e) => e.toJson()).toList(),

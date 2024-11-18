@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// This resource provides the adjudication details from the processing of a Claim resource.
 class ClaimResponse extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'ClaimResponse';
+  static const fhirResourceType = 'ClaimResponse';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Insurer added line items
   /// The first-tier service adjudications for payor added product or service lines.
@@ -267,6 +271,7 @@ class ClaimResponse extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'addItem': addItem?.map((e) => e.toJson()).toList(),
         'adjudication': adjudication?.map((e) => e.toJson()).toList(),
         'communicationRequest':

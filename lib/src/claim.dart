@@ -5,7 +5,11 @@ part of '../fhir_dart.dart';
 /// The Claim resource is used by providers to exchange services and products rendered to patients or planned to be rendered with insurers for reimbuserment. It is also used by insurers to exchange claims information with statutory reporting and data analytics firms.
 class Claim extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Claim';
+  static const fhirResourceType = 'Claim';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Details of the event
   /// Details of an accident which resulted in injuries which required the products and services listed in the claim.
@@ -276,6 +280,7 @@ class Claim extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'accident': accident?.toJson(),
         'billablePeriod': billablePeriod?.toJson(),
         'careTeam': careTeam?.map((e) => e.toJson()).toList(),

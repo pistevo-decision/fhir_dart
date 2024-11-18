@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.
 class CarePlan extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'CarePlan';
+  static const fhirResourceType = 'CarePlan';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Action to occur as part of plan
   /// Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.
@@ -228,6 +232,7 @@ class CarePlan extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'activity': activity?.map((e) => e.toJson()).toList(),
         'addresses': addresses?.map((e) => e.toJson()).toList(),
         'author': author?.toJson(),

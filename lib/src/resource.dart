@@ -3,7 +3,10 @@ part of '../fhir_dart.dart';
 /// This is the base resource type for everything.
 class Resource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Resource';
+  static const fhirResourceType = 'Resource';
+
+  /// Resource Type Name
+  String get resourceType => fhirResourceType;
 
   /// Logical id of this artifact
   /// The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
@@ -42,6 +45,7 @@ class Resource {
   }
 
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'id': id,
         'implicitRules': implicitRules,
         'language': language,

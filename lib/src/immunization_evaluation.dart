@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Describes a comparison of an immunization event against published recommendations to determine if the administration is "valid" in relation to those  recommendations.
 class ImmunizationEvaluation extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'ImmunizationEvaluation';
+  static const fhirResourceType = 'ImmunizationEvaluation';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Who is responsible for publishing the recommendations
   /// Indicates the authority who published the protocol (e.g. ACIP).
@@ -146,6 +150,7 @@ class ImmunizationEvaluation extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'authority': authority?.toJson(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'date': date,

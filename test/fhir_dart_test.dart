@@ -206,4 +206,26 @@ void main() {
     expect(copiedPatient.name?.first.family, 'newFamily');
     expect(copiedPatient.photo?.first.contentType, 'newContentType');
   });
+
+  test('should return resourceType in toJson and as String getter ', () async {
+    // 1. parse it into a FhirResource object
+    final Patient patient = Patient.fromJson(
+      patientExample,
+    );
+
+    // 2. check that the object is not null
+    expect(patient, isNotNull);
+
+    // 3. check that the object is of type FhirResource
+    expect(patient, isA<FhirResource>());
+
+    // 4. check that the object has a toJson method
+    expect(patient.toJson, isNotNull);
+
+    // 5. check that the object has a resourceType property
+    expect(patient.toJson()['resourceType'], 'Patient');
+
+    // 6. check that the object has a resourceType getter
+    expect(patient.resourceType, 'Patient');
+  });
 }

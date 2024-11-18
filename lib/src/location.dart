@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Details and position information for a physical place where services are provided and resources and participants may be stored, found, contained, or accommodated.
 class Location extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Location';
+  static const fhirResourceType = 'Location';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Physical location.
   /// Additional addresses should be recorded using another instance of the Location resource, or via the Organization.
@@ -169,6 +173,7 @@ class Location extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'address': address?.toJson(),
         'alias': alias?.map((e) => e).toList(),
         'availabilityExceptions': availabilityExceptions,

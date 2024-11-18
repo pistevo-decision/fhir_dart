@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// A record of a healthcare consumer’s  choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
 class Consent extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Consent';
+  static const fhirResourceType = 'Consent';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Classification of the consent statement - for indexing/retrieval
   /// A classification of the type of consents found in the statement. This element supports indexing and retrieval of consent statements.
@@ -163,6 +167,7 @@ class Consent extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'category': category.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'dateTime': dateTime,

@@ -13,3 +13,7 @@
 ## 0.1.3
 
 - fix : casting to Map<String, dynamic> in non web environments
+
+## 0.1.4
+
+- add resource type to r4 objects as needed for bundles serialization

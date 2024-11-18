@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// Need to define relationships between organizations that are not sub-divisions of the same organization (part-of relationships).
 class OrganizationAffiliation extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'OrganizationAffiliation';
+  static const fhirResourceType = 'OrganizationAffiliation';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Whether this organization affiliation record is in active use.
   /// If this value is false, you may refer to the period to see when the role was in active use. If there is no period specified, no inference can be made about when it was active.
@@ -131,6 +135,7 @@ class OrganizationAffiliation extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'active': active,
         'code': code?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),

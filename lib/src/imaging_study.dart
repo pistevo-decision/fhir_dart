@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.
 class ImagingStudy extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'ImagingStudy';
+  static const fhirResourceType = 'ImagingStudy';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Request fulfilled
   /// A list of the diagnostic requests that resulted in this imaging study being performed.
@@ -201,6 +205,7 @@ class ImagingStudy extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'basedOn': basedOn?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'description': description,

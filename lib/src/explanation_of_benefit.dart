@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.
 class ExplanationOfBenefit extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'ExplanationOfBenefit';
+  static const fhirResourceType = 'ExplanationOfBenefit';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Details of the event
   /// Details of a accident which resulted in injuries which required the products and services listed in the claim.
@@ -415,6 +419,7 @@ class ExplanationOfBenefit extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'accident': accident?.toJson(),
         'addItem': addItem?.map((e) => e.toJson()).toList(),
         'adjudication': adjudication?.map((e) => e.toJson()).toList(),

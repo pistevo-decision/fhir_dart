@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// Tracking patient is the center of the healthcare process.
 class Patient extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Patient';
+  static const fhirResourceType = 'Patient';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Whether this patient's record is in active use
   /// Whether this patient record is in active use.
@@ -190,6 +194,7 @@ class Patient extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'active': active,
         'address': address?.map((e) => e.toJson()).toList(),
         'birthDate': birthDate,

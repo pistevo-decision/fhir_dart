@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 class MedicinalProductContraindication extends DomainResource
     implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'MedicinalProductContraindication';
+  static const fhirResourceType = 'MedicinalProductContraindication';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// A comorbidity (concurrent condition) or coinfection.
   final List<CodeableConcept>? comorbidity;
@@ -95,6 +99,7 @@ class MedicinalProductContraindication extends DomainResource
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'comorbidity': comorbidity?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'disease': disease?.toJson(),

@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// Need to track persons related to the patient or the healthcare process.
 class RelatedPerson extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'RelatedPerson';
+  static const fhirResourceType = 'RelatedPerson';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Whether this related person's record is in active use
   /// Whether this related person record is in active use.
@@ -127,6 +131,7 @@ class RelatedPerson extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'active': active,
         'address': address?.map((e) => e.toJson()).toList(),
         'birthDate': birthDate,

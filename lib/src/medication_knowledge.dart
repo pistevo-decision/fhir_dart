@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Information about a medication that is used to support knowledge.
 class MedicationKnowledge extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'MedicationKnowledge';
+  static const fhirResourceType = 'MedicationKnowledge';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Guidelines for administration of the medication
   /// Guidelines for the administration of the medication.
@@ -225,6 +229,7 @@ class MedicationKnowledge extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'administrationGuidelines':
             administrationGuidelines?.map((e) => e.toJson()).toList(),
         'amount': amount?.toJson(),

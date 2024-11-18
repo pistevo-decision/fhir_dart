@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// Need some way to safely (without breaking interoperability) allow implementers to exchange content not supported by the initial set of declared resources.
 class Basic extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Basic';
+  static const fhirResourceType = 'Basic';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Who created
   /// Indicates who was responsible for creating the resource instance.
@@ -82,6 +86,7 @@ class Basic extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'author': author?.toJson(),
         'code': code.toJson(),
         'contained': contained?.map((e) => e.toJson()).toList(),

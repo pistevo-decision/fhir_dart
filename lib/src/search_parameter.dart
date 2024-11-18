@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// A search parameter that defines a named search item that can be used to search/filter on a resource.
 class SearchParameter extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'SearchParameter';
+  static const fhirResourceType = 'SearchParameter';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// The resource type(s) this search parameter applies to
   /// The base resource type(s) that this search parameter can be used against.
@@ -233,6 +237,7 @@ class SearchParameter extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'base': base.map((e) => e).toList(),
         'chain': chain?.map((e) => e).toList(),
         'code': code,

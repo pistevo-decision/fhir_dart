@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
 class NutritionOrder extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'NutritionOrder';
+  static const fhirResourceType = 'NutritionOrder';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// List of the patient's food and nutrition-related allergies and intolerances
   /// A link to a record of allergies or intolerances  which should be included in the nutrition order.
@@ -182,6 +186,7 @@ class NutritionOrder extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'allergyIntolerance':
             allergyIntolerance?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),

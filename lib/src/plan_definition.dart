@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols.
 class PlanDefinition extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'PlanDefinition';
+  static const fhirResourceType = 'PlanDefinition';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Action defined by the plan
   /// An action or group of actions to be taken as part of the plan.
@@ -301,6 +305,7 @@ class PlanDefinition extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'action': action?.map((e) => e.toJson()).toList(),
         'approvalDate': approvalDate,
         'author': author?.map((e) => e.toJson()).toList(),

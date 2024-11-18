@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.
 class MedicationDispense extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'MedicationDispense';
+  static const fhirResourceType = 'MedicationDispense';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Medication order that authorizes the dispense
   /// Indicates the medication order that is being dispensed against.
@@ -266,6 +270,7 @@ class MedicationDispense extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'authorizingPrescription':
             authorizingPrescription?.map((e) => e.toJson()).toList(),
         'category': category?.toJson(),

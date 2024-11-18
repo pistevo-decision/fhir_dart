@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// The characteristics, operational status and capabilities of a medical-related component of a medical device.
 class DeviceDefinition extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'DeviceDefinition';
+  static const fhirResourceType = 'DeviceDefinition';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Device capabilities.
   final List<DeviceDefinitionCapability>? capability;
@@ -219,6 +223,7 @@ class DeviceDefinition extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'capability': capability?.map((e) => e.toJson()).toList(),
         'contact': contact?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),

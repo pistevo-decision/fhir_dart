@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.
 class Group extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Group';
+  static const fhirResourceType = 'Group';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Whether this group's record is in active use
   /// Indicates whether the record for the group is available for use or is merely being retained for historical purposes.
@@ -120,6 +124,7 @@ class Group extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'active': active,
         'actual': actual,
         'characteristic': characteristic?.map((e) => e.toJson()).toList(),

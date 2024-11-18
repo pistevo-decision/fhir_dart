@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// A compartment definition that defines how resources are accessed on a server.
 class CompartmentDefinition extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'CompartmentDefinition';
+  static const fhirResourceType = 'CompartmentDefinition';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Which compartment this definition describes.
   /// Only the specification can define the compartments that can exist. Servers can choose to support them.
@@ -147,6 +151,7 @@ class CompartmentDefinition extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'code': code,
         'contact': contact?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),

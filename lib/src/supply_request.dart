@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A record of a request for a medication, substance or device used in the healthcare setting.
 class SupplyRequest extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'SupplyRequest';
+  static const fhirResourceType = 'SupplyRequest';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// When the request was made.
   final String? authoredOn;
@@ -180,6 +184,7 @@ class SupplyRequest extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'authoredOn': authoredOn,
         'category': category?.toJson(),
         'contained': contained?.map((e) => e.toJson()).toList(),

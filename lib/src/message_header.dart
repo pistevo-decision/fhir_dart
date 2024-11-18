@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// Many implementations are not prepared to use REST and need a messaging based infrastructure.
 class MessageHeader extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'MessageHeader';
+  static const fhirResourceType = 'MessageHeader';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// The source of the decision
   /// The logical author of the message - the person or device that decided the described event should happen. When there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.
@@ -146,6 +150,7 @@ class MessageHeader extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'author': author?.toJson(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'definition': definition,

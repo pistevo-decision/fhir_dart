@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
 class DetectedIssue extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'DetectedIssue';
+  static const fhirResourceType = 'DetectedIssue';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// The provider or device that identified the issue
   /// Individual or device responsible for the issue being raised.  For example, a decision support application or a pharmacist conducting a medication review.
@@ -139,6 +143,7 @@ class DetectedIssue extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'author': author?.toJson(),
         'code': code?.toJson(),
         'contained': contained?.map((e) => e.toJson()).toList(),

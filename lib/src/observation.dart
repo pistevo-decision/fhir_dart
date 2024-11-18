@@ -5,7 +5,11 @@ part of '../fhir_dart.dart';
 /// Observations are a key aspect of healthcare.  This resource is used to capture those that do not require more sophisticated mechanisms.
 class Observation extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Observation';
+  static const fhirResourceType = 'Observation';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Fulfills plan, proposal or order
   /// A plan, proposal or order that is fulfilled in whole or in part by this event.  For example, a MedicationRequest may require a patient to have laboratory test performed before  it is dispensed.
@@ -369,6 +373,7 @@ class Observation extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'basedOn': basedOn?.map((e) => e.toJson()).toList(),
         'bodySite': bodySite?.toJson(),
         'category': category?.map((e) => e.toJson()).toList(),

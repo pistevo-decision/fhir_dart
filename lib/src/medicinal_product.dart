@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use).
 class MedicinalProduct extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'MedicinalProduct';
+  static const fhirResourceType = 'MedicinalProduct';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Whether the Medicinal Product is subject to additional monitoring for regulatory reasons.
   final CodeableConcept? additionalMonitoringIndicator;
@@ -198,6 +202,7 @@ class MedicinalProduct extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'additionalMonitoringIndicator':
             additionalMonitoringIndicator?.toJson(),
         'attachedDocument': attachedDocument?.map((e) => e.toJson()).toList(),

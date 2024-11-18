@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A Map of relationships between 2 structures that can be used to transform data.
 class StructureMap extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'StructureMap';
+  static const fhirResourceType = 'StructureMap';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Contact details for the publisher
   /// Contact details to assist a user in finding and communicating with the publisher.
@@ -182,6 +186,7 @@ class StructureMap extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contact': contact?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'copyright': copyright,

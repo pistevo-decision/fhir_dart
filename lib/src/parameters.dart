@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// This resource is a non-persisted resource used to pass information into and back from an [operation](operations.html). It has no other use, and there is no RESTful endpoint associated with it.
 class Parameters extends Resource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Parameters';
+  static const fhirResourceType = 'Parameters';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Operation Parameter
   /// A parameter passed to or received from the operation.
@@ -35,6 +39,7 @@ class Parameters extends Resource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'id': id,
         'implicitRules': implicitRules,
         'language': language,

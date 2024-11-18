@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.
 class MedicationAdministration extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'MedicationAdministration';
+  static const fhirResourceType = 'MedicationAdministration';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Type of medication usage
   /// Indicates where the medication is expected to be consumed or administered.
@@ -217,6 +221,7 @@ class MedicationAdministration extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'category': category?.toJson(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'context': context?.toJson(),

@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 class MedicinalProductInteraction extends DomainResource
     implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'MedicinalProductInteraction';
+  static const fhirResourceType = 'MedicinalProductInteraction';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// The interaction described.
   final String? description;
@@ -94,6 +98,7 @@ class MedicinalProductInteraction extends DomainResource
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contained': contained?.map((e) => e.toJson()).toList(),
         'description': description,
         'effect': effect?.toJson(),

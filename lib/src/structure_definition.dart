@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.
 class StructureDefinition extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'StructureDefinition';
+  static const fhirResourceType = 'StructureDefinition';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Whether the structure is abstract
   /// Whether structure this definition describes is abstract or not  - that is, whether the structure is not intended to be instantiated. For Resources and Data types, abstract types will never be exchanged  between systems.
@@ -254,6 +258,7 @@ class StructureDefinition extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'abstract': fhirAbstract,
         'baseDefinition': baseDefinition,
         'contact': contact?.map((e) => e.toJson()).toList(),

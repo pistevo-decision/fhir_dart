@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called "ClinicalImpression" rather than "ClinicalAssessment" to avoid confusion with the recording of assessment tools such as Apgar score.
 class ClinicalImpression extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'ClinicalImpression';
+  static const fhirResourceType = 'ClinicalImpression';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// The clinician performing the assessment.
   final Reference? assessor;
@@ -212,6 +216,7 @@ class ClinicalImpression extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'assessor': assessor?.toJson(),
         'code': code?.toJson(),
         'contained': contained?.map((e) => e.toJson()).toList(),

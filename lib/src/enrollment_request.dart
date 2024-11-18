@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// This resource provides the insurance enrollment details to the insurer regarding a specified coverage.
 class EnrollmentRequest extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'EnrollmentRequest';
+  static const fhirResourceType = 'EnrollmentRequest';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// The subject to be enrolled
   /// Patient Resource.
@@ -97,6 +101,7 @@ class EnrollmentRequest extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'candidate': candidate?.toJson(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'coverage': coverage?.toJson(),

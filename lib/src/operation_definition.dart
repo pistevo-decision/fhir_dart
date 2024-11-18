@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
 class OperationDefinition extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'OperationDefinition';
+  static const fhirResourceType = 'OperationDefinition';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Whether content is changed by the operation
   /// Whether the operation affects state. Side effects such as producing audit trail entries do not count as 'affecting  state'.
@@ -237,6 +241,7 @@ class OperationDefinition extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'affectsState': affectsState,
         'base': base,
         'code': code,

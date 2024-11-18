@@ -15,7 +15,7 @@ To start using this package, add `fhir_dart` to your `pubspec.yaml` dependencies
 
 ```yaml
 dependencies:
-  fhir_dart: ^0.1.3
+  fhir_dart: ^0.1.4
 ```
 
 ## Usage

@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 class CoverageEligibilityRequest extends DomainResource
     implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'CoverageEligibilityRequest';
+  static const fhirResourceType = 'CoverageEligibilityRequest';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Creation date
   /// The date when this resource was created.
@@ -163,6 +167,7 @@ class CoverageEligibilityRequest extends DomainResource
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contained': contained?.map((e) => e.toJson()).toList(),
         'created': created,
         'enterer': enterer?.toJson(),

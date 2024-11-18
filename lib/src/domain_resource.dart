@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A resource that includes narrative, extensions, and contained resources.
 class DomainResource extends Resource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'DomainResource';
+  static const fhirResourceType = 'DomainResource';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Contained, inline Resources
   /// These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.
@@ -62,6 +66,7 @@ class DomainResource extends Resource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contained': contained?.map((e) => e.toJson()).toList(),
         'extension': fhirExtension?.map((e) => e.toJson()).toList(),
         'id': id,

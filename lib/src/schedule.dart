@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A container for slots of time that may be available for booking appointments.
 class Schedule extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Schedule';
+  static const fhirResourceType = 'Schedule';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Whether this schedule is in active use
   /// Whether this schedule record is in active use or should not be used (such as was entered in error).
@@ -106,6 +110,7 @@ class Schedule extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'active': active,
         'actor': actor.map((e) => e.toJson()).toList(),
         'comment': comment,

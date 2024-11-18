@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.
 class CommunicationRequest extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'CommunicationRequest';
+  static const fhirResourceType = 'CommunicationRequest';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Resources that pertain to this communication request
   /// Other resources that pertain to this communication request and to which this communication request should be associated.
@@ -231,6 +235,7 @@ class CommunicationRequest extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'about': about?.map((e) => e.toJson()).toList(),
         'authoredOn': authoredOn,
         'basedOn': basedOn?.map((e) => e.toJson()).toList(),

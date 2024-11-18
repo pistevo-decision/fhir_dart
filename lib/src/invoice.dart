@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Invoice containing collected ChargeItems from an Account with calculated individual and total price for Billing purpose.
 class Invoice extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Invoice';
+  static const fhirResourceType = 'Invoice';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Account that is being balanced
   /// Account which is supposed to be balanced with this Invoice.
@@ -169,6 +173,7 @@ class Invoice extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'account': account?.toJson(),
         'cancelledReason': cancelledReason,
         'contained': contained?.map((e) => e.toJson()).toList(),

@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.
 class AppointmentResponse extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'AppointmentResponse';
+  static const fhirResourceType = 'AppointmentResponse';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Person, Location, HealthcareService, or Device
   /// A Person, Location, HealthcareService, or Device that is participating in the appointment.
@@ -100,6 +104,7 @@ class AppointmentResponse extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'actor': actor?.toJson(),
         'appointment': appointment.toJson(),
         'comment': comment,

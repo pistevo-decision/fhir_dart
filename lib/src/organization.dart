@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc.
 class Organization extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Organization';
+  static const fhirResourceType = 'Organization';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Whether the organization's record is still in active use.
   /// This active flag is not intended to be used to mark an organization as temporarily closed or under construction. Instead the Location(s) within the Organization should have the suspended status. If further details of the reason for the suspension are required, then an extension on this element should be used.
@@ -122,6 +126,7 @@ class Organization extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'active': active,
         'address': address?.map((e) => e.toJson()).toList(),
         'alias': alias?.map((e) => e).toList(),

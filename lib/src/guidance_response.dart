@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// The GuidanceResponse resource supports recording the results of decision support interactions, reportability determination for public health, as well as the communication of additional data requirements for subsequent interactions.
 class GuidanceResponse extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'GuidanceResponse';
+  static const fhirResourceType = 'GuidanceResponse';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Additional required data
   /// If the evaluation could not be completed due to lack of information, or additional information would potentially result in a more accurate response, this element will a description of the data required in order to proceed with the evaluation. A subsequent request to the service should include this data.
@@ -176,6 +180,7 @@ class GuidanceResponse extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contained': contained?.map((e) => e.toJson()).toList(),
         'dataRequirement': dataRequirement?.map((e) => e.toJson()).toList(),
         'encounter': encounter?.toJson(),

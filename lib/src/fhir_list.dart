@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A list is a curated collection of resources.
 class FhirList extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'List';
+  static const fhirResourceType = 'List';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// What the purpose of this list is
   /// This code defines the purpose of the list - why it was created.
@@ -147,6 +151,7 @@ class FhirList extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'code': code?.toJson(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'date': date,

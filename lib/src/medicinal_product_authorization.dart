@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 class MedicinalProductAuthorization extends DomainResource
     implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'MedicinalProductAuthorization';
+  static const fhirResourceType = 'MedicinalProductAuthorization';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// The country in which the marketing authorization has been granted.
   final List<CodeableConcept>? country;
@@ -158,6 +162,7 @@ class MedicinalProductAuthorization extends DomainResource
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contained': contained?.map((e) => e.toJson()).toList(),
         'country': country?.map((e) => e.toJson()).toList(),
         'dataExclusivityPeriod': dataExclusivityPeriod?.toJson(),

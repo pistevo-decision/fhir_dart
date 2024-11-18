@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// Need to track services that a healthcare provider is able to provide at an organization's location, and the services that they can perform there.
 class PractitionerRole extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'PractitionerRole';
+  static const fhirResourceType = 'PractitionerRole';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Whether this practitioner role record is in active use.
   /// If this value is false, you may refer to the period to see when the role was in active use. If there is no period specified, no inference can be made about when it was active.
@@ -152,6 +156,7 @@ class PractitionerRole extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'active': active,
         'availabilityExceptions': availabilityExceptions,
         'availableTime': availableTime?.map((e) => e.toJson()).toList(),

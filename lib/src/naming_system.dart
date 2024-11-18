@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a "System" used within the Identifier and Coding data types.
 class NamingSystem extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'NamingSystem';
+  static const fhirResourceType = 'NamingSystem';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Contact details for the publisher
   /// Contact details to assist a user in finding and communicating with the publisher.
@@ -142,6 +146,7 @@ class NamingSystem extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contact': contact?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'date': date,

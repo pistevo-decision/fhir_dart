@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// A reference to a document of any kind for any purpose. Provides metadata about the document so that the document can be discovered and managed. The scope of a document is any seralized object with a mime-type, so includes formal patient centric documents (CDA), cliical notes, scanned paper, and non-patient specific documents like policy text.
 class DocumentReference extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'DocumentReference';
+  static const fhirResourceType = 'DocumentReference';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Who/what authenticated the document
   /// Which person or organization authenticates that this document is valid.
@@ -183,6 +187,7 @@ class DocumentReference extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'authenticator': authenticator?.toJson(),
         'author': author?.map((e) => e.toJson()).toList(),
         'category': category?.map((e) => e.toJson()).toList(),

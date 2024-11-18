@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A collection of documents compiled for a purpose together with metadata that applies to the collection.
 class DocumentManifest extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'DocumentManifest';
+  static const fhirResourceType = 'DocumentManifest';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Who and/or what authored the DocumentManifest
   /// Identifies who is the author of the manifest. Manifest author is not necessarly the author of the references included.
@@ -139,6 +143,7 @@ class DocumentManifest extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'author': author?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'content': content.map((e) => e.toJson()).toList(),

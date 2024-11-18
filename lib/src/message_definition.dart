@@ -5,7 +5,11 @@ part of '../fhir_dart.dart';
 /// Allows messages to be defined once and re-used across systems.
 class MessageDefinition extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'MessageDefinition';
+  static const fhirResourceType = 'MessageDefinition';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Responses to this message
   /// Indicates what types of messages may be sent as an application-level response to this message.
@@ -232,6 +236,7 @@ class MessageDefinition extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'allowedResponse': allowedResponse?.map((e) => e.toJson()).toList(),
         'base': base,
         'category': category,

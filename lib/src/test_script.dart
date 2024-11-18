@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.
 class TestScript extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'TestScript';
+  static const fhirResourceType = 'TestScript';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Contact details for the publisher
   /// Contact details to assist a user in finding and communicating with the publisher.
@@ -239,6 +243,7 @@ class TestScript extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contact': contact?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'copyright': copyright,

@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// Describes a measurement, calculation or setting capability of a medical device.
 class DeviceMetric extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'DeviceMetric';
+  static const fhirResourceType = 'DeviceMetric';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Describes the calibrations that have been performed or that are required to be performed.
   final List<DeviceMetricCalibration>? calibration;
@@ -116,6 +120,7 @@ class DeviceMetric extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'calibration': calibration?.map((e) => e.toJson()).toList(),
         'category': category,
         'color': color,

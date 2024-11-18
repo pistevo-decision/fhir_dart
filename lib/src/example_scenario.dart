@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// Example of workflow instance.
 class ExampleScenario extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'ExampleScenario';
+  static const fhirResourceType = 'ExampleScenario';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Actor participating in the resource.
   final List<ExampleScenarioActor>? actor;
@@ -175,6 +179,7 @@ class ExampleScenario extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'actor': actor?.map((e) => e.toJson()).toList(),
         'contact': contact?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),

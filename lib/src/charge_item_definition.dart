@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system.
 class ChargeItemDefinition extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'ChargeItemDefinition';
+  static const fhirResourceType = 'ChargeItemDefinition';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Whether or not the billing code is applicable
   /// Expressions that describe applicability criteria for the billing code.
@@ -225,6 +229,7 @@ class ChargeItemDefinition extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'applicability': applicability?.map((e) => e.toJson()).toList(),
         'approvalDate': approvalDate,
         'code': code?.toJson(),

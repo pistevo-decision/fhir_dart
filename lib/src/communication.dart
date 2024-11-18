@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency that was notified about a reportable condition.
 class Communication extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Communication';
+  static const fhirResourceType = 'Communication';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Resources that pertain to this communication
   /// Other resources that pertain to this communication and to which this communication should be associated.
@@ -231,6 +235,7 @@ class Communication extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'about': about?.map((e) => e.toJson()).toList(),
         'basedOn': basedOn?.map((e) => e.toJson()).toList(),
         'category': category?.map((e) => e.toJson()).toList(),

@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// An implementation guide is able to define default profiles that must apply to any use of a resource, so validation services may need to take one or more implementation guide resources when validating.
 class ImplementationGuide extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'ImplementationGuide';
+  static const fhirResourceType = 'ImplementationGuide';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Contact details for the publisher
   /// Contact details to assist a user in finding and communicating with the publisher.
@@ -202,6 +206,7 @@ class ImplementationGuide extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'contact': contact?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'copyright': copyright,

@@ -4,7 +4,11 @@ part of '../fhir_dart.dart';
 /// A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.
 class AuditEvent extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'AuditEvent';
+  static const fhirResourceType = 'AuditEvent';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Type of action performed during the event
   /// Indicator for type of action performed during the event that generated the audit.
@@ -128,6 +132,7 @@ class AuditEvent extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'action': action,
         'agent': agent.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),

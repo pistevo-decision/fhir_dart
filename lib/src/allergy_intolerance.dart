@@ -5,7 +5,11 @@ part of '../fhir_dart.dart';
 /// To record a clinical assessment of a propensity, or potential risk to an individual, of an adverse reaction upon future exposure to the specified substance, or class of substance.
 class AllergyIntolerance extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'AllergyIntolerance';
+  static const fhirResourceType = 'AllergyIntolerance';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Source of the information about the allergy
   /// The source of the information about the allergy that is recorded.
@@ -208,6 +212,7 @@ class AllergyIntolerance extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'asserter': asserter?.toJson(),
         'category': category?.map((e) => e).toList(),
         'clinicalStatus': clinicalStatus?.toJson(),

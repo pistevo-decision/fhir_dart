@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.
 class CareTeam extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'CareTeam';
+  static const fhirResourceType = 'CareTeam';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Type of team
   /// Identifies what kind of team.  This is to support differentiation between multiple co-existing teams, such as care plan team, episode of care team, longitudinal care team.
@@ -150,6 +154,7 @@ class CareTeam extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'category': category?.map((e) => e.toJson()).toList(),
         'contained': contained?.map((e) => e.toJson()).toList(),
         'encounter': encounter?.toJson(),

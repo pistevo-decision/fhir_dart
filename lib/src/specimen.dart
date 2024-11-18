@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A sample to be used for analysis.
 class Specimen extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Specimen';
+  static const fhirResourceType = 'Specimen';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Identifier assigned by the lab
   /// The identifier assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.
@@ -150,6 +154,7 @@ class Specimen extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'accessionIdentifier': accessionIdentifier?.toJson(),
         'collection': collection?.toJson(),
         'condition': condition?.map((e) => e.toJson()).toList(),

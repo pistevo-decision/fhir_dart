@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// The details of a healthcare service available at a location.
 class HealthcareService extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'HealthcareService';
+  static const fhirResourceType = 'HealthcareService';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Whether this HealthcareService record is in active use
   /// This flag is used to mark the record to not be used. This is not used when a center is closed for maintenance, or for holidays, the notAvailable period is to be used for this.
@@ -240,6 +244,7 @@ class HealthcareService extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'active': active,
         'appointmentRequired': appointmentRequired,
         'availabilityExceptions': availabilityExceptions,

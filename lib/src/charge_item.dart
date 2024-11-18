@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.
 class ChargeItem extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'ChargeItem';
+  static const fhirResourceType = 'ChargeItem';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Account to place this charge
   /// Account into which this ChargeItems belongs.
@@ -284,6 +288,7 @@ class ChargeItem extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'account': account?.map((e) => e.toJson()).toList(),
         'bodysite': bodysite?.map((e) => e.toJson()).toList(),
         'code': code.toJson(),

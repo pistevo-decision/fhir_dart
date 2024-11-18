@@ -3,7 +3,11 @@ part of '../fhir_dart.dart';
 /// A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.
 class Media extends DomainResource implements FhirResource {
   /// Resource Type Name (for serialization)
-  static const resourceType = 'Media';
+  static const fhirResourceType = 'Media';
+
+  /// Resource Type Name
+  @override
+  String get resourceType => fhirResourceType;
 
   /// Procedure that caused this media to be created
   /// A procedure that is fulfilled in whole or in part by the creation of this media.
@@ -226,6 +230,7 @@ class Media extends DomainResource implements FhirResource {
 
   @override
   Map<String, dynamic> toJson() => {
+        'resourceType': fhirResourceType,
         'basedOn': basedOn?.map((e) => e.toJson()).toList(),
         'bodySite': bodySite?.toJson(),
         'contained': contained?.map((e) => e.toJson()).toList(),
