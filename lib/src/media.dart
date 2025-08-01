@@ -51,7 +51,7 @@ class Media extends DomainResource implements FhirResource {
   /// This will typically be the encounter the media occurred within.
   final Reference? encounter;
 
-  /// Number of frames if > 1 (photo)
+  /// Number of frames if &gt; 1 (photo)
   /// The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.
   /// if the number of frames is not supplied, the value may be unknown. Applications should not assume that there is only one frame unless it is explicitly stated.
   final int? frames;

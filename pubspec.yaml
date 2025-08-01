@@ -1,6 +1,6 @@
 name: fhir_dart
 description: A Dart package that provides full support for all FHIR (Fast Healthcare Interoperability Resources) R4 resources in Dart, enabling parsing, manipulation, and serialization.
-version: 0.1.4
+version: 0.1.5
 repository: https://github.com/pistevo-decision/fhir_dart
 issue_tracker: https://github.com/pistevo-decision/fhir_dart/issues
 environment:
@@ -15,5 +15,5 @@ platforms:
   windows:
 
 dev_dependencies:
-  lints: ^4.0.0
+  lints: ^6.0.0
   test: ^1.24.0

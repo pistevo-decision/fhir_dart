@@ -100,7 +100,7 @@ class MedicationDispense extends DomainResource implements FhirResource {
 
   /// Who the dispense is for
   /// A link to a resource representing the person or the group to whom the medication will be given.
-  /// SubstanceAdministration->subject->Patient.
+  /// SubstanceAdministration-&gt;subject-&gt;Patient.
   final Reference? subject;
 
   /// Whether a substitution was performed on the dispense

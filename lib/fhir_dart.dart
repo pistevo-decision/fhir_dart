@@ -1,6 +1,4 @@
-﻿library fhir_dart;
-
-part 'src/address.dart';
+﻿part 'src/address.dart';
 part 'src/age.dart';
 part 'src/annotation.dart';
 part 'src/attachment.dart';

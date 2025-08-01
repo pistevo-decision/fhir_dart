@@ -9,7 +9,7 @@ class Quantity extends Element implements FhirResource {
   /// The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system.
   final String? code;
 
-  /// How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
+  /// How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "&lt;" , then the real value is &lt; stated value.
   final String? comparator; // Possible values: '<', '<=', '>=', '>'
   /// System that defines coded unit form
   /// The identification of the system that provides the coded form of the unit.

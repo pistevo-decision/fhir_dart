@@ -1,6 +1,6 @@
 part of '../fhir_dart.dart';
 
-/// The stated low and high value are assumed to have arbitrarily high precision when it comes to determining which values are in the range. I.e. 1.99 is not in the range 2 -> 3.
+/// The stated low and high value are assumed to have arbitrarily high precision when it comes to determining which values are in the range. I.e. 1.99 is not in the range 2 -&gt; 3.
 /// Base StructureDefinition for Range Type: A set of ordered Quantities defined by a low and high limit.
 /// Need to be able to specify ranges of values.
 class Range extends Element implements FhirResource {

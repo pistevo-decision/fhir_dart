@@ -17,3 +17,7 @@
 ## 0.1.4
 
 - add resource type to r4 objects as needed for bundles serialization
+
+## 0.1.5
+
+- lint fixes

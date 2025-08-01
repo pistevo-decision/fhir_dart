@@ -12,19 +12,19 @@ class ImplementationGuideDefinitionResource extends BackboneElement
   /// Is an example/What is this an example of?
   /// If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.
   /// Examples:
-  /// * StructureDefinition -> Any
-  /// * ValueSet -> expansion
-  /// * OperationDefinition -> Parameters
-  /// * Questionnaire -> QuestionnaireResponse.
+  /// * StructureDefinition -&gt; Any
+  /// * ValueSet -&gt; expansion
+  /// * OperationDefinition -&gt; Parameters
+  /// * Questionnaire -&gt; QuestionnaireResponse.
   final bool? exampleBoolean;
 
   /// Is an example/What is this an example of?
   /// If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.
   /// Examples:
-  /// * StructureDefinition -> Any
-  /// * ValueSet -> expansion
-  /// * OperationDefinition -> Parameters
-  /// * Questionnaire -> QuestionnaireResponse.
+  /// * StructureDefinition -&gt; Any
+  /// * ValueSet -&gt; expansion
+  /// * OperationDefinition -&gt; Parameters
+  /// * Questionnaire -&gt; QuestionnaireResponse.
   final String? exampleCanonical;
 
   /// Versions this applies to (if different to IG)

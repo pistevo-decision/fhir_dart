@@ -6,7 +6,7 @@ part of '../fhir_dart.dart';
 class ElementDefinitionBase extends Element implements FhirResource {
   /// Max cardinality of the base element
   /// Maximum cardinality of the base element identified by the path.
-  /// This is provided to code generation, since the serialization representation in JSON differs depending on whether the base element has max > 1. Also, some forms of code generation may differ.
+  /// This is provided to code generation, since the serialization representation in JSON differs depending on whether the base element has max &gt; 1. Also, some forms of code generation may differ.
   final String max;
 
   /// Min cardinality of the base element
