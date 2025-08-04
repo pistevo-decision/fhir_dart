@@ -21,3 +21,7 @@
 ## 0.1.5
 
 - lint fixes
+
+## 0.1.6
+
+- remove issue tracker from pubspec.yaml to remove warning on pub.dev
